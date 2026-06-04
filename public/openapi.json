@@ -1,0 +1,89 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "PNU Public Notice Feed",
+    "version": "0.1",
+    "description": "Unofficial metadata relay for public PNU notices. This project is not operated by Pusan National University."
+  },
+  "servers": [
+    {
+      "url": "https://lofidonut3.github.io/pnu-public-notice-feed",
+      "description": "GitHub Pages URL for the public feed."
+    }
+  ],
+  "paths": {
+    "/feed.json": {
+      "get": {
+        "summary": "JSON Feed 1.1 compatible public notice feed",
+        "responses": {
+          "200": {
+            "description": "Latest normalized public notice metadata.",
+            "content": {
+              "application/feed+json": {
+                "schema": {
+                  "$ref": "./schema/feed.schema.json"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema/feed.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/status.json": {
+      "get": {
+        "summary": "Source refresh status",
+        "responses": {
+          "200": {
+            "description": "Per-source refresh status and error metadata.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema/status.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/changes.json": {
+      "get": {
+        "summary": "Latest feed changes",
+        "responses": {
+          "200": {
+            "description": "Added, updated, and removed notice item summaries since the previous generated feed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema/changes.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sources.json": {
+      "get": {
+        "summary": "Public source registry",
+        "responses": {
+          "200": {
+            "description": "Official public notice sources indexed by this feed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema/sources.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

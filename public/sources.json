@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1",
+  "sources": [
+    {
+      "id": "pnu-main-notice",
+      "name": "부산대 대학공지",
+      "official_url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=list",
+      "adapter": "pusan-cms-static-board",
+      "category": "university_notice",
+      "poll_interval_minutes": 30,
+      "public_only": true,
+      "access_policy": "public_official_url_only",
+      "tags": ["pnu", "official", "main_notice"],
+      "notes": "Official public university notice board."
+    },
+    {
+      "id": "pnu-onestop-notices",
+      "name": "부산대 학지시 공지",
+      "official_url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000386",
+      "adapter": "onestop-js-board",
+      "category": "academic_notice",
+      "poll_interval_minutes": 30,
+      "public_only": true,
+      "access_policy": "public_official_url_only",
+      "menu_cd": "000000000000386",
+      "tags": ["pnu", "official", "onestop", "academic"],
+      "notes": "Official public student support system notice page."
+    },
+    {
+      "id": "pnu-onestop-scholarship",
+      "name": "부산대 장학공지",
+      "official_url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000062",
+      "adapter": "onestop-js-board",
+      "category": "scholarship_notice",
+      "poll_interval_minutes": 30,
+      "public_only": true,
+      "access_policy": "public_official_url_only",
+      "menu_cd": "000000000000062",
+      "tags": ["pnu", "official", "onestop", "scholarship"],
+      "notes": "Official public student support system scholarship notice page."
+    }
+  ]
+}

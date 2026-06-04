@@ -1,0 +1,17 @@
+[project]
+name = "pnu-public-notice-feed"
+version = "0.1.0"
+description = "Unofficial public metadata relay for Pusan National University public notices."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "jsonschema>=4.0",
+  "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

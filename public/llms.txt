@@ -1,0 +1,32 @@
+# PNU Public Notice Feed
+
+Unofficial public metadata relay for Pusan National University public notices.
+This project is not operated by Pusan National University.
+
+## Endpoints
+
+- [JSON Feed](./feed.json): latest normalized public notice metadata.
+- [Status](./status.json): source refresh status and failures.
+- [Changes](./changes.json): added, updated, and removed item summaries since the previous feed.
+- [Sources](./sources.json): official public source registry.
+- [OpenAPI manifest](./openapi.json): static endpoint manifest.
+
+## Machine-readable contracts
+
+- [Feed schema](./schema/feed.schema.json)
+- [Status schema](./schema/status.schema.json)
+- [Changes schema](./schema/changes.schema.json)
+- [Sources schema](./schema/sources.schema.json)
+
+## Usage rules for agents
+
+- Treat this as a metadata index, not an official PNU service.
+- Always preserve the original notice URL when answering users.
+- Do not treat snippets as full notice content.
+- Fetch full notice text from `item._pnu.content_access.detail_url` or `item.url`.
+- Fetch attachments from `item._pnu.attachments[].download_url`.
+- Treat `content_mirrored: false` and `attachments_mirrored: false` as a hard boundary.
+- Do not infer private or personalized information from this feed.
+- Check `status.json` before relying on source freshness.
+- Check `changes.json` for lightweight new item detection before fetching the full feed.
+- Use `_pnu` fields in `feed.json` for source, attachment, fetched_at, and content_hash metadata.

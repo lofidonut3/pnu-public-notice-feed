@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lofidonut3.github.io/pnu-public-notice-feed/schema/changes.schema.json",
+  "title": "PNU Public Notice Feed Changes",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "feed_version",
+    "generated_at",
+    "previous_generated_at",
+    "added_count",
+    "updated_count",
+    "removed_count",
+    "added",
+    "updated",
+    "removed"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "feed_version": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "previous_generated_at": {
+      "type": ["string", "null"]
+    },
+    "added_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "updated_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "removed_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "added": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/change_item"
+      }
+    },
+    "updated": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/change_item"
+      }
+    },
+    "removed": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/change_item"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "change_item": {
+      "type": "object",
+      "required": [
+        "id",
+        "source_id",
+        "title",
+        "url",
+        "published_at",
+        "content_hash"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": ["string", "null"]
+        },
+        "title": {
+          "type": ["string", "null"]
+        },
+        "url": {
+          "type": ["string", "null"],
+          "format": "uri"
+        },
+        "published_at": {
+          "type": ["string", "null"]
+        },
+        "content_hash": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}
