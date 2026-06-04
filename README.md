@@ -24,32 +24,21 @@ Available endpoints:
 - `openapi.json`: static endpoint manifest
 - `llms.txt`: AI agent usage guide
 
-## Boundary
+## Data Boundary
 
 This project is a metadata relay, not a content mirror.
 
-It provides:
+Each feed item includes a title, source, original notice URL, published date, short preview, and attachment metadata. Full notice text and attachment contents stay on the official PNU source pages.
 
-- notice title
-- official source
-- original notice URL
-- published date
-- short snippet
-- attachment name/type/download URL metadata
-- source refresh status
+Agents should treat `summary` and `_pnu.snippet` as previews only. Fetch full notice text from `item.url` or `item._pnu.content_access.detail_url`, and fetch attachments from `item._pnu.attachments[].download_url`.
 
-It does not provide:
+## Operations
 
-- user watch requests
-- user profiles
-- personalized notifications
-- LLM triage or summaries
-- full notice body mirroring
-- attachment content mirroring
-- PNU account login
-- private or personal data collection
-
-Agents should fetch full notice text from `item.url` or `item._pnu.content_access.detail_url`, and should fetch attachments from `item._pnu.attachments[].download_url`.
+- Source refresh status is published in `status.json`.
+- Latest item changes are summarized in `changes.json`.
+- Source polling is rate-limited by `sources.json` and cached in `cache/feed-state.json`.
+- Failed sources use cached items when available and report errors in `status.json`.
+- Schema changes are tracked with `_pnu.schema_version` and `_pnu.feed_version`.
 
 ## Generate Locally
 

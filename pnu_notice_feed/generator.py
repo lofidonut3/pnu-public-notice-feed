@@ -27,6 +27,10 @@ DISCLAIMER = (
     "notices and links back to the original sources. It is not operated by "
     "Pusan National University."
 )
+CONTENT_TEXT_NOTICE = (
+    "This feed does not mirror the full notice body. Fetch the original notice "
+    "URL for complete content."
+)
 LLMS_TXT = """# PNU Public Notice Feed
 
 Unofficial public metadata relay for Pusan National University public notices.
@@ -51,14 +55,77 @@ This project is not operated by Pusan National University.
 
 - Treat this as a metadata index, not an official PNU service.
 - Always preserve the original notice URL when answering users.
-- Do not treat snippets as full notice content.
+- Treat `summary` and `_pnu.snippet` as short previews only.
 - Fetch full notice text from `item._pnu.content_access.detail_url` or `item.url`.
 - Fetch attachments from `item._pnu.attachments[].download_url`.
 - Treat `content_mirrored: false` and `attachments_mirrored: false` as a hard boundary.
-- Do not infer private or personalized information from this feed.
 - Check `status.json` before relying on source freshness.
 - Check `changes.json` for lightweight new item detection before fetching the full feed.
 - Use `_pnu` fields in `feed.json` for source, attachment, fetched_at, and content_hash metadata.
+"""
+INDEX_HTML = """<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PNU Public Notice Feed</title>
+  <link rel="alternate" type="application/feed+json" title="PNU Public Notice Feed" href="./feed.json">
+  <style>
+    body {
+      color: #17202a;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 48px 20px;
+    }
+    main {
+      margin: 0 auto;
+      max-width: 760px;
+    }
+    h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    h2 {
+      font-size: 1.15rem;
+      margin-top: 32px;
+    }
+    a {
+      color: #0758a8;
+    }
+    code {
+      background: #f2f4f7;
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+    .notice {
+      border-left: 4px solid #d0d7de;
+      padding-left: 16px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>PNU Public Notice Feed</h1>
+    <p class="notice">Unofficial public metadata feed for public notices from Pusan National University. This project is not operated by Pusan National University.</p>
+    <p>This site publishes a static, AI-friendly index of public notice metadata. It links back to official notice pages and attachment download URLs instead of mirroring full notice or attachment content.</p>
+
+    <h2>Endpoints</h2>
+    <ul>
+      <li><a href="./feed.json">feed.json</a> - JSON Feed 1.1 compatible notice metadata</li>
+      <li><a href="./status.json">status.json</a> - source refresh status</li>
+      <li><a href="./changes.json">changes.json</a> - latest added, updated, and removed item summary</li>
+      <li><a href="./sources.json">sources.json</a> - public source registry</li>
+      <li><a href="./openapi.json">openapi.json</a> - static endpoint manifest</li>
+      <li><a href="./llms.txt">llms.txt</a> - AI agent usage guide</li>
+    </ul>
+
+    <h2>Agent Notes</h2>
+    <p>Use <code>summary</code> and <code>_pnu.snippet</code> as short previews only. Fetch full notice text from <code>item.url</code> or <code>item._pnu.content_access.detail_url</code>.</p>
+  </main>
+</body>
+</html>
 """
 
 
@@ -174,7 +241,10 @@ def main(argv: list[str] | None = None) -> int:
         if generated["all_sources_skipped"] and outputs_exist(
             output_dir,
             state_path,
-        ) and outputs_match_public_base_url(output_dir, args.public_base_url):
+        ) and outputs_match_public_base_url(
+            output_dir,
+            args.public_base_url,
+        ) and outputs_match_current_format(output_dir):
             return 0
         write_outputs(
             output_dir=output_dir,
@@ -412,7 +482,7 @@ def build_state(results: list[SourceResult], generated_at: str) -> dict:
                 "status": result.status,
                 "skipped_reason": result.skipped_reason,
                 "error": result.error,
-                "items": result.items,
+                "items": [normalize_feed_item(item) for item in result.items],
             }
             for result in results
         },
@@ -426,7 +496,7 @@ def build_feed(
     snippet_limit: int = DEFAULT_SNIPPET_LIMIT,
 ) -> dict:
     items = [
-        item
+        normalize_feed_item(item)
         for result in results
         for item in result.items
     ]
@@ -484,7 +554,8 @@ def notice_to_feed_item(
         "id": notice.notice_id,
         "url": notice.url,
         "title": notice.title,
-        "content_text": snippet or "",
+        "content_text": CONTENT_TEXT_NOTICE,
+        "summary": snippet,
         "date_published": date_to_json_feed_timestamp(notice.published_at),
         "_pnu": {
             "source_id": notice.source_id,
@@ -505,6 +576,20 @@ def notice_to_feed_item(
             "tags": notice.tags,
             "content_hash": notice.content_hash,
         },
+    }
+
+
+def normalize_feed_item(item: dict) -> dict:
+    pnu = item.get("_pnu", {})
+    snippet = pnu.get("snippet")
+    normalized = {
+        **item,
+        "content_text": CONTENT_TEXT_NOTICE,
+        "summary": item.get("summary", snippet),
+    }
+    return {
+        **normalized,
+        "_pnu": pnu,
     }
 
 
@@ -574,6 +659,7 @@ def sync_static_assets(
     public_base_url: str = DEFAULT_PUBLIC_BASE_URL,
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
+    write_text_if_changed(output_dir / "index.html", INDEX_HTML)
     copy_text_if_changed(sources_path, output_dir / "sources.json")
     copy_text_with_base_url(
         PROJECT_ROOT / "openapi.json",
@@ -610,6 +696,20 @@ def outputs_match_public_base_url(output_dir: Path, public_base_url: str) -> boo
         return False
     base_url = public_base_url.rstrip("/")
     return feed.get("feed_url") == f"{base_url}/feed.json"
+
+
+def outputs_match_current_format(output_dir: Path) -> bool:
+    feed = read_json_if_exists(output_dir / "feed.json")
+    if not feed:
+        return False
+    if not (output_dir / "index.html").exists():
+        return False
+    for item in feed.get("items", []):
+        if item.get("content_text") != CONTENT_TEXT_NOTICE:
+            return False
+        if "summary" not in item:
+            return False
+    return True
 
 
 def all_sources_skipped(results: list[SourceResult]) -> bool:

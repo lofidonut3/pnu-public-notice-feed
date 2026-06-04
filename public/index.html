@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PNU Public Notice Feed</title>
+  <link rel="alternate" type="application/feed+json" title="PNU Public Notice Feed" href="./feed.json">
+  <style>
+    body {
+      color: #17202a;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 48px 20px;
+    }
+    main {
+      margin: 0 auto;
+      max-width: 760px;
+    }
+    h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    h2 {
+      font-size: 1.15rem;
+      margin-top: 32px;
+    }
+    a {
+      color: #0758a8;
+    }
+    code {
+      background: #f2f4f7;
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+    .notice {
+      border-left: 4px solid #d0d7de;
+      padding-left: 16px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>PNU Public Notice Feed</h1>
+    <p class="notice">Unofficial public metadata feed for public notices from Pusan National University. This project is not operated by Pusan National University.</p>
+    <p>This site publishes a static, AI-friendly index of public notice metadata. It links back to official notice pages and attachment download URLs instead of mirroring full notice or attachment content.</p>
+
+    <h2>Endpoints</h2>
+    <ul>
+      <li><a href="./feed.json">feed.json</a> - JSON Feed 1.1 compatible notice metadata</li>
+      <li><a href="./status.json">status.json</a> - source refresh status</li>
+      <li><a href="./changes.json">changes.json</a> - latest added, updated, and removed item summary</li>
+      <li><a href="./sources.json">sources.json</a> - public source registry</li>
+      <li><a href="./openapi.json">openapi.json</a> - static endpoint manifest</li>
+      <li><a href="./llms.txt">llms.txt</a> - AI agent usage guide</li>
+    </ul>
+
+    <h2>Agent Notes</h2>
+    <p>Use <code>summary</code> and <code>_pnu.snippet</code> as short previews only. Fetch full notice text from <code>item.url</code> or <code>item._pnu.content_access.detail_url</code>.</p>
+  </main>
+</body>
+</html>

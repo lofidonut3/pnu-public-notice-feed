@@ -23,11 +23,10 @@ This project is not operated by Pusan National University.
 
 - Treat this as a metadata index, not an official PNU service.
 - Always preserve the original notice URL when answering users.
-- Do not treat snippets as full notice content.
+- Treat `summary` and `_pnu.snippet` as short previews only.
 - Fetch full notice text from `item._pnu.content_access.detail_url` or `item.url`.
 - Fetch attachments from `item._pnu.attachments[].download_url`.
 - Treat `content_mirrored: false` and `attachments_mirrored: false` as a hard boundary.
-- Do not infer private or personalized information from this feed.
 - Check `public/status.json` before relying on source freshness.
 - Check `public/changes.json` for lightweight new item detection before fetching the full feed.
 - Use `_pnu` fields in `public/feed.json` for source, attachment, fetched_at, and content_hash metadata.

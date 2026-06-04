@@ -2,6 +2,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 
 from pnu_notice_feed.generator import (
+    CONTENT_TEXT_NOTICE,
     JSON_FEED_VERSION,
     PublicSource,
     SourceResult,
@@ -16,6 +17,7 @@ from pnu_notice_feed.generator import (
     load_sources,
     media_type_from_extension,
     next_check_at_from_interval,
+    normalize_feed_item,
     notice_to_feed_item,
     sync_static_assets,
 )
@@ -49,7 +51,8 @@ def test_notice_to_feed_item_uses_stable_public_schema():
         "id": "pnu-main-notice:1509234",
         "url": "https://www.pusan.ac.kr/notice",
         "title": "공지 제목",
-        "content_text": "본문 일부",
+        "content_text": CONTENT_TEXT_NOTICE,
+        "summary": "본문 일부",
         "date_published": "2026-06-02T00:00:00+09:00",
         "_pnu": {
             "source_id": "pnu-main-notice",
@@ -104,6 +107,24 @@ def test_build_feed_sorts_items_by_published_date_desc():
     ]
     assert "not operated by Pusan National University" in feed["description"]
     assert feed["items"][0]["date_published"] == "2026-06-03T00:00:00+09:00"
+
+
+def test_normalize_feed_item_migrates_cached_snippet_to_summary():
+    item = {
+        "id": "pnu-main-notice:1",
+        "url": "https://www.pusan.ac.kr/notice",
+        "title": "공지",
+        "content_text": "예전 cache snippet",
+        "_pnu": {
+            "snippet": "예전 cache snippet",
+        },
+    }
+
+    normalized = normalize_feed_item(item)
+
+    assert normalized["content_text"] == CONTENT_TEXT_NOTICE
+    assert normalized["summary"] == "예전 cache snippet"
+    assert normalized["_pnu"] == item["_pnu"]
 
 
 def test_build_status_reports_partial_failure():
