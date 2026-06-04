@@ -2,7 +2,6 @@
 name = "pnu-public-notice-feed"
 version = "0.1.0"
 description = "Unofficial public metadata relay for Pusan National University public notices."
-readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
 
@@ -15,3 +14,6 @@ dev = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+
+[tool.setuptools.packages.find]
+include = ["pnu_notice_feed*"]
