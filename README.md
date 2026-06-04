@@ -20,6 +20,9 @@ Available endpoints:
 - `status.json`: source refresh status and source errors
 - `changes.json`: added, updated, and removed item summary since the previous feed
 - `sources.json`: public source registry
+- `archive/index.json`: archive manifest
+- `archive/notices/YYYY-MM.json`: monthly notice metadata archive
+- `archive/events/YYYY-MM.json`: monthly notice event log
 - `schema/*.schema.json`: JSON Schemas
 - `openapi.json`: static endpoint manifest
 - `llms.txt`: AI agent usage guide
@@ -38,6 +41,8 @@ Agents should treat `summary` and `_pnu.snippet` as previews only. Fetch full no
 - Latest item changes are summarized in `changes.json`.
 - Source polling is rate-limited by `sources.json` and cached in `cache/feed-state.json`.
 - Failed sources use cached items when available and report errors in `status.json`.
+- Long-term notice metadata is retained in monthly `archive/` files.
+- Archive files retain metadata only. Full notice text and attachment contents stay on official source URLs.
 - Schema changes are tracked with `_pnu.schema_version` and `_pnu.feed_version`.
 
 ## Generate Locally

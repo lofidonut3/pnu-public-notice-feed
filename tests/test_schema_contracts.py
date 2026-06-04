@@ -19,6 +19,7 @@ def test_generated_outputs_match_schemas():
         ("public/feed.json", "schema/feed.schema.json"),
         ("public/status.json", "schema/status.schema.json"),
         ("public/changes.json", "schema/changes.schema.json"),
+        ("public/archive/index.json", "schema/archive-index.schema.json"),
         ("sources.json", "schema/sources.schema.json"),
     ]
 
@@ -27,7 +28,16 @@ def test_generated_outputs_match_schemas():
         schema = _load_json(ROOT / schema_path)
         jsonschema.Draft202012Validator(schema).validate(instance)
 
+    _validate_archive_files("public/archive/notices", "schema/archive-notices.schema.json")
+    _validate_archive_files("public/archive/events", "schema/archive-events.schema.json")
+
 
 def _load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
+
+def _validate_archive_files(instance_dir: str, schema_path: str) -> None:
+    schema = _load_json(ROOT / schema_path)
+    for instance_path in (ROOT / instance_dir).glob("*.json"):
+        instance = _load_json(instance_path)
+        jsonschema.Draft202012Validator(schema).validate(instance)

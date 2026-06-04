@@ -84,6 +84,79 @@
           }
         }
       }
+    },
+    "/archive/index.json": {
+      "get": {
+        "summary": "Archive manifest",
+        "responses": {
+          "200": {
+            "description": "Monthly notice archive and event log manifest.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema/archive-index.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/archive/notices/{month}.json": {
+      "get": {
+        "summary": "Monthly notice metadata archive",
+        "parameters": [
+          {
+            "name": "month",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notice metadata archived for the requested month.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema/archive-notices.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/archive/events/{month}.json": {
+      "get": {
+        "summary": "Monthly notice event log",
+        "parameters": [
+          {
+            "name": "month",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Durable added/updated notice events for the requested month.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema/archive-events.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

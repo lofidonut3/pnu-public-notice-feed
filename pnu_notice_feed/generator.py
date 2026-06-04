@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from .archive import archive_outputs_exist, write_archive_outputs
 from .cms_static_board import fetch_cms_static_board
 from .onestop_js_board import fetch_onestop_js_board
 from .types import Notice, Source
@@ -42,6 +43,7 @@ This project is not operated by Pusan National University.
 - [Status](./status.json): source refresh status and failures.
 - [Changes](./changes.json): added, updated, and removed item summaries since the previous feed.
 - [Sources](./sources.json): official public source registry.
+- [Archive index](./archive/index.json): monthly archive manifest.
 - [OpenAPI manifest](./openapi.json): static endpoint manifest.
 
 ## Machine-readable contracts
@@ -50,6 +52,9 @@ This project is not operated by Pusan National University.
 - [Status schema](./schema/status.schema.json)
 - [Changes schema](./schema/changes.schema.json)
 - [Sources schema](./schema/sources.schema.json)
+- [Archive index schema](./schema/archive-index.schema.json)
+- [Archive notices schema](./schema/archive-notices.schema.json)
+- [Archive events schema](./schema/archive-events.schema.json)
 
 ## Usage rules for agents
 
@@ -117,6 +122,7 @@ INDEX_HTML = """<!doctype html>
       <li><a href="./status.json">status.json</a> - source refresh status</li>
       <li><a href="./changes.json">changes.json</a> - latest added, updated, and removed item summary</li>
       <li><a href="./sources.json">sources.json</a> - public source registry</li>
+      <li><a href="./archive/index.json">archive/index.json</a> - monthly archive manifest</li>
       <li><a href="./openapi.json">openapi.json</a> - static endpoint manifest</li>
       <li><a href="./llms.txt">llms.txt</a> - AI agent usage guide</li>
     </ul>
@@ -244,7 +250,7 @@ def main(argv: list[str] | None = None) -> int:
         ) and outputs_match_public_base_url(
             output_dir,
             args.public_base_url,
-        ) and outputs_match_current_format(output_dir):
+        ) and outputs_match_current_format(output_dir) and archive_outputs_exist(output_dir):
             return 0
         write_outputs(
             output_dir=output_dir,
@@ -651,6 +657,7 @@ def write_outputs(output_dir: Path, feed: dict, status: dict, pretty: bool) -> N
     write_json(output_dir / "feed.json", feed, pretty)
     write_json(output_dir / "status.json", status, pretty)
     write_json(output_dir / "changes.json", changes, pretty)
+    write_archive_outputs(output_dir, feed, pretty)
 
 
 def sync_static_assets(
