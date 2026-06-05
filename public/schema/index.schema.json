@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lofidonut3.github.io/pnu-public-notice-feed/schema/index.schema.json",
+  "title": "PNU Public Notice Feed Index",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "feed_version",
+    "generated_at",
+    "title",
+    "description",
+    "home_page_url",
+    "endpoints",
+    "data_boundary",
+    "event_stream",
+    "latest",
+    "status",
+    "archives",
+    "dedupe_policy",
+    "same_notice_groups",
+    "same_notice_group_count",
+    "diagnostics"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "feed_version": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "home_page_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "endpoints": {
+      "type": "object"
+    },
+    "data_boundary": {
+      "type": "object"
+    },
+    "event_stream": {
+      "type": "object"
+    },
+    "latest": {
+      "type": "object"
+    },
+    "status": {
+      "type": "object"
+    },
+    "archives": {
+      "type": "object"
+    },
+    "dedupe_policy": {
+      "type": "object"
+    },
+    "same_notice_groups": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "same_notice_group_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "diagnostics": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

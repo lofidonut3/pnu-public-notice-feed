@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PNU Public Notice Feed</title>
-  <link rel="alternate" type="application/feed+json" title="PNU Public Notice Feed" href="./feed.json">
+  <link rel="alternate" type="application/feed+json" title="PNU Public Notice Feed" href="./latest.json">
   <link rel="alternate" type="application/rss+xml" title="PNU Public Notice Feed RSS" href="./rss.xml">
   <style>
     body {
@@ -49,21 +49,18 @@
 
     <h2>Endpoints</h2>
     <ul>
-      <li><a href="./feed.json">feed.json</a> - JSON Feed 1.1 compatible notice metadata</li>
+      <li><a href="./index.json">index.json</a> - compact manifest with sources, status, archive, same-notice groups, and diagnostics</li>
+      <li><a href="./events.json">events.json</a> - primary recent event stream for cursor-based checks</li>
+      <li><a href="./latest.json">latest.json</a> - JSON Feed 1.1 compatible latest-discovery notice metadata</li>
       <li><a href="./rss.xml">rss.xml</a> - RSS 2.0 compatibility feed</li>
-      <li><a href="./status.json">status.json</a> - source refresh status</li>
-      <li><a href="./events.json">events.json</a> - recent durable notice events for cursor-based checks</li>
-      <li><a href="./run-diff.json">run-diff.json</a> - latest generator-run added, updated, and removed item summary</li>
-      <li><a href="./duplicates.json">duplicates.json</a> - high-confidence same-notice groups for deduplicating notifications</li>
-      <li><a href="./sources.json">sources.json</a> - public source registry</li>
-      <li><a href="./archive/index.json">archive/index.json</a> - monthly archive manifest</li>
+      <li><a href="./archive/2026-06.json">archive/YYYY-MM.json</a> - monthly durable archive files</li>
       <li><a href="./openapi.json">openapi.json</a> - static endpoint manifest</li>
       <li><a href="./llms.txt">llms.txt</a> - AI agent usage guide</li>
     </ul>
 
     <h2>Agent Notes</h2>
-    <p>Use <code>summary</code> and <code>_pnu.snippet</code> as short previews only. Fetch full notice text from <code>item.url</code> or <code>item._pnu.content_access.detail_url</code>.</p>
-    <p>Use <code>events.json</code> for cursor-based checks since the last agent run. Use <code>run-diff.json</code> only as the latest generator-run diff. Check <code>duplicates.json</code> before sending notifications for multiple matching items. Use <code>archive/index.json</code> for historical metadata catch-up. Use <code>rss.xml</code> as a compatibility feed; prefer JSON endpoints for structured agent workflows.</p>
+    <p>Use <code>events.json</code> as the primary cursor stream. Each event includes an <code>item</code> metadata snapshot, plus <code>archive_file</code> and <code>archive_item_id</code> for durable catch-up.</p>
+    <p>Check <code>index.json.same_notice_groups</code> before sending notifications for multiple matching items from different sources. Use <code>latest.json</code> for latest discovery and <code>rss.xml</code> for compatibility.</p>
   </main>
 </body>
 </html>

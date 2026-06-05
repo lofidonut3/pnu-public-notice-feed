@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lofidonut3.github.io/pnu-public-notice-feed/schema/latest.schema.json",
+  "title": "PNU Public Notice Feed Latest Discovery Feed",
+  "type": "object",
+  "required": ["version", "title", "feed_url", "description", "_pnu", "items"],
+  "properties": {
+    "version": {
+      "const": "https://jsonfeed.org/version/1.1"
+    },
+    "title": {
+      "type": "string"
+    },
+    "home_page_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "feed_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "description": {
+      "type": "string"
+    },
+    "_pnu": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "feed_version",
+        "generated_at",
+        "index_url",
+        "events_url",
+        "rss_url",
+        "schema_url",
+        "source_count",
+        "item_count",
+        "sources"
+      ],
+      "additionalProperties": true
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}

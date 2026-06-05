@@ -16,8 +16,8 @@
     "oldest_seen_at",
     "latest_seen_at",
     "is_truncated",
-    "archive_index_url",
-    "archive_events_url_pattern",
+    "index_url",
+    "archive_url_pattern",
     "events"
   ],
   "properties": {
@@ -60,10 +60,10 @@
     "is_truncated": {
       "type": "boolean"
     },
-    "archive_index_url": {
+    "index_url": {
       "type": "string"
     },
-    "archive_events_url_pattern": {
+    "archive_url_pattern": {
       "type": "string"
     },
     "events": {
@@ -88,8 +88,9 @@
         "url",
         "content_hash",
         "previous_content_hash",
-        "archive_notice_file",
-        "archive_notice_id"
+        "archive_file",
+        "archive_item_id",
+        "item"
       ],
       "properties": {
         "event_id": {
@@ -123,11 +124,14 @@
         "previous_content_hash": {
           "type": ["string", "null"]
         },
-        "archive_notice_file": {
+        "archive_file": {
           "type": "string"
         },
-        "archive_notice_id": {
+        "archive_item_id": {
           "type": "string"
+        },
+        "item": {
+          "type": ["object", "null"]
         }
       },
       "additionalProperties": true

@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "PNU Public Notice Feed",
-    "version": "0.1",
+    "version": "0.2",
     "description": "Unofficial metadata relay for public PNU notices. This project is not operated by Pusan National University."
   },
   "servers": [
@@ -12,21 +12,55 @@
     }
   ],
   "paths": {
-    "/feed.json": {
+    "/index.json": {
       "get": {
-        "summary": "JSON Feed 1.1 compatible public notice feed",
+        "summary": "Feed manifest",
         "responses": {
           "200": {
-            "description": "Latest normalized public notice metadata.",
+            "description": "Compact manifest containing endpoint URLs, source status, source registry metadata, archive manifest, same-notice groups, and latest run diagnostics.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema/index.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events.json": {
+      "get": {
+        "summary": "Recent durable notice events",
+        "responses": {
+          "200": {
+            "description": "Primary recent observed notice event stream for cursor-based agent checks. Each event includes an item metadata snapshot and archive file pointers.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema/events.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/latest.json": {
+      "get": {
+        "summary": "JSON Feed 1.1 compatible latest-discovery feed",
+        "responses": {
+          "200": {
+            "description": "Latest-discovery public notice metadata in JSON Feed 1.1 format. For cursor-based agent checks, use events.json.",
             "content": {
               "application/feed+json": {
                 "schema": {
-                  "$ref": "./schema/feed.schema.json"
+                  "$ref": "./schema/latest.schema.json"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "./schema/feed.schema.json"
+                  "$ref": "./schema/latest.schema.json"
                 }
               }
             }
@@ -39,7 +73,7 @@
         "summary": "RSS 2.0 compatibility feed",
         "responses": {
           "200": {
-            "description": "Latest public notice metadata as an RSS 2.0 feed.",
+            "description": "Latest public notice metadata as an RSS 2.0 compatibility feed.",
             "content": {
               "application/rss+xml": {
                 "schema": {
@@ -56,111 +90,9 @@
         }
       }
     },
-    "/status.json": {
+    "/archive/{month}.json": {
       "get": {
-        "summary": "Source refresh status",
-        "responses": {
-          "200": {
-            "description": "Per-source refresh status and error metadata.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "./schema/status.schema.json"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/run-diff.json": {
-      "get": {
-        "summary": "Latest generator-run notice item diff",
-        "responses": {
-          "200": {
-            "description": "Added, updated, and removed notice item summaries from the latest generator run only. Use events.json or archive events for cursor-based catch-up.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "./schema/run-diff.schema.json"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/events.json": {
-      "get": {
-        "summary": "Recent durable notice events",
-        "responses": {
-          "200": {
-            "description": "Recent observed notice events for cursor-based agent checks. For longer catch-up, use archive/events/{month}.json.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "./schema/events.schema.json"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/duplicates.json": {
-      "get": {
-        "summary": "High-confidence duplicate notice groups",
-        "responses": {
-          "200": {
-            "description": "High-confidence same-notice groups for notification deduplication. Raw feed items are preserved in feed.json.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "./schema/duplicates.schema.json"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/sources.json": {
-      "get": {
-        "summary": "Public source registry",
-        "responses": {
-          "200": {
-            "description": "Official public notice sources indexed by this feed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "./schema/sources.schema.json"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/archive/index.json": {
-      "get": {
-        "summary": "Archive manifest",
-        "responses": {
-          "200": {
-            "description": "Monthly notice archive and event log manifest.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "./schema/archive-index.schema.json"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/archive/notices/{month}.json": {
-      "get": {
-        "summary": "Monthly notice metadata archive",
+        "summary": "Monthly notice metadata and event archive",
         "parameters": [
           {
             "name": "month",
@@ -174,39 +106,11 @@
         ],
         "responses": {
           "200": {
-            "description": "Notice metadata archived for the requested month.",
+            "description": "Monthly durable archive containing notice metadata and observed notice events.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "./schema/archive-notices.schema.json"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/archive/events/{month}.json": {
-      "get": {
-        "summary": "Monthly notice event log",
-        "parameters": [
-          {
-            "name": "month",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^\\d{4}-\\d{2}$"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Durable added/updated notice events for the requested month.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "./schema/archive-events.schema.json"
+                  "$ref": "./schema/archive-month.schema.json"
                 }
               }
             }

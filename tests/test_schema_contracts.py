@@ -17,13 +17,9 @@ def test_json_schemas_are_valid():
 
 def test_generated_outputs_match_schemas():
     cases = [
-        ("public/feed.json", "schema/feed.schema.json"),
-        ("public/status.json", "schema/status.schema.json"),
+        ("public/index.json", "schema/index.schema.json"),
+        ("public/latest.json", "schema/latest.schema.json"),
         ("public/events.json", "schema/events.schema.json"),
-        ("public/run-diff.json", "schema/run-diff.schema.json"),
-        ("public/duplicates.json", "schema/duplicates.schema.json"),
-        ("public/archive/index.json", "schema/archive-index.schema.json"),
-        ("sources.json", "schema/sources.schema.json"),
     ]
 
     for instance_path, schema_path in cases:
@@ -31,8 +27,7 @@ def test_generated_outputs_match_schemas():
         schema = _load_json(ROOT / schema_path)
         jsonschema.Draft202012Validator(schema).validate(instance)
 
-    _validate_archive_files("public/archive/notices", "schema/archive-notices.schema.json")
-    _validate_archive_files("public/archive/events", "schema/archive-events.schema.json")
+    _validate_archive_files("public/archive", "schema/archive-month.schema.json")
 
 
 def test_generated_rss_is_well_formed():

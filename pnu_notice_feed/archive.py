@@ -3,100 +3,88 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import shutil
 from pathlib import Path
 from typing import Any
 
-ARCHIVE_VERSION = "0.1"
-EVENT_STREAM_VERSION = "0.1"
+ARCHIVE_VERSION = "0.2"
+EVENT_STREAM_VERSION = "0.2"
 RECENT_EVENT_LIMIT = 1000
 TIMEZONE = "Asia/Seoul"
 
 
-def write_archive_outputs(output_dir: Path, feed: dict, pretty: bool) -> None:
+def write_archive_outputs(output_dir: Path, feed: dict, pretty: bool) -> tuple[dict, dict]:
     archive_dir = output_dir / "archive"
-    notice_docs = read_month_docs(archive_dir / "notices")
-    event_docs = read_month_docs(archive_dir / "events")
-    previous_index = read_json_if_exists(archive_dir / "index.json")
+    archive_docs = read_archive_docs(archive_dir)
+    previous_index = read_json_if_exists(output_dir / "index.json")
 
-    next_notice_docs, next_event_docs, index = build_archive_documents(
+    next_archive_docs, archive_index = build_archive_documents(
         feed=feed,
-        existing_notice_docs=notice_docs,
-        existing_event_docs=event_docs,
-        previous_index=previous_index,
+        existing_archive_docs=archive_docs,
+        previous_index=previous_index.get("archives") if previous_index else None,
         pretty=pretty,
     )
+    recent_events = build_recent_events_document(next_archive_docs, archive_index)
 
-    for month, doc in next_notice_docs.items():
-        write_json_if_changed(archive_dir / "notices" / f"{month}.json", doc, pretty)
-    for month, doc in next_event_docs.items():
-        write_json_if_changed(archive_dir / "events" / f"{month}.json", doc, pretty)
-    write_json_if_changed(archive_dir / "index.json", index, pretty)
-    write_json_if_changed(
-        output_dir / "events.json",
-        build_recent_events_document(next_event_docs, index),
-        pretty,
-    )
+    cleanup_legacy_archive_outputs(archive_dir)
+    for month, doc in next_archive_docs.items():
+        write_json_if_changed(archive_dir / f"{month}.json", doc, pretty)
+    write_json_if_changed(output_dir / "events.json", recent_events, pretty)
+    return archive_index, recent_events
 
 
 def archive_outputs_exist(output_dir: Path) -> bool:
-    archive_dir = output_dir / "archive"
-    index = read_json_if_exists(archive_dir / "index.json")
-    if not index:
+    index = read_json_if_exists(output_dir / "index.json")
+    if not index or not (output_dir / "events.json").exists():
         return False
-    if not (output_dir / "events.json").exists():
-        return False
-    for month in index.get("months", []):
-        notices_url = month.get("notices_url")
-        events_url = month.get("events_url")
-        if notices_url and not (archive_dir / notices_url.removeprefix("./")).exists():
-            return False
-        if events_url and not (archive_dir / events_url.removeprefix("./")).exists():
+    for month in index.get("archives", {}).get("months", []):
+        url = month.get("url")
+        if url and not (output_dir / url.removeprefix("./")).exists():
             return False
     return True
 
 
 def build_archive_documents(
     feed: dict,
-    existing_notice_docs: dict[str, dict] | None = None,
-    existing_event_docs: dict[str, dict] | None = None,
+    existing_archive_docs: dict[str, dict] | None = None,
     previous_index: dict | None = None,
     pretty: bool = False,
-) -> tuple[dict[str, dict], dict[str, dict], dict]:
+) -> tuple[dict[str, dict], dict]:
     generated_at = str(feed.get("_pnu", {}).get("generated_at"))
-    notice_docs = copy.deepcopy(existing_notice_docs or {})
-    event_docs = copy.deepcopy(existing_event_docs or {})
-    archived_items = archived_items_by_id(notice_docs)
-    touched_notice_months: set[str] = set()
-    touched_event_months: set[str] = set()
+    archive_docs = copy.deepcopy(existing_archive_docs or {})
+    archived_items = archived_items_by_id(archive_docs)
+    touched_months: set[str] = set()
 
     for current_item in feed.get("items", []):
         item = normalize_archive_input_item(current_item)
         item_id = str(item["id"])
-        pnu = item.get("_pnu", {})
         current_hash = item_content_hash(item)
-        seen_at = str(pnu.get("fetched_at") or generated_at)
+        seen_at = str(item.get("_pnu", {}).get("fetched_at") or generated_at)
         existing = archived_items.get(item_id)
 
         if existing is None:
-            notice_month = archive_month_for_item(item, seen_at)
+            item_month = archive_month_for_item(item, seen_at)
             archived_item = archive_item(
                 item,
-                archive_month=notice_month,
+                archive_month=item_month,
                 first_seen_at=seen_at,
                 last_seen_at=seen_at,
                 last_changed_at=seen_at,
             )
-            notice_docs = upsert_archive_item(notice_docs, notice_month, archived_item)
-            event_docs = add_event(
-                event_docs,
+            archive_docs = upsert_archive_item(archive_docs, item_month, archived_item)
+            archive_docs = add_event(
+                archive_docs,
                 event_type="added",
                 item=archived_item,
-                notice_month=notice_month,
+                item_month=item_month,
                 event_time=seen_at,
                 previous_content_hash=None,
             )
-            touched_notice_months = {*touched_notice_months, notice_month}
-            touched_event_months = {*touched_event_months, month_from_timestamp(seen_at)}
+            touched_months = {
+                *touched_months,
+                item_month,
+                month_from_timestamp(seen_at),
+            }
             continue
 
         existing_month, existing_item = existing
@@ -113,79 +101,157 @@ def build_archive_documents(
             last_seen_at=generated_at,
             last_changed_at=generated_at,
         )
-        notice_docs = upsert_archive_item(notice_docs, existing_month, archived_item)
-        event_docs = add_event(
-            event_docs,
+        archive_docs = upsert_archive_item(archive_docs, existing_month, archived_item)
+        archive_docs = add_event(
+            archive_docs,
             event_type="updated",
             item=archived_item,
-            notice_month=existing_month,
+            item_month=existing_month,
             event_time=generated_at,
             previous_content_hash=previous_hash,
         )
-        touched_notice_months = {*touched_notice_months, existing_month}
-        touched_event_months = {*touched_event_months, month_from_timestamp(generated_at)}
+        touched_months = {
+            *touched_months,
+            existing_month,
+            month_from_timestamp(generated_at),
+        }
 
-    notice_docs = rebuild_notice_docs(notice_docs, touched_notice_months, generated_at)
-    event_docs = rebuild_event_docs(event_docs, touched_event_months, generated_at)
-    index = build_archive_index(
-        notice_docs,
-        event_docs,
+    archive_docs = rebuild_archive_docs(archive_docs, touched_months, generated_at)
+    archive_index = build_archive_index(
+        archive_docs,
         previous_index=previous_index,
         last_modified_at=generated_at,
         pretty=pretty,
     )
-    return notice_docs, event_docs, index
+    return archive_docs, archive_index
 
 
 def build_recent_events_document(
-    event_docs: dict[str, dict],
+    archive_docs: dict[str, dict],
     archive_index: dict,
     event_limit: int = RECENT_EVENT_LIMIT,
 ) -> dict:
     all_events = sorted(
         [
             event
-            for doc in event_docs.values()
+            for doc in archive_docs.values()
             for event in doc.get("events", [])
         ],
-        key=lambda value: (value.get("seen_at") or "", value.get("event_id") or ""),
+        key=event_sort_key,
     )
     limited_events = all_events[-event_limit:]
-    normalized_events = [
-        event_for_recent_stream(event)
-        for event in limited_events
-    ]
-    oldest_event = normalized_events[0] if normalized_events else None
-    latest_event = normalized_events[-1] if normalized_events else None
+    oldest_event = limited_events[0] if limited_events else None
+    latest_event = limited_events[-1] if limited_events else None
     return {
         "schema_version": "0.1",
         "event_stream_version": EVENT_STREAM_VERSION,
         "generated_at": archive_index.get("last_modified_at"),
         "timezone": TIMEZONE,
-        "event_count": len(normalized_events),
+        "event_count": len(limited_events),
         "total_event_count": len(all_events),
         "event_limit": event_limit,
         "latest_event_id": archive_index.get("latest_event_id"),
         "oldest_event_id": oldest_event.get("event_id") if oldest_event else None,
         "oldest_seen_at": oldest_event.get("seen_at") if oldest_event else None,
         "latest_seen_at": latest_event.get("seen_at") if latest_event else None,
-        "is_truncated": len(all_events) > len(normalized_events),
-        "archive_index_url": "./archive/index.json",
-        "archive_events_url_pattern": "./archive/events/{YYYY-MM}.json",
-        "events": normalized_events,
+        "is_truncated": len(all_events) > len(limited_events),
+        "index_url": "./index.json",
+        "archive_url_pattern": "./archive/{YYYY-MM}.json",
+        "events": limited_events,
     }
 
 
-def event_for_recent_stream(event: dict) -> dict:
-    archive_notice_file = str(event.get("archive_notice_file") or "")
+def read_archive_docs(archive_dir: Path) -> dict[str, dict]:
+    direct_docs = read_direct_archive_docs(archive_dir)
+    if direct_docs:
+        return direct_docs
+    return migrate_split_archive_docs(
+        read_month_docs(archive_dir / "notices"),
+        read_month_docs(archive_dir / "events"),
+    )
+
+
+def read_direct_archive_docs(archive_dir: Path) -> dict[str, dict]:
+    if not archive_dir.exists():
+        return {}
     return {
-        **event,
-        "archive_notice_file": archive_notice_file.replace(
-            "../notices/",
-            "./archive/notices/",
-            1,
-        ),
+        path.stem: json.loads(path.read_text(encoding="utf-8"))
+        for path in sorted(archive_dir.glob("????-??.json"))
     }
+
+
+def migrate_split_archive_docs(
+    notice_docs: dict[str, dict],
+    event_docs: dict[str, dict],
+) -> dict[str, dict]:
+    archive_docs = {
+        month: empty_archive_doc(month)
+        for month in sorted(set(notice_docs) | set(event_docs))
+    }
+    for month, doc in notice_docs.items():
+        archive_docs = {
+            **archive_docs,
+            month: {
+                **archive_docs.get(month, empty_archive_doc(month)),
+                "last_modified_at": doc.get("last_modified_at"),
+                "items": copy.deepcopy(doc.get("items", [])),
+            },
+        }
+
+    archived_items = archived_items_by_id(archive_docs)
+    for month, doc in event_docs.items():
+        events = [
+            migrate_split_event(event, archived_items)
+            for event in doc.get("events", [])
+        ]
+        current = archive_docs.get(month, empty_archive_doc(month))
+        archive_docs = {
+            **archive_docs,
+            month: {
+                **current,
+                "last_modified_at": max_known(
+                    current.get("last_modified_at"),
+                    doc.get("last_modified_at"),
+                ),
+                "events": events,
+            },
+        }
+
+    return rebuild_archive_docs(archive_docs, set(archive_docs), None)
+
+
+def migrate_split_event(
+    event: dict,
+    archived_items: dict[str, tuple[str, dict]],
+) -> dict:
+    notice_id = str(event.get("archive_notice_id") or event.get("notice_id"))
+    item_month, item = archived_items.get(notice_id, (archive_month_from_event(event), {}))
+    return {
+        "event_id": event.get("event_id"),
+        "event_type": event.get("event_type"),
+        "notice_id": event.get("notice_id"),
+        "source_id": event.get("source_id"),
+        "seen_at": event.get("seen_at"),
+        "published_at": event.get("published_at"),
+        "title": event.get("title"),
+        "url": event.get("url"),
+        "content_hash": event.get("content_hash"),
+        "previous_content_hash": event.get("previous_content_hash"),
+        "archive_file": f"./archive/{item_month}.json",
+        "archive_item_id": notice_id,
+        "item": event_item_snapshot(item) if item else None,
+    }
+
+
+def archive_month_from_event(event: dict) -> str:
+    value = str(event.get("archive_notice_file") or "")
+    if value.endswith(".json") and len(value) >= 12:
+        return Path(value).stem
+    published_at = event.get("published_at")
+    if isinstance(published_at, str) and len(published_at) >= 7:
+        return published_at[:7]
+    seen_at = str(event.get("seen_at") or "")
+    return seen_at[:7]
 
 
 def read_month_docs(path: Path) -> dict[str, dict]:
@@ -203,18 +269,17 @@ def read_json_if_exists(path: Path) -> dict | None:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def archived_items_by_id(notice_docs: dict[str, dict]) -> dict[str, tuple[str, dict]]:
+def archived_items_by_id(archive_docs: dict[str, dict]) -> dict[str, tuple[str, dict]]:
     result: dict[str, tuple[str, dict]] = {}
-    for month, doc in notice_docs.items():
+    for month, doc in archive_docs.items():
         for item in doc.get("items", []):
             item_id = item.get("id")
             if item_id:
-                result[str(item_id)] = (month, item)
+                result = {**result, str(item_id): (month, item)}
     return result
 
 
 def normalize_archive_input_item(item: dict) -> dict:
-    pnu = copy.deepcopy(item.get("_pnu", {}))
     archive_item_copy = {
         key: copy.deepcopy(value)
         for key, value in item.items()
@@ -222,7 +287,7 @@ def normalize_archive_input_item(item: dict) -> dict:
     }
     return {
         **archive_item_copy,
-        "_pnu": pnu,
+        "_pnu": copy.deepcopy(item.get("_pnu", {})),
     }
 
 
@@ -234,8 +299,8 @@ def archive_month_for_item(item: dict, first_seen_at: str) -> str:
     return month_from_timestamp(first_seen_at)
 
 
-def month_from_timestamp(value: str) -> str:
-    return value[:7]
+def month_from_timestamp(value: str | None) -> str:
+    return str(value or "")[:7]
 
 
 def archive_item(
@@ -259,43 +324,41 @@ def archive_item(
 
 
 def upsert_archive_item(
-    notice_docs: dict[str, dict],
+    archive_docs: dict[str, dict],
     month: str,
     item: dict,
 ) -> dict[str, dict]:
-    doc = notice_docs.get(month) or empty_notice_doc(month)
+    doc = archive_docs.get(month) or empty_archive_doc(month)
     items = {
         str(existing["id"]): existing
         for existing in doc.get("items", [])
         if existing.get("id")
     }
     items = {**items, str(item["id"]): item}
-    next_doc = {
-        **doc,
-        "items": sorted(
-            items.values(),
-            key=notice_sort_key,
-            reverse=True,
-        ),
+    return {
+        **archive_docs,
+        month: {
+            **doc,
+            "items": sorted(items.values(), key=notice_sort_key, reverse=True),
+        },
     }
-    return {**notice_docs, month: next_doc}
 
 
 def add_event(
-    event_docs: dict[str, dict],
+    archive_docs: dict[str, dict],
     event_type: str,
     item: dict,
-    notice_month: str,
+    item_month: str,
     event_time: str,
     previous_content_hash: str | None,
 ) -> dict[str, dict]:
     event_month = month_from_timestamp(event_time)
-    doc = event_docs.get(event_month) or empty_event_doc(event_month)
+    doc = archive_docs.get(event_month) or empty_archive_doc(event_month)
     event = event_for_item(
         item=item,
         event_type=event_type,
         event_time=event_time,
-        notice_month=notice_month,
+        item_month=item_month,
         previous_content_hash=previous_content_hash,
     )
     events = {
@@ -304,21 +367,20 @@ def add_event(
         if existing.get("event_id")
     }
     events = {**events, str(event["event_id"]): event}
-    next_doc = {
-        **doc,
-        "events": sorted(
-            events.values(),
-            key=lambda value: (value.get("seen_at") or "", value.get("event_id") or ""),
-        ),
+    return {
+        **archive_docs,
+        event_month: {
+            **doc,
+            "events": sorted(events.values(), key=event_sort_key),
+        },
     }
-    return {**event_docs, event_month: next_doc}
 
 
 def event_for_item(
     item: dict,
     event_type: str,
     event_time: str,
-    notice_month: str,
+    item_month: str,
     previous_content_hash: str | None,
 ) -> dict:
     pnu = item.get("_pnu", {})
@@ -340,8 +402,17 @@ def event_for_item(
         "url": item.get("url"),
         "content_hash": content_hash,
         "previous_content_hash": previous_content_hash,
-        "archive_notice_file": f"../notices/{notice_month}.json",
-        "archive_notice_id": notice_id,
+        "archive_file": f"./archive/{item_month}.json",
+        "archive_item_id": notice_id,
+        "item": event_item_snapshot(item),
+    }
+
+
+def event_item_snapshot(item: dict) -> dict:
+    return {
+        key: copy.deepcopy(value)
+        for key, value in item.items()
+        if key != "_archive"
     }
 
 
@@ -361,103 +432,59 @@ def event_id(
     )
 
 
-def rebuild_notice_docs(
-    notice_docs: dict[str, dict],
+def rebuild_archive_docs(
+    archive_docs: dict[str, dict],
     touched_months: set[str],
-    last_modified_at: str,
+    last_modified_at: str | None,
 ) -> dict[str, dict]:
     return {
-        month: rebuild_notice_doc(
+        month: rebuild_archive_doc(
             month,
             doc,
             last_modified_at if month in touched_months else doc.get("last_modified_at"),
         )
-        for month, doc in notice_docs.items()
+        for month, doc in archive_docs.items()
     }
 
 
-def rebuild_notice_doc(
+def rebuild_archive_doc(
     month: str,
     doc: dict,
     last_modified_at: str | None,
 ) -> dict:
     items = sorted(doc.get("items", []), key=notice_sort_key, reverse=True)
+    events = sorted(doc.get("events", []), key=event_sort_key)
     return {
         "schema_version": "0.1",
         "archive_version": ARCHIVE_VERSION,
-        "archive_type": "notices",
+        "archive_type": "month",
         "archive_month": month,
         "last_modified_at": last_modified_at or doc.get("last_modified_at"),
         "timezone": TIMEZONE,
         "item_count": len(items),
+        "event_count": len(events),
         "source_counts": source_counts(items),
         "items": items,
-    }
-
-
-def rebuild_event_docs(
-    event_docs: dict[str, dict],
-    touched_months: set[str],
-    last_modified_at: str,
-) -> dict[str, dict]:
-    return {
-        month: rebuild_event_doc(
-            month,
-            doc,
-            last_modified_at if month in touched_months else doc.get("last_modified_at"),
-        )
-        for month, doc in event_docs.items()
-    }
-
-
-def rebuild_event_doc(
-    month: str,
-    doc: dict,
-    last_modified_at: str | None,
-) -> dict:
-    events = sorted(
-        doc.get("events", []),
-        key=lambda value: (value.get("seen_at") or "", value.get("event_id") or ""),
-    )
-    return {
-        "schema_version": "0.1",
-        "archive_version": ARCHIVE_VERSION,
-        "archive_type": "events",
-        "archive_month": month,
-        "last_modified_at": last_modified_at or doc.get("last_modified_at"),
-        "timezone": TIMEZONE,
-        "event_count": len(events),
         "events": events,
     }
 
 
 def build_archive_index(
-    notice_docs: dict[str, dict],
-    event_docs: dict[str, dict],
+    archive_docs: dict[str, dict],
     previous_index: dict | None,
     last_modified_at: str,
     pretty: bool,
 ) -> dict:
-    months = sorted(set(notice_docs) | set(event_docs))
     month_entries = [
-        month_index_entry(
-            month,
-            notice_docs.get(month),
-            event_docs.get(month),
-            pretty,
-        )
-        for month in months
+        month_index_entry(month, doc, pretty)
+        for month, doc in sorted(archive_docs.items())
     ]
-    source_entries = source_index_entries(notice_docs, event_docs)
     all_events = [
         event
-        for doc in event_docs.values()
+        for doc in archive_docs.values()
         for event in doc.get("events", [])
     ]
-    latest_event = sorted(
-        all_events,
-        key=lambda value: (value.get("seen_at") or "", value.get("event_id") or ""),
-    )[-1] if all_events else None
+    latest_event = sorted(all_events, key=event_sort_key)[-1] if all_events else None
     previous_last_modified = (
         previous_index.get("last_modified_at")
         if previous_index
@@ -468,11 +495,13 @@ def build_archive_index(
         "archive_version": ARCHIVE_VERSION,
         "last_modified_at": previous_last_modified or last_modified_at,
         "timezone": TIMEZONE,
+        "archive_url_pattern": "./archive/{YYYY-MM}.json",
+        "month_count": len(month_entries),
         "notice_count": sum(entry["notice_count"] for entry in month_entries),
         "event_count": sum(entry["event_count"] for entry in month_entries),
         "latest_event_id": latest_event.get("event_id") if latest_event else None,
         "months": month_entries,
-        "sources": source_entries,
+        "sources": source_index_entries(archive_docs),
     }
     if previous_index and archive_index_core(previous_index) == archive_index_core(next_index):
         return next_index
@@ -482,56 +511,36 @@ def build_archive_index(
     }
 
 
-def month_index_entry(
-    month: str,
-    notice_doc: dict | None,
-    event_doc: dict | None,
-    pretty: bool,
-) -> dict:
-    notice_meta = document_file_meta(notice_doc, pretty) if notice_doc else empty_file_meta()
-    event_meta = document_file_meta(event_doc, pretty) if event_doc else empty_file_meta()
-    notice_items = notice_doc.get("items", []) if notice_doc else []
-    events = event_doc.get("events", []) if event_doc else []
+def month_index_entry(month: str, doc: dict, pretty: bool) -> dict:
+    file_meta = document_file_meta(doc, pretty)
+    items = doc.get("items", [])
+    events = doc.get("events", [])
     first_seen_values = [
         item.get("_archive", {}).get("first_seen_at")
-        for item in notice_items
+        for item in items
         if item.get("_archive", {}).get("first_seen_at")
     ]
     last_seen_values = [
         item.get("_archive", {}).get("last_seen_at")
-        for item in notice_items
+        for item in items
         if item.get("_archive", {}).get("last_seen_at")
-    ]
-    last_modified_values = [
-        value
-        for value in [
-            notice_doc.get("last_modified_at") if notice_doc else None,
-            event_doc.get("last_modified_at") if event_doc else None,
-        ]
-        if value
     ]
     return {
         "month": month,
-        "notices_url": f"./notices/{month}.json" if notice_doc else None,
-        "events_url": f"./events/{month}.json" if event_doc else None,
-        "notice_count": len(notice_items),
+        "url": f"./archive/{month}.json",
+        "notice_count": len(items),
         "event_count": len(events),
-        "notices_size_bytes": notice_meta["size_bytes"],
-        "events_size_bytes": event_meta["size_bytes"],
-        "notices_sha256": notice_meta["sha256"],
-        "events_sha256": event_meta["sha256"],
-        "last_modified_at": max(last_modified_values) if last_modified_values else None,
+        "size_bytes": file_meta["size_bytes"],
+        "sha256": file_meta["sha256"],
+        "last_modified_at": doc.get("last_modified_at"),
         "first_seen_at": min(first_seen_values) if first_seen_values else None,
         "last_seen_at": max(last_seen_values) if last_seen_values else None,
     }
 
 
-def source_index_entries(
-    notice_docs: dict[str, dict],
-    event_docs: dict[str, dict],
-) -> list[dict]:
+def source_index_entries(archive_docs: dict[str, dict]) -> list[dict]:
     source_data: dict[str, dict[str, Any]] = {}
-    for doc in notice_docs.values():
+    for doc in archive_docs.values():
         for item in doc.get("items", []):
             pnu = item.get("_pnu", {})
             source_id = pnu.get("source_id")
@@ -556,7 +565,6 @@ def source_index_entries(
                     ),
                 },
             }
-    for doc in event_docs.values():
         for event in doc.get("events", []):
             source_id = event.get("source_id")
             if not source_id:
@@ -596,36 +604,18 @@ def document_file_meta(doc: dict, pretty: bool) -> dict:
     }
 
 
-def empty_file_meta() -> dict:
-    return {
-        "size_bytes": 0,
-        "sha256": None,
-    }
-
-
-def empty_notice_doc(month: str) -> dict:
+def empty_archive_doc(month: str) -> dict:
     return {
         "schema_version": "0.1",
         "archive_version": ARCHIVE_VERSION,
-        "archive_type": "notices",
+        "archive_type": "month",
         "archive_month": month,
         "last_modified_at": None,
         "timezone": TIMEZONE,
         "item_count": 0,
+        "event_count": 0,
         "source_counts": {},
         "items": [],
-    }
-
-
-def empty_event_doc(month: str) -> dict:
-    return {
-        "schema_version": "0.1",
-        "archive_version": ARCHIVE_VERSION,
-        "archive_type": "events",
-        "archive_month": month,
-        "last_modified_at": None,
-        "timezone": TIMEZONE,
-        "event_count": 0,
         "events": [],
     }
 
@@ -648,6 +638,10 @@ def notice_sort_key(item: dict) -> tuple[str, str]:
     )
 
 
+def event_sort_key(event: dict) -> tuple[str, str]:
+    return event.get("seen_at") or "", event.get("event_id") or ""
+
+
 def item_content_hash(item: dict) -> str | None:
     pnu = item.get("_pnu", {})
     return pnu.get("content_hash") or item.get("content_hash")
@@ -661,6 +655,15 @@ def min_known(left: str | None, right: str | None) -> str | None:
 def max_known(left: str | None, right: str | None) -> str | None:
     values = [value for value in [left, right] if value]
     return max(values) if values else None
+
+
+def cleanup_legacy_archive_outputs(archive_dir: Path) -> None:
+    for name in ["index.json", "events", "notices"]:
+        path = archive_dir / name
+        if path.is_dir():
+            shutil.rmtree(path)
+        elif path.exists():
+            path.unlink()
 
 
 def write_json_if_changed(path: Path, value: dict, pretty: bool) -> None:

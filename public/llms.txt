@@ -5,27 +5,27 @@ This project is not operated by Pusan National University.
 
 ## Endpoints
 
-- [JSON Feed](./feed.json): latest normalized public notice metadata, currently limited to the latest 150 items globally.
+- [Index](./index.json): compact manifest with sources, source status, archive manifest, same-notice groups, and latest run diagnostics.
+- [Events](./events.json): primary recent event stream for cursor-based agent checks.
+- [Latest](./latest.json): JSON Feed 1.1 compatible latest-discovery public notice metadata, currently limited to the latest 150 items globally.
 - [RSS](./rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
-- [Status](./status.json): source refresh status and failures.
-- [Events](./events.json): recent durable notice events for cursor-based agent checks.
-- [Run diff](./run-diff.json): latest generator-run added, updated, and removed item summaries.
-- [Duplicates](./duplicates.json): high-confidence same-notice groups for notification dedupe.
-- [Sources](./sources.json): official public source registry.
-- [Archive index](./archive/index.json): monthly archive manifest.
+- [Archive](./archive/YYYY-MM.json): monthly durable archive with notice metadata and observed events.
 - [OpenAPI manifest](./openapi.json): static endpoint manifest.
 
 ## Machine-readable contracts
 
-- [Feed schema](./schema/feed.schema.json)
-- [Status schema](./schema/status.schema.json)
+- [Index schema](./schema/index.schema.json)
 - [Events schema](./schema/events.schema.json)
-- [Run diff schema](./schema/run-diff.schema.json)
-- [Duplicates schema](./schema/duplicates.schema.json)
-- [Sources schema](./schema/sources.schema.json)
-- [Archive index schema](./schema/archive-index.schema.json)
-- [Archive notices schema](./schema/archive-notices.schema.json)
-- [Archive events schema](./schema/archive-events.schema.json)
+- [Latest schema](./schema/latest.schema.json)
+- [Archive month schema](./schema/archive-month.schema.json)
+
+## Endpoint roles for agents
+
+- Primary cursor endpoint: `events.json`.
+- Metadata/source/status/dedupe manifest: `index.json`.
+- Durable catch-up endpoint: `archive/YYYY-MM.json`.
+- Latest discovery endpoint: `latest.json`.
+- Compatibility endpoint: `rss.xml`.
 
 ## Usage rules for agents
 
@@ -35,13 +35,13 @@ This project is not operated by Pusan National University.
 - Fetch full notice text from `item._pnu.content_access.detail_url` or `item.url`.
 - Fetch attachments from `item._pnu.attachments[].download_url`.
 - Treat `content_mirrored: false` and `attachments_mirrored: false` as a hard boundary.
-- Check `status.json` before relying on source freshness.
-- Use `events.json` for cursor-based checks since the last agent run.
+- Check `index.json.status` before relying on source freshness.
+- Use `events.json` as the primary cursor-based notice stream.
 - Store a local `latest_event_id` or `seen_at` cursor and process newer events.
-- Use monthly archive event files if the local cursor is older than the `events.json` window.
-- Use `run-diff.json` only as the latest generator-run diff.
-- Check `duplicates.json` before sending notifications for multiple matching items.
-- Use `feed.json` as a latest discovery feed, not a complete archive.
-- Use `archive/index.json` and monthly archive files for catch-up after downtime.
+- Use each event `item` snapshot for notice metadata; use `archive_file` and `archive_item_id` when catching up from monthly archive files.
+- Check `index.json.same_notice_groups` before sending notifications for multiple matching items from different sources.
+- Use `latest.json` only as a latest discovery feed, not as the primary cursor endpoint or a complete archive.
+- Use `index.json.diagnostics.latest_run_diff` only as a latest generator-run diagnostic, not as durable history.
+- Use `index.json.archives` and monthly archive files for catch-up after downtime.
 - Use `rss.xml` only as a compatibility feed; prefer JSON endpoints for structured agent workflows.
-- Use `_pnu` fields in `feed.json` for source, attachment, fetched_at, and content_hash metadata.
+- Use `_pnu` fields in event `item` snapshots or `latest.json` for source, attachment, fetched_at, and content_hash metadata.

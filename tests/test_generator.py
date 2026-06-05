@@ -9,7 +9,8 @@ from pnu_notice_feed.generator import (
     PublicSource,
     SourceResult,
     archive_input_from_state,
-    build_feed,
+    build_latest,
+    build_public_index,
     build_run_diff,
     build_rss,
     build_state,
@@ -107,41 +108,39 @@ def test_notice_to_feed_item_includes_detail_checked_at_when_present():
     assert item["_pnu"]["detail_checked_at"] == "2026-06-03T12:00:00+09:00"
 
 
-def test_build_feed_sorts_items_by_published_date_desc():
+def test_build_latest_sorts_items_by_published_date_desc():
     source = _source()
     old_notice = _notice(source, "1", "2026-06-01")
     new_notice = _notice(source, "2", "2026-06-03")
     result = _result(source, "2026-06-03T12:00:00+09:00", [old_notice, new_notice])
 
-    feed = build_feed(
+    latest = build_latest(
         [result],
         "2026-06-03T12:00:00+09:00",
         "https://feeds.example.test",
     )
 
-    assert feed["version"] == JSON_FEED_VERSION
-    assert feed["home_page_url"] == "https://feeds.example.test"
-    assert feed["feed_url"] == "https://feeds.example.test/feed.json"
-    assert feed["_pnu"]["schema_version"] == "0.1"
-    assert feed["_pnu"]["events_url"] == "https://feeds.example.test/events.json"
-    assert feed["_pnu"]["run_diff_url"] == "https://feeds.example.test/run-diff.json"
-    assert feed["_pnu"]["duplicates_url"] == (
-        "https://feeds.example.test/duplicates.json"
+    assert latest["version"] == JSON_FEED_VERSION
+    assert latest["home_page_url"] == "https://feeds.example.test"
+    assert latest["feed_url"] == "https://feeds.example.test/latest.json"
+    assert latest["_pnu"]["schema_version"] == "0.1"
+    assert latest["_pnu"]["index_url"] == "https://feeds.example.test/index.json"
+    assert latest["_pnu"]["events_url"] == "https://feeds.example.test/events.json"
+    assert latest["_pnu"]["rss_url"] == "https://feeds.example.test/rss.xml"
+    assert latest["_pnu"]["schema_url"] == (
+        "https://feeds.example.test/schema/latest.schema.json"
     )
-    assert feed["_pnu"]["archive_index_url"] == (
-        "https://feeds.example.test/archive/index.json"
-    )
-    assert feed["_pnu"]["source_count"] == 1
-    assert feed["_pnu"]["item_count"] == 2
-    assert [item["id"] for item in feed["items"]] == [
+    assert latest["_pnu"]["source_count"] == 1
+    assert latest["_pnu"]["item_count"] == 2
+    assert [item["id"] for item in latest["items"]] == [
         "pnu-main-notice:2",
         "pnu-main-notice:1",
     ]
-    assert "not operated by Pusan National University" in feed["description"]
-    assert feed["items"][0]["date_published"] == "2026-06-03T00:00:00+09:00"
+    assert "not operated by Pusan National University" in latest["description"]
+    assert latest["items"][0]["date_published"] == "2026-06-03T00:00:00+09:00"
 
 
-def test_build_feed_limits_public_items_without_source_quota():
+def test_build_latest_limits_public_items_without_source_quota():
     source_a = _source("source-a")
     source_b = _source("source-b")
     checked_at = "2026-06-03T12:00:00+09:00"
@@ -159,17 +158,17 @@ def test_build_feed_limits_public_items_without_source_quota():
         [_notice(source_b, "2", "2026-06-02")],
     )
 
-    feed = build_feed(
+    latest = build_latest(
         [result_a, result_b],
         checked_at,
         "https://feeds.example.test",
         item_limit=2,
     )
 
-    assert feed["_pnu"]["item_count"] == 2
-    assert feed["_pnu"]["total_item_count"] == 3
-    assert feed["_pnu"]["item_limit"] == 2
-    assert [item["id"] for item in feed["items"]] == [
+    assert latest["_pnu"]["item_count"] == 2
+    assert latest["_pnu"]["total_item_count"] == 3
+    assert latest["_pnu"]["item_limit"] == 2
+    assert [item["id"] for item in latest["items"]] == [
         "source-a:3",
         "source-b:2",
     ]
@@ -182,13 +181,13 @@ def test_build_rss_creates_rss_compatibility_feed():
         "2026-06-03T12:00:00+09:00",
         [_notice(source, "1", "2026-06-03", snippet="짧은 미리보기")],
     )
-    feed = build_feed(
+    latest = build_latest(
         [result],
         "2026-06-03T12:00:00+09:00",
         "https://feeds.example.test",
     )
 
-    rss = build_rss(feed)
+    rss = build_rss(latest)
     root = ElementTree.fromstring(rss)
     channel = root.find("channel")
     item = channel.find("item")
@@ -518,8 +517,8 @@ def test_generate_outputs_keeps_run_diff_state_and_duplicates_full_when_feed_is_
         feed_item_limit=2,
     )
 
-    assert generated["feed"]["_pnu"]["item_count"] == 2
-    assert generated["feed"]["_pnu"]["total_item_count"] == 4
+    assert generated["latest"]["_pnu"]["item_count"] == 2
+    assert generated["latest"]["_pnu"]["total_item_count"] == 4
     assert sorted(generated["run_diff"]["added"][index]["id"] for index in range(4)) == [
         "pnu-main-notice:new",
         "pnu-main-notice:old-duplicate",
@@ -563,6 +562,65 @@ def test_archive_input_is_built_from_state_items():
         "pnu-main-notice:new",
         "pnu-main-notice:old",
     ]
+
+
+def test_build_public_index_combines_status_archives_dedupe_and_diagnostics():
+    latest = {
+        "home_page_url": "https://feeds.example.test",
+        "_pnu": {
+            "generated_at": "2026-06-05T12:00:00+09:00",
+            "item_count": 2,
+            "total_item_count": 4,
+            "item_limit": 150,
+        },
+    }
+    status = {
+        "overall_status": "partial",
+        "source_count": 2,
+        "failed_source_count": 1,
+        "sources": [{"id": "source-a", "status": "ok"}],
+    }
+    run_diff = {
+        "run_diff_scope": "latest_generator_run",
+        "added_count": 1,
+    }
+    duplicates = {
+        "policy": {"scope": "metadata_only_high_confidence"},
+        "group_count": 1,
+        "groups": [{"id": "same_notice:1"}],
+    }
+    archives = {
+        "archive_url_pattern": "./archive/{YYYY-MM}.json",
+        "months": [{"month": "2026-06", "url": "./archive/2026-06.json"}],
+    }
+    events = {
+        "event_count": 3,
+        "total_event_count": 5,
+        "event_limit": 1000,
+        "latest_event_id": "event-5",
+        "oldest_event_id": "event-3",
+        "oldest_seen_at": "2026-06-05T11:00:00+09:00",
+        "latest_seen_at": "2026-06-05T12:00:00+09:00",
+        "is_truncated": True,
+    }
+
+    index = build_public_index(
+        latest=latest,
+        status=status,
+        run_diff=run_diff,
+        duplicates=duplicates,
+        archives=archives,
+        events=events,
+        public_base_url="https://feeds.example.test",
+    )
+
+    assert index["home_page_url"] == "https://feeds.example.test"
+    assert index["endpoints"]["latest"] == "https://feeds.example.test/latest.json"
+    assert index["status"]["overall_status"] == "partial"
+    assert index["event_stream"]["latest_event_id"] == "event-5"
+    assert index["archives"]["months"][0]["url"] == "./archive/2026-06.json"
+    assert index["same_notice_groups"] == [{"id": "same_notice:1"}]
+    assert index["diagnostics"]["latest_run_diff"]["added_count"] == 1
 
 
 def test_build_state_preserves_cached_items_and_success_metadata():
@@ -829,10 +887,11 @@ def test_sync_static_assets_makes_public_output_self_contained(tmp_path):
 
     sync_static_assets(output_dir, source_path)
 
-    assert (output_dir / "sources.json").exists()
+    assert not (output_dir / "sources.json").exists()
     assert (output_dir / "openapi.json").exists()
     assert (output_dir / "llms.txt").exists()
-    assert (output_dir / "schema" / "feed.schema.json").exists()
+    assert (output_dir / "schema" / "index.schema.json").exists()
+    assert (output_dir / "schema" / "latest.schema.json").exists()
 
 
 def test_date_to_json_feed_timestamp_preserves_unknown_formats():

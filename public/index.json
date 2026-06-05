@@ -1,0 +1,815 @@
+{
+  "schema_version": "0.1",
+  "feed_version": "2026-06-04",
+  "generated_at": "2026-06-05T13:17:37+09:00",
+  "title": "PNU Public Notice Feed",
+  "description": "Unofficial PNU Public Notice Feed. This project indexes public official notices and links back to the original sources. It is not operated by Pusan National University.",
+  "home_page_url": "https://lofidonut3.github.io/pnu-public-notice-feed",
+  "endpoints": {
+    "index": "https://lofidonut3.github.io/pnu-public-notice-feed/index.json",
+    "events": "https://lofidonut3.github.io/pnu-public-notice-feed/events.json",
+    "latest": "https://lofidonut3.github.io/pnu-public-notice-feed/latest.json",
+    "rss": "https://lofidonut3.github.io/pnu-public-notice-feed/rss.xml",
+    "openapi": "https://lofidonut3.github.io/pnu-public-notice-feed/openapi.json",
+    "llms": "https://lofidonut3.github.io/pnu-public-notice-feed/llms.txt",
+    "archive_url_pattern": "https://lofidonut3.github.io/pnu-public-notice-feed/archive/{YYYY-MM}.json"
+  },
+  "data_boundary": {
+    "metadata_relay": true,
+    "content_mirrored": false,
+    "attachments_mirrored": false,
+    "requires_login": false,
+    "official_service": false
+  },
+  "event_stream": {
+    "url": "./events.json",
+    "event_count": 326,
+    "total_event_count": 326,
+    "event_limit": 1000,
+    "latest_event_id": "2026-06-05T12:25:11+09:00|added|pnu-job-recruit-recommendation:117377|ec6710456f5c",
+    "oldest_event_id": "2026-06-04T20:09:36+09:00|added|pnu-main-notice:1508790|f23518c4179a",
+    "oldest_seen_at": "2026-06-04T20:09:36+09:00",
+    "latest_seen_at": "2026-06-05T12:25:11+09:00",
+    "is_truncated": false
+  },
+  "latest": {
+    "url": "./latest.json",
+    "item_count": 150,
+    "total_item_count": 326,
+    "item_limit": 150
+  },
+  "status": {
+    "overall_status": "ok",
+    "source_count": 13,
+    "failed_source_count": 0,
+    "sources": [
+      {
+        "id": "pnu-main-notice",
+        "name": "부산대 대학공지",
+        "official_url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=list",
+        "adapter": "pusan-cms-static-board",
+        "category": "university_notice",
+        "poll_interval_minutes": 30,
+        "public_only": true,
+        "access_policy": "public_official_url_only",
+        "status": "ok",
+        "last_checked_at": "2026-06-05T13:17:37+09:00",
+        "last_success_at": "2026-06-05T13:17:37+09:00",
+        "last_error_at": null,
+        "next_check_at": "2026-06-05T13:47:37+09:00",
+        "backoff_until": null,
+        "error_count": 0,
+        "skipped_reason": null,
+        "item_count": 25,
+        "error_type": null,
+        "error": null
+      },
+      {
+        "id": "pnu-onestop-notices",
+        "name": "부산대 학지시 공지",
+        "official_url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000386",
+        "adapter": "onestop-js-board",
+        "category": "academic_notice",
+        "poll_interval_minutes": 30,
+        "public_only": true,
+        "access_policy": "public_official_url_only",
+        "status": "ok",
+        "last_checked_at": "2026-06-05T13:17:37+09:00",
+        "last_success_at": "2026-06-05T13:17:37+09:00",
+        "last_error_at": null,
+        "next_check_at": "2026-06-05T13:47:37+09:00",
+        "backoff_until": null,
+        "error_count": 0,
+        "skipped_reason": null,
+        "item_count": 36,
+        "error_type": null,
+        "error": null
+      },
+      {
+        "id": "pnu-onestop-scholarship",
+        "name": "부산대 장학공지",
+        "official_url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000062",
+        "adapter": "onestop-js-board",
+        "category": "scholarship_notice",
+        "poll_interval_minutes": 30,
+        "public_only": true,
+        "access_policy": "public_official_url_only",
+        "status": "ok",
+        "last_checked_at": "2026-06-05T13:17:37+09:00",
+        "last_success_at": "2026-06-05T13:17:37+09:00",
+        "last_error_at": null,
+        "next_check_at": "2026-06-05T13:47:37+09:00",
+        "backoff_until": null,
+        "error_count": 0,
+        "skipped_reason": null,
+        "item_count": 35,
+        "error_type": null,
+        "error": null
+      },
+      {
+        "id": "pnu-dorm-busan-notices",
+        "name": "부산대 대학생활원 부산캠퍼스 공지사항",
+        "official_url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642",
+        "adapter": "websquare-js-board",
+        "category": "dormitory_notice",
+        "poll_interval_minutes": 30,
+        "public_only": true,
+        "access_policy": "public_official_url_only",
+        "status": "ok",
+        "last_checked_at": "2026-06-05T13:17:37+09:00",
+        "last_success_at": "2026-06-05T13:17:37+09:00",
+        "last_error_at": null,
+        "next_check_at": "2026-06-05T13:47:37+09:00",
+        "backoff_until": null,
+        "error_count": 0,
+        "skipped_reason": null,
+        "item_count": 40,
+        "error_type": null,
+        "error": null
+      },
+      {
+        "id": "pnu-dorm-yangsan-notices",
+        "name": "부산대 대학생활원 양산캠퍼스 공지사항",
+        "official_url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602",
+        "adapter": "websquare-js-board",
+        "category": "dormitory_notice",
+        "poll_interval_minutes": 30,
+        "public_only": true,
+        "access_policy": "public_official_url_only",
+        "status": "ok",
+        "last_checked_at": "2026-06-05T13:17:37+09:00",
+        "last_success_at": "2026-06-05T13:17:37+09:00",
+        "last_error_at": null,
+        "next_check_at": "2026-06-05T13:47:37+09:00",
+        "backoff_until": null,
+        "error_count": 0,
+        "skipped_reason": null,
+        "item_count": 40,
+        "error_type": null,
+        "error": null
+      },
+      {
+        "id": "pnu-dorm-miryang-notices",
+        "name": "부산대 대학생활원 밀양캠퍼스 공지사항",
+        "official_url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634",
+        "adapter": "websquare-js-board",
+        "category": "dormitory_notice",
+        "poll_interval_minutes": 30,
+        "public_only": true,
+        "access_policy": "public_official_url_only",
+        "status": "ok",
+        "last_checked_at": "2026-06-05T13:17:37+09:00",
+        "last_success_at": "2026-06-05T13:17:37+09:00",
+        "last_error_at": null,
+        "next_check_at": "2026-06-05T13:47:37+09:00",
+        "backoff_until": null,
+        "error_count": 0,
+        "skipped_reason": null,
+        "item_count": 40,
+        "error_type": null,
+        "error": null
+      },
+      {
+        "id": "pnu-international-student-notices",
+        "name": "부산대 국제처 외국인학생 공지사항",
+        "official_url": "https://international.pusan.ac.kr/international/15224/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaW50ZXJuYXRpb25hbCUyRjIwODElMkZhcnRjbExpc3QuZG8lM0Y%3D",
+        "adapter": "k2web-board",
+        "category": "international_notice",
+        "poll_interval_minutes": 30,
+        "public_only": true,
+        "access_policy": "public_official_url_only",
+        "status": "ok",
+        "last_checked_at": "2026-06-05T13:17:37+09:00",
+        "last_success_at": "2026-06-05T13:17:37+09:00",
+        "last_error_at": null,
+        "next_check_at": "2026-06-05T13:47:37+09:00",
+        "backoff_until": null,
+        "error_count": 0,
+        "skipped_reason": null,
+        "item_count": 15,
+        "error_type": null,
+        "error": null
+      },
+      {
+        "id": "pnu-international-office-notices",
+        "name": "부산대 국제처 공지사항",
+        "official_url": "https://international.pusan.ac.kr/international/15225/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaW50ZXJuYXRpb25hbCUyRjIwODAlMkZhcnRjbExpc3QuZG8lM0Y%3D",
+        "adapter": "k2web-board",
+        "category": "international_notice",
+        "poll_interval_minutes": 30,
+        "public_only": true,
+        "access_policy": "public_official_url_only",
+        "status": "ok",
+        "last_checked_at": "2026-06-05T13:17:37+09:00",
+        "last_success_at": "2026-06-05T13:17:37+09:00",
+        "last_error_at": null,
+        "next_check_at": "2026-06-05T13:47:37+09:00",
+        "backoff_until": null,
+        "error_count": 0,
+        "skipped_reason": null,
+        "item_count": 10,
+        "error_type": null,
+        "error": null
+      },
+      {
+        "id": "pnu-job-notices",
+        "name": "부산대 취업전략과 공지사항",
+        "official_url": "https://job.pusan.ac.kr/ko/notice",
+        "adapter": "job-notice-html-board",
+        "category": "career_notice",
+        "poll_interval_minutes": 30,
+        "public_only": true,
+        "access_policy": "public_official_url_only",
+        "status": "ok",
+        "last_checked_at": "2026-06-05T13:17:37+09:00",
+        "last_success_at": "2026-06-05T13:17:37+09:00",
+        "last_error_at": null,
+        "next_check_at": "2026-06-05T13:47:37+09:00",
+        "backoff_until": null,
+        "error_count": 0,
+        "skipped_reason": null,
+        "item_count": 20,
+        "error_type": null,
+        "error": null
+      },
+      {
+        "id": "pnu-job-recruit-general",
+        "name": "부산대 취업전략과 일반채용",
+        "official_url": "https://job.pusan.ac.kr/ko/recruit/board",
+        "adapter": "job-recruit-html-board",
+        "category": "recruitment_notice",
+        "poll_interval_minutes": 30,
+        "public_only": true,
+        "access_policy": "public_official_url_only",
+        "status": "ok",
+        "last_checked_at": "2026-06-05T13:17:37+09:00",
+        "last_success_at": "2026-06-05T13:17:37+09:00",
+        "last_error_at": null,
+        "next_check_at": "2026-06-05T13:47:37+09:00",
+        "backoff_until": null,
+        "error_count": 0,
+        "skipped_reason": null,
+        "item_count": 10,
+        "error_type": null,
+        "error": null
+      },
+      {
+        "id": "pnu-job-recruit-recommendation",
+        "name": "부산대 취업전략과 추천채용",
+        "official_url": "https://job.pusan.ac.kr/ko/recruit/Recommendation_intro",
+        "adapter": "job-recruit-html-board",
+        "category": "recruitment_notice",
+        "poll_interval_minutes": 30,
+        "public_only": true,
+        "access_policy": "public_official_url_only",
+        "status": "ok",
+        "last_checked_at": "2026-06-05T13:17:37+09:00",
+        "last_success_at": "2026-06-05T13:17:37+09:00",
+        "last_error_at": null,
+        "next_check_at": "2026-06-05T13:47:37+09:00",
+        "backoff_until": null,
+        "error_count": 0,
+        "skipped_reason": null,
+        "item_count": 5,
+        "error_type": null,
+        "error": null
+      },
+      {
+        "id": "pnu-job-recruit-internship",
+        "name": "부산대 취업전략과 인턴십/교육연수생",
+        "official_url": "https://job.pusan.ac.kr/ko/recruit/Intern",
+        "adapter": "job-recruit-html-board",
+        "category": "recruitment_notice",
+        "poll_interval_minutes": 30,
+        "public_only": true,
+        "access_policy": "public_official_url_only",
+        "status": "ok",
+        "last_checked_at": "2026-06-05T13:17:37+09:00",
+        "last_success_at": "2026-06-05T13:17:37+09:00",
+        "last_error_at": null,
+        "next_check_at": "2026-06-05T13:47:37+09:00",
+        "backoff_until": null,
+        "error_count": 0,
+        "skipped_reason": null,
+        "item_count": 10,
+        "error_type": null,
+        "error": null
+      },
+      {
+        "id": "pnu-library-notices",
+        "name": "부산대 도서관 공지사항",
+        "official_url": "https://lib.pusan.ac.kr/guide/notice",
+        "adapter": "library-pyxis-board",
+        "category": "library_notice",
+        "poll_interval_minutes": 30,
+        "public_only": true,
+        "access_policy": "public_official_url_only",
+        "status": "ok",
+        "last_checked_at": "2026-06-05T13:17:37+09:00",
+        "last_success_at": "2026-06-05T13:17:37+09:00",
+        "last_error_at": null,
+        "next_check_at": "2026-06-05T13:47:37+09:00",
+        "backoff_until": null,
+        "error_count": 0,
+        "skipped_reason": null,
+        "item_count": 40,
+        "error_type": null,
+        "error": null
+      }
+    ]
+  },
+  "archives": {
+    "schema_version": "0.1",
+    "archive_version": "0.2",
+    "last_modified_at": "2026-06-05T13:17:37+09:00",
+    "timezone": "Asia/Seoul",
+    "archive_url_pattern": "./archive/{YYYY-MM}.json",
+    "month_count": 17,
+    "notice_count": 326,
+    "event_count": 326,
+    "latest_event_id": "2026-06-05T12:25:11+09:00|added|pnu-job-recruit-recommendation:117377|ec6710456f5c",
+    "months": [
+      {
+        "month": "2017-11",
+        "url": "./archive/2017-11.json",
+        "notice_count": 2,
+        "event_count": 0,
+        "size_bytes": 3471,
+        "sha256": "8a551ec40709c46b9fef9b9cef260ab9d7ec9e0f960e49b4d683a6cabe0ef4c4",
+        "last_modified_at": "2026-06-05T10:35:31+09:00",
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T10:35:31+09:00"
+      },
+      {
+        "month": "2020-04",
+        "url": "./archive/2020-04.json",
+        "notice_count": 1,
+        "event_count": 0,
+        "size_bytes": 1912,
+        "sha256": "7acdec9aae57dfe376ca8577c7097cbc3eee6b687b614882fc15bf67cf5f54b2",
+        "last_modified_at": "2026-06-05T10:35:31+09:00",
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T10:35:31+09:00"
+      },
+      {
+        "month": "2020-06",
+        "url": "./archive/2020-06.json",
+        "notice_count": 1,
+        "event_count": 0,
+        "size_bytes": 1746,
+        "sha256": "a77b00afdf28b6df1cfcf5fb7946c590e646d0aeab4d29abc4186fe142968307",
+        "last_modified_at": "2026-06-05T10:35:31+09:00",
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T10:35:31+09:00"
+      },
+      {
+        "month": "2022-11",
+        "url": "./archive/2022-11.json",
+        "notice_count": 1,
+        "event_count": 0,
+        "size_bytes": 1744,
+        "sha256": "3c44b5c874aca6758d97755012c4d710aa46e6ad7ebed7c60f3aa6a312c1be3e",
+        "last_modified_at": "2026-06-05T10:35:31+09:00",
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T10:35:31+09:00"
+      },
+      {
+        "month": "2023-10",
+        "url": "./archive/2023-10.json",
+        "notice_count": 1,
+        "event_count": 0,
+        "size_bytes": 1893,
+        "sha256": "1c1fcd7606392399455a9e9a180b23c037f399e45ce5e2b631cdaac1f8ef0994",
+        "last_modified_at": "2026-06-05T10:35:31+09:00",
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T10:35:31+09:00"
+      },
+      {
+        "month": "2025-05",
+        "url": "./archive/2025-05.json",
+        "notice_count": 1,
+        "event_count": 0,
+        "size_bytes": 1910,
+        "sha256": "f4a7b362e298dab7b63bbb377b36553edf95d4e23f03112fbebeea784e10cd3c",
+        "last_modified_at": "2026-06-05T10:35:31+09:00",
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T10:35:31+09:00"
+      },
+      {
+        "month": "2025-08",
+        "url": "./archive/2025-08.json",
+        "notice_count": 2,
+        "event_count": 0,
+        "size_bytes": 5412,
+        "sha256": "069a6a6c522045c0db4995547b606c5a48d9ce6adbc936fef3ccfc2d1793e02f",
+        "last_modified_at": "2026-06-05T10:35:31+09:00",
+        "first_seen_at": "2026-06-04T22:23:14+09:00",
+        "last_seen_at": "2026-06-05T10:35:31+09:00"
+      },
+      {
+        "month": "2025-09",
+        "url": "./archive/2025-09.json",
+        "notice_count": 1,
+        "event_count": 0,
+        "size_bytes": 6506,
+        "sha256": "3facb8bbec0a3661c4c740a5dda50389984be492e564c13822a6ccb9e912207f",
+        "last_modified_at": "2026-06-04T22:23:14+09:00",
+        "first_seen_at": "2026-06-04T22:23:14+09:00",
+        "last_seen_at": "2026-06-04T22:23:14+09:00"
+      },
+      {
+        "month": "2025-10",
+        "url": "./archive/2025-10.json",
+        "notice_count": 2,
+        "event_count": 0,
+        "size_bytes": 11667,
+        "sha256": "5a77f54259ed83cc7b3260e420dc8fbf2ef74d1ee546329cc7f5f6f498f406c1",
+        "last_modified_at": "2026-06-04T22:23:14+09:00",
+        "first_seen_at": "2026-06-04T22:23:14+09:00",
+        "last_seen_at": "2026-06-04T22:23:14+09:00"
+      },
+      {
+        "month": "2025-11",
+        "url": "./archive/2025-11.json",
+        "notice_count": 4,
+        "event_count": 0,
+        "size_bytes": 16354,
+        "sha256": "2b077d2b72460f14a1ac0aa64a82aff0474bb16ac1268ef3ca5990a3889d0004",
+        "last_modified_at": "2026-06-05T10:35:31+09:00",
+        "first_seen_at": "2026-06-04T22:23:14+09:00",
+        "last_seen_at": "2026-06-05T10:35:31+09:00"
+      },
+      {
+        "month": "2025-12",
+        "url": "./archive/2025-12.json",
+        "notice_count": 5,
+        "event_count": 0,
+        "size_bytes": 13586,
+        "sha256": "3d6da026ff96839bc6a1c97baf50128ecb2b3c3a4a05bdee0288dc9e630a6eb0",
+        "last_modified_at": "2026-06-05T11:07:25+09:00",
+        "first_seen_at": "2026-06-04T22:23:14+09:00",
+        "last_seen_at": "2026-06-05T11:07:25+09:00"
+      },
+      {
+        "month": "2026-01",
+        "url": "./archive/2026-01.json",
+        "notice_count": 7,
+        "event_count": 0,
+        "size_bytes": 25081,
+        "sha256": "ae2436eec0bef1c8fa2c55113d2cfb03e561ed108eeb40c733bb0a3b790bca8c",
+        "last_modified_at": "2026-06-05T11:07:25+09:00",
+        "first_seen_at": "2026-06-04T22:23:14+09:00",
+        "last_seen_at": "2026-06-05T11:07:25+09:00"
+      },
+      {
+        "month": "2026-02",
+        "url": "./archive/2026-02.json",
+        "notice_count": 24,
+        "event_count": 0,
+        "size_bytes": 72633,
+        "sha256": "87c8e2583bf1e0491995ab435fa0bbdd2b9b82a48d47b18b604a979bf1e7b271",
+        "last_modified_at": "2026-06-05T11:07:25+09:00",
+        "first_seen_at": "2026-06-04T22:23:14+09:00",
+        "last_seen_at": "2026-06-05T11:07:25+09:00"
+      },
+      {
+        "month": "2026-03",
+        "url": "./archive/2026-03.json",
+        "notice_count": 42,
+        "event_count": 0,
+        "size_bytes": 111878,
+        "sha256": "51f36901f9d2239dd37a8774ad219e4c396b2c4bec572f1dafaed365ce012fea",
+        "last_modified_at": "2026-06-05T11:07:25+09:00",
+        "first_seen_at": "2026-06-04T22:23:14+09:00",
+        "last_seen_at": "2026-06-05T11:07:25+09:00"
+      },
+      {
+        "month": "2026-04",
+        "url": "./archive/2026-04.json",
+        "notice_count": 67,
+        "event_count": 0,
+        "size_bytes": 186588,
+        "sha256": "029a400709bb7ac833fd6c9bdff15d7dd15b3d2bc140b2979110e2e44dae770f",
+        "last_modified_at": "2026-06-05T11:07:25+09:00",
+        "first_seen_at": "2026-06-04T22:23:14+09:00",
+        "last_seen_at": "2026-06-05T11:07:25+09:00"
+      },
+      {
+        "month": "2026-05",
+        "url": "./archive/2026-05.json",
+        "notice_count": 82,
+        "event_count": 0,
+        "size_bytes": 206837,
+        "sha256": "906ed05b6f861a373378aae11f0c0185978bdb5b931c339713c6d4aed34374ed",
+        "last_modified_at": "2026-06-05T11:07:25+09:00",
+        "first_seen_at": "2026-06-04T20:09:36+09:00",
+        "last_seen_at": "2026-06-05T11:07:25+09:00"
+      },
+      {
+        "month": "2026-06",
+        "url": "./archive/2026-06.json",
+        "notice_count": 83,
+        "event_count": 326,
+        "size_bytes": 1215952,
+        "sha256": "efabbebcfd41937f1806fdb07bb3f8d4a2eb97b7a0d815a5ea1cd3c24ef16f46",
+        "last_modified_at": "2026-06-05T12:25:11+09:00",
+        "first_seen_at": "2026-06-04T20:09:36+09:00",
+        "last_seen_at": "2026-06-05T12:25:11+09:00"
+      }
+    ],
+    "sources": [
+      {
+        "id": "pnu-dorm-busan-notices",
+        "notice_count": 40,
+        "event_count": 40,
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T11:07:25+09:00"
+      },
+      {
+        "id": "pnu-dorm-miryang-notices",
+        "notice_count": 40,
+        "event_count": 40,
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T11:07:25+09:00"
+      },
+      {
+        "id": "pnu-dorm-yangsan-notices",
+        "notice_count": 40,
+        "event_count": 40,
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T11:07:25+09:00"
+      },
+      {
+        "id": "pnu-international-office-notices",
+        "notice_count": 10,
+        "event_count": 10,
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T10:35:31+09:00"
+      },
+      {
+        "id": "pnu-international-student-notices",
+        "notice_count": 15,
+        "event_count": 15,
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T10:35:31+09:00"
+      },
+      {
+        "id": "pnu-job-notices",
+        "notice_count": 20,
+        "event_count": 20,
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T10:35:31+09:00"
+      },
+      {
+        "id": "pnu-job-recruit-general",
+        "notice_count": 10,
+        "event_count": 10,
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T10:35:31+09:00"
+      },
+      {
+        "id": "pnu-job-recruit-internship",
+        "notice_count": 10,
+        "event_count": 10,
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T10:35:31+09:00"
+      },
+      {
+        "id": "pnu-job-recruit-recommendation",
+        "notice_count": 5,
+        "event_count": 5,
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T12:25:11+09:00"
+      },
+      {
+        "id": "pnu-library-notices",
+        "notice_count": 40,
+        "event_count": 40,
+        "first_seen_at": "2026-06-05T10:35:31+09:00",
+        "last_seen_at": "2026-06-05T11:07:25+09:00"
+      },
+      {
+        "id": "pnu-main-notice",
+        "notice_count": 25,
+        "event_count": 25,
+        "first_seen_at": "2026-06-04T20:09:36+09:00",
+        "last_seen_at": "2026-06-05T11:47:44+09:00"
+      },
+      {
+        "id": "pnu-onestop-notices",
+        "notice_count": 36,
+        "event_count": 36,
+        "first_seen_at": "2026-06-04T22:23:14+09:00",
+        "last_seen_at": "2026-06-05T01:02:29+09:00"
+      },
+      {
+        "id": "pnu-onestop-scholarship",
+        "notice_count": 35,
+        "event_count": 35,
+        "first_seen_at": "2026-06-04T22:23:14+09:00",
+        "last_seen_at": "2026-06-04T22:23:14+09:00"
+      }
+    ]
+  },
+  "dedupe_policy": {
+    "scope": "metadata_only_high_confidence",
+    "raw_items_preserved": true,
+    "full_body_fetched_for_dedupe": false,
+    "false_positive_policy": "avoid_suppressing_distinct_notices"
+  },
+  "same_notice_groups": [
+    {
+      "id": "same_notice:270a4bd5c729bb7f",
+      "relationship": "same_notice",
+      "confidence": "high",
+      "consumer_action": "dedupe_notifications",
+      "canonical_item_id": "pnu-onestop-notices:2037",
+      "item_ids": [
+        "pnu-onestop-notices:2037",
+        "pnu-onestop-scholarship:672"
+      ],
+      "source_ids": [
+        "pnu-onestop-notices",
+        "pnu-onestop-scholarship"
+      ],
+      "published_dates": [
+        "2026-04-13"
+      ],
+      "representative_title": "2026년 대통령과학장학금 학생 신청 안내(학부)",
+      "evidence": [
+        "cross_source",
+        "same_normalized_title",
+        "same_published_date",
+        "shared_attachment_names"
+      ]
+    },
+    {
+      "id": "same_notice:062d3883b7af12fc",
+      "relationship": "same_notice",
+      "confidence": "high",
+      "consumer_action": "dedupe_notifications",
+      "canonical_item_id": "pnu-main-notice:1508999",
+      "item_ids": [
+        "pnu-main-notice:1508999",
+        "pnu-onestop-scholarship:678"
+      ],
+      "source_ids": [
+        "pnu-main-notice",
+        "pnu-onestop-scholarship"
+      ],
+      "published_dates": [
+        "2026-05-20"
+      ],
+      "representative_title": "2026년 2학기 국가장학금 1차 신청 기간 안내",
+      "evidence": [
+        "cross_source",
+        "same_normalized_title",
+        "same_published_date",
+        "shared_attachment_names"
+      ]
+    },
+    {
+      "id": "same_notice:87dadcf6901a2ac0",
+      "relationship": "same_notice",
+      "confidence": "high",
+      "consumer_action": "dedupe_notifications",
+      "canonical_item_id": "pnu-main-notice:1509022",
+      "item_ids": [
+        "pnu-main-notice:1509022",
+        "pnu-onestop-notices:2072"
+      ],
+      "source_ids": [
+        "pnu-main-notice",
+        "pnu-onestop-notices"
+      ],
+      "published_dates": [
+        "2026-05-21"
+      ],
+      "representative_title": "[AX·정보화혁신본부] 「AI 창작 챌린지 공모전」 개최 안내",
+      "evidence": [
+        "cross_source",
+        "same_normalized_title",
+        "same_published_date",
+        "shared_attachment_names"
+      ]
+    },
+    {
+      "id": "same_notice:b6a9e9d98e10df58",
+      "relationship": "same_notice",
+      "confidence": "high",
+      "consumer_action": "dedupe_notifications",
+      "canonical_item_id": "pnu-main-notice:1509229",
+      "item_ids": [
+        "pnu-main-notice:1509229",
+        "pnu-onestop-notices:2077"
+      ],
+      "source_ids": [
+        "pnu-main-notice",
+        "pnu-onestop-notices"
+      ],
+      "published_dates": [
+        "2026-06-02"
+      ],
+      "representative_title": "2026학년도 여름계절 및 도약수업 2차(최종) 폐강강좌 통보 및 수강정정 안내",
+      "evidence": [
+        "cross_source",
+        "same_normalized_title",
+        "same_published_date",
+        "shared_attachment_names"
+      ]
+    },
+    {
+      "id": "same_notice:4168c261c6b27c33",
+      "relationship": "same_notice",
+      "confidence": "high",
+      "consumer_action": "dedupe_notifications",
+      "canonical_item_id": "pnu-main-notice:1509210",
+      "item_ids": [
+        "pnu-main-notice:1509210",
+        "pnu-onestop-notices:2076"
+      ],
+      "source_ids": [
+        "pnu-main-notice",
+        "pnu-onestop-notices"
+      ],
+      "published_dates": [
+        "2026-06-02"
+      ],
+      "representative_title": "학생 마음건강 전수조사 참여 요청",
+      "evidence": [
+        "cross_source",
+        "same_normalized_title",
+        "same_published_date",
+        "shared_attachment_names"
+      ]
+    },
+    {
+      "id": "same_notice:ae5d120cda0a2bf0",
+      "relationship": "same_notice",
+      "confidence": "high",
+      "consumer_action": "dedupe_notifications",
+      "canonical_item_id": "pnu-main-notice:1509245",
+      "item_ids": [
+        "pnu-main-notice:1509245",
+        "pnu-onestop-scholarship:681"
+      ],
+      "source_ids": [
+        "pnu-main-notice",
+        "pnu-onestop-scholarship"
+      ],
+      "published_dates": [
+        "2026-06-04"
+      ],
+      "representative_title": "2026학년도 1학기 경제사정곤란 대학생 장학금 신청 및 국가장학금Ⅱ유형 지급 기준 안내",
+      "evidence": [
+        "cross_source",
+        "same_normalized_title",
+        "same_published_date",
+        "shared_attachment_names"
+      ]
+    },
+    {
+      "id": "same_notice:2254e25379b7b34c",
+      "relationship": "same_notice",
+      "confidence": "high",
+      "consumer_action": "dedupe_notifications",
+      "canonical_item_id": "pnu-main-notice:1509284",
+      "item_ids": [
+        "pnu-main-notice:1509284",
+        "pnu-onestop-notices:2079"
+      ],
+      "source_ids": [
+        "pnu-main-notice",
+        "pnu-onestop-notices"
+      ],
+      "published_dates": [
+        "2026-06-04"
+      ],
+      "representative_title": "[장학]한국농어촌희망재단 2026학년도 2학기 청년창업농장학금 선발 안내",
+      "evidence": [
+        "cross_source",
+        "same_normalized_title",
+        "same_published_date",
+        "shared_attachment_names"
+      ]
+    }
+  ],
+  "same_notice_group_count": 7,
+  "diagnostics": {
+    "latest_run_diff": {
+      "schema_version": "0.1",
+      "feed_version": "2026-06-04",
+      "run_diff_scope": "latest_generator_run",
+      "durable_history": false,
+      "removed_semantics": "missing_from_current_generator_state_not_official_deletion",
+      "generated_at": "2026-06-05T13:17:37+09:00",
+      "previous_generated_at": "2026-06-05T12:38:50+09:00",
+      "added_count": 0,
+      "updated_count": 0,
+      "removed_count": 0,
+      "added": [],
+      "updated": [],
+      "removed": []
+    }
+  }
+}

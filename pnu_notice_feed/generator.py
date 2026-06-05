@@ -55,27 +55,27 @@ This project is not operated by Pusan National University.
 
 ## Endpoints
 
-- [JSON Feed](./feed.json): latest normalized public notice metadata, currently limited to the latest 150 items globally.
+- [Index](./index.json): compact manifest with sources, source status, archive manifest, same-notice groups, and latest run diagnostics.
+- [Events](./events.json): primary recent event stream for cursor-based agent checks.
+- [Latest](./latest.json): JSON Feed 1.1 compatible latest-discovery public notice metadata, currently limited to the latest 150 items globally.
 - [RSS](./rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
-- [Status](./status.json): source refresh status and failures.
-- [Events](./events.json): recent durable notice events for cursor-based agent checks.
-- [Run diff](./run-diff.json): latest generator-run added, updated, and removed item summaries.
-- [Duplicates](./duplicates.json): high-confidence same-notice groups for notification dedupe.
-- [Sources](./sources.json): official public source registry.
-- [Archive index](./archive/index.json): monthly archive manifest.
+- [Archive](./archive/YYYY-MM.json): monthly durable archive with notice metadata and observed events.
 - [OpenAPI manifest](./openapi.json): static endpoint manifest.
 
 ## Machine-readable contracts
 
-- [Feed schema](./schema/feed.schema.json)
-- [Status schema](./schema/status.schema.json)
+- [Index schema](./schema/index.schema.json)
 - [Events schema](./schema/events.schema.json)
-- [Run diff schema](./schema/run-diff.schema.json)
-- [Duplicates schema](./schema/duplicates.schema.json)
-- [Sources schema](./schema/sources.schema.json)
-- [Archive index schema](./schema/archive-index.schema.json)
-- [Archive notices schema](./schema/archive-notices.schema.json)
-- [Archive events schema](./schema/archive-events.schema.json)
+- [Latest schema](./schema/latest.schema.json)
+- [Archive month schema](./schema/archive-month.schema.json)
+
+## Endpoint roles for agents
+
+- Primary cursor endpoint: `events.json`.
+- Metadata/source/status/dedupe manifest: `index.json`.
+- Durable catch-up endpoint: `archive/YYYY-MM.json`.
+- Latest discovery endpoint: `latest.json`.
+- Compatibility endpoint: `rss.xml`.
 
 ## Usage rules for agents
 
@@ -85,16 +85,16 @@ This project is not operated by Pusan National University.
 - Fetch full notice text from `item._pnu.content_access.detail_url` or `item.url`.
 - Fetch attachments from `item._pnu.attachments[].download_url`.
 - Treat `content_mirrored: false` and `attachments_mirrored: false` as a hard boundary.
-- Check `status.json` before relying on source freshness.
-- Use `events.json` for cursor-based checks since the last agent run.
+- Check `index.json.status` before relying on source freshness.
+- Use `events.json` as the primary cursor-based notice stream.
 - Store a local `latest_event_id` or `seen_at` cursor and process newer events.
-- Use monthly archive event files if the local cursor is older than the `events.json` window.
-- Use `run-diff.json` only as the latest generator-run diff.
-- Check `duplicates.json` before sending notifications for multiple matching items.
-- Use `feed.json` as a latest discovery feed, not a complete archive.
-- Use `archive/index.json` and monthly archive files for catch-up after downtime.
+- Use each event `item` snapshot for notice metadata; use `archive_file` and `archive_item_id` when catching up from monthly archive files.
+- Check `index.json.same_notice_groups` before sending notifications for multiple matching items from different sources.
+- Use `latest.json` only as a latest discovery feed, not as the primary cursor endpoint or a complete archive.
+- Use `index.json.diagnostics.latest_run_diff` only as a latest generator-run diagnostic, not as durable history.
+- Use `index.json.archives` and monthly archive files for catch-up after downtime.
 - Use `rss.xml` only as a compatibility feed; prefer JSON endpoints for structured agent workflows.
-- Use `_pnu` fields in `feed.json` for source, attachment, fetched_at, and content_hash metadata.
+- Use `_pnu` fields in event `item` snapshots or `latest.json` for source, attachment, fetched_at, and content_hash metadata.
 """
 INDEX_HTML = """<!doctype html>
 <html lang="en">
@@ -102,7 +102,7 @@ INDEX_HTML = """<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PNU Public Notice Feed</title>
-  <link rel="alternate" type="application/feed+json" title="PNU Public Notice Feed" href="./feed.json">
+  <link rel="alternate" type="application/feed+json" title="PNU Public Notice Feed" href="./latest.json">
   <link rel="alternate" type="application/rss+xml" title="PNU Public Notice Feed RSS" href="./rss.xml">
   <style>
     body {
@@ -147,21 +147,18 @@ INDEX_HTML = """<!doctype html>
 
     <h2>Endpoints</h2>
     <ul>
-      <li><a href="./feed.json">feed.json</a> - JSON Feed 1.1 compatible notice metadata</li>
+      <li><a href="./index.json">index.json</a> - compact manifest with sources, status, archive, same-notice groups, and diagnostics</li>
+      <li><a href="./events.json">events.json</a> - primary recent event stream for cursor-based checks</li>
+      <li><a href="./latest.json">latest.json</a> - JSON Feed 1.1 compatible latest-discovery notice metadata</li>
       <li><a href="./rss.xml">rss.xml</a> - RSS 2.0 compatibility feed</li>
-      <li><a href="./status.json">status.json</a> - source refresh status</li>
-      <li><a href="./events.json">events.json</a> - recent durable notice events for cursor-based checks</li>
-      <li><a href="./run-diff.json">run-diff.json</a> - latest generator-run added, updated, and removed item summary</li>
-      <li><a href="./duplicates.json">duplicates.json</a> - high-confidence same-notice groups for deduplicating notifications</li>
-      <li><a href="./sources.json">sources.json</a> - public source registry</li>
-      <li><a href="./archive/index.json">archive/index.json</a> - monthly archive manifest</li>
+      <li><a href="./archive/2026-06.json">archive/YYYY-MM.json</a> - monthly durable archive files</li>
       <li><a href="./openapi.json">openapi.json</a> - static endpoint manifest</li>
       <li><a href="./llms.txt">llms.txt</a> - AI agent usage guide</li>
     </ul>
 
     <h2>Agent Notes</h2>
-    <p>Use <code>summary</code> and <code>_pnu.snippet</code> as short previews only. Fetch full notice text from <code>item.url</code> or <code>item._pnu.content_access.detail_url</code>.</p>
-    <p>Use <code>events.json</code> for cursor-based checks since the last agent run. Use <code>run-diff.json</code> only as the latest generator-run diff. Check <code>duplicates.json</code> before sending notifications for multiple matching items. Use <code>archive/index.json</code> for historical metadata catch-up. Use <code>rss.xml</code> as a compatibility feed; prefer JSON endpoints for structured agent workflows.</p>
+    <p>Use <code>events.json</code> as the primary cursor stream. Each event includes an <code>item</code> metadata snapshot, plus <code>archive_file</code> and <code>archive_item_id</code> for durable catch-up.</p>
+    <p>Check <code>index.json.same_notice_groups</code> before sending notifications for multiple matching items from different sources. Use <code>latest.json</code> for latest discovery and <code>rss.xml</code> for compatibility.</p>
   </main>
 </body>
 </html>
@@ -244,7 +241,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--output-dir",
         default="public",
-        help="Directory where feed.json and status.json will be written.",
+        help="Directory where public feed outputs will be written.",
     )
     parser.add_argument(
         "--state",
@@ -261,7 +258,7 @@ def main(argv: list[str] | None = None) -> int:
         "--feed-item-limit",
         type=int,
         default=DEFAULT_FEED_ITEM_LIMIT,
-        help="Maximum latest notices to publish in feed.json.",
+        help="Maximum latest notices to publish in latest.json.",
     )
     parser.add_argument(
         "--pretty",
@@ -297,12 +294,13 @@ def main(argv: list[str] | None = None) -> int:
             return 0
         write_outputs(
             output_dir=output_dir,
-            feed=generated["feed"],
+            latest=generated["latest"],
             rss=generated["rss"],
             status=generated["status"],
             run_diff=generated["run_diff"],
             duplicates=generated["duplicates"],
             state=generated["state"],
+            public_base_url=args.public_base_url,
             pretty=args.pretty,
         )
         write_state(
@@ -333,7 +331,7 @@ def generate_outputs(
         for source in sources
     ]
     all_items = collect_result_items(results)
-    feed = build_feed(
+    latest = build_latest(
         results,
         generated_at,
         public_base_url,
@@ -344,8 +342,8 @@ def generate_outputs(
     run_diff = build_run_diff(state, updated_state)
     duplicates = build_duplicates(all_items, generated_at, FEED_VERSION)
     return {
-        "feed": feed,
-        "rss": build_rss(feed),
+        "latest": latest,
+        "rss": build_rss(latest),
         "status": status,
         "run_diff": run_diff,
         "duplicates": duplicates,
@@ -465,7 +463,7 @@ def fetch_source_result(
                 source.poll_interval_minutes,
             ),
         )
-    except Exception as error:  # noqa: BLE001 - source failures belong in status.json.
+    except Exception as error:  # noqa: BLE001 - source failures belong in index status.
         cached_items = list(cached_items_by_id(source_state).values())
         error_count = int(source_state.get("error_count") or 0) + 1
         backoff_until = backoff_until_for_error(
@@ -578,7 +576,7 @@ def build_state(results: list[SourceResult], generated_at: str) -> dict:
     }
 
 
-def build_feed(
+def build_latest(
     results: list[SourceResult],
     generated_at: str,
     public_base_url: str = DEFAULT_PUBLIC_BASE_URL,
@@ -598,19 +596,16 @@ def build_feed(
         "version": JSON_FEED_VERSION,
         "title": "PNU Public Notice Feed",
         "home_page_url": base_url,
-        "feed_url": f"{base_url}/feed.json",
+        "feed_url": f"{base_url}/latest.json",
         "description": DISCLAIMER,
         "_pnu": {
             "schema_version": SCHEMA_VERSION,
             "feed_version": FEED_VERSION,
             "generated_at": generated_at,
-            "status_url": f"{base_url}/status.json",
+            "index_url": f"{base_url}/index.json",
             "events_url": f"{base_url}/events.json",
-            "run_diff_url": f"{base_url}/run-diff.json",
-            "duplicates_url": f"{base_url}/duplicates.json",
-            "archive_index_url": f"{base_url}/archive/index.json",
-            "sources_url": f"{base_url}/sources.json",
-            "schema_url": f"{base_url}/schema/feed.schema.json",
+            "rss_url": f"{base_url}/rss.xml",
+            "schema_url": f"{base_url}/schema/latest.schema.json",
             "source_count": len(results),
             "item_count": len(limited_items),
             "total_item_count": len(sorted_items),
@@ -821,6 +816,73 @@ def source_to_status_json(result: SourceResult) -> dict:
     }
 
 
+def build_public_index(
+    latest: dict,
+    status: dict,
+    run_diff: dict,
+    duplicates: dict,
+    archives: dict,
+    events: dict,
+    public_base_url: str = DEFAULT_PUBLIC_BASE_URL,
+) -> dict:
+    base_url = public_base_url.rstrip("/")
+    latest_pnu = latest.get("_pnu", {})
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "feed_version": FEED_VERSION,
+        "generated_at": latest_pnu.get("generated_at"),
+        "title": "PNU Public Notice Feed",
+        "description": DISCLAIMER,
+        "home_page_url": base_url,
+        "endpoints": {
+            "index": f"{base_url}/index.json",
+            "events": f"{base_url}/events.json",
+            "latest": f"{base_url}/latest.json",
+            "rss": f"{base_url}/rss.xml",
+            "openapi": f"{base_url}/openapi.json",
+            "llms": f"{base_url}/llms.txt",
+            "archive_url_pattern": f"{base_url}/archive/{{YYYY-MM}}.json",
+        },
+        "data_boundary": {
+            "metadata_relay": True,
+            "content_mirrored": False,
+            "attachments_mirrored": False,
+            "requires_login": False,
+            "official_service": False,
+        },
+        "event_stream": {
+            "url": "./events.json",
+            "event_count": events.get("event_count"),
+            "total_event_count": events.get("total_event_count"),
+            "event_limit": events.get("event_limit"),
+            "latest_event_id": events.get("latest_event_id"),
+            "oldest_event_id": events.get("oldest_event_id"),
+            "oldest_seen_at": events.get("oldest_seen_at"),
+            "latest_seen_at": events.get("latest_seen_at"),
+            "is_truncated": events.get("is_truncated"),
+        },
+        "latest": {
+            "url": "./latest.json",
+            "item_count": latest_pnu.get("item_count"),
+            "total_item_count": latest_pnu.get("total_item_count"),
+            "item_limit": latest_pnu.get("item_limit"),
+        },
+        "status": {
+            "overall_status": status.get("overall_status"),
+            "source_count": status.get("source_count"),
+            "failed_source_count": status.get("failed_source_count"),
+            "sources": status.get("sources", []),
+        },
+        "archives": archives,
+        "dedupe_policy": duplicates.get("policy", {}),
+        "same_notice_groups": duplicates.get("groups", []),
+        "same_notice_group_count": duplicates.get("group_count", 0),
+        "diagnostics": {
+            "latest_run_diff": run_diff,
+        },
+    }
+
+
 def attachment_to_feed_json(attachment) -> dict:
     extension = attachment.type or file_extension_from_name(attachment.name)
     return {
@@ -835,21 +897,37 @@ def attachment_to_feed_json(attachment) -> dict:
 
 def write_outputs(
     output_dir: Path,
-    feed: dict,
+    latest: dict,
     rss: str,
     status: dict,
     run_diff: dict,
     duplicates: dict,
     state: dict,
+    public_base_url: str,
     pretty: bool,
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
-    write_json(output_dir / "feed.json", feed, pretty)
+    cleanup_legacy_public_outputs(output_dir)
+    write_json(output_dir / "latest.json", latest, pretty)
     write_text_if_changed(output_dir / "rss.xml", rss)
-    write_json(output_dir / "status.json", status, pretty)
-    write_json(output_dir / "run-diff.json", run_diff, pretty)
-    write_json(output_dir / "duplicates.json", duplicates, pretty)
-    write_archive_outputs(output_dir, archive_input_from_state(state), pretty)
+    archives, events = write_archive_outputs(
+        output_dir,
+        archive_input_from_state(state),
+        pretty,
+    )
+    write_json(
+        output_dir / "index.json",
+        build_public_index(
+            latest=latest,
+            status=status,
+            run_diff=run_diff,
+            duplicates=duplicates,
+            archives=archives,
+            events=events,
+            public_base_url=public_base_url,
+        ),
+        pretty,
+    )
 
 
 def sync_static_assets(
@@ -859,7 +937,6 @@ def sync_static_assets(
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     write_text_if_changed(output_dir / "index.html", INDEX_HTML)
-    copy_text_if_changed(sources_path, output_dir / "sources.json")
     copy_text_with_base_url(
         PROJECT_ROOT / "openapi.json",
         output_dir / "openapi.json",
@@ -869,6 +946,7 @@ def sync_static_assets(
 
     schema_output_dir = output_dir / "schema"
     schema_output_dir.mkdir(parents=True, exist_ok=True)
+    cleanup_stale_schema_outputs(schema_output_dir)
     for schema_path in sorted((PROJECT_ROOT / "schema").glob("*.schema.json")):
         copy_text_with_base_url(
             schema_path,
@@ -877,36 +955,74 @@ def sync_static_assets(
         )
 
 
+def cleanup_legacy_public_outputs(output_dir: Path) -> None:
+    for name in [
+        "feed.json",
+        "status.json",
+        "run-diff.json",
+        "duplicates.json",
+        "sources.json",
+    ]:
+        path = output_dir / name
+        if path.exists():
+            path.unlink()
+
+
+def cleanup_stale_schema_outputs(schema_output_dir: Path) -> None:
+    wanted = {
+        schema_path.name
+        for schema_path in (PROJECT_ROOT / "schema").glob("*.schema.json")
+    }
+    for schema_path in schema_output_dir.glob("*.schema.json"):
+        if schema_path.name not in wanted:
+            schema_path.unlink()
+
+
 def outputs_exist(output_dir: Path, state_path: Path) -> bool:
     return all(
         path.exists()
         for path in [
-            output_dir / "feed.json",
+            output_dir / "index.json",
+            output_dir / "latest.json",
             output_dir / "rss.xml",
-            output_dir / "status.json",
             output_dir / "events.json",
-            output_dir / "run-diff.json",
-            output_dir / "duplicates.json",
             state_path,
         ]
     )
 
 
 def outputs_match_public_base_url(output_dir: Path, public_base_url: str) -> bool:
-    feed = read_json_if_exists(output_dir / "feed.json")
-    if not feed:
+    latest = read_json_if_exists(output_dir / "latest.json")
+    index = read_json_if_exists(output_dir / "index.json")
+    if not latest or not index:
         return False
     base_url = public_base_url.rstrip("/")
-    return feed.get("feed_url") == f"{base_url}/feed.json"
+    return (
+        latest.get("feed_url") == f"{base_url}/latest.json"
+        and index.get("home_page_url") == base_url
+    )
 
 
 def outputs_match_current_format(output_dir: Path) -> bool:
-    feed = read_json_if_exists(output_dir / "feed.json")
-    if not feed:
+    latest = read_json_if_exists(output_dir / "latest.json")
+    index = read_json_if_exists(output_dir / "index.json")
+    if not latest or not index:
         return False
     if not (output_dir / "index.html").exists():
         return False
-    for item in feed.get("items", []):
+    if any(
+        (output_dir / path).exists()
+        for path in [
+            "feed.json",
+            "status.json",
+            "run-diff.json",
+            "duplicates.json",
+            "sources.json",
+            "archive/index.json",
+        ]
+    ):
+        return False
+    for item in latest.get("items", []):
         if item.get("content_text") != CONTENT_TEXT_NOTICE:
             return False
         if "summary" not in item:
