@@ -55,7 +55,7 @@ This project is not operated by Pusan National University.
 
 ## Endpoints
 
-- [JSON Feed](./feed.json): latest normalized public notice metadata.
+- [JSON Feed](./feed.json): latest normalized public notice metadata, currently limited to the latest 150 items globally.
 - [RSS](./rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
 - [Status](./status.json): source refresh status and failures.
 - [Changes](./changes.json): latest observed added, updated, and removed item summaries.
@@ -86,6 +86,7 @@ This project is not operated by Pusan National University.
 - Check `status.json` before relying on source freshness.
 - Check `changes.json` for lightweight new item detection before fetching the full feed.
 - Check `duplicates.json` before sending notifications for multiple matching items.
+- Use `feed.json` as a latest discovery feed, not a complete archive.
 - Use `archive/index.json` and monthly archive files for catch-up after downtime.
 - Use `rss.xml` only as a compatibility feed; prefer JSON endpoints for structured agent workflows.
 - Use `_pnu` fields in `feed.json` for source, attachment, fetched_at, and content_hash metadata.

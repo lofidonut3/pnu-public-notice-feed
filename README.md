@@ -18,7 +18,7 @@ https://lofidonut3.github.io/pnu-public-notice-feed/
 
 Available endpoints:
 
-- [`feed.json`](https://lofidonut3.github.io/pnu-public-notice-feed/feed.json): JSON Feed 1.1 compatible latest notice metadata
+- [`feed.json`](https://lofidonut3.github.io/pnu-public-notice-feed/feed.json): JSON Feed 1.1 compatible latest notice metadata, currently limited to the latest 150 items globally
 - [`rss.xml`](https://lofidonut3.github.io/pnu-public-notice-feed/rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools
 - [`status.json`](https://lofidonut3.github.io/pnu-public-notice-feed/status.json): source refresh status and source errors
 - [`changes.json`](https://lofidonut3.github.io/pnu-public-notice-feed/changes.json): latest observed added, updated, and removed item summary
@@ -44,6 +44,7 @@ Agents should treat `summary` and `_pnu.snippet` as previews only. Fetch full no
 - Source refresh status is published in `status.json`.
 - Latest observed item changes are summarized in `changes.json`.
 - High-confidence same-notice groups are published in `duplicates.json`; raw `feed.json` items are preserved.
+- `feed.json` is a latest discovery feed, not a complete archive. Use `archive/index.json` and monthly archive files for older notice metadata.
 - Source polling is rate-limited by `sources.json` and cached in `cache/feed-state.json`.
 - Failed sources use cached items when available and report errors in `status.json`.
 - Long-term notice metadata is retained in monthly `archive/` files.
