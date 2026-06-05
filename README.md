@@ -2,7 +2,7 @@
 
 Unofficial public metadata feed for public notices from Pusan National University.
 
-This repository generates and publishes a static JSON feed that normalizes public notice metadata from multiple official PNU notice sources. It is designed for AI agents, developers, and students who need a stable machine-readable index of public notices.
+This repository generates and publishes static JSON, RSS, status, change, and archive endpoints that normalize public notice metadata from multiple official PNU notice sources. It is designed for AI agents, developers, and students who need a stable machine-readable index of public notices.
 
 This project is not operated by Pusan National University.
 
@@ -16,23 +16,23 @@ https://lofidonut3.github.io/pnu-public-notice-feed/
 
 Available endpoints:
 
-- `feed.json`: JSON Feed 1.1 compatible notice metadata feed
-- `rss.xml`: RSS 2.0 compatibility feed for feed readers and automation tools
-- `status.json`: source refresh status and source errors
-- `changes.json`: latest observed added, updated, and removed item summary
-- `sources.json`: public source registry
-- `archive/index.json`: archive manifest
+- [`feed.json`](https://lofidonut3.github.io/pnu-public-notice-feed/feed.json): JSON Feed 1.1 compatible latest notice metadata
+- [`rss.xml`](https://lofidonut3.github.io/pnu-public-notice-feed/rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools
+- [`status.json`](https://lofidonut3.github.io/pnu-public-notice-feed/status.json): source refresh status and source errors
+- [`changes.json`](https://lofidonut3.github.io/pnu-public-notice-feed/changes.json): latest observed added, updated, and removed item summary
+- [`sources.json`](https://lofidonut3.github.io/pnu-public-notice-feed/sources.json): public source registry
+- [`archive/index.json`](https://lofidonut3.github.io/pnu-public-notice-feed/archive/index.json): archive manifest
 - `archive/notices/YYYY-MM.json`: monthly notice metadata archive
 - `archive/events/YYYY-MM.json`: monthly notice event log
-- `schema/*.schema.json`: JSON Schemas
-- `openapi.json`: static endpoint manifest
-- `llms.txt`: AI agent usage guide
+- [`schema/*.schema.json`](https://lofidonut3.github.io/pnu-public-notice-feed/schema/feed.schema.json): JSON Schemas
+- [`openapi.json`](https://lofidonut3.github.io/pnu-public-notice-feed/openapi.json): static endpoint manifest
+- [`llms.txt`](https://lofidonut3.github.io/pnu-public-notice-feed/llms.txt): AI agent usage guide
 
 ## Data Boundary
 
 This project is a metadata relay, not a content mirror.
 
-Each feed item includes a title, source, original notice URL, published date, short preview, and attachment metadata. Full notice text and attachment contents stay on the official PNU source pages.
+Each feed item includes a title, source, original notice URL, published date, short preview, content access metadata, and attachment metadata. Full notice text and attachment contents stay on the official PNU source pages.
 
 Agents should treat `summary` and `_pnu.snippet` as previews only. Fetch full notice text from `item.url` or `item._pnu.content_access.detail_url`, and fetch attachments from `item._pnu.attachments[].download_url`.
 
@@ -51,7 +51,7 @@ Agents should treat `summary` and `_pnu.snippet` as previews only. Fetch full no
 Requirements:
 
 - Python 3.12+
-- Node.js 20+
+- Node.js 24+
 
 Generate the feed:
 
@@ -78,6 +78,7 @@ The repository uses GitHub Actions:
 
 - `.github/workflows/test.yml` runs tests on push and pull request.
 - `.github/workflows/update-feed.yml` refreshes the feed on a schedule, commits generated output when it changes, and deploys `public/` to GitHub Pages.
+- Scheduled feed refresh runs every 30 minutes, subject to GitHub Actions scheduling delays.
 
 GitHub Pages should use GitHub Actions as its source.
 

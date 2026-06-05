@@ -69,6 +69,8 @@ This project is not operated by Pusan National University.
 - Treat `content_mirrored: false` and `attachments_mirrored: false` as a hard boundary.
 - Check `status.json` before relying on source freshness.
 - Check `changes.json` for lightweight new item detection before fetching the full feed.
+- Use `archive/index.json` and monthly archive files for catch-up after downtime.
+- Use `rss.xml` only as a compatibility feed; prefer JSON endpoints for structured agent workflows.
 - Use `_pnu` fields in `feed.json` for source, attachment, fetched_at, and content_hash metadata.
 """
 INDEX_HTML = """<!doctype html>
@@ -118,7 +120,7 @@ INDEX_HTML = """<!doctype html>
   <main>
     <h1>PNU Public Notice Feed</h1>
     <p class="notice">Unofficial public metadata feed for public notices from Pusan National University. This project is not operated by Pusan National University.</p>
-    <p>This site publishes a static, AI-friendly index of public notice metadata. It links back to official notice pages and attachment download URLs instead of mirroring full notice or attachment content.</p>
+    <p>This site publishes static, AI-friendly public notice metadata. It links back to official notice pages and attachment download URLs instead of mirroring full notice or attachment content.</p>
 
     <h2>Endpoints</h2>
     <ul>
@@ -134,6 +136,7 @@ INDEX_HTML = """<!doctype html>
 
     <h2>Agent Notes</h2>
     <p>Use <code>summary</code> and <code>_pnu.snippet</code> as short previews only. Fetch full notice text from <code>item.url</code> or <code>item._pnu.content_access.detail_url</code>.</p>
+    <p>Use <code>archive/index.json</code> for historical metadata catch-up. Use <code>rss.xml</code> as a compatibility feed; prefer JSON endpoints for structured agent workflows.</p>
   </main>
 </body>
 </html>

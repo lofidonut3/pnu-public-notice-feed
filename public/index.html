@@ -45,7 +45,7 @@
   <main>
     <h1>PNU Public Notice Feed</h1>
     <p class="notice">Unofficial public metadata feed for public notices from Pusan National University. This project is not operated by Pusan National University.</p>
-    <p>This site publishes a static, AI-friendly index of public notice metadata. It links back to official notice pages and attachment download URLs instead of mirroring full notice or attachment content.</p>
+    <p>This site publishes static, AI-friendly public notice metadata. It links back to official notice pages and attachment download URLs instead of mirroring full notice or attachment content.</p>
 
     <h2>Endpoints</h2>
     <ul>
@@ -61,6 +61,7 @@
 
     <h2>Agent Notes</h2>
     <p>Use <code>summary</code> and <code>_pnu.snippet</code> as short previews only. Fetch full notice text from <code>item.url</code> or <code>item._pnu.content_access.detail_url</code>.</p>
+    <p>Use <code>archive/index.json</code> for historical metadata catch-up. Use <code>rss.xml</code> as a compatibility feed; prefer JSON endpoints for structured agent workflows.</p>
   </main>
 </body>
 </html>

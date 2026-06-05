@@ -33,4 +33,6 @@ This project is not operated by Pusan National University.
 - Treat `content_mirrored: false` and `attachments_mirrored: false` as a hard boundary.
 - Check `status.json` before relying on source freshness.
 - Check `changes.json` for lightweight new item detection before fetching the full feed.
+- Use `archive/index.json` and monthly archive files for catch-up after downtime.
+- Use `rss.xml` only as a compatibility feed; prefer JSON endpoints for structured agent workflows.
 - Use `_pnu` fields in `feed.json` for source, attachment, fetched_at, and content_hash metadata.
