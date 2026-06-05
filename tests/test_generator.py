@@ -134,6 +134,40 @@ def test_build_feed_sorts_items_by_published_date_desc():
     assert feed["items"][0]["date_published"] == "2026-06-03T00:00:00+09:00"
 
 
+def test_build_feed_limits_public_items_without_source_quota():
+    source_a = _source("source-a")
+    source_b = _source("source-b")
+    checked_at = "2026-06-03T12:00:00+09:00"
+    result_a = _result(
+        source_a,
+        checked_at,
+        [
+            _notice(source_a, "1", "2026-06-01"),
+            _notice(source_a, "3", "2026-06-03"),
+        ],
+    )
+    result_b = _result(
+        source_b,
+        checked_at,
+        [_notice(source_b, "2", "2026-06-02")],
+    )
+
+    feed = build_feed(
+        [result_a, result_b],
+        checked_at,
+        "https://feeds.example.test",
+        item_limit=2,
+    )
+
+    assert feed["_pnu"]["item_count"] == 2
+    assert feed["_pnu"]["total_item_count"] == 3
+    assert feed["_pnu"]["item_limit"] == 2
+    assert [item["id"] for item in feed["items"]] == [
+        "source-a:3",
+        "source-b:2",
+    ]
+
+
 def test_build_rss_creates_rss_compatibility_feed():
     source = _source()
     result = _result(
@@ -393,6 +427,103 @@ def test_generate_outputs_includes_duplicate_groups(tmp_path, monkeypatch):
     assert generated["duplicates"]["groups"][0]["item_ids"] == [
         "pnu-main-notice:1",
         "pnu-onestop-notices:1",
+    ]
+
+
+def test_generate_outputs_keeps_changes_state_and_duplicates_full_when_feed_is_limited(
+    tmp_path,
+    monkeypatch,
+):
+    sources_path = tmp_path / "sources.json"
+    state_path = tmp_path / "feed-state.json"
+    sources_path.write_text(
+        """
+        {
+          "schema_version": "0.1",
+          "sources": [
+            {
+              "id": "pnu-main-notice",
+              "name": "부산대 대학공지",
+              "official_url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do",
+              "adapter": "pusan-cms-static-board",
+              "category": "notice",
+              "poll_interval_minutes": 30,
+              "public_only": true,
+              "tags": ["pnu", "official"]
+            },
+            {
+              "id": "pnu-onestop-notices",
+              "name": "부산대 학지시 공지",
+              "official_url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000386",
+              "adapter": "pusan-cms-static-board",
+              "category": "notice",
+              "poll_interval_minutes": 30,
+              "public_only": true,
+              "tags": ["pnu", "official"]
+            }
+          ]
+        }
+        """,
+        encoding="utf-8",
+    )
+
+    def fake_fetch_source(source, limit, cached_items=None, checked_at=None):
+        return [
+            Notice(
+                source_id=source.id,
+                source_name=source.name,
+                notice_id=f"{source.id}:old-duplicate",
+                title="공통 장학 공지",
+                url=f"https://example.test/{source.id}/old-duplicate",
+                published_at="2026-05-01",
+                snippet=None,
+                attachments=[],
+                tags=source.tags,
+                content_hash=f"{source.id}:old-duplicate",
+            ),
+            Notice(
+                source_id=source.id,
+                source_name=source.name,
+                notice_id=f"{source.id}:new",
+                title=f"{source.id} 최신 공지",
+                url=f"https://example.test/{source.id}/new",
+                published_at="2026-06-04",
+                snippet=None,
+                attachments=[],
+                tags=source.tags,
+                content_hash=f"{source.id}:new",
+            ),
+        ]
+
+    monkeypatch.setattr(generator, "fetch_source", fake_fetch_source)
+
+    generated = generate_outputs(
+        sources_path=sources_path,
+        state_path=state_path,
+        limit=20,
+        public_base_url="https://feeds.example.test",
+        now=datetime(2026, 6, 5, 12, 0, tzinfo=ZoneInfo("Asia/Seoul")),
+        feed_item_limit=2,
+    )
+
+    assert generated["feed"]["_pnu"]["item_count"] == 2
+    assert generated["feed"]["_pnu"]["total_item_count"] == 4
+    assert sorted(generated["changes"]["added"][index]["id"] for index in range(4)) == [
+        "pnu-main-notice:new",
+        "pnu-main-notice:old-duplicate",
+        "pnu-onestop-notices:new",
+        "pnu-onestop-notices:old-duplicate",
+    ]
+    state_items = [
+        item["id"]
+        for source in generated["state"]["sources"].values()
+        for item in source["items"]
+    ]
+    assert len(state_items) == 4
+    assert generated["duplicates"]["group_count"] == 1
+    assert generated["duplicates"]["groups"][0]["item_ids"] == [
+        "pnu-main-notice:old-duplicate",
+        "pnu-onestop-notices:old-duplicate",
     ]
 
 

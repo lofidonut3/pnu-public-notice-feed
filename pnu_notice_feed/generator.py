@@ -24,6 +24,7 @@ SCHEMA_VERSION = "0.1"
 JSON_FEED_VERSION = "https://jsonfeed.org/version/1.1"
 FEED_VERSION = "2026-06-04"
 DEFAULT_LIMIT = 40
+DEFAULT_FEED_ITEM_LIMIT = 150
 DEFAULT_SNIPPET_LIMIT = 500
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE_REGISTRY = PROJECT_ROOT / "sources.json"
@@ -250,6 +251,12 @@ def main(argv: list[str] | None = None) -> int:
         help="Maximum notices to fetch per source.",
     )
     parser.add_argument(
+        "--feed-item-limit",
+        type=int,
+        default=DEFAULT_FEED_ITEM_LIMIT,
+        help="Maximum latest notices to publish in feed.json.",
+    )
+    parser.add_argument(
         "--pretty",
         action="store_true",
         help="Pretty-print generated JSON files.",
@@ -270,6 +277,7 @@ def main(argv: list[str] | None = None) -> int:
             state_path=state_path,
             limit=args.limit,
             public_base_url=args.public_base_url,
+            feed_item_limit=args.feed_item_limit,
         )
         sync_static_assets(output_dir, sources_path, args.public_base_url)
         if generated["all_sources_skipped"] and outputs_exist(
@@ -308,6 +316,7 @@ def generate_outputs(
     state_path: Path = DEFAULT_STATE_PATH,
     public_base_url: str = DEFAULT_PUBLIC_BASE_URL,
     now: datetime | None = None,
+    feed_item_limit: int = DEFAULT_FEED_ITEM_LIMIT,
 ) -> dict[str, dict]:
     generated_at = iso_now(now)
     sources = load_sources(sources_path)
@@ -316,11 +325,17 @@ def generate_outputs(
         fetch_source_result(source, limit, generated_at, state)
         for source in sources
     ]
-    feed = build_feed(results, generated_at, public_base_url)
+    all_items = collect_result_items(results)
+    feed = build_feed(
+        results,
+        generated_at,
+        public_base_url,
+        item_limit=feed_item_limit,
+    )
     status = build_status(results, generated_at)
     updated_state = build_state(results, generated_at)
     changes = build_changes(state, updated_state)
-    duplicates = build_duplicates(feed["items"], generated_at, FEED_VERSION)
+    duplicates = build_duplicates(all_items, generated_at, FEED_VERSION)
     return {
         "feed": feed,
         "rss": build_rss(feed),
@@ -561,17 +576,15 @@ def build_feed(
     generated_at: str,
     public_base_url: str = DEFAULT_PUBLIC_BASE_URL,
     snippet_limit: int = DEFAULT_SNIPPET_LIMIT,
+    item_limit: int = DEFAULT_FEED_ITEM_LIMIT,
 ) -> dict:
-    items = [
-        normalize_feed_item(item)
-        for result in results
-        for item in result.items
-    ]
+    items = collect_result_items(results)
     sorted_items = sorted(
         items,
         key=lambda item: (item["_pnu"].get("published_at") or "", item["id"]),
         reverse=True,
     )
+    limited_items = sorted_items[:item_limit]
     base_url = public_base_url.rstrip("/")
 
     return {
@@ -589,11 +602,21 @@ def build_feed(
             "sources_url": f"{base_url}/sources.json",
             "schema_url": f"{base_url}/schema/feed.schema.json",
             "source_count": len(results),
-            "item_count": len(sorted_items),
+            "item_count": len(limited_items),
+            "total_item_count": len(sorted_items),
+            "item_limit": item_limit,
             "sources": [source_to_feed_json(result) for result in results],
         },
-        "items": sorted_items,
+        "items": limited_items,
     }
+
+
+def collect_result_items(results: list[SourceResult]) -> list[dict]:
+    return [
+        normalize_feed_item(item)
+        for result in results
+        for item in result.items
+    ]
 
 
 def build_status(results: list[SourceResult], generated_at: str) -> dict:
