@@ -6,6 +6,7 @@ from pnu_notice_feed.generator import (
     JSON_FEED_VERSION,
     PublicSource,
     SourceResult,
+    archive_input_from_state,
     build_changes,
     build_feed,
     build_state,
@@ -80,6 +81,26 @@ def test_notice_to_feed_item_uses_stable_public_schema():
             "content_hash": "abc123",
         },
     }
+
+
+def test_notice_to_feed_item_includes_detail_checked_at_when_present():
+    notice = Notice(
+        source_id="pnu-main-notice",
+        source_name="부산대 대학공지",
+        notice_id="pnu-main-notice:1509234",
+        title="공지 제목",
+        url="https://www.pusan.ac.kr/notice",
+        published_at="2026-06-02",
+        snippet="본문 일부",
+        attachments=[],
+        tags=["pnu", "official"],
+        content_hash="abc123",
+        detail_checked_at="2026-06-03T12:00:00+09:00",
+    )
+
+    item = notice_to_feed_item(notice, "2026-06-03T12:00:00+09:00")
+
+    assert item["_pnu"]["detail_checked_at"] == "2026-06-03T12:00:00+09:00"
 
 
 def test_build_feed_sorts_items_by_published_date_desc():
@@ -181,47 +202,114 @@ def test_build_status_reports_partial_failure():
     assert status["sources"][1]["error"] == "network timeout"
 
 
+def test_build_status_counts_backoff_skip_as_partial_not_poll_interval_skip():
+    checked_at = "2026-06-03T12:00:00+09:00"
+    ok_source = _source("pnu-main-notice")
+    backoff_source = _source("pnu-onestop-notices")
+    poll_skip_source = _source("pnu-onestop-scholarship")
+
+    status = build_status(
+        [
+            SourceResult(
+                source=ok_source,
+                checked_at=checked_at,
+                items=[],
+                last_success_at=checked_at,
+                status="ok",
+            ),
+            SourceResult(
+                source=backoff_source,
+                checked_at=checked_at,
+                items=[],
+                last_success_at="2026-06-03T11:00:00+09:00",
+                status="skipped",
+                skipped_reason="backoff",
+                error="network timeout",
+            ),
+            SourceResult(
+                source=poll_skip_source,
+                checked_at=checked_at,
+                items=[],
+                last_success_at=checked_at,
+                status="skipped",
+                skipped_reason="poll_interval",
+            ),
+        ],
+        checked_at,
+    )
+
+    assert status["overall_status"] == "partial"
+    assert status["failed_source_count"] == 1
+
+
 def test_build_changes_reports_added_updated_and_removed_items():
     source = _source()
-    checked_at = "2026-06-03T12:00:00+09:00"
-    old_feed = build_feed(
+    old_checked_at = "2026-06-03T12:00:00+09:00"
+    old_state = build_state(
         [
             _result(
                 source,
-                checked_at,
+                old_checked_at,
                 [
                     _notice(source, "old", "2026-06-01"),
                     _notice(source, "changed", "2026-06-02"),
                 ],
             )
         ],
-        checked_at,
-        "https://feeds.example.test",
+        old_checked_at,
     )
     changed_notice = _notice(source, "changed", "2026-06-02", content_hash="new-hash")
-    new_feed = build_feed(
+    new_checked_at = "2026-06-04T12:00:00+09:00"
+    new_state = build_state(
         [
             _result(
                 source,
-                "2026-06-04T12:00:00+09:00",
+                new_checked_at,
                 [
                     changed_notice,
                     _notice(source, "new", "2026-06-04"),
                 ],
             )
         ],
-        "2026-06-04T12:00:00+09:00",
-        "https://feeds.example.test",
+        new_checked_at,
     )
 
-    changes = build_changes(old_feed, new_feed)
+    changes = build_changes(old_state, new_state)
 
     assert changes["added_count"] == 1
     assert changes["updated_count"] == 1
     assert changes["removed_count"] == 1
+    assert changes["generated_at"] == new_checked_at
+    assert changes["previous_generated_at"] == old_checked_at
     assert changes["added"][0]["id"] == "pnu-main-notice:new"
     assert changes["updated"][0]["id"] == "pnu-main-notice:changed"
     assert changes["removed"][0]["id"] == "pnu-main-notice:old"
+
+
+def test_archive_input_is_built_from_state_items():
+    source = _source()
+    checked_at = "2026-06-04T12:00:00+09:00"
+    state = build_state(
+        [
+            _result(
+                source,
+                checked_at,
+                [
+                    _notice(source, "old", "2026-06-01"),
+                    _notice(source, "new", "2026-06-04"),
+                ],
+            )
+        ],
+        checked_at,
+    )
+
+    archive_input = archive_input_from_state(state)
+
+    assert archive_input["_pnu"]["generated_at"] == checked_at
+    assert sorted(item["id"] for item in archive_input["items"]) == [
+        "pnu-main-notice:new",
+        "pnu-main-notice:old",
+    ]
 
 
 def test_build_state_preserves_cached_items_and_success_metadata():
@@ -338,6 +426,44 @@ def test_fetch_source_result_skips_when_poll_interval_has_not_elapsed():
     assert result.skipped_reason == "poll_interval"
     assert result.next_check_at == "2026-06-04T12:30:00+09:00"
     assert result.items == [cached_item]
+
+
+def test_fetch_source_result_respects_backoff_without_cached_items():
+    source = PublicSource(
+        id="broken-source",
+        name="Broken Source",
+        adapter="unsupported-adapter",
+        official_url="https://example.com/notices",
+        category="notice",
+        poll_interval_minutes=30,
+        public_only=True,
+        tags=["official"],
+    )
+    state = {
+        "sources": {
+            source.id: {
+                "last_checked_at": "2026-06-04T12:00:00+09:00",
+                "last_success_at": None,
+                "backoff_until": "2026-06-04T12:30:00+09:00",
+                "error_count": 1,
+                "error": "unsupported adapter",
+                "items": [],
+            }
+        }
+    }
+
+    result = fetch_source_result(
+        source,
+        limit=20,
+        checked_at="2026-06-04T12:05:00+09:00",
+        state=state,
+    )
+
+    assert result.status == "skipped"
+    assert result.skipped_reason == "backoff"
+    assert result.next_check_at == "2026-06-04T12:30:00+09:00"
+    assert result.error == "unsupported adapter"
+    assert result.items == []
 
 
 def test_backoff_until_for_error_uses_exponential_delay_capped_at_six_hours():

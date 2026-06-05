@@ -1,4 +1,9 @@
-from pnu_notice_feed.cms_static_board import parse_cms_detail, parse_cms_list
+from pnu_notice_feed.cms_static_board import (
+    ListItem,
+    parse_cms_detail,
+    parse_cms_list,
+    should_fetch_cms_detail,
+)
 
 
 def test_parse_cms_list_extracts_notice_rows():
@@ -91,3 +96,117 @@ def test_parse_cms_detail_extracts_title_snippet_and_attachments():
     assert detail.attachments[0].name == "첨부파일.pdf (257KB)"
     assert detail.attachments[0].type == "pdf"
 
+
+def test_cms_detail_revalidation_fetches_new_notice():
+    item = _list_item("1509234", "새 공지", "2026-06-02")
+
+    assert should_fetch_cms_detail(
+        item,
+        "pnu-main-notice:1509234",
+        cached_item=None,
+        checked_at="2026-06-04T12:00:00+09:00",
+        item_index=0,
+    )
+
+
+def test_cms_detail_revalidation_fetches_when_list_metadata_changed():
+    item = _list_item("1509234", "수정된 제목", "2026-06-02")
+    cached_item = _cached_item("pnu-main-notice:1509234", "이전 제목", "2026-06-02")
+
+    assert should_fetch_cms_detail(
+        item,
+        "pnu-main-notice:1509234",
+        cached_item=cached_item,
+        checked_at="2026-06-04T12:00:00+09:00",
+        item_index=20,
+    )
+
+
+def test_cms_detail_revalidation_fetches_top_item_when_ttl_expired():
+    item = _list_item("1509234", "공지", "2026-06-02")
+    missing_timestamp_item = _cached_item(
+        "pnu-main-notice:1509234",
+        "공지",
+        "2026-06-02",
+        detail_checked_at=None,
+    )
+    cached_item = _cached_item(
+        "pnu-main-notice:1509234",
+        "공지",
+        "2026-06-02",
+        detail_checked_at="2026-06-04T00:00:00+09:00",
+    )
+
+    assert should_fetch_cms_detail(
+        item,
+        "pnu-main-notice:1509234",
+        cached_item=cached_item,
+        checked_at="2026-06-04T12:00:00+09:00",
+        item_index=0,
+    )
+    assert should_fetch_cms_detail(
+        item,
+        "pnu-main-notice:1509234",
+        cached_item=missing_timestamp_item,
+        checked_at="2026-06-04T12:00:00+09:00",
+        item_index=0,
+    )
+
+
+def test_cms_detail_revalidation_skips_fresh_top_item_and_old_window_item():
+    item = _list_item("1509234", "공지", "2026-06-02")
+    fresh_cached_item = _cached_item(
+        "pnu-main-notice:1509234",
+        "공지",
+        "2026-06-02",
+        detail_checked_at="2026-06-04T06:00:00+09:00",
+    )
+    stale_cached_item = _cached_item(
+        "pnu-main-notice:1509234",
+        "공지",
+        "2026-06-02",
+        detail_checked_at="2026-06-03T00:00:00+09:00",
+    )
+
+    assert not should_fetch_cms_detail(
+        item,
+        "pnu-main-notice:1509234",
+        cached_item=fresh_cached_item,
+        checked_at="2026-06-04T12:00:00+09:00",
+        item_index=0,
+    )
+    assert not should_fetch_cms_detail(
+        item,
+        "pnu-main-notice:1509234",
+        cached_item=stale_cached_item,
+        checked_at="2026-06-04T12:00:00+09:00",
+        item_index=10,
+    )
+
+
+def _list_item(suffix: str, title: str, published_at: str | None) -> ListItem:
+    return ListItem(
+        notice_id=suffix,
+        title=title,
+        url=f"https://www.pusan.ac.kr/notice/{suffix}",
+        published_at=published_at,
+    )
+
+
+def _cached_item(
+    notice_id: str,
+    title: str,
+    published_at: str | None,
+    detail_checked_at: str | None = "2026-06-04T06:00:00+09:00",
+) -> dict:
+    pnu = {
+        "published_at": published_at,
+        "content_hash": "cached-hash",
+    }
+    if detail_checked_at:
+        pnu = {**pnu, "detail_checked_at": detail_checked_at}
+    return {
+        "id": notice_id,
+        "title": title,
+        "_pnu": pnu,
+    }

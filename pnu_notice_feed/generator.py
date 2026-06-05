@@ -41,7 +41,7 @@ This project is not operated by Pusan National University.
 
 - [JSON Feed](./feed.json): latest normalized public notice metadata.
 - [Status](./status.json): source refresh status and failures.
-- [Changes](./changes.json): added, updated, and removed item summaries since the previous feed.
+- [Changes](./changes.json): latest observed added, updated, and removed item summaries.
 - [Sources](./sources.json): official public source registry.
 - [Archive index](./archive/index.json): monthly archive manifest.
 - [OpenAPI manifest](./openapi.json): static endpoint manifest.
@@ -120,7 +120,7 @@ INDEX_HTML = """<!doctype html>
     <ul>
       <li><a href="./feed.json">feed.json</a> - JSON Feed 1.1 compatible notice metadata</li>
       <li><a href="./status.json">status.json</a> - source refresh status</li>
-      <li><a href="./changes.json">changes.json</a> - latest added, updated, and removed item summary</li>
+      <li><a href="./changes.json">changes.json</a> - latest observed added, updated, and removed item summary</li>
       <li><a href="./sources.json">sources.json</a> - public source registry</li>
       <li><a href="./archive/index.json">archive/index.json</a> - monthly archive manifest</li>
       <li><a href="./openapi.json">openapi.json</a> - static endpoint manifest</li>
@@ -256,6 +256,8 @@ def main(argv: list[str] | None = None) -> int:
             output_dir=output_dir,
             feed=generated["feed"],
             status=generated["status"],
+            changes=generated["changes"],
+            state=generated["state"],
             pretty=args.pretty,
         )
         write_state(
@@ -287,9 +289,11 @@ def generate_outputs(
     feed = build_feed(results, generated_at, public_base_url)
     status = build_status(results, generated_at)
     updated_state = build_state(results, generated_at)
+    changes = build_changes(state, updated_state)
     return {
         "feed": feed,
         "status": status,
+        "changes": changes,
         "state": updated_state,
         "all_sources_skipped": all_sources_skipped(results),
     }
@@ -372,7 +376,8 @@ def fetch_source_result(
         notices = fetch_source(
             source,
             limit,
-            seen_notice_ids=set(cached_items),
+            cached_items=cached_items,
+            checked_at=checked_at,
         )
         fetched_items = [
             notice_to_feed_item(notice, checked_at)
@@ -418,14 +423,16 @@ def fetch_source_result(
 def fetch_source(
     source: PublicSource,
     limit: int,
-    seen_notice_ids: set[str] | None = None,
+    cached_items: dict[str, dict] | None = None,
+    checked_at: str | None = None,
 ) -> list[Notice]:
     adapter_source = source.to_adapter_source()
     if source.adapter == "pusan-cms-static-board":
         return fetch_cms_static_board(
             adapter_source,
             limit,
-            seen_notice_ids=seen_notice_ids or set(),
+            cached_items=cached_items,
+            checked_at=checked_at,
         )
     if source.adapter == "onestop-js-board":
         return fetch_onestop_js_board(adapter_source, limit)
@@ -537,7 +544,7 @@ def build_feed(
 
 def build_status(results: list[SourceResult], generated_at: str) -> dict:
     source_statuses = [source_to_status_json(result) for result in results]
-    failed_count = len([result for result in results if result.status == "error"])
+    failed_count = len([result for result in results if source_is_degraded(result)])
 
     return {
         "schema_version": SCHEMA_VERSION,
@@ -550,12 +557,37 @@ def build_status(results: list[SourceResult], generated_at: str) -> dict:
     }
 
 
+def source_is_degraded(result: SourceResult) -> bool:
+    return result.status == "error" or result.skipped_reason == "backoff"
+
+
 def notice_to_feed_item(
     notice: Notice,
     fetched_at: str,
     snippet_limit: int = DEFAULT_SNIPPET_LIMIT,
 ) -> dict:
     snippet = truncate_text(notice.snippet, snippet_limit)
+    pnu = {
+        "source_id": notice.source_id,
+        "source_name": notice.source_name,
+        "published_at": notice.published_at,
+        "fetched_at": fetched_at,
+        "snippet": snippet,
+        "content_access": {
+            "detail_url": notice.url,
+            "requires_login": False,
+            "content_mirrored": False,
+            "attachments_mirrored": False,
+        },
+        "attachments": [
+            attachment_to_feed_json(attachment)
+            for attachment in notice.attachments
+        ],
+        "tags": notice.tags,
+        "content_hash": notice.content_hash,
+    }
+    if notice.detail_checked_at:
+        pnu = {**pnu, "detail_checked_at": notice.detail_checked_at}
     return {
         "id": notice.notice_id,
         "url": notice.url,
@@ -563,25 +595,7 @@ def notice_to_feed_item(
         "content_text": CONTENT_TEXT_NOTICE,
         "summary": snippet,
         "date_published": date_to_json_feed_timestamp(notice.published_at),
-        "_pnu": {
-            "source_id": notice.source_id,
-            "source_name": notice.source_name,
-            "published_at": notice.published_at,
-            "fetched_at": fetched_at,
-            "snippet": snippet,
-            "content_access": {
-                "detail_url": notice.url,
-                "requires_login": False,
-                "content_mirrored": False,
-                "attachments_mirrored": False,
-            },
-            "attachments": [
-                attachment_to_feed_json(attachment)
-                for attachment in notice.attachments
-            ],
-            "tags": notice.tags,
-            "content_hash": notice.content_hash,
-        },
+        "_pnu": pnu,
     }
 
 
@@ -650,14 +664,19 @@ def attachment_to_feed_json(attachment) -> dict:
     }
 
 
-def write_outputs(output_dir: Path, feed: dict, status: dict, pretty: bool) -> None:
+def write_outputs(
+    output_dir: Path,
+    feed: dict,
+    status: dict,
+    changes: dict,
+    state: dict,
+    pretty: bool,
+) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
-    previous_feed = read_json_if_exists(output_dir / "feed.json")
-    changes = build_changes(previous_feed, feed)
     write_json(output_dir / "feed.json", feed, pretty)
     write_json(output_dir / "status.json", status, pretty)
     write_json(output_dir / "changes.json", changes, pretty)
-    write_archive_outputs(output_dir, feed, pretty)
+    write_archive_outputs(output_dir, archive_input_from_state(state), pretty)
 
 
 def sync_static_assets(
@@ -764,9 +783,9 @@ def read_json_if_exists(path: Path) -> dict | None:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def build_changes(previous_feed: dict | None, current_feed: dict) -> dict:
-    previous_items = feed_items_by_id(previous_feed) if previous_feed else {}
-    current_items = feed_items_by_id(current_feed)
+def build_changes(previous_state: dict | None, current_state: dict) -> dict:
+    previous_items = state_items_by_id(previous_state)
+    current_items = state_items_by_id(current_state)
 
     added_ids = sorted(set(current_items) - set(previous_items))
     removed_ids = sorted(set(previous_items) - set(current_items))
@@ -780,10 +799,10 @@ def build_changes(previous_feed: dict | None, current_feed: dict) -> dict:
     return {
         "schema_version": SCHEMA_VERSION,
         "feed_version": FEED_VERSION,
-        "generated_at": current_feed["_pnu"]["generated_at"],
+        "generated_at": current_state["generated_at"],
         "previous_generated_at": (
-            previous_feed.get("_pnu", {}).get("generated_at")
-            if previous_feed
+            previous_state.get("generated_at")
+            if previous_state
             else None
         ),
         "added_count": len(added_ids),
@@ -798,12 +817,22 @@ def build_changes(previous_feed: dict | None, current_feed: dict) -> dict:
     }
 
 
-def feed_items_by_id(feed: dict | None) -> dict[str, dict]:
-    if not feed:
+def archive_input_from_state(state: dict) -> dict:
+    return {
+        "_pnu": {
+            "generated_at": state["generated_at"],
+        },
+        "items": list(state_items_by_id(state).values()),
+    }
+
+
+def state_items_by_id(state: dict | None) -> dict[str, dict]:
+    if not state:
         return {}
     return {
         str(item["id"]): item
-        for item in feed.get("items", [])
+        for source_state in state.get("sources", {}).values()
+        for item in source_state.get("items", [])
         if item.get("id")
     }
 
@@ -851,13 +880,13 @@ def source_skip_reason(
     source_state: dict,
     checked_at: str,
 ) -> tuple[str | None, str | None]:
-    if not source_state.get("items"):
-        return None, None
-
     current = parse_iso(checked_at)
     backoff_until = source_state.get("backoff_until")
     if backoff_until and parse_iso(backoff_until) > current:
         return "backoff", backoff_until
+
+    if not source_state.get("items"):
+        return None, None
 
     last_checked_at = source_state.get("last_checked_at")
     if not last_checked_at:

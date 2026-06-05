@@ -228,7 +228,7 @@ function findMenuInfo(globalInfo, menuCd) {
 }
 
 function normalizeNotice(row, menuCd) {
-  const seq = String(row.POSTING_SEQ_NO ?? row.POSTING_GRP_NO ?? row.RN ?? "");
+  const seq = stableNoticeSeq(row);
   const title = cleanText(row.TITLE_CONTENT ?? row.TITLE ?? "");
   const contentText = cleanText(stripHtml(row.CONTENT ?? ""));
   const attachments = normalizeAttachments(row.bbsFileList ?? [], row);
@@ -250,6 +250,11 @@ function normalizeNotice(row, menuCd) {
       )
       .digest("hex"),
   };
+}
+
+function stableNoticeSeq(row) {
+  const value = row.POSTING_SEQ_NO ?? row.POSTING_GRP_NO ?? "";
+  return value === null || value === undefined ? "" : String(value);
 }
 
 function uniqueByNoticeId(notices) {
@@ -328,4 +333,3 @@ main().catch((error) => {
   console.error(error instanceof Error ? error.message : String(error));
   process.exit(1);
 });
-

@@ -32,4 +32,4 @@ class Notice:
     attachments: list[Attachment]
     tags: list[str]
     content_hash: str
-
+    detail_checked_at: str | None = None

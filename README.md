@@ -18,7 +18,7 @@ Available endpoints:
 
 - `feed.json`: JSON Feed 1.1 compatible notice metadata feed
 - `status.json`: source refresh status and source errors
-- `changes.json`: added, updated, and removed item summary since the previous feed
+- `changes.json`: latest observed added, updated, and removed item summary
 - `sources.json`: public source registry
 - `archive/index.json`: archive manifest
 - `archive/notices/YYYY-MM.json`: monthly notice metadata archive
@@ -38,7 +38,7 @@ Agents should treat `summary` and `_pnu.snippet` as previews only. Fetch full no
 ## Operations
 
 - Source refresh status is published in `status.json`.
-- Latest item changes are summarized in `changes.json`.
+- Latest observed item changes are summarized in `changes.json`.
 - Source polling is rate-limited by `sources.json` and cached in `cache/feed-state.json`.
 - Failed sources use cached items when available and report errors in `status.json`.
 - Long-term notice metadata is retained in monthly `archive/` files.

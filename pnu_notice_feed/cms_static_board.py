@@ -4,13 +4,17 @@ import hashlib
 import html
 import re
 from dataclasses import dataclass
+from datetime import datetime, timedelta
 from html.parser import HTMLParser
 from urllib.parse import parse_qs, urljoin, urlparse
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo
 
 from .types import Attachment, Notice, Source
 
 USER_AGENT = "PNUPublicNoticeFeed/0.1 (+https://github.com/pnu-public-notice-feed)"
+DETAIL_REVALIDATE_TOP_N = 10
+DETAIL_REVALIDATE_TTL_HOURS = 12
 
 
 @dataclass(frozen=True)
@@ -25,15 +29,30 @@ def fetch_cms_static_board(
     source: Source,
     limit: int,
     seen_notice_ids: set[str] | None = None,
+    cached_items: dict[str, dict] | None = None,
+    checked_at: str | None = None,
 ) -> list[Notice]:
     html_text = fetch_text(source.entry_url)
     list_items = parse_cms_list(html_text, source.entry_url)[:limit]
     notices: list[Notice] = []
     seen_notice_ids = seen_notice_ids or set()
+    cached_items = cached_items or {}
+    checked_at = checked_at or datetime.now(ZoneInfo("Asia/Seoul")).isoformat(
+        timespec="seconds"
+    )
 
-    for item in list_items:
+    for index, item in enumerate(list_items):
         notice_id = f"{source.id}:{item.notice_id}"
-        if notice_id in seen_notice_ids:
+        cached_item = cached_items.get(notice_id)
+        if not should_fetch_cms_detail(
+            item,
+            notice_id,
+            cached_item=cached_item,
+            checked_at=checked_at,
+            item_index=index,
+        ):
+            continue
+        if not cached_items and notice_id in seen_notice_ids:
             continue
 
         detail_html = fetch_text(item.url)
@@ -54,10 +73,44 @@ def fetch_cms_static_board(
                 attachments=attachments,
                 tags=source.tags,
                 content_hash=content_hash,
+                detail_checked_at=checked_at,
             )
         )
 
     return notices
+
+
+def should_fetch_cms_detail(
+    item: ListItem,
+    notice_id: str,
+    cached_item: dict | None,
+    checked_at: str,
+    item_index: int,
+    revalidate_top_n: int = DETAIL_REVALIDATE_TOP_N,
+    revalidate_ttl_hours: int = DETAIL_REVALIDATE_TTL_HOURS,
+) -> bool:
+    if cached_item is None:
+        return True
+
+    pnu = cached_item.get("_pnu", {})
+    if cached_item.get("title") != item.title:
+        return True
+    if pnu.get("published_at") != item.published_at:
+        return True
+
+    if item_index >= revalidate_top_n:
+        return False
+
+    detail_checked_at = pnu.get("detail_checked_at")
+    if not detail_checked_at:
+        return True
+
+    try:
+        return parse_iso(checked_at) - parse_iso(detail_checked_at) >= timedelta(
+            hours=revalidate_ttl_hours
+        )
+    except ValueError:
+        return True
 
 
 def fetch_text(url: str) -> str:
@@ -242,6 +295,10 @@ def normalize_text(value: str) -> str:
     return re.sub(r"\s+", " ", html.unescape(value)).strip()
 
 
+def parse_iso(value: str) -> datetime:
+    return datetime.fromisoformat(value)
+
+
 def _first_known_class(class_name: str, known: set[str]) -> str | None:
     for part in class_name.split():
         if part in known:
@@ -280,4 +337,3 @@ def _content_hash(
         ]
     )
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
-

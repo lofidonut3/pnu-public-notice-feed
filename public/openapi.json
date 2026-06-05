@@ -53,10 +53,10 @@
     },
     "/changes.json": {
       "get": {
-        "summary": "Latest feed changes",
+        "summary": "Latest observed notice item changes",
         "responses": {
           "200": {
-            "description": "Added, updated, and removed notice item summaries since the previous generated feed.",
+            "description": "Latest observed added, updated, and removed notice item summaries.",
             "content": {
               "application/json": {
                 "schema": {
