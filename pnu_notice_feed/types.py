@@ -11,6 +11,7 @@ class Source:
     entry_url: str
     tags: list[str] = field(default_factory=list)
     menu_cd: str | None = None
+    board_id: str | None = None
 
 
 @dataclass(frozen=True)

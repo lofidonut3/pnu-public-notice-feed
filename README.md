@@ -6,6 +6,8 @@ This repository generates and publishes static JSON, RSS, status, change, and ar
 
 This project is not operated by Pusan National University.
 
+Current indexed source families include university-wide notices, Onestop academic and scholarship notices, dormitory notices by campus, PNU International notices, Career Development Office notices and recruitment listings, and PNU Library notices. See [`sources.json`](https://lofidonut3.github.io/pnu-public-notice-feed/sources.json) for the exact source registry.
+
 ## Endpoints
 
 Published GitHub Pages URL:
@@ -20,6 +22,7 @@ Available endpoints:
 - [`rss.xml`](https://lofidonut3.github.io/pnu-public-notice-feed/rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools
 - [`status.json`](https://lofidonut3.github.io/pnu-public-notice-feed/status.json): source refresh status and source errors
 - [`changes.json`](https://lofidonut3.github.io/pnu-public-notice-feed/changes.json): latest observed added, updated, and removed item summary
+- [`duplicates.json`](https://lofidonut3.github.io/pnu-public-notice-feed/duplicates.json): high-confidence same-notice groups for notification deduplication
 - [`sources.json`](https://lofidonut3.github.io/pnu-public-notice-feed/sources.json): public source registry
 - [`archive/index.json`](https://lofidonut3.github.io/pnu-public-notice-feed/archive/index.json): archive manifest
 - `archive/notices/YYYY-MM.json`: monthly notice metadata archive
@@ -40,6 +43,7 @@ Agents should treat `summary` and `_pnu.snippet` as previews only. Fetch full no
 
 - Source refresh status is published in `status.json`.
 - Latest observed item changes are summarized in `changes.json`.
+- High-confidence same-notice groups are published in `duplicates.json`; raw `feed.json` items are preserved.
 - Source polling is rate-limited by `sources.json` and cached in `cache/feed-state.json`.
 - Failed sources use cached items when available and report errors in `status.json`.
 - Long-term notice metadata is retained in monthly `archive/` files.

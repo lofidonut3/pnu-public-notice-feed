@@ -20,6 +20,7 @@ def test_generated_outputs_match_schemas():
         ("public/feed.json", "schema/feed.schema.json"),
         ("public/status.json", "schema/status.schema.json"),
         ("public/changes.json", "schema/changes.schema.json"),
+        ("public/duplicates.json", "schema/duplicates.schema.json"),
         ("public/archive/index.json", "schema/archive-index.schema.json"),
         ("sources.json", "schema/sources.schema.json"),
     ]

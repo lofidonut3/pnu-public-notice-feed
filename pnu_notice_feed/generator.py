@@ -12,8 +12,13 @@ from zoneinfo import ZoneInfo
 
 from .archive import archive_outputs_exist, write_archive_outputs
 from .cms_static_board import fetch_cms_static_board
+from .duplicates import build_duplicates
+from .job_board import fetch_job_notice_board, fetch_job_recruit_board
+from .k2web_board import fetch_k2web_board
+from .library_pyxis_board import fetch_library_pyxis_board
 from .onestop_js_board import fetch_onestop_js_board
 from .types import Notice, Source
+from .websquare_js_board import fetch_websquare_js_board
 
 SCHEMA_VERSION = "0.1"
 JSON_FEED_VERSION = "https://jsonfeed.org/version/1.1"
@@ -24,7 +29,15 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE_REGISTRY = PROJECT_ROOT / "sources.json"
 DEFAULT_STATE_PATH = PROJECT_ROOT / "cache" / "feed-state.json"
 DEFAULT_PUBLIC_BASE_URL = "https://lofidonut3.github.io/pnu-public-notice-feed"
-SUPPORTED_ADAPTERS = {"pusan-cms-static-board", "onestop-js-board"}
+SUPPORTED_ADAPTERS = {
+    "pusan-cms-static-board",
+    "onestop-js-board",
+    "websquare-js-board",
+    "k2web-board",
+    "job-notice-html-board",
+    "job-recruit-html-board",
+    "library-pyxis-board",
+}
 DISCLAIMER = (
     "Unofficial PNU Public Notice Feed. This project indexes public official "
     "notices and links back to the original sources. It is not operated by "
@@ -45,6 +58,7 @@ This project is not operated by Pusan National University.
 - [RSS](./rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
 - [Status](./status.json): source refresh status and failures.
 - [Changes](./changes.json): latest observed added, updated, and removed item summaries.
+- [Duplicates](./duplicates.json): high-confidence same-notice groups for notification dedupe.
 - [Sources](./sources.json): official public source registry.
 - [Archive index](./archive/index.json): monthly archive manifest.
 - [OpenAPI manifest](./openapi.json): static endpoint manifest.
@@ -54,6 +68,7 @@ This project is not operated by Pusan National University.
 - [Feed schema](./schema/feed.schema.json)
 - [Status schema](./schema/status.schema.json)
 - [Changes schema](./schema/changes.schema.json)
+- [Duplicates schema](./schema/duplicates.schema.json)
 - [Sources schema](./schema/sources.schema.json)
 - [Archive index schema](./schema/archive-index.schema.json)
 - [Archive notices schema](./schema/archive-notices.schema.json)
@@ -69,6 +84,7 @@ This project is not operated by Pusan National University.
 - Treat `content_mirrored: false` and `attachments_mirrored: false` as a hard boundary.
 - Check `status.json` before relying on source freshness.
 - Check `changes.json` for lightweight new item detection before fetching the full feed.
+- Check `duplicates.json` before sending notifications for multiple matching items.
 - Use `archive/index.json` and monthly archive files for catch-up after downtime.
 - Use `rss.xml` only as a compatibility feed; prefer JSON endpoints for structured agent workflows.
 - Use `_pnu` fields in `feed.json` for source, attachment, fetched_at, and content_hash metadata.
@@ -128,6 +144,7 @@ INDEX_HTML = """<!doctype html>
       <li><a href="./rss.xml">rss.xml</a> - RSS 2.0 compatibility feed</li>
       <li><a href="./status.json">status.json</a> - source refresh status</li>
       <li><a href="./changes.json">changes.json</a> - latest observed added, updated, and removed item summary</li>
+      <li><a href="./duplicates.json">duplicates.json</a> - high-confidence same-notice groups for deduplicating notifications</li>
       <li><a href="./sources.json">sources.json</a> - public source registry</li>
       <li><a href="./archive/index.json">archive/index.json</a> - monthly archive manifest</li>
       <li><a href="./openapi.json">openapi.json</a> - static endpoint manifest</li>
@@ -136,7 +153,7 @@ INDEX_HTML = """<!doctype html>
 
     <h2>Agent Notes</h2>
     <p>Use <code>summary</code> and <code>_pnu.snippet</code> as short previews only. Fetch full notice text from <code>item.url</code> or <code>item._pnu.content_access.detail_url</code>.</p>
-    <p>Use <code>archive/index.json</code> for historical metadata catch-up. Use <code>rss.xml</code> as a compatibility feed; prefer JSON endpoints for structured agent workflows.</p>
+    <p>Check <code>duplicates.json</code> before sending notifications for multiple matching items. Use <code>archive/index.json</code> for historical metadata catch-up. Use <code>rss.xml</code> as a compatibility feed; prefer JSON endpoints for structured agent workflows.</p>
   </main>
 </body>
 </html>
@@ -155,6 +172,7 @@ class PublicSource:
     tags: list[str]
     access_policy: str = "public_official_url_only"
     menu_cd: str | None = None
+    board_id: str | None = None
     notes: str | None = None
 
     @classmethod
@@ -174,6 +192,7 @@ class PublicSource:
             access_policy=str(data.get("access_policy", "public_official_url_only")),
             tags=[str(tag) for tag in data.get("tags", [])],
             menu_cd=str(data["menu_cd"]) if data.get("menu_cd") else None,
+            board_id=str(data["board_id"]) if data.get("board_id") else None,
             notes=str(data["notes"]) if data.get("notes") else None,
         )
 
@@ -185,6 +204,7 @@ class PublicSource:
             entry_url=self.official_url,
             tags=self.tags,
             menu_cd=self.menu_cd,
+            board_id=self.board_id,
         )
 
 
@@ -266,6 +286,7 @@ def main(argv: list[str] | None = None) -> int:
             rss=generated["rss"],
             status=generated["status"],
             changes=generated["changes"],
+            duplicates=generated["duplicates"],
             state=generated["state"],
             pretty=args.pretty,
         )
@@ -299,11 +320,13 @@ def generate_outputs(
     status = build_status(results, generated_at)
     updated_state = build_state(results, generated_at)
     changes = build_changes(state, updated_state)
+    duplicates = build_duplicates(feed["items"], generated_at, FEED_VERSION)
     return {
         "feed": feed,
         "rss": build_rss(feed),
         "status": status,
         "changes": changes,
+        "duplicates": duplicates,
         "state": updated_state,
         "all_sources_skipped": all_sources_skipped(results),
     }
@@ -355,6 +378,17 @@ def validate_sources(sources: list[PublicSource]) -> None:
         raise ValueError(
             "menu_cd is required for onestop-js-board sources: "
             + ", ".join(sorted(missing_menu_cd))
+        )
+
+    missing_websquare_menu_cd = [
+        source.id
+        for source in sources
+        if source.adapter == "websquare-js-board" and not source.menu_cd
+    ]
+    if missing_websquare_menu_cd:
+        raise ValueError(
+            "menu_cd is required for websquare-js-board sources: "
+            + ", ".join(sorted(missing_websquare_menu_cd))
         )
 
 
@@ -446,6 +480,16 @@ def fetch_source(
         )
     if source.adapter == "onestop-js-board":
         return fetch_onestop_js_board(adapter_source, limit)
+    if source.adapter == "websquare-js-board":
+        return fetch_websquare_js_board(adapter_source, limit)
+    if source.adapter == "k2web-board":
+        return fetch_k2web_board(adapter_source, limit)
+    if source.adapter == "job-notice-html-board":
+        return fetch_job_notice_board(adapter_source, limit)
+    if source.adapter == "job-recruit-html-board":
+        return fetch_job_recruit_board(adapter_source, limit)
+    if source.adapter == "library-pyxis-board":
+        return fetch_library_pyxis_board(adapter_source, limit)
     raise ValueError(f"unsupported adapter: {source.adapter}")
 
 
@@ -762,6 +806,7 @@ def write_outputs(
     rss: str,
     status: dict,
     changes: dict,
+    duplicates: dict,
     state: dict,
     pretty: bool,
 ) -> None:
@@ -770,6 +815,7 @@ def write_outputs(
     write_text_if_changed(output_dir / "rss.xml", rss)
     write_json(output_dir / "status.json", status, pretty)
     write_json(output_dir / "changes.json", changes, pretty)
+    write_json(output_dir / "duplicates.json", duplicates, pretty)
     write_archive_outputs(output_dir, archive_input_from_state(state), pretty)
 
 
@@ -806,6 +852,7 @@ def outputs_exist(output_dir: Path, state_path: Path) -> bool:
             output_dir / "rss.xml",
             output_dir / "status.json",
             output_dir / "changes.json",
+            output_dir / "duplicates.json",
             state_path,
         ]
     )

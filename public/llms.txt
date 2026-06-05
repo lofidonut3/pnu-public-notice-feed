@@ -9,6 +9,7 @@ This project is not operated by Pusan National University.
 - [RSS](./rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
 - [Status](./status.json): source refresh status and failures.
 - [Changes](./changes.json): latest observed added, updated, and removed item summaries.
+- [Duplicates](./duplicates.json): high-confidence same-notice groups for notification dedupe.
 - [Sources](./sources.json): official public source registry.
 - [Archive index](./archive/index.json): monthly archive manifest.
 - [OpenAPI manifest](./openapi.json): static endpoint manifest.
@@ -18,6 +19,7 @@ This project is not operated by Pusan National University.
 - [Feed schema](./schema/feed.schema.json)
 - [Status schema](./schema/status.schema.json)
 - [Changes schema](./schema/changes.schema.json)
+- [Duplicates schema](./schema/duplicates.schema.json)
 - [Sources schema](./schema/sources.schema.json)
 - [Archive index schema](./schema/archive-index.schema.json)
 - [Archive notices schema](./schema/archive-notices.schema.json)
@@ -33,6 +35,7 @@ This project is not operated by Pusan National University.
 - Treat `content_mirrored: false` and `attachments_mirrored: false` as a hard boundary.
 - Check `status.json` before relying on source freshness.
 - Check `changes.json` for lightweight new item detection before fetching the full feed.
+- Check `duplicates.json` before sending notifications for multiple matching items.
 - Use `archive/index.json` and monthly archive files for catch-up after downtime.
 - Use `rss.xml` only as a compatibility feed; prefer JSON endpoints for structured agent workflows.
 - Use `_pnu` fields in `feed.json` for source, attachment, fetched_at, and content_hash metadata.

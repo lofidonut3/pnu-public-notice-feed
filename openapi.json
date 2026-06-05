@@ -90,6 +90,23 @@
         }
       }
     },
+    "/duplicates.json": {
+      "get": {
+        "summary": "High-confidence duplicate notice groups",
+        "responses": {
+          "200": {
+            "description": "High-confidence same-notice groups for notification deduplication. Raw feed items are preserved in feed.json.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema/duplicates.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/sources.json": {
       "get": {
         "summary": "Public source registry",

@@ -2,6 +2,7 @@ from datetime import datetime
 from xml.etree import ElementTree
 from zoneinfo import ZoneInfo
 
+from pnu_notice_feed import generator
 from pnu_notice_feed.generator import (
     CONTENT_TEXT_NOTICE,
     JSON_FEED_VERSION,
@@ -17,6 +18,7 @@ from pnu_notice_feed.generator import (
     backoff_until_for_error,
     date_to_json_feed_timestamp,
     fetch_source_result,
+    generate_outputs,
     load_sources,
     media_type_from_extension,
     next_check_at_from_interval,
@@ -320,6 +322,78 @@ def test_build_changes_reports_added_updated_and_removed_items():
     assert changes["added"][0]["id"] == "pnu-main-notice:new"
     assert changes["updated"][0]["id"] == "pnu-main-notice:changed"
     assert changes["removed"][0]["id"] == "pnu-main-notice:old"
+
+
+def test_generate_outputs_includes_duplicate_groups(tmp_path, monkeypatch):
+    sources_path = tmp_path / "sources.json"
+    state_path = tmp_path / "feed-state.json"
+    sources_path.write_text(
+        """
+        {
+          "schema_version": "0.1",
+          "sources": [
+            {
+              "id": "pnu-main-notice",
+              "name": "부산대 대학공지",
+              "official_url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do",
+              "adapter": "pusan-cms-static-board",
+              "category": "notice",
+              "poll_interval_minutes": 30,
+              "public_only": true,
+              "tags": ["pnu", "official"]
+            },
+            {
+              "id": "pnu-onestop-notices",
+              "name": "부산대 학지시 공지",
+              "official_url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000386",
+              "adapter": "pusan-cms-static-board",
+              "category": "notice",
+              "poll_interval_minutes": 30,
+              "public_only": true,
+              "tags": ["pnu", "official"]
+            }
+          ]
+        }
+        """,
+        encoding="utf-8",
+    )
+
+    def fake_fetch_source(source, limit, cached_items=None, checked_at=None):
+        return [
+            Notice(
+                source_id=source.id,
+                source_name=source.name,
+                notice_id=f"{source.id}:1",
+                title=(
+                    "[장학]한국농어촌희망재단 2026학년도 2학기 청년창업농장학금 선발 안내"
+                    if source.id == "pnu-main-notice"
+                    else "한국농어촌희망재단 2026학년도 2학기 청년창업농장학금 선발 안내"
+                ),
+                url=f"https://example.test/{source.id}/1",
+                published_at="2026-06-04",
+                snippet=None,
+                attachments=[],
+                tags=source.tags,
+                content_hash=source.id,
+            )
+        ]
+
+    monkeypatch.setattr(generator, "fetch_source", fake_fetch_source)
+
+    generated = generate_outputs(
+        sources_path=sources_path,
+        state_path=state_path,
+        limit=20,
+        public_base_url="https://feeds.example.test",
+        now=datetime(2026, 6, 5, 12, 0, tzinfo=ZoneInfo("Asia/Seoul")),
+    )
+
+    assert generated["duplicates"]["generated_at"] == "2026-06-05T12:00:00+09:00"
+    assert generated["duplicates"]["group_count"] == 1
+    assert generated["duplicates"]["groups"][0]["item_ids"] == [
+        "pnu-main-notice:1",
+        "pnu-onestop-notices:1",
+    ]
 
 
 def test_archive_input_is_built_from_state_items():

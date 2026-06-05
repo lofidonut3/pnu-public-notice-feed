@@ -53,6 +53,7 @@
       <li><a href="./rss.xml">rss.xml</a> - RSS 2.0 compatibility feed</li>
       <li><a href="./status.json">status.json</a> - source refresh status</li>
       <li><a href="./changes.json">changes.json</a> - latest observed added, updated, and removed item summary</li>
+      <li><a href="./duplicates.json">duplicates.json</a> - high-confidence same-notice groups for deduplicating notifications</li>
       <li><a href="./sources.json">sources.json</a> - public source registry</li>
       <li><a href="./archive/index.json">archive/index.json</a> - monthly archive manifest</li>
       <li><a href="./openapi.json">openapi.json</a> - static endpoint manifest</li>
@@ -61,7 +62,7 @@
 
     <h2>Agent Notes</h2>
     <p>Use <code>summary</code> and <code>_pnu.snippet</code> as short previews only. Fetch full notice text from <code>item.url</code> or <code>item._pnu.content_access.detail_url</code>.</p>
-    <p>Use <code>archive/index.json</code> for historical metadata catch-up. Use <code>rss.xml</code> as a compatibility feed; prefer JSON endpoints for structured agent workflows.</p>
+    <p>Check <code>duplicates.json</code> before sending notifications for multiple matching items. Use <code>archive/index.json</code> for historical metadata catch-up. Use <code>rss.xml</code> as a compatibility feed; prefer JSON endpoints for structured agent workflows.</p>
   </main>
 </body>
 </html>
