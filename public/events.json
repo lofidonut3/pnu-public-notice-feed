@@ -1,15 +1,15 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.2",
-  "generated_at": "2026-06-05T17:51:13+09:00",
+  "generated_at": "2026-06-06T07:04:16+09:00",
   "timezone": "Asia/Seoul",
-  "event_count": 749,
-  "total_event_count": 749,
+  "event_count": 751,
+  "total_event_count": 751,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-05T17:51:13+09:00|updated|pnu-main-notice:1509297|3c8b155239d6",
+  "latest_event_id": "2026-06-06T07:04:16+09:00|updated|pnu-health-notices:97|78f55ebc9d68",
   "oldest_event_id": "2026-06-04T20:09:36+09:00|added|pnu-main-notice:1508790|f23518c4179a",
   "oldest_seen_at": "2026-06-04T20:09:36+09:00",
-  "latest_seen_at": "2026-06-05T17:51:13+09:00",
+  "latest_seen_at": "2026-06-06T07:04:16+09:00",
   "is_truncated": false,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
@@ -36744,6 +36744,92 @@
           ],
           "content_hash": "3c8b155239d68f607e12b0e4c94337bb6c874461ad57f58e7f3469c8b89fd617",
           "detail_checked_at": "2026-06-05T17:51:13+09:00"
+        }
+      }
+    },
+    {
+      "event_id": "2026-06-06T07:04:16+09:00|added|pnu-health-notices:98|fb13f9b41013",
+      "event_type": "added",
+      "notice_id": "pnu-health-notices:98",
+      "source_id": "pnu-health-notices",
+      "seen_at": "2026-06-06T07:04:16+09:00",
+      "published_at": "2026-06-05",
+      "title": "[부산대학교 부속의원] 휴진안내 (6.05.(금) 16:00~18:00 미운영)",
+      "url": "https://health.pusan.ac.kr/page?menuCD=000000000000002&mode=DETAIL&seq=98&typeSeqNo=1",
+      "content_hash": "fb13f9b410137b7ef54509b4c0893b7801d6aba3520073595825f20348c0dd29",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-health-notices:98",
+      "item": {
+        "id": "pnu-health-notices:98",
+        "url": "https://health.pusan.ac.kr/page?menuCD=000000000000002&mode=DETAIL&seq=98&typeSeqNo=1",
+        "title": "[부산대학교 부속의원] 휴진안내 (6.05.(금) 16:00~18:00 미운영)",
+        "content_text": "This feed does not mirror the full notice body. Fetch the original notice URL for complete content.",
+        "summary": "부속의원 사정으로 6.05.(금) 16:00~18:00 휴진 하오니 진료시 참고 하시기 바랍니다. 감사합니다.",
+        "date_published": "2026-06-05T00:00:00+09:00",
+        "_pnu": {
+          "source_id": "pnu-health-notices",
+          "source_name": "부산대 보건진료소 공지사항",
+          "published_at": "2026-06-05",
+          "fetched_at": "2026-06-06T07:04:16+09:00",
+          "snippet": "부속의원 사정으로 6.05.(금) 16:00~18:00 휴진 하오니 진료시 참고 하시기 바랍니다. 감사합니다.",
+          "content_access": {
+            "detail_url": "https://health.pusan.ac.kr/page?menuCD=000000000000002&mode=DETAIL&seq=98&typeSeqNo=1",
+            "requires_login": false,
+            "content_mirrored": false,
+            "attachments_mirrored": false
+          },
+          "attachments": [],
+          "tags": [
+            "pnu",
+            "official",
+            "health",
+            "campus_service"
+          ],
+          "content_hash": "fb13f9b410137b7ef54509b4c0893b7801d6aba3520073595825f20348c0dd29"
+        }
+      }
+    },
+    {
+      "event_id": "2026-06-06T07:04:16+09:00|updated|pnu-health-notices:97|78f55ebc9d68",
+      "event_type": "updated",
+      "notice_id": "pnu-health-notices:97",
+      "source_id": "pnu-health-notices",
+      "seen_at": "2026-06-06T07:04:16+09:00",
+      "published_at": "2026-05-28",
+      "title": "[부산대학교 부속의원] 휴진안내 (5.29.(금) 9:00~18:00 미운영)",
+      "url": "https://health.pusan.ac.kr/page?menuCD=000000000000002&mode=DETAIL&seq=97&typeSeqNo=1",
+      "content_hash": "78f55ebc9d68151678cdf3374e7293508c7ab8e2b5c1a7d8096f2253f861dc70",
+      "previous_content_hash": "6a1c63c236451d3eb857834558e22ca3ab78c61eb91e8f6a380ead12c003b1fe",
+      "archive_file": "./archive/2026-05.json",
+      "archive_item_id": "pnu-health-notices:97",
+      "item": {
+        "id": "pnu-health-notices:97",
+        "url": "https://health.pusan.ac.kr/page?menuCD=000000000000002&mode=DETAIL&seq=97&typeSeqNo=1",
+        "title": "[부산대학교 부속의원] 휴진안내 (5.29.(금) 9:00~18:00 미운영)",
+        "content_text": "This feed does not mirror the full notice body. Fetch the original notice URL for complete content.",
+        "summary": "부속의원 사정으로 5.29.(금) 휴진 하오니 진료시 참고 하시기 바랍니다. * 4층 보건실은 정상 운영합니다. 감사합니다.",
+        "date_published": "2026-05-28T00:00:00+09:00",
+        "_pnu": {
+          "source_id": "pnu-health-notices",
+          "source_name": "부산대 보건진료소 공지사항",
+          "published_at": "2026-05-28",
+          "fetched_at": "2026-06-06T07:04:16+09:00",
+          "snippet": "부속의원 사정으로 5.29.(금) 휴진 하오니 진료시 참고 하시기 바랍니다. * 4층 보건실은 정상 운영합니다. 감사합니다.",
+          "content_access": {
+            "detail_url": "https://health.pusan.ac.kr/page?menuCD=000000000000002&mode=DETAIL&seq=97&typeSeqNo=1",
+            "requires_login": false,
+            "content_mirrored": false,
+            "attachments_mirrored": false
+          },
+          "attachments": [],
+          "tags": [
+            "pnu",
+            "official",
+            "health",
+            "campus_service"
+          ],
+          "content_hash": "78f55ebc9d68151678cdf3374e7293508c7ab8e2b5c1a7d8096f2253f861dc70"
         }
       }
     }
