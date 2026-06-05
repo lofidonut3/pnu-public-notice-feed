@@ -5,7 +5,9 @@ import json
 import sys
 from dataclasses import dataclass
 from datetime import datetime, timedelta
+from email.utils import format_datetime
 from pathlib import Path
+from xml.etree import ElementTree
 from zoneinfo import ZoneInfo
 
 from .archive import archive_outputs_exist, write_archive_outputs
@@ -40,6 +42,7 @@ This project is not operated by Pusan National University.
 ## Endpoints
 
 - [JSON Feed](./feed.json): latest normalized public notice metadata.
+- [RSS](./rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
 - [Status](./status.json): source refresh status and failures.
 - [Changes](./changes.json): latest observed added, updated, and removed item summaries.
 - [Sources](./sources.json): official public source registry.
@@ -75,6 +78,7 @@ INDEX_HTML = """<!doctype html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PNU Public Notice Feed</title>
   <link rel="alternate" type="application/feed+json" title="PNU Public Notice Feed" href="./feed.json">
+  <link rel="alternate" type="application/rss+xml" title="PNU Public Notice Feed RSS" href="./rss.xml">
   <style>
     body {
       color: #17202a;
@@ -119,6 +123,7 @@ INDEX_HTML = """<!doctype html>
     <h2>Endpoints</h2>
     <ul>
       <li><a href="./feed.json">feed.json</a> - JSON Feed 1.1 compatible notice metadata</li>
+      <li><a href="./rss.xml">rss.xml</a> - RSS 2.0 compatibility feed</li>
       <li><a href="./status.json">status.json</a> - source refresh status</li>
       <li><a href="./changes.json">changes.json</a> - latest observed added, updated, and removed item summary</li>
       <li><a href="./sources.json">sources.json</a> - public source registry</li>
@@ -255,6 +260,7 @@ def main(argv: list[str] | None = None) -> int:
         write_outputs(
             output_dir=output_dir,
             feed=generated["feed"],
+            rss=generated["rss"],
             status=generated["status"],
             changes=generated["changes"],
             state=generated["state"],
@@ -292,6 +298,7 @@ def generate_outputs(
     changes = build_changes(state, updated_state)
     return {
         "feed": feed,
+        "rss": build_rss(feed),
         "status": status,
         "changes": changes,
         "state": updated_state,
@@ -561,6 +568,88 @@ def source_is_degraded(result: SourceResult) -> bool:
     return result.status == "error" or result.skipped_reason == "backoff"
 
 
+def build_rss(feed: dict) -> str:
+    channel = ElementTree.Element("channel")
+    base_url = str(feed.get("home_page_url") or "").rstrip("/")
+    generated_at = str(feed.get("_pnu", {}).get("generated_at") or "")
+    source_urls = {
+        str(source.get("id")): source.get("official_url")
+        for source in feed.get("_pnu", {}).get("sources", [])
+        if source.get("id")
+    }
+
+    add_text(channel, "title", str(feed.get("title") or "PNU Public Notice Feed"))
+    add_text(channel, "link", base_url or str(feed.get("feed_url") or ""))
+    add_text(channel, "description", str(feed.get("description") or DISCLAIMER))
+    add_text(channel, "language", "ko-KR")
+    add_text(channel, "lastBuildDate", rss_datetime(generated_at))
+    add_text(channel, "generator", "PNU Public Notice Feed")
+    add_text(channel, "docs", "https://www.rssboard.org/rss-specification")
+
+    for item in feed.get("items", []):
+        channel.append(rss_item(item, source_urls))
+
+    rss = ElementTree.Element("rss", {"version": "2.0"})
+    rss.append(channel)
+    ElementTree.indent(rss, space="  ")
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        + ElementTree.tostring(rss, encoding="unicode", short_empty_elements=False)
+        + "\n"
+    )
+
+
+def rss_item(item: dict, source_urls: dict[str, str | None]) -> ElementTree.Element:
+    pnu = item.get("_pnu", {})
+    element = ElementTree.Element("item")
+    item_id = str(item.get("id") or "")
+    source_id = str(pnu.get("source_id") or "")
+    source_name = str(pnu.get("source_name") or source_id or "PNU notice")
+
+    add_text(element, "title", str(item.get("title") or item_id))
+    add_text(element, "link", str(item.get("url") or ""))
+    guid = add_text(element, "guid", item_id)
+    guid.set("isPermaLink", "false")
+    add_text(
+        element,
+        "pubDate",
+        rss_datetime(item.get("date_published") or pnu.get("published_at")),
+    )
+    add_text(element, "description", rss_description(item))
+    add_text(element, "category", source_id)
+    source = add_text(element, "source", source_name)
+    source_url = source_urls.get(source_id)
+    if source_url:
+        source.set("url", str(source_url))
+    return element
+
+
+def rss_description(item: dict) -> str:
+    pnu = item.get("_pnu", {})
+    summary = item.get("summary") or pnu.get("snippet") or ""
+    if summary:
+        return str(summary)
+    return CONTENT_TEXT_NOTICE
+
+
+def add_text(parent: ElementTree.Element, tag: str, value: str) -> ElementTree.Element:
+    child = ElementTree.SubElement(parent, tag)
+    child.text = value
+    return child
+
+
+def rss_datetime(value: str | None) -> str:
+    if not value:
+        return ""
+    try:
+        parsed = datetime.fromisoformat(str(value))
+    except ValueError:
+        return ""
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=ZoneInfo("Asia/Seoul"))
+    return format_datetime(parsed)
+
+
 def notice_to_feed_item(
     notice: Notice,
     fetched_at: str,
@@ -667,6 +756,7 @@ def attachment_to_feed_json(attachment) -> dict:
 def write_outputs(
     output_dir: Path,
     feed: dict,
+    rss: str,
     status: dict,
     changes: dict,
     state: dict,
@@ -674,6 +764,7 @@ def write_outputs(
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     write_json(output_dir / "feed.json", feed, pretty)
+    write_text_if_changed(output_dir / "rss.xml", rss)
     write_json(output_dir / "status.json", status, pretty)
     write_json(output_dir / "changes.json", changes, pretty)
     write_archive_outputs(output_dir, archive_input_from_state(state), pretty)
@@ -709,6 +800,7 @@ def outputs_exist(output_dir: Path, state_path: Path) -> bool:
         path.exists()
         for path in [
             output_dir / "feed.json",
+            output_dir / "rss.xml",
             output_dir / "status.json",
             output_dir / "changes.json",
             state_path,

@@ -34,6 +34,28 @@
         }
       }
     },
+    "/rss.xml": {
+      "get": {
+        "summary": "RSS 2.0 compatibility feed",
+        "responses": {
+          "200": {
+            "description": "Latest public notice metadata as an RSS 2.0 feed.",
+            "content": {
+              "application/rss+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/status.json": {
       "get": {
         "summary": "Source refresh status",

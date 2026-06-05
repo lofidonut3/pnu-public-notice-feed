@@ -1,4 +1,5 @@
 from datetime import datetime
+from xml.etree import ElementTree
 from zoneinfo import ZoneInfo
 
 from pnu_notice_feed.generator import (
@@ -9,6 +10,7 @@ from pnu_notice_feed.generator import (
     archive_input_from_state,
     build_changes,
     build_feed,
+    build_rss,
     build_state,
     build_status,
     all_sources_skipped,
@@ -128,6 +130,40 @@ def test_build_feed_sorts_items_by_published_date_desc():
     ]
     assert "not operated by Pusan National University" in feed["description"]
     assert feed["items"][0]["date_published"] == "2026-06-03T00:00:00+09:00"
+
+
+def test_build_rss_creates_rss_compatibility_feed():
+    source = _source()
+    result = _result(
+        source,
+        "2026-06-03T12:00:00+09:00",
+        [_notice(source, "1", "2026-06-03", snippet="짧은 미리보기")],
+    )
+    feed = build_feed(
+        [result],
+        "2026-06-03T12:00:00+09:00",
+        "https://feeds.example.test",
+    )
+
+    rss = build_rss(feed)
+    root = ElementTree.fromstring(rss)
+    channel = root.find("channel")
+    item = channel.find("item")
+
+    assert root.tag == "rss"
+    assert root.attrib["version"] == "2.0"
+    assert channel.findtext("title") == "PNU Public Notice Feed"
+    assert channel.findtext("link") == "https://feeds.example.test"
+    assert channel.findtext("lastBuildDate") == "Wed, 03 Jun 2026 12:00:00 +0900"
+    assert item.findtext("title") == "공지 1"
+    assert item.findtext("link") == "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?id=1"
+    assert item.findtext("guid") == "pnu-main-notice:1"
+    assert item.find("guid").attrib["isPermaLink"] == "false"
+    assert item.findtext("pubDate") == "Wed, 03 Jun 2026 00:00:00 +0900"
+    assert item.findtext("description") == "짧은 미리보기"
+    assert item.findtext("category") == "pnu-main-notice"
+    assert item.findtext("source") == "부산대 대학공지"
+    assert item.find("source").attrib["url"] == "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do"
 
 
 def test_normalize_feed_item_migrates_cached_snippet_to_summary():
@@ -630,6 +666,7 @@ def _notice(
     suffix: str,
     published_at: str,
     content_hash: str | None = None,
+    snippet: str | None = None,
 ) -> Notice:
     return Notice(
         source_id=source.id,
@@ -638,7 +675,7 @@ def _notice(
         title=f"공지 {suffix}",
         url=f"{source.official_url}?id={suffix}",
         published_at=published_at,
-        snippet=None,
+        snippet=snippet,
         attachments=[],
         tags=source.tags,
         content_hash=content_hash or f"hash-{suffix}",

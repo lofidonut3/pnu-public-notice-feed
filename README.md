@@ -17,6 +17,7 @@ https://lofidonut3.github.io/pnu-public-notice-feed/
 Available endpoints:
 
 - `feed.json`: JSON Feed 1.1 compatible notice metadata feed
+- `rss.xml`: RSS 2.0 compatibility feed for feed readers and automation tools
 - `status.json`: source refresh status and source errors
 - `changes.json`: latest observed added, updated, and removed item summary
 - `sources.json`: public source registry

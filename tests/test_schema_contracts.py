@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from xml.etree import ElementTree
 
 import pytest
 
@@ -30,6 +31,17 @@ def test_generated_outputs_match_schemas():
 
     _validate_archive_files("public/archive/notices", "schema/archive-notices.schema.json")
     _validate_archive_files("public/archive/events", "schema/archive-events.schema.json")
+
+
+def test_generated_rss_is_well_formed():
+    root = ElementTree.parse(ROOT / "public/rss.xml").getroot()
+    channel = root.find("channel")
+
+    assert root.tag == "rss"
+    assert root.attrib["version"] == "2.0"
+    assert channel is not None
+    assert channel.findtext("title") == "PNU Public Notice Feed"
+    assert channel.find("item") is not None
 
 
 def _load_json(path: Path) -> dict:
