@@ -59,7 +59,7 @@ This project is not operated by Pusan National University.
 - [RSS](./rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
 - [Status](./status.json): source refresh status and failures.
 - [Events](./events.json): recent durable notice events for cursor-based agent checks.
-- [Changes](./changes.json): latest generator-run added, updated, and removed item summaries.
+- [Run diff](./run-diff.json): latest generator-run added, updated, and removed item summaries.
 - [Duplicates](./duplicates.json): high-confidence same-notice groups for notification dedupe.
 - [Sources](./sources.json): official public source registry.
 - [Archive index](./archive/index.json): monthly archive manifest.
@@ -70,7 +70,7 @@ This project is not operated by Pusan National University.
 - [Feed schema](./schema/feed.schema.json)
 - [Status schema](./schema/status.schema.json)
 - [Events schema](./schema/events.schema.json)
-- [Changes schema](./schema/changes.schema.json)
+- [Run diff schema](./schema/run-diff.schema.json)
 - [Duplicates schema](./schema/duplicates.schema.json)
 - [Sources schema](./schema/sources.schema.json)
 - [Archive index schema](./schema/archive-index.schema.json)
@@ -87,7 +87,9 @@ This project is not operated by Pusan National University.
 - Treat `content_mirrored: false` and `attachments_mirrored: false` as a hard boundary.
 - Check `status.json` before relying on source freshness.
 - Use `events.json` for cursor-based checks since the last agent run.
-- Use `changes.json` only as the latest generator-run diff.
+- Store a local `latest_event_id` or `seen_at` cursor and process newer events.
+- Use monthly archive event files if the local cursor is older than the `events.json` window.
+- Use `run-diff.json` only as the latest generator-run diff.
 - Check `duplicates.json` before sending notifications for multiple matching items.
 - Use `feed.json` as a latest discovery feed, not a complete archive.
 - Use `archive/index.json` and monthly archive files for catch-up after downtime.
@@ -149,7 +151,7 @@ INDEX_HTML = """<!doctype html>
       <li><a href="./rss.xml">rss.xml</a> - RSS 2.0 compatibility feed</li>
       <li><a href="./status.json">status.json</a> - source refresh status</li>
       <li><a href="./events.json">events.json</a> - recent durable notice events for cursor-based checks</li>
-      <li><a href="./changes.json">changes.json</a> - latest generator-run added, updated, and removed item summary</li>
+      <li><a href="./run-diff.json">run-diff.json</a> - latest generator-run added, updated, and removed item summary</li>
       <li><a href="./duplicates.json">duplicates.json</a> - high-confidence same-notice groups for deduplicating notifications</li>
       <li><a href="./sources.json">sources.json</a> - public source registry</li>
       <li><a href="./archive/index.json">archive/index.json</a> - monthly archive manifest</li>
@@ -159,7 +161,7 @@ INDEX_HTML = """<!doctype html>
 
     <h2>Agent Notes</h2>
     <p>Use <code>summary</code> and <code>_pnu.snippet</code> as short previews only. Fetch full notice text from <code>item.url</code> or <code>item._pnu.content_access.detail_url</code>.</p>
-    <p>Use <code>events.json</code> for cursor-based checks since the last agent run. Check <code>duplicates.json</code> before sending notifications for multiple matching items. Use <code>archive/index.json</code> for historical metadata catch-up. Use <code>rss.xml</code> as a compatibility feed; prefer JSON endpoints for structured agent workflows.</p>
+    <p>Use <code>events.json</code> for cursor-based checks since the last agent run. Use <code>run-diff.json</code> only as the latest generator-run diff. Check <code>duplicates.json</code> before sending notifications for multiple matching items. Use <code>archive/index.json</code> for historical metadata catch-up. Use <code>rss.xml</code> as a compatibility feed; prefer JSON endpoints for structured agent workflows.</p>
   </main>
 </body>
 </html>
@@ -298,7 +300,7 @@ def main(argv: list[str] | None = None) -> int:
             feed=generated["feed"],
             rss=generated["rss"],
             status=generated["status"],
-            changes=generated["changes"],
+            run_diff=generated["run_diff"],
             duplicates=generated["duplicates"],
             state=generated["state"],
             pretty=args.pretty,
@@ -339,13 +341,13 @@ def generate_outputs(
     )
     status = build_status(results, generated_at)
     updated_state = build_state(results, generated_at)
-    changes = build_changes(state, updated_state)
+    run_diff = build_run_diff(state, updated_state)
     duplicates = build_duplicates(all_items, generated_at, FEED_VERSION)
     return {
         "feed": feed,
         "rss": build_rss(feed),
         "status": status,
-        "changes": changes,
+        "run_diff": run_diff,
         "duplicates": duplicates,
         "state": updated_state,
         "all_sources_skipped": all_sources_skipped(results),
@@ -603,7 +605,10 @@ def build_feed(
             "feed_version": FEED_VERSION,
             "generated_at": generated_at,
             "status_url": f"{base_url}/status.json",
-            "changes_url": f"{base_url}/changes.json",
+            "events_url": f"{base_url}/events.json",
+            "run_diff_url": f"{base_url}/run-diff.json",
+            "duplicates_url": f"{base_url}/duplicates.json",
+            "archive_index_url": f"{base_url}/archive/index.json",
             "sources_url": f"{base_url}/sources.json",
             "schema_url": f"{base_url}/schema/feed.schema.json",
             "source_count": len(results),
@@ -833,7 +838,7 @@ def write_outputs(
     feed: dict,
     rss: str,
     status: dict,
-    changes: dict,
+    run_diff: dict,
     duplicates: dict,
     state: dict,
     pretty: bool,
@@ -842,7 +847,7 @@ def write_outputs(
     write_json(output_dir / "feed.json", feed, pretty)
     write_text_if_changed(output_dir / "rss.xml", rss)
     write_json(output_dir / "status.json", status, pretty)
-    write_json(output_dir / "changes.json", changes, pretty)
+    write_json(output_dir / "run-diff.json", run_diff, pretty)
     write_json(output_dir / "duplicates.json", duplicates, pretty)
     write_archive_outputs(output_dir, archive_input_from_state(state), pretty)
 
@@ -880,7 +885,7 @@ def outputs_exist(output_dir: Path, state_path: Path) -> bool:
             output_dir / "rss.xml",
             output_dir / "status.json",
             output_dir / "events.json",
-            output_dir / "changes.json",
+            output_dir / "run-diff.json",
             output_dir / "duplicates.json",
             state_path,
         ]
@@ -954,7 +959,7 @@ def read_json_if_exists(path: Path) -> dict | None:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def build_changes(previous_state: dict | None, current_state: dict) -> dict:
+def build_run_diff(previous_state: dict | None, current_state: dict) -> dict:
     previous_items = state_items_by_id(previous_state)
     current_items = state_items_by_id(current_state)
 
@@ -970,6 +975,11 @@ def build_changes(previous_state: dict | None, current_state: dict) -> dict:
     return {
         "schema_version": SCHEMA_VERSION,
         "feed_version": FEED_VERSION,
+        "run_diff_scope": "latest_generator_run",
+        "durable_history": False,
+        "removed_semantics": (
+            "missing_from_current_generator_state_not_official_deletion"
+        ),
         "generated_at": current_state["generated_at"],
         "previous_generated_at": (
             previous_state.get("generated_at")

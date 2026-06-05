@@ -29,7 +29,10 @@
         "feed_version",
         "generated_at",
         "status_url",
-        "changes_url",
+        "events_url",
+        "run_diff_url",
+        "duplicates_url",
+        "archive_index_url",
         "sources_url",
         "schema_url",
         "source_count",
@@ -50,7 +53,19 @@
           "type": "string",
           "format": "uri"
         },
-        "changes_url": {
+        "events_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "run_diff_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "duplicates_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "archive_index_url": {
           "type": "string",
           "format": "uri"
         },

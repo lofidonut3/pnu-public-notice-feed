@@ -43,6 +43,8 @@ def archive_outputs_exist(output_dir: Path) -> bool:
     index = read_json_if_exists(archive_dir / "index.json")
     if not index:
         return False
+    if not (output_dir / "events.json").exists():
+        return False
     for month in index.get("months", []):
         notices_url = month.get("notices_url")
         events_url = month.get("events_url")
@@ -149,18 +151,40 @@ def build_recent_events_document(
         key=lambda value: (value.get("seen_at") or "", value.get("event_id") or ""),
     )
     limited_events = all_events[-event_limit:]
+    normalized_events = [
+        event_for_recent_stream(event)
+        for event in limited_events
+    ]
+    oldest_event = normalized_events[0] if normalized_events else None
+    latest_event = normalized_events[-1] if normalized_events else None
     return {
         "schema_version": "0.1",
         "event_stream_version": EVENT_STREAM_VERSION,
         "generated_at": archive_index.get("last_modified_at"),
         "timezone": TIMEZONE,
-        "event_count": len(limited_events),
+        "event_count": len(normalized_events),
         "total_event_count": len(all_events),
         "event_limit": event_limit,
         "latest_event_id": archive_index.get("latest_event_id"),
+        "oldest_event_id": oldest_event.get("event_id") if oldest_event else None,
+        "oldest_seen_at": oldest_event.get("seen_at") if oldest_event else None,
+        "latest_seen_at": latest_event.get("seen_at") if latest_event else None,
+        "is_truncated": len(all_events) > len(normalized_events),
         "archive_index_url": "./archive/index.json",
         "archive_events_url_pattern": "./archive/events/{YYYY-MM}.json",
-        "events": limited_events,
+        "events": normalized_events,
+    }
+
+
+def event_for_recent_stream(event: dict) -> dict:
+    archive_notice_file = str(event.get("archive_notice_file") or "")
+    return {
+        **event,
+        "archive_notice_file": archive_notice_file.replace(
+            "../notices/",
+            "./archive/notices/",
+            1,
+        ),
     }
 
 

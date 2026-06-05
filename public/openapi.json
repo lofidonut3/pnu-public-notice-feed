@@ -73,7 +73,7 @@
         }
       }
     },
-    "/changes.json": {
+    "/run-diff.json": {
       "get": {
         "summary": "Latest generator-run notice item diff",
         "responses": {
@@ -82,7 +82,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "./schema/changes.schema.json"
+                  "$ref": "./schema/run-diff.schema.json"
                 }
               }
             }

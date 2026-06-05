@@ -9,8 +9,8 @@ from pnu_notice_feed.generator import (
     PublicSource,
     SourceResult,
     archive_input_from_state,
-    build_changes,
     build_feed,
+    build_run_diff,
     build_rss,
     build_state,
     build_status,
@@ -123,7 +123,14 @@ def test_build_feed_sorts_items_by_published_date_desc():
     assert feed["home_page_url"] == "https://feeds.example.test"
     assert feed["feed_url"] == "https://feeds.example.test/feed.json"
     assert feed["_pnu"]["schema_version"] == "0.1"
-    assert feed["_pnu"]["changes_url"] == "https://feeds.example.test/changes.json"
+    assert feed["_pnu"]["events_url"] == "https://feeds.example.test/events.json"
+    assert feed["_pnu"]["run_diff_url"] == "https://feeds.example.test/run-diff.json"
+    assert feed["_pnu"]["duplicates_url"] == (
+        "https://feeds.example.test/duplicates.json"
+    )
+    assert feed["_pnu"]["archive_index_url"] == (
+        "https://feeds.example.test/archive/index.json"
+    )
     assert feed["_pnu"]["source_count"] == 1
     assert feed["_pnu"]["item_count"] == 2
     assert [item["id"] for item in feed["items"]] == [
@@ -314,7 +321,7 @@ def test_build_status_counts_backoff_skip_as_partial_not_poll_interval_skip():
     assert status["failed_source_count"] == 1
 
 
-def test_build_changes_reports_added_updated_and_removed_items():
+def test_build_run_diff_reports_added_updated_and_removed_items():
     source = _source()
     old_checked_at = "2026-06-03T12:00:00+09:00"
     old_state = build_state(
@@ -346,16 +353,21 @@ def test_build_changes_reports_added_updated_and_removed_items():
         new_checked_at,
     )
 
-    changes = build_changes(old_state, new_state)
+    run_diff = build_run_diff(old_state, new_state)
 
-    assert changes["added_count"] == 1
-    assert changes["updated_count"] == 1
-    assert changes["removed_count"] == 1
-    assert changes["generated_at"] == new_checked_at
-    assert changes["previous_generated_at"] == old_checked_at
-    assert changes["added"][0]["id"] == "pnu-main-notice:new"
-    assert changes["updated"][0]["id"] == "pnu-main-notice:changed"
-    assert changes["removed"][0]["id"] == "pnu-main-notice:old"
+    assert run_diff["run_diff_scope"] == "latest_generator_run"
+    assert run_diff["durable_history"] is False
+    assert run_diff["removed_semantics"] == (
+        "missing_from_current_generator_state_not_official_deletion"
+    )
+    assert run_diff["added_count"] == 1
+    assert run_diff["updated_count"] == 1
+    assert run_diff["removed_count"] == 1
+    assert run_diff["generated_at"] == new_checked_at
+    assert run_diff["previous_generated_at"] == old_checked_at
+    assert run_diff["added"][0]["id"] == "pnu-main-notice:new"
+    assert run_diff["updated"][0]["id"] == "pnu-main-notice:changed"
+    assert run_diff["removed"][0]["id"] == "pnu-main-notice:old"
 
 
 def test_generate_outputs_includes_duplicate_groups(tmp_path, monkeypatch):
@@ -430,7 +442,7 @@ def test_generate_outputs_includes_duplicate_groups(tmp_path, monkeypatch):
     ]
 
 
-def test_generate_outputs_keeps_changes_state_and_duplicates_full_when_feed_is_limited(
+def test_generate_outputs_keeps_run_diff_state_and_duplicates_full_when_feed_is_limited(
     tmp_path,
     monkeypatch,
 ):
@@ -508,7 +520,7 @@ def test_generate_outputs_keeps_changes_state_and_duplicates_full_when_feed_is_l
 
     assert generated["feed"]["_pnu"]["item_count"] == 2
     assert generated["feed"]["_pnu"]["total_item_count"] == 4
-    assert sorted(generated["changes"]["added"][index]["id"] for index in range(4)) == [
+    assert sorted(generated["run_diff"]["added"][index]["id"] for index in range(4)) == [
         "pnu-main-notice:new",
         "pnu-main-notice:old-duplicate",
         "pnu-onestop-notices:new",

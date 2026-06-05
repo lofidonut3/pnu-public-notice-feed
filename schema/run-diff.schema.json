@@ -1,11 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://lofidonut3.github.io/pnu-public-notice-feed/schema/changes.schema.json",
-  "title": "PNU Public Notice Feed Changes",
+  "$id": "https://lofidonut3.github.io/pnu-public-notice-feed/schema/run-diff.schema.json",
+  "title": "PNU Public Notice Feed Latest Run Diff",
   "type": "object",
   "required": [
     "schema_version",
     "feed_version",
+    "run_diff_scope",
+    "durable_history",
+    "removed_semantics",
     "generated_at",
     "previous_generated_at",
     "added_count",
@@ -21,6 +24,15 @@
     },
     "feed_version": {
       "type": "string"
+    },
+    "run_diff_scope": {
+      "const": "latest_generator_run"
+    },
+    "durable_history": {
+      "const": false
+    },
+    "removed_semantics": {
+      "const": "missing_from_current_generator_state_not_official_deletion"
     },
     "generated_at": {
       "type": "string"

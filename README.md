@@ -22,7 +22,7 @@ Available endpoints:
 - [`rss.xml`](https://lofidonut3.github.io/pnu-public-notice-feed/rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools
 - [`status.json`](https://lofidonut3.github.io/pnu-public-notice-feed/status.json): source refresh status and source errors
 - [`events.json`](https://lofidonut3.github.io/pnu-public-notice-feed/events.json): recent durable notice events for cursor-based agent checks
-- [`changes.json`](https://lofidonut3.github.io/pnu-public-notice-feed/changes.json): latest generator-run added, updated, and removed item summary
+- [`run-diff.json`](https://lofidonut3.github.io/pnu-public-notice-feed/run-diff.json): latest generator-run added, updated, and removed item summary
 - [`duplicates.json`](https://lofidonut3.github.io/pnu-public-notice-feed/duplicates.json): high-confidence same-notice groups for notification deduplication
 - [`sources.json`](https://lofidonut3.github.io/pnu-public-notice-feed/sources.json): public source registry
 - [`archive/index.json`](https://lofidonut3.github.io/pnu-public-notice-feed/archive/index.json): archive manifest
@@ -44,7 +44,8 @@ Agents should treat `summary` and `_pnu.snippet` as previews only. Fetch full no
 
 - Source refresh status is published in `status.json`.
 - Recent durable notice events are published in `events.json` for cursor-based agent checks.
-- Latest generator-run item changes are summarized in `changes.json`.
+- Agents should store a local `latest_event_id` or `seen_at` cursor, then process newer events from `events.json`. If the cursor is older than the `events.json` window, use monthly archive event files.
+- Latest generator-run item diffs are summarized in `run-diff.json`.
 - High-confidence same-notice groups are published in `duplicates.json`; raw `feed.json` items are preserved.
 - `feed.json` is a latest discovery feed, not a complete archive. Use `archive/index.json` and monthly archive files for older notice metadata.
 - Source polling is rate-limited by `sources.json` and cached in `cache/feed-state.json`.

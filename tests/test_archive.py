@@ -129,12 +129,19 @@ def test_recent_events_document_uses_latest_events_as_agent_cursor_stream():
     assert events["total_event_count"] == 3
     assert events["event_limit"] == 2
     assert events["latest_event_id"] == index["latest_event_id"]
+    assert events["oldest_event_id"] == events["events"][0]["event_id"]
+    assert events["oldest_seen_at"] == "2026-06-03T12:30:00+09:00"
+    assert events["latest_seen_at"] == "2026-06-03T13:00:00+09:00"
+    assert events["is_truncated"] is True
     assert events["archive_index_url"] == "./archive/index.json"
     assert events["archive_events_url_pattern"] == "./archive/events/{YYYY-MM}.json"
     assert [event["notice_id"] for event in events["events"]] == [
         "pnu-main-notice:2",
         "pnu-main-notice:3",
     ]
+    assert events["events"][0]["archive_notice_file"] == (
+        "./archive/notices/2026-06.json"
+    )
 
 
 def _feed(items, generated_at="2026-06-03T12:00:00+09:00"):

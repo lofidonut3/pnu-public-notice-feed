@@ -12,6 +12,10 @@
     "total_event_count",
     "event_limit",
     "latest_event_id",
+    "oldest_event_id",
+    "oldest_seen_at",
+    "latest_seen_at",
+    "is_truncated",
     "archive_index_url",
     "archive_events_url_pattern",
     "events"
@@ -43,6 +47,18 @@
     },
     "latest_event_id": {
       "type": ["string", "null"]
+    },
+    "oldest_event_id": {
+      "type": ["string", "null"]
+    },
+    "oldest_seen_at": {
+      "type": ["string", "null"]
+    },
+    "latest_seen_at": {
+      "type": ["string", "null"]
+    },
+    "is_truncated": {
+      "type": "boolean"
     },
     "archive_index_url": {
       "type": "string"
