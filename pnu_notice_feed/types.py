@@ -12,6 +12,9 @@ class Source:
     tags: list[str] = field(default_factory=list)
     menu_cd: str | None = None
     board_id: str | None = None
+    cate_type_seq: str | None = None
+    bbs_type_seq: str | None = None
+    mainbbs_tab_index: str | None = None
 
 
 @dataclass(frozen=True)

@@ -11,16 +11,18 @@ const USER_AGENT = "PNUPublicNoticeFeed/0.1";
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const baseUrl = args["base-url"];
-  const sitePath = args["site-path"];
+  const sitePath = normalizeSitePath(args["site-path"] ?? "");
   const menuCd = args["menu-cd"];
+  const cateTypeSeq = args["cate-type-seq"] ?? "";
+  const bbsTypeSeq = args["bbs-type-seq"] ?? "";
+  const mainbbsTabIndex = args["mainbbs-tab-index"] ?? "";
   const limit = Number.parseInt(args.limit ?? "20", 10);
   if (!baseUrl) throw new Error("--base-url is required");
-  if (!sitePath) throw new Error("--site-path is required");
   if (!menuCd) throw new Error("--menu-cd is required");
   if (!Number.isFinite(limit) || limit <= 0) throw new Error("--limit must be positive");
 
   const client = await WebSquareClient.create({ baseUrl, sitePath, menuCd });
-  const globalInfo = await client.postJson(`/${sitePath}/global/info`, { menuCD: menuCd });
+  const globalInfo = await client.postJson(joinPath(sitePath, "global/info"), { menuCD: menuCd });
   const menuInfo = findMenuInfo(globalInfo, menuCd);
   if (!menuInfo?.AUTH_STR) throw new Error(`AUTH_STR not found for menuCD=${menuCd}`);
 
@@ -29,7 +31,8 @@ async function main() {
     {
       SCH_GUBUN: "",
       SCH_CONTENT: "",
-      CATE_TYPE_SEQ_NO: "",
+      CATE_TYPE_SEQ_NO: cateTypeSeq,
+      BBS_TYPE_SEQ_NO: bbsTypeSeq,
       totPage: 1,
       totCnt: 0,
       pageSize: limit,
@@ -41,7 +44,7 @@ async function main() {
 
   const notices = uniqueByNoticeId(
     (Array.isArray(list.data) ? list.data : []).map((row) =>
-      normalizeNotice(row, { baseUrl, sitePath, menuCd }),
+      normalizeNotice(row, { baseUrl, sitePath, menuCd, mainbbsTabIndex }),
     ),
   ).slice(0, limit);
 
@@ -49,6 +52,7 @@ async function main() {
     JSON.stringify({
       menu_cd: menuCd,
       source_name: menuInfo.MENU_KOR_NM ?? null,
+      categories: Array.isArray(list.bbsCateList) ? list.bbsCateList : [],
       total_count: list.totalCnt ?? notices.length,
       notices,
     }),
@@ -66,7 +70,7 @@ class WebSquareClient {
   }
 
   static async create({ baseUrl, sitePath, menuCd }) {
-    const entryUrl = `${baseUrl}/${sitePath}/page?menuCD=${encodeURIComponent(menuCd)}`;
+    const entryUrl = `${baseUrl}${joinPath(sitePath, "page")}?menuCD=${encodeURIComponent(menuCd)}`;
     const response = await fetch(entryUrl, {
       headers: { "User-Agent": USER_AGENT },
     });
@@ -118,7 +122,7 @@ class WebSquareClient {
         AJAX: "true",
         "User-Agent": USER_AGENT,
         Cookie: this.cookie,
-        Referer: `${this.baseUrl}/${this.sitePath}/page?menuCD=${this.menuCd}`,
+        Referer: `${this.baseUrl}${joinPath(this.sitePath, "page")}?menuCD=${this.menuCd}`,
         "X-CSRF-TOKEN": this.csrfToken,
       },
       body,
@@ -145,6 +149,15 @@ function parseArgs(argv) {
     result[key] = value;
   }
   return result;
+}
+
+function normalizeSitePath(value) {
+  return String(value ?? "").replace(/^\/+|\/+$/g, "");
+}
+
+function joinPath(sitePath, leaf) {
+  const normalized = normalizeSitePath(sitePath);
+  return normalized ? `/${normalized}/${leaf}` : `/${leaf}`;
 }
 
 function getSetCookies(headers) {
@@ -236,15 +249,23 @@ function findMenuInfo(globalInfo, menuCd) {
   return menu.find((item) => item?.MENU_CD === menuCd);
 }
 
-function normalizeNotice(row, { baseUrl, sitePath, menuCd }) {
+function normalizeNotice(row, { baseUrl, sitePath, menuCd, mainbbsTabIndex }) {
   const seq = stableNoticeSeq(row);
   const title = cleanText(row.TITLE_CONTENT ?? row.TITLE ?? "");
-  const contentText = cleanText(stripHtml(row.CONTENT ?? ""));
+  const contentText = cleanText(stripHtml(decodeHtml(row.CONTENT ?? "")));
   const attachments = normalizeAttachments(row.bbsFileList ?? [], row, baseUrl);
+  const params = new URLSearchParams({
+    menuCD: menuCd,
+    mode: "DETAIL",
+    seq,
+  });
+  if (row.BBS_TYPE_SEQ_NO) params.set("typeSeqNo", String(row.BBS_TYPE_SEQ_NO));
+  if (mainbbsTabIndex !== "") params.set("mainbbsTabIndex", String(mainbbsTabIndex));
+  if (row.CATE_TYPE_SEQ_NO) params.set("cateSeq", String(row.CATE_TYPE_SEQ_NO));
   return {
     notice_id: seq,
     title,
-    url: `${baseUrl}/${sitePath}/page?menuCD=${encodeURIComponent(menuCd)}&mode=DETAIL&seq=${encodeURIComponent(seq)}`,
+    url: `${baseUrl}${joinPath(sitePath, "page")}?${params.toString()}`,
     published_at: normalizeDate(row.INS_DT),
     snippet: contentText ? contentText.slice(0, 500) : null,
     attachments,

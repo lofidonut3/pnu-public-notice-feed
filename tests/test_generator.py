@@ -280,6 +280,30 @@ def test_build_status_reports_partial_failure():
     assert status["sources"][1]["error"] == "network timeout"
 
 
+def test_public_source_preserves_optional_websquare_filters():
+    source = PublicSource.from_json(
+        {
+            "id": "pnu-lei-korean-course-notices",
+            "name": "부산대 언어교육원 한국어과정 공지사항",
+            "adapter": "websquare-js-board",
+            "official_url": "https://lei.pusan.ac.kr/page?menuCD=000000000000226",
+            "category": "language_education_notice",
+            "poll_interval_minutes": 30,
+            "public_only": True,
+            "tags": ["pnu", "official"],
+            "menu_cd": "000000000000226",
+            "cate_type_seq": "9",
+            "mainbbs_tab_index": "0",
+        }
+    )
+
+    adapter_source = source.to_adapter_source()
+
+    assert adapter_source.menu_cd == "000000000000226"
+    assert adapter_source.cate_type_seq == "9"
+    assert adapter_source.mainbbs_tab_index == "0"
+
+
 def test_build_status_counts_backoff_skip_as_partial_not_poll_interval_skip():
     checked_at = "2026-06-03T12:00:00+09:00"
     ok_source = _source("pnu-main-notice")

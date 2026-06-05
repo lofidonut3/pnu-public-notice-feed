@@ -17,6 +17,7 @@ from .job_board import fetch_job_notice_board, fetch_job_recruit_board
 from .k2web_board import fetch_k2web_board
 from .library_pyxis_board import fetch_library_pyxis_board
 from .onestop_js_board import fetch_onestop_js_board
+from .simple_html_board import fetch_plato_ubboard, fetch_simple_html_board
 from .types import Notice, Source
 from .websquare_js_board import fetch_websquare_js_board
 
@@ -38,6 +39,8 @@ SUPPORTED_ADAPTERS = {
     "job-notice-html-board",
     "job-recruit-html-board",
     "library-pyxis-board",
+    "simple-html-board",
+    "plato-ubboard",
 }
 DISCLAIMER = (
     "Unofficial PNU Public Notice Feed. This project indexes public official "
@@ -178,6 +181,9 @@ class PublicSource:
     access_policy: str = "public_official_url_only"
     menu_cd: str | None = None
     board_id: str | None = None
+    cate_type_seq: str | None = None
+    bbs_type_seq: str | None = None
+    mainbbs_tab_index: str | None = None
     notes: str | None = None
 
     @classmethod
@@ -198,6 +204,13 @@ class PublicSource:
             tags=[str(tag) for tag in data.get("tags", [])],
             menu_cd=str(data["menu_cd"]) if data.get("menu_cd") else None,
             board_id=str(data["board_id"]) if data.get("board_id") else None,
+            cate_type_seq=str(data["cate_type_seq"]) if data.get("cate_type_seq") else None,
+            bbs_type_seq=str(data["bbs_type_seq"]) if data.get("bbs_type_seq") else None,
+            mainbbs_tab_index=(
+                str(data["mainbbs_tab_index"])
+                if data.get("mainbbs_tab_index") is not None
+                else None
+            ),
             notes=str(data["notes"]) if data.get("notes") else None,
         )
 
@@ -210,6 +223,9 @@ class PublicSource:
             tags=self.tags,
             menu_cd=self.menu_cd,
             board_id=self.board_id,
+            cate_type_seq=self.cate_type_seq,
+            bbs_type_seq=self.bbs_type_seq,
+            mainbbs_tab_index=self.mainbbs_tab_index,
         )
 
 
@@ -510,6 +526,10 @@ def fetch_source(
         return fetch_job_recruit_board(adapter_source, limit)
     if source.adapter == "library-pyxis-board":
         return fetch_library_pyxis_board(adapter_source, limit)
+    if source.adapter == "simple-html-board":
+        return fetch_simple_html_board(adapter_source, limit)
+    if source.adapter == "plato-ubboard":
+        return fetch_plato_ubboard(adapter_source, limit)
     raise ValueError(f"unsupported adapter: {source.adapter}")
 
 

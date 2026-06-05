@@ -6,7 +6,7 @@ This repository generates and publishes a compact static notice feed surface tha
 
 This project is not operated by Pusan National University.
 
-Current indexed source families include university-wide notices, Onestop academic and scholarship notices, dormitory notices by campus, PNU International notices, Career Development Office notices and recruitment listings, and PNU Library notices. Source registry metadata and source status are published in [`index.json`](https://lofidonut3.github.io/pnu-public-notice-feed/index.json).
+Current indexed source families include university-wide notices, Onestop academic and scholarship notices, dormitory notices by campus, PNU International notices, Career Development Office notices and recruitment listings, PNU Library notices, public campus-service notices, support-center notices, language education notices, project notices, and public PLATO notices. Source registry metadata and source status are published in [`index.json`](https://lofidonut3.github.io/pnu-public-notice-feed/index.json).
 
 ## Endpoints
 

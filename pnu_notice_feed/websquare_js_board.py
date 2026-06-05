@@ -14,23 +14,31 @@ def fetch_websquare_js_board(source: Source, limit: int) -> list[Notice]:
 
     parsed = urlparse(source.entry_url)
     site_path = parsed.path.strip("/").split("/", 1)[0]
-    if not site_path:
-        raise ValueError(f"cannot infer site path for source: {source.id}")
+    if site_path == "page":
+        site_path = ""
 
     script = Path(__file__).resolve().parents[1] / "scripts" / "fetch_websquare_board.mjs"
+    command = [
+        "node",
+        str(script),
+        "--base-url",
+        f"{parsed.scheme}://{parsed.netloc}",
+        "--menu-cd",
+        source.menu_cd,
+        "--limit",
+        str(limit),
+    ]
+    if site_path:
+        command.extend(["--site-path", site_path])
+    if source.cate_type_seq:
+        command.extend(["--cate-type-seq", source.cate_type_seq])
+    if source.bbs_type_seq:
+        command.extend(["--bbs-type-seq", source.bbs_type_seq])
+    if source.mainbbs_tab_index is not None:
+        command.extend(["--mainbbs-tab-index", source.mainbbs_tab_index])
+
     result = subprocess.run(
-        [
-            "node",
-            str(script),
-            "--base-url",
-            f"{parsed.scheme}://{parsed.netloc}",
-            "--site-path",
-            site_path,
-            "--menu-cd",
-            source.menu_cd,
-            "--limit",
-            str(limit),
-        ],
+        command,
         check=False,
         capture_output=True,
         text=True,
