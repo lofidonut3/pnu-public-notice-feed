@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lofidonut3.github.io/pnu-public-notice-feed/schema/events.schema.json",
+  "title": "PNU Public Notice Feed Recent Events",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "event_stream_version",
+    "generated_at",
+    "timezone",
+    "event_count",
+    "total_event_count",
+    "event_limit",
+    "latest_event_id",
+    "archive_index_url",
+    "archive_events_url_pattern",
+    "events"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "event_stream_version": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": ["string", "null"]
+    },
+    "timezone": {
+      "type": "string"
+    },
+    "event_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "total_event_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "event_limit": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "latest_event_id": {
+      "type": ["string", "null"]
+    },
+    "archive_index_url": {
+      "type": "string"
+    },
+    "archive_events_url_pattern": {
+      "type": "string"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/event"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "event": {
+      "type": "object",
+      "required": [
+        "event_id",
+        "event_type",
+        "notice_id",
+        "source_id",
+        "seen_at",
+        "published_at",
+        "title",
+        "url",
+        "content_hash",
+        "previous_content_hash",
+        "archive_notice_file",
+        "archive_notice_id"
+      ],
+      "properties": {
+        "event_id": {
+          "type": "string"
+        },
+        "event_type": {
+          "enum": ["added", "updated"]
+        },
+        "notice_id": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": ["string", "null"]
+        },
+        "seen_at": {
+          "type": "string"
+        },
+        "published_at": {
+          "type": ["string", "null"]
+        },
+        "title": {
+          "type": ["string", "null"]
+        },
+        "url": {
+          "type": ["string", "null"],
+          "format": "uri"
+        },
+        "content_hash": {
+          "type": ["string", "null"]
+        },
+        "previous_content_hash": {
+          "type": ["string", "null"]
+        },
+        "archive_notice_file": {
+          "type": "string"
+        },
+        "archive_notice_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

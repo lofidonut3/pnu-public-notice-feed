@@ -7,6 +7,8 @@ from pathlib import Path
 from typing import Any
 
 ARCHIVE_VERSION = "0.1"
+EVENT_STREAM_VERSION = "0.1"
+RECENT_EVENT_LIMIT = 1000
 TIMEZONE = "Asia/Seoul"
 
 
@@ -29,6 +31,11 @@ def write_archive_outputs(output_dir: Path, feed: dict, pretty: bool) -> None:
     for month, doc in next_event_docs.items():
         write_json_if_changed(archive_dir / "events" / f"{month}.json", doc, pretty)
     write_json_if_changed(archive_dir / "index.json", index, pretty)
+    write_json_if_changed(
+        output_dir / "events.json",
+        build_recent_events_document(next_event_docs, index),
+        pretty,
+    )
 
 
 def archive_outputs_exist(output_dir: Path) -> bool:
@@ -126,6 +133,35 @@ def build_archive_documents(
         pretty=pretty,
     )
     return notice_docs, event_docs, index
+
+
+def build_recent_events_document(
+    event_docs: dict[str, dict],
+    archive_index: dict,
+    event_limit: int = RECENT_EVENT_LIMIT,
+) -> dict:
+    all_events = sorted(
+        [
+            event
+            for doc in event_docs.values()
+            for event in doc.get("events", [])
+        ],
+        key=lambda value: (value.get("seen_at") or "", value.get("event_id") or ""),
+    )
+    limited_events = all_events[-event_limit:]
+    return {
+        "schema_version": "0.1",
+        "event_stream_version": EVENT_STREAM_VERSION,
+        "generated_at": archive_index.get("last_modified_at"),
+        "timezone": TIMEZONE,
+        "event_count": len(limited_events),
+        "total_event_count": len(all_events),
+        "event_limit": event_limit,
+        "latest_event_id": archive_index.get("latest_event_id"),
+        "archive_index_url": "./archive/index.json",
+        "archive_events_url_pattern": "./archive/events/{YYYY-MM}.json",
+        "events": limited_events,
+    }
 
 
 def read_month_docs(path: Path) -> dict[str, dict]:

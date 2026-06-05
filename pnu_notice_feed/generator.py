@@ -58,7 +58,8 @@ This project is not operated by Pusan National University.
 - [JSON Feed](./feed.json): latest normalized public notice metadata, currently limited to the latest 150 items globally.
 - [RSS](./rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
 - [Status](./status.json): source refresh status and failures.
-- [Changes](./changes.json): latest observed added, updated, and removed item summaries.
+- [Events](./events.json): recent durable notice events for cursor-based agent checks.
+- [Changes](./changes.json): latest generator-run added, updated, and removed item summaries.
 - [Duplicates](./duplicates.json): high-confidence same-notice groups for notification dedupe.
 - [Sources](./sources.json): official public source registry.
 - [Archive index](./archive/index.json): monthly archive manifest.
@@ -68,6 +69,7 @@ This project is not operated by Pusan National University.
 
 - [Feed schema](./schema/feed.schema.json)
 - [Status schema](./schema/status.schema.json)
+- [Events schema](./schema/events.schema.json)
 - [Changes schema](./schema/changes.schema.json)
 - [Duplicates schema](./schema/duplicates.schema.json)
 - [Sources schema](./schema/sources.schema.json)
@@ -84,7 +86,8 @@ This project is not operated by Pusan National University.
 - Fetch attachments from `item._pnu.attachments[].download_url`.
 - Treat `content_mirrored: false` and `attachments_mirrored: false` as a hard boundary.
 - Check `status.json` before relying on source freshness.
-- Check `changes.json` for lightweight new item detection before fetching the full feed.
+- Use `events.json` for cursor-based checks since the last agent run.
+- Use `changes.json` only as the latest generator-run diff.
 - Check `duplicates.json` before sending notifications for multiple matching items.
 - Use `feed.json` as a latest discovery feed, not a complete archive.
 - Use `archive/index.json` and monthly archive files for catch-up after downtime.
@@ -145,7 +148,8 @@ INDEX_HTML = """<!doctype html>
       <li><a href="./feed.json">feed.json</a> - JSON Feed 1.1 compatible notice metadata</li>
       <li><a href="./rss.xml">rss.xml</a> - RSS 2.0 compatibility feed</li>
       <li><a href="./status.json">status.json</a> - source refresh status</li>
-      <li><a href="./changes.json">changes.json</a> - latest observed added, updated, and removed item summary</li>
+      <li><a href="./events.json">events.json</a> - recent durable notice events for cursor-based checks</li>
+      <li><a href="./changes.json">changes.json</a> - latest generator-run added, updated, and removed item summary</li>
       <li><a href="./duplicates.json">duplicates.json</a> - high-confidence same-notice groups for deduplicating notifications</li>
       <li><a href="./sources.json">sources.json</a> - public source registry</li>
       <li><a href="./archive/index.json">archive/index.json</a> - monthly archive manifest</li>
@@ -155,7 +159,7 @@ INDEX_HTML = """<!doctype html>
 
     <h2>Agent Notes</h2>
     <p>Use <code>summary</code> and <code>_pnu.snippet</code> as short previews only. Fetch full notice text from <code>item.url</code> or <code>item._pnu.content_access.detail_url</code>.</p>
-    <p>Check <code>duplicates.json</code> before sending notifications for multiple matching items. Use <code>archive/index.json</code> for historical metadata catch-up. Use <code>rss.xml</code> as a compatibility feed; prefer JSON endpoints for structured agent workflows.</p>
+    <p>Use <code>events.json</code> for cursor-based checks since the last agent run. Check <code>duplicates.json</code> before sending notifications for multiple matching items. Use <code>archive/index.json</code> for historical metadata catch-up. Use <code>rss.xml</code> as a compatibility feed; prefer JSON endpoints for structured agent workflows.</p>
   </main>
 </body>
 </html>
@@ -875,6 +879,7 @@ def outputs_exist(output_dir: Path, state_path: Path) -> bool:
             output_dir / "feed.json",
             output_dir / "rss.xml",
             output_dir / "status.json",
+            output_dir / "events.json",
             output_dir / "changes.json",
             output_dir / "duplicates.json",
             state_path,

@@ -1,4 +1,4 @@
-from pnu_notice_feed.archive import build_archive_documents
+from pnu_notice_feed.archive import build_archive_documents, build_recent_events_document
 from pnu_notice_feed.generator import CONTENT_TEXT_NOTICE
 
 
@@ -101,6 +101,40 @@ def test_archive_documents_do_not_emit_removed_when_item_is_absent_from_current_
     assert next_notice_docs == notice_docs
     assert next_event_docs == event_docs
     assert next_index == index
+
+
+def test_recent_events_document_uses_latest_events_as_agent_cursor_stream():
+    _notice_docs, event_docs, index = build_archive_documents(
+        _feed(
+            [
+                _item("1", "hash-1", fetched_at="2026-06-03T12:00:00+09:00"),
+                _item("2", "hash-2", fetched_at="2026-06-03T12:30:00+09:00"),
+                _item("3", "hash-3", fetched_at="2026-06-03T13:00:00+09:00"),
+            ],
+            generated_at="2026-06-03T13:00:00+09:00",
+        ),
+        pretty=True,
+    )
+
+    events = build_recent_events_document(
+        event_docs,
+        index,
+        event_limit=2,
+    )
+
+    assert events["schema_version"] == "0.1"
+    assert events["event_stream_version"] == "0.1"
+    assert events["generated_at"] == index["last_modified_at"]
+    assert events["event_count"] == 2
+    assert events["total_event_count"] == 3
+    assert events["event_limit"] == 2
+    assert events["latest_event_id"] == index["latest_event_id"]
+    assert events["archive_index_url"] == "./archive/index.json"
+    assert events["archive_events_url_pattern"] == "./archive/events/{YYYY-MM}.json"
+    assert [event["notice_id"] for event in events["events"]] == [
+        "pnu-main-notice:2",
+        "pnu-main-notice:3",
+    ]
 
 
 def _feed(items, generated_at="2026-06-03T12:00:00+09:00"):

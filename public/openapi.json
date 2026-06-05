@@ -75,14 +75,31 @@
     },
     "/changes.json": {
       "get": {
-        "summary": "Latest observed notice item changes",
+        "summary": "Latest generator-run notice item diff",
         "responses": {
           "200": {
-            "description": "Latest observed added, updated, and removed notice item summaries.",
+            "description": "Added, updated, and removed notice item summaries from the latest generator run only. Use events.json or archive events for cursor-based catch-up.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "./schema/changes.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events.json": {
+      "get": {
+        "summary": "Recent durable notice events",
+        "responses": {
+          "200": {
+            "description": "Recent observed notice events for cursor-based agent checks. For longer catch-up, use archive/events/{month}.json.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema/events.schema.json"
                 }
               }
             }
