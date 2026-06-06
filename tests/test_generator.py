@@ -986,6 +986,65 @@ def test_size_budget_check_warns_before_failure():
     assert size_budget_check("x", 20, 10, 20, "bytes")["status"] == "fail"
 
 
+def test_check_size_budget_cli_prints_feed_health_snapshot(tmp_path, capsys):
+    output_dir = tmp_path / "public"
+    output_dir.mkdir()
+    state_path = tmp_path / "feed-state.json"
+    state_path.write_text("{}", encoding="utf-8")
+    _write_json(
+        output_dir / "index.json",
+        {
+            "generated_at": "2026-06-06T12:00:00+09:00",
+            "status": {
+                "overall_status": "ok",
+                "source_count": 1,
+                "ok_source_count": 1,
+                "skipped_source_count": 0,
+                "poll_interval_skipped_source_count": 0,
+                "backoff_source_count": 0,
+                "error_source_count": 0,
+                "degraded_source_count": 0,
+                "sources": [{"id": "source-a", "status": "ok"}],
+            },
+            "event_stream": {"event_count": 1},
+            "latest": {"item_count": 1},
+            "same_notice_group_count": 0,
+        },
+    )
+    _write_json(
+        output_dir / "events.json",
+        {
+            "event_count": 1,
+            "total_event_count": 1,
+            "event_limit": 1000,
+            "is_truncated": False,
+            "events": [{"event_id": "event-1"}],
+        },
+    )
+    _write_json(
+        output_dir / "latest.json",
+        {
+            "_pnu": {"item_count": 1, "total_item_count": 1},
+            "items": [{"id": "source-a:1"}],
+        },
+    )
+
+    result = generator.main(
+        [
+            "--check-size-budget",
+            "--output-dir",
+            str(output_dir),
+            "--state",
+            str(state_path),
+        ]
+    )
+
+    output = capsys.readouterr().out
+    assert result == 0
+    assert "PNU Public Notice Feed health snapshot" in output
+    assert "result: ok" in output
+
+
 def test_should_write_public_outputs_skips_when_no_notice_or_status_change(tmp_path):
     output_dir = tmp_path / "public"
     state_path = tmp_path / "feed-state.json"
@@ -1533,3 +1592,7 @@ def _notice(
         tags=source.tags,
         content_hash=content_hash or f"hash-{suffix}",
     )
+
+
+def _write_json(path: Path, value: dict) -> None:
+    path.write_text(json.dumps(value), encoding="utf-8")

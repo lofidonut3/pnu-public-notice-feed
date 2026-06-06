@@ -90,12 +90,18 @@ python3 -m pip install -e ".[dev]"
 python3 -m pytest -q
 ```
 
+Check the generated feed health snapshot:
+
+```bash
+python3 scripts/check_feed_health.py --public-dir public --state-path cache/feed-state.json
+```
+
 ## Publishing
 
 The repository uses GitHub Actions:
 
 - `.github/workflows/test.yml` runs tests on push and pull request.
-- `.github/workflows/update-feed.yml` refreshes the feed on a schedule, commits generated output when it changes, and deploys `public/` to GitHub Pages.
+- `.github/workflows/update-feed.yml` refreshes the feed on a schedule, checks feed health, commits generated output when it changes, and deploys `public/` to GitHub Pages.
 - Scheduled feed refresh runs every 30 minutes, subject to GitHub Actions scheduling delays.
 
 GitHub Pages should use GitHub Actions as its source.

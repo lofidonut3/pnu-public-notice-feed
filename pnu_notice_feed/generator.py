@@ -361,6 +361,7 @@ def main(argv: list[str] | None = None) -> int:
             diagnostics = build_size_budget_diagnostics(output_dir, state_path)
             print(json.dumps(diagnostics, ensure_ascii=False, indent=2))
             assert_size_budget(diagnostics)
+            print_feed_health_snapshot(output_dir, state_path)
             return 0
 
         generated = generate_outputs(
@@ -1921,6 +1922,35 @@ def assert_size_budget(diagnostics: dict) -> None:
     if failures:
         names = ", ".join(str(check.get("name")) for check in failures)
         raise ValueError(f"feed size budget exceeded: {names}")
+
+
+def print_feed_health_snapshot(output_dir: Path, state_path: Path) -> None:
+    try:
+        from scripts.check_feed_health import Thresholds, check_feed_health
+    except ModuleNotFoundError:
+        return
+
+    report = check_feed_health(
+        public_dir=output_dir,
+        state_path=state_path,
+        base_url=None,
+        timeout_seconds=1,
+        thresholds=Thresholds(
+            max_degraded_sources=100,
+            max_backoff_sources=100,
+            max_error_sources=50,
+            max_public_total_mib=500,
+            max_state_mib=50,
+            min_event_count=1,
+            fail_on_truncated_events=False,
+        ),
+    )
+    print()
+    print("\n".join(report.lines))
+    for warning in report.warnings:
+        print(f"WARNING: {warning}", file=sys.stderr)
+    if report.issues:
+        raise ValueError("feed health check failed: " + "; ".join(report.issues))
 
 
 def build_run_diff(previous_state: dict | None, current_state: dict) -> dict:
