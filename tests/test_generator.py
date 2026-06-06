@@ -330,6 +330,11 @@ def test_build_status_reports_partial_failure():
 
     assert status["overall_status"] == "partial"
     assert status["failed_source_count"] == 1
+    assert status["degraded_source_count"] == 1
+    assert status["ok_source_count"] == 1
+    assert status["skipped_source_count"] == 0
+    assert status["error_source_count"] == 1
+    assert status["status_counts"] == {"ok": 1, "error": 1}
     assert status["sources"][0]["status"] == "ok"
     assert status["sources"][1]["status"] == "error"
     assert status["sources"][1]["last_success_at"] is None
@@ -422,6 +427,16 @@ def test_build_status_counts_backoff_skip_as_partial_not_poll_interval_skip():
 
     assert status["overall_status"] == "partial"
     assert status["failed_source_count"] == 1
+    assert status["degraded_source_count"] == 1
+    assert status["skipped_source_count"] == 2
+    assert status["poll_interval_skipped_source_count"] == 1
+    assert status["backoff_source_count"] == 1
+    assert status["error_source_count"] == 0
+    assert status["status_counts"] == {"ok": 1, "skipped": 2}
+    assert status["skipped_reason_counts"] == {
+        "backoff": 1,
+        "poll_interval": 1,
+    }
 
 
 def test_build_run_diff_reports_added_updated_and_removed_items():
@@ -815,7 +830,15 @@ def test_build_public_index_combines_status_archives_dedupe_and_diagnostics():
     status = {
         "overall_status": "partial",
         "source_count": 2,
+        "ok_source_count": 1,
+        "skipped_source_count": 0,
+        "poll_interval_skipped_source_count": 0,
+        "backoff_source_count": 0,
+        "error_source_count": 1,
+        "degraded_source_count": 1,
         "failed_source_count": 1,
+        "status_counts": {"ok": 1, "error": 1},
+        "skipped_reason_counts": {},
         "sources": [{"id": "source-a", "status": "ok"}],
     }
     run_diff = {
@@ -856,6 +879,8 @@ def test_build_public_index_combines_status_archives_dedupe_and_diagnostics():
     assert index["home_page_url"] == "https://feeds.example.test"
     assert index["endpoints"]["latest"] == "https://feeds.example.test/latest.json"
     assert index["status"]["overall_status"] == "partial"
+    assert index["status"]["degraded_source_count"] == 1
+    assert index["status"]["status_counts"] == {"ok": 1, "error": 1}
     assert index["event_stream"]["latest_event_id"] == "event-5"
     assert index["archives"]["months"][0]["url"] == "./archive/2026-06.json"
     assert index["same_notice_groups"] == [{"id": "same_notice:1"}]
@@ -999,7 +1024,15 @@ def test_should_write_public_outputs_skips_when_no_notice_or_status_change(tmp_p
         "status": {
             "overall_status": "ok",
             "source_count": 1,
+            "ok_source_count": 1,
+            "skipped_source_count": 0,
+            "poll_interval_skipped_source_count": 0,
+            "backoff_source_count": 0,
+            "error_source_count": 0,
+            "degraded_source_count": 0,
             "failed_source_count": 0,
+            "status_counts": {"ok": 1},
+            "skipped_reason_counts": {},
             "sources": [{"id": "source-a", "status": "ok", "error_count": 0}],
         },
     }

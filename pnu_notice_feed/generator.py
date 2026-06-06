@@ -132,6 +132,7 @@ This project is not operated by Pusan National University.
 - Treat `content_mirrored: false` and `attachments_mirrored: false` as a hard boundary.
 - Check `index.json.status` before relying on source freshness.
 - Treat `index.json.status.overall_status: partial` as usable feed output with some source freshness degraded; inspect the relevant source's `last_success_at`, `last_error_at`, `backoff_until`, and `error_count`.
+- Treat `status.skipped_reason: poll_interval` as normal rate limiting, not a source failure. Use `degraded_source_count`, `backoff_source_count`, and `error_source_count` for freshness risk.
 - Use `events.json` as the primary cursor-based notice stream.
 - Store a local `latest_event_id` or `seen_at` cursor and process newer events.
 - Treat each event as a compact routing record; use `archive_file` and `archive_item_id` when full notice metadata is needed.
@@ -1095,6 +1096,8 @@ def collect_result_items(results: list[SourceResult]) -> list[dict]:
 def build_status(results: list[SourceResult], generated_at: str) -> dict:
     source_statuses = [source_to_status_json(result) for result in results]
     failed_count = len([result for result in results if source_is_degraded(result)])
+    status_counts = source_result_status_counts(results)
+    skipped_reason_counts = source_result_skipped_reason_counts(results)
 
     return {
         "schema_version": SCHEMA_VERSION,
@@ -1102,13 +1105,42 @@ def build_status(results: list[SourceResult], generated_at: str) -> dict:
         "generated_at": generated_at,
         "overall_status": "ok" if failed_count == 0 else "partial",
         "source_count": len(results),
+        "ok_source_count": status_counts.get("ok", 0),
+        "skipped_source_count": status_counts.get("skipped", 0),
+        "poll_interval_skipped_source_count": skipped_reason_counts.get(
+            "poll_interval",
+            0,
+        ),
+        "backoff_source_count": skipped_reason_counts.get("backoff", 0),
+        "error_source_count": status_counts.get("error", 0),
+        "degraded_source_count": failed_count,
         "failed_source_count": failed_count,
+        "status_counts": status_counts,
+        "skipped_reason_counts": skipped_reason_counts,
         "sources": source_statuses,
     }
 
 
 def source_is_degraded(result: SourceResult) -> bool:
     return result.status == "error" or result.skipped_reason == "backoff"
+
+
+def source_result_status_counts(results: list[SourceResult]) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for result in results:
+        status = str(result.status or "unknown")
+        counts = {**counts, status: int(counts.get(status, 0)) + 1}
+    return counts
+
+
+def source_result_skipped_reason_counts(results: list[SourceResult]) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for result in results:
+        if result.status != "skipped" or not result.skipped_reason:
+            continue
+        reason = str(result.skipped_reason)
+        counts = {**counts, reason: int(counts.get(reason, 0)) + 1}
+    return counts
 
 
 def build_run_diagnostics(
@@ -1416,7 +1448,20 @@ def build_public_index(
         "status": {
             "overall_status": status.get("overall_status"),
             "source_count": status.get("source_count"),
+            "ok_source_count": status.get("ok_source_count"),
+            "skipped_source_count": status.get("skipped_source_count"),
+            "poll_interval_skipped_source_count": status.get(
+                "poll_interval_skipped_source_count"
+            ),
+            "backoff_source_count": status.get("backoff_source_count"),
+            "error_source_count": status.get("error_source_count"),
+            "degraded_source_count": status.get(
+                "degraded_source_count",
+                status.get("failed_source_count"),
+            ),
             "failed_source_count": status.get("failed_source_count"),
+            "status_counts": status.get("status_counts", {}),
+            "skipped_reason_counts": status.get("skipped_reason_counts", {}),
             "sources": status.get("sources", []),
         },
         "archives": archives,
@@ -1647,6 +1692,17 @@ def outputs_match_current_format(output_dir: Path) -> bool:
     index = read_json_if_exists(output_dir / "index.json")
     if not latest or not index:
         return False
+    status = index.get("status", {})
+    for key in [
+        "status_counts",
+        "skipped_reason_counts",
+        "degraded_source_count",
+        "poll_interval_skipped_source_count",
+        "backoff_source_count",
+        "error_source_count",
+    ]:
+        if key not in status:
+            return False
     if not (output_dir / "index.html").exists():
         return False
     if any(

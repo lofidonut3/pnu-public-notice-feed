@@ -33,3 +33,19 @@ def test_infer_topics_supports_event_and_graduate_admissions_categories():
         "academic_unit_event_notice",
         ["event"],
     ) == ["event"]
+
+
+def test_infer_topics_uses_event_title_keywords_without_event_source_category():
+    assert infer_topics(
+        "캠퍼스 특강 및 설명회 개최 안내",
+        "academic_unit_notice",
+        ["pnu", "official"],
+    ) == ["event"]
+
+
+def test_infer_topics_supports_continuing_education_category():
+    assert infer_topics(
+        "수강생 모집 안내",
+        "continuing_education_notice",
+        ["pnu", "official"],
+    ) == ["continuing_education", "course"]

@@ -59,6 +59,7 @@ For a concrete optional reference CLI/helper that keeps a local cursor, enriches
 - Source polling is rate-limited by `sources.json` and cached in `cache/feed-state.json`.
 - Failed sources use cached items when available and report errors in `index.json.status`.
 - `index.json.status.overall_status` can be `partial` when some sources are in error/backoff. `partial` means the feed is usable but some source freshness is degraded; inspect the relevant source's `last_success_at`, `last_error_at`, `backoff_until`, and `error_count` before relying on that source.
+- `status.skipped_reason: poll_interval` is normal rate limiting, not a source failure. Use `degraded_source_count`, `backoff_source_count`, `error_source_count`, `status_counts`, and `skipped_reason_counts` to distinguish normal skips from freshness risk.
 - Long-term notice metadata is retained in monthly `archive/` files.
 - Archive files retain metadata only. Full notice text and attachment contents stay on official source URLs.
 - Schema changes are tracked with `_pnu.schema_version` and `_pnu.feed_version`.

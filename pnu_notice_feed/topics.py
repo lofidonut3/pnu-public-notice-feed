@@ -15,6 +15,7 @@ SOURCE_CATEGORY_TOPICS = {
     "admissions_notice": ["admissions"],
     "campus_service_notice": ["campus_service"],
     "career_notice": ["career"],
+    "continuing_education_notice": ["continuing_education"],
     "dormitory_notice": ["dormitory"],
     "health_notice": ["health"],
     "international_notice": ["international"],
@@ -47,6 +48,7 @@ TAG_TOPICS = {
     "research": "research",
     "scholarship": "scholarship",
     "student_support": "student_support",
+    "continuing_education": "continuing_education",
 }
 
 TITLE_TOPIC_PATTERNS = [
@@ -54,6 +56,7 @@ TITLE_TOPIC_PATTERNS = [
     ("recruitment", r"채용|추천채용|교원채용|직원채용|인재모집"),
     ("career", r"취업|인턴|현장실습|일자리|역량강화|BUFF"),
     ("contest", r"공모전|공모|경진대회|대회|해커톤|아이디어톤"),
+    ("event", r"행사|세미나|특강|설명회|박람회|상담회|캠프|페스티벌|워크숍|워크샵|공연"),
     ("course", r"수강|수업|강의|계절학기|폐강|성적|시험|이수면제"),
     ("graduation", r"졸업|학위청구|논문|외국어시험"),
     ("graduate", r"대학원|석사|박사"),
