@@ -1006,7 +1006,10 @@ def test_should_write_public_outputs_skips_when_no_notice_or_status_change(tmp_p
     for name, value in {
         "latest.json": latest,
         "index.json": index,
-        "events.json": {"events": []},
+        "events.json": {
+            "event_stream_version": generator.EVENT_STREAM_VERSION,
+            "events": [],
+        },
     }.items():
         (output_dir / name).write_text(json.dumps(value), encoding="utf-8")
     (output_dir / "rss.xml").write_text("<rss></rss>", encoding="utf-8")
@@ -1033,6 +1036,47 @@ def test_should_write_public_outputs_skips_when_no_notice_or_status_change(tmp_p
         output_dir,
         state_path,
         generated,
+        "https://feeds.example.test",
+    )
+
+
+def test_should_write_public_outputs_writes_when_event_stream_version_is_old(tmp_path):
+    output_dir = tmp_path / "public"
+    state_path = tmp_path / "feed-state.json"
+    output_dir.mkdir()
+    state_path.write_text("{}", encoding="utf-8")
+    latest = {
+        "feed_url": "https://feeds.example.test/latest.json",
+        "_pnu": {"sources": []},
+        "items": [],
+    }
+    index = {
+        "home_page_url": "https://feeds.example.test",
+        "archives": {"months": []},
+        "status": {
+            "overall_status": "ok",
+            "source_count": 0,
+            "failed_source_count": 0,
+            "sources": [],
+        },
+    }
+    for name, value in {
+        "latest.json": latest,
+        "index.json": index,
+        "events.json": {"event_stream_version": "0.3", "events": []},
+    }.items():
+        (output_dir / name).write_text(json.dumps(value), encoding="utf-8")
+    (output_dir / "rss.xml").write_text("<rss></rss>", encoding="utf-8")
+    (output_dir / "index.html").write_text("<html></html>", encoding="utf-8")
+
+    assert should_write_public_outputs(
+        output_dir,
+        state_path,
+        {
+            "latest": latest,
+            "run_diff": {"added_count": 0, "updated_count": 0, "removed_count": 0},
+            "status": index["status"],
+        },
         "https://feeds.example.test",
     )
 

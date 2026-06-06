@@ -38,7 +38,7 @@ Agents should treat `summary` and `_pnu.snippet` as previews only. Fetch full no
 ## Endpoint Roles
 
 - `index.json` is the manifest. It combines source registry, source status, archive manifest, same-notice groups, and latest run diagnostics.
-- `events.json` is the primary compact cursor endpoint for notice checks. Store a local `latest_event_id` or `seen_at` cursor and process newer events.
+- `events.json` is the primary compact cursor endpoint for notice checks. Store a local `latest_event_id` or `seen_at` cursor and process newer events. Event records include routing fields and same-notice duplicate fields for notification dedupe.
 - `archive/YYYY-MM.json` is the durable monthly archive for catch-up when a local cursor is older than the `events.json` window.
 - `latest.json` is a JSON Feed 1.1 compatible latest-discovery endpoint, currently limited to the latest 150 items globally. It is not the primary cursor endpoint and not a complete archive.
 - `rss.xml` is a compatibility endpoint for RSS readers and legacy automation tools.
@@ -55,9 +55,10 @@ For a concrete optional reference CLI/helper that keeps a local cursor, enriches
 - Recent durable notice events are published in `events.json` for cursor-based agent checks.
 - Agents should store a local `latest_event_id` or `seen_at` cursor, then process newer events from `events.json`. If the cursor is older than the `events.json` window, use `index.json.archives` and monthly archive files.
 - Events include routing metadata, duplicate metadata, topic hints, and monthly archive lookup fields. Full item metadata is available through `archive_file` and `archive_item_id`.
-- Check `index.json.same_notice_groups` before sending notifications for multiple matching items from different sources.
+- Use event `same_notice_group_id`, `canonical_item_id`, `is_canonical`, and `same_notice_source_ids` before sending notifications for multiple matching items from different sources. `index.json.same_notice_groups` provides the full same-notice manifest and fallback lookup.
 - Source polling is rate-limited by `sources.json` and cached in `cache/feed-state.json`.
 - Failed sources use cached items when available and report errors in `index.json.status`.
+- `index.json.status.overall_status` can be `partial` when some sources are in error/backoff. `partial` means the feed is usable but some source freshness is degraded; inspect the relevant source's `last_success_at`, `last_error_at`, `backoff_until`, and `error_count` before relying on that source.
 - Long-term notice metadata is retained in monthly `archive/` files.
 - Archive files retain metadata only. Full notice text and attachment contents stay on official source URLs.
 - Schema changes are tracked with `_pnu.schema_version` and `_pnu.feed_version`.

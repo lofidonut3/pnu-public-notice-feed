@@ -121,7 +121,7 @@ def test_recent_events_document_uses_latest_events_as_agent_cursor_stream():
     )
 
     assert events["schema_version"] == "0.1"
-    assert events["event_stream_version"] == "0.3"
+    assert events["event_stream_version"] == "0.4"
     assert events["generated_at"] == index["last_modified_at"]
     assert events["event_count"] == 2
     assert events["total_event_count"] == 3
@@ -211,6 +211,52 @@ def test_archive_documents_update_metadata_without_updated_event_when_hash_uncha
     assert archive_doc["event_count"] == 1
     assert [event["event_type"] for event in archive_doc["events"]] == ["added"]
     assert archive_doc["items"][0]["_pnu"]["topics"] == ["academic", "scholarship"]
+    assert archive_doc["events"][0]["topics"] == ["academic", "scholarship"]
+
+
+def test_archive_documents_sync_duplicate_metadata_to_existing_events():
+    archive_docs, index = build_archive_documents(
+        _feed([_item("1", "hash-1")]),
+        pretty=True,
+    )
+    original_event_id = archive_docs["2026-06"]["events"][0]["event_id"]
+
+    next_archive_docs, next_index = build_archive_documents(
+        _feed(
+            [
+                _item(
+                    "1",
+                    "hash-1",
+                    same_notice_group_id="same_notice:1",
+                    canonical_item_id="pnu-main-notice:canonical",
+                    is_canonical=False,
+                    same_notice_source_ids=[
+                        "pnu-main-notice",
+                        "pnu-onestop-notices",
+                    ],
+                )
+            ],
+            generated_at="2026-06-03T12:30:00+09:00",
+        ),
+        existing_archive_docs=archive_docs,
+        previous_index=index,
+        pretty=True,
+    )
+
+    archive_doc = next_archive_docs["2026-06"]
+    event = archive_doc["events"][0]
+    assert archive_doc["event_count"] == 1
+    assert event["event_id"] == original_event_id
+    assert event["event_type"] == "added"
+    assert event["content_hash"] == "hash-1"
+    assert event["same_notice_group_id"] == "same_notice:1"
+    assert event["canonical_item_id"] == "pnu-main-notice:canonical"
+    assert event["is_canonical"] is False
+    assert event["same_notice_source_ids"] == [
+        "pnu-main-notice",
+        "pnu-onestop-notices",
+    ]
+    assert next_index["event_count"] == 1
 
 
 def _feed(
@@ -234,9 +280,14 @@ def _item(
     published_at="2026-06-02",
     fetched_at="2026-06-03T12:00:00+09:00",
     topics=None,
+    same_notice_group_id=None,
+    canonical_item_id=None,
+    is_canonical=True,
+    same_notice_source_ids=None,
 ):
+    item_id = f"pnu-main-notice:{suffix}"
     return {
-        "id": f"pnu-main-notice:{suffix}",
+        "id": item_id,
         "url": f"https://www.pusan.ac.kr/notice/{suffix}",
         "title": title,
         "content_text": CONTENT_TEXT_NOTICE,
@@ -259,10 +310,12 @@ def _item(
             "attachments": [],
             "tags": ["pnu", "official"],
             "topics": topics or ["academic"],
-            "same_notice_group_id": None,
-            "canonical_item_id": f"pnu-main-notice:{suffix}",
-            "is_canonical": True,
-            "same_notice_source_ids": ["pnu-main-notice"],
+            "same_notice_group_id": same_notice_group_id,
+            "canonical_item_id": canonical_item_id or item_id,
+            "is_canonical": is_canonical,
+            "same_notice_source_ids": (
+                same_notice_source_ids or ["pnu-main-notice"]
+            ),
             "content_hash": content_hash,
         },
     }

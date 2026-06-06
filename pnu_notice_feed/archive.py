@@ -7,8 +7,8 @@ import shutil
 from pathlib import Path
 from typing import Any
 
-ARCHIVE_VERSION = "0.3"
-EVENT_STREAM_VERSION = "0.3"
+ARCHIVE_VERSION = "0.4"
+EVENT_STREAM_VERSION = "0.4"
 RECENT_EVENT_LIMIT = 1000
 TIMEZONE = "Asia/Seoul"
 
@@ -164,11 +164,13 @@ def build_archive_documents(
             *baseline_event_months,
         }
 
+    synced_archive_docs = sync_event_metadata_with_items(archive_docs)
     archive_docs = rebuild_archive_docs(
-        archive_docs,
+        synced_archive_docs,
         {
             *touched_months,
-            *months_needing_rebuild(archive_docs),
+            *months_needing_rebuild(synced_archive_docs),
+            *months_with_event_metadata_changes(archive_docs, synced_archive_docs),
         },
         generated_at,
     )
@@ -332,6 +334,72 @@ def archived_items_by_id(archive_docs: dict[str, dict]) -> dict[str, tuple[str, 
             if item_id:
                 result = {**result, str(item_id): (month, item)}
     return result
+
+
+def sync_event_metadata_with_items(archive_docs: dict[str, dict]) -> dict[str, dict]:
+    archived_items = archived_items_by_id(archive_docs)
+    return {
+        month: {
+            **doc,
+            "events": [
+                sync_event_metadata_with_item(event, archived_items)
+                for event in doc.get("events", [])
+            ],
+        }
+        for month, doc in archive_docs.items()
+    }
+
+
+def sync_event_metadata_with_item(
+    event: dict,
+    archived_items: dict[str, tuple[str, dict]],
+) -> dict:
+    item_id = str(event.get("archive_item_id") or event.get("notice_id") or "")
+    archived_item = archived_items.get(item_id)
+    if not archived_item:
+        return compact_event(event)
+
+    item_month, item = archived_item
+    pnu = item.get("_pnu", {})
+    notice_id = str(event.get("notice_id") or item.get("id") or "")
+    source_id = event.get("source_id") or pnu.get("source_id")
+    return {
+        **compact_event(event),
+        "notice_id": notice_id,
+        "source_id": source_id,
+        "source_name": pnu.get("source_name") or event.get("source_name"),
+        "source_category": pnu.get("source_category") or event.get("source_category"),
+        "source_tags": (
+            pnu.get("source_tags")
+            or pnu.get("tags")
+            or event.get("source_tags")
+            or []
+        ),
+        "published_at": event.get("published_at") or pnu.get("published_at"),
+        "title": event.get("title") or item.get("title"),
+        "url": event.get("url") or item.get("url"),
+        "topics": pnu.get("topics") or event.get("topics") or [],
+        "same_notice_group_id": pnu.get("same_notice_group_id"),
+        "canonical_item_id": pnu.get("canonical_item_id") or notice_id,
+        "is_canonical": pnu.get("is_canonical", True),
+        "same_notice_source_ids": (
+            pnu.get("same_notice_source_ids")
+            or ([source_id] if source_id else [])
+        ),
+        "archive_file": f"./archive/{item_month}.json",
+        "archive_item_id": notice_id,
+    }
+
+
+def months_with_event_metadata_changes(
+    previous_docs: dict[str, dict],
+    next_docs: dict[str, dict],
+) -> set[str]:
+    return {
+        month
+        for month, next_doc in next_docs.items()
+        if previous_docs.get(month, {}).get("events", []) != next_doc.get("events", [])
+    }
 
 
 def normalize_archive_input_item(item: dict) -> dict:

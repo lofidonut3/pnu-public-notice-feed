@@ -15,7 +15,12 @@ from urllib.parse import urlparse
 from xml.etree import ElementTree
 from zoneinfo import ZoneInfo
 
-from .archive import archive_outputs_exist, write_archive_outputs
+from .archive import (
+    ARCHIVE_VERSION,
+    EVENT_STREAM_VERSION,
+    archive_outputs_exist,
+    write_archive_outputs,
+)
 from .cms_static_board import fetch_cms_static_board
 from .duplicates import build_duplicates
 from .job_board import fetch_job_notice_board, fetch_job_recruit_board
@@ -126,10 +131,12 @@ This project is not operated by Pusan National University.
 - Fetch attachments from `item._pnu.attachments[].download_url`.
 - Treat `content_mirrored: false` and `attachments_mirrored: false` as a hard boundary.
 - Check `index.json.status` before relying on source freshness.
+- Treat `index.json.status.overall_status: partial` as usable feed output with some source freshness degraded; inspect the relevant source's `last_success_at`, `last_error_at`, `backoff_until`, and `error_count`.
 - Use `events.json` as the primary cursor-based notice stream.
 - Store a local `latest_event_id` or `seen_at` cursor and process newer events.
 - Treat each event as a compact routing record; use `archive_file` and `archive_item_id` when full notice metadata is needed.
-- Check `index.json.same_notice_groups` before sending notifications for multiple matching items from different sources.
+- Use event `same_notice_group_id`, `canonical_item_id`, `is_canonical`, and `same_notice_source_ids` before sending notifications for multiple matching items from different sources.
+- Use `index.json.same_notice_groups` as the full same-notice manifest and fallback lookup.
 - Use `latest.json` only as a latest discovery feed, not as the primary cursor endpoint or a complete archive.
 - Use `index.json.diagnostics.latest_run_diff` only as a latest generator-run diagnostic, not as durable history.
 - Use `index.json.archives` and monthly archive files for catch-up after downtime.
@@ -374,7 +381,11 @@ def main(argv: list[str] | None = None) -> int:
         ) and outputs_match_source_metadata(
             output_dir,
             generated["latest"],
-        ) and outputs_match_current_format(output_dir) and archive_outputs_exist(
+        ) and outputs_match_current_format(
+            output_dir,
+        ) and archive_outputs_exist(
+            output_dir,
+        ) and archive_outputs_match_current_versions(
             output_dir,
         ):
             return 0
@@ -1569,6 +1580,8 @@ def should_write_public_outputs(
         return True
     if not archive_outputs_exist(output_dir):
         return True
+    if not archive_outputs_match_current_versions(output_dir):
+        return True
     if run_diff_has_notice_changes(generated["run_diff"]):
         return True
     previous_index = read_json_if_exists(output_dir / "index.json")
@@ -1652,6 +1665,24 @@ def outputs_match_current_format(output_dir: Path) -> bool:
         if item.get("content_text") != CONTENT_TEXT_NOTICE:
             return False
         if "summary" not in item:
+            return False
+    return True
+
+
+def archive_outputs_match_current_versions(output_dir: Path) -> bool:
+    events = read_json_if_exists(output_dir / "events.json")
+    if not events or events.get("event_stream_version") != EVENT_STREAM_VERSION:
+        return False
+
+    index = read_json_if_exists(output_dir / "index.json")
+    if not index:
+        return False
+    for entry in index.get("archives", {}).get("months", []):
+        url = str(entry.get("url") or "")
+        if not url:
+            return False
+        doc = read_json_if_exists(output_dir / url.removeprefix("./"))
+        if not doc or doc.get("archive_version") != ARCHIVE_VERSION:
             return False
     return True
 
