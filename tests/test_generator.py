@@ -1439,13 +1439,28 @@ def test_sync_static_assets_makes_public_output_self_contained(tmp_path):
     output_dir = tmp_path / "public"
     source_path.write_text('{"schema_version":"0.1","sources":[]}\n', encoding="utf-8")
 
-    sync_static_assets(output_dir, source_path)
+    sync_static_assets(output_dir, source_path, "https://feeds.example.test/pnu")
 
     assert not (output_dir / "sources.json").exists()
+    assert (output_dir / "index.html").exists()
     assert (output_dir / "openapi.json").exists()
     assert (output_dir / "llms.txt").exists()
+    assert (output_dir / "robots.txt").exists()
+    assert (output_dir / "sitemap.xml").exists()
     assert (output_dir / "schema" / "index.schema.json").exists()
     assert (output_dir / "schema" / "latest.schema.json").exists()
+
+    index_html = (output_dir / "index.html").read_text(encoding="utf-8")
+    assert '<link rel="canonical" href="https://feeds.example.test/pnu/">' in index_html
+    assert '"@type": "Dataset"' in index_html
+    assert "부산대학교" in index_html
+    assert "https://example.invalid" not in index_html
+    assert "Sitemap: https://feeds.example.test/pnu/sitemap.xml" in (
+        output_dir / "robots.txt"
+    ).read_text(encoding="utf-8")
+    assert "https://feeds.example.test/pnu/events.json" in (
+        output_dir / "sitemap.xml"
+    ).read_text(encoding="utf-8")
 
 
 def test_outputs_match_source_metadata_detects_registry_changes(tmp_path):

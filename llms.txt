@@ -1,7 +1,9 @@
 # PNU Public Notice Feed
 
-Unofficial public metadata relay for Pusan National University public notices.
+Unofficial AI-friendly JSON/RSS metadata relay for Pusan National University (PNU, 부산대학교, 부산대) public notices.
 This project is not operated by Pusan National University.
+Repository: https://github.com/lofidonut3/pnu-public-notice-feed
+Published feed: https://lofidonut3.github.io/pnu-public-notice-feed/
 
 ## Published endpoints
 
@@ -11,6 +13,7 @@ This project is not operated by Pusan National University.
 - [RSS](./public/rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
 - [Archive](./public/archive/YYYY-MM.json): monthly durable archive with notice metadata and observed events.
 - [OpenAPI manifest](./openapi.json): static endpoint manifest.
+- [Crawler hints](./public/sitemap.xml): sitemap and robots files for endpoint discovery.
 
 ## Machine-readable contracts
 

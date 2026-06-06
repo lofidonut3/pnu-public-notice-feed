@@ -1,8 +1,8 @@
 # PNU Public Notice Feed
 
-Unofficial public metadata feed for public notices from Pusan National University.
+Unofficial AI-friendly JSON/RSS metadata feed for public notices from Pusan National University (PNU, 부산대학교, 부산대).
 
-This repository generates and publishes a compact static notice feed surface that normalizes public notice metadata from multiple official PNU notice sources. It is designed for AI agents, developers, and students who need a stable machine-readable index of public notices.
+This repository generates and publishes a compact static notice feed surface that normalizes 부산대학교 공지사항 metadata from multiple official public PNU notice sources. It is designed for AI agents, developers, and students who need a stable machine-readable index of public university notices.
 
 This project is not operated by Pusan National University.
 
@@ -26,6 +26,7 @@ Available endpoints:
 - [`schema/*.schema.json`](https://lofidonut3.github.io/pnu-public-notice-feed/schema/index.schema.json): JSON Schemas
 - [`openapi.json`](https://lofidonut3.github.io/pnu-public-notice-feed/openapi.json): static endpoint manifest
 - [`llms.txt`](https://lofidonut3.github.io/pnu-public-notice-feed/llms.txt): AI agent usage guide
+- [`robots.txt`](https://lofidonut3.github.io/pnu-public-notice-feed/robots.txt) and [`sitemap.xml`](https://lofidonut3.github.io/pnu-public-notice-feed/sitemap.xml): crawler discovery hints
 
 ## Data Boundary
 
@@ -44,6 +45,8 @@ Agents should treat `summary` and `_pnu.snippet` as previews only. Fetch full no
 - `rss.xml` is a compatibility endpoint for RSS readers and legacy automation tools.
 
 No project-specific client library is required. Any HTTP/JSON client can read `events.json`, keep its own cursor, and fetch archive files when detailed metadata is needed.
+
+For AI agents reading this repository directly, start with [`llms.txt`](./llms.txt), then use the published [`events.json`](https://lofidonut3.github.io/pnu-public-notice-feed/events.json) cursor stream and [`index.json`](https://lofidonut3.github.io/pnu-public-notice-feed/index.json) manifest.
 
 ## Example Consumer
 

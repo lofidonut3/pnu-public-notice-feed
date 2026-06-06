@@ -93,10 +93,14 @@ CONTENT_TEXT_NOTICE = (
     "This feed does not mirror the full notice body. Fetch the original notice "
     "URL for complete content."
 )
+PUBLIC_BASE_URL_PLACEHOLDER = "https://example.invalid/pnu-public-notice-feed"
+
 LLMS_TXT = """# PNU Public Notice Feed
 
-Unofficial public metadata relay for Pusan National University public notices.
+Unofficial AI-friendly JSON/RSS metadata relay for Pusan National University (PNU, 부산대학교, 부산대) public notices.
 This project is not operated by Pusan National University.
+Repository: https://github.com/lofidonut3/pnu-public-notice-feed
+Published feed: https://lofidonut3.github.io/pnu-public-notice-feed/
 
 ## Endpoints
 
@@ -106,6 +110,7 @@ This project is not operated by Pusan National University.
 - [RSS](./rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
 - [Archive](./archive/YYYY-MM.json): monthly durable archive with notice metadata and observed events.
 - [OpenAPI manifest](./openapi.json): static endpoint manifest.
+- [Crawler hints](./sitemap.xml): sitemap and robots files for endpoint discovery.
 
 ## Machine-readable contracts
 
@@ -151,8 +156,60 @@ INDEX_HTML = """<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PNU Public Notice Feed</title>
+  <meta name="description" content="Unofficial AI-friendly JSON/RSS metadata feed for public notices from Pusan National University (PNU, 부산대학교, 부산대).">
+  <link rel="canonical" href="https://example.invalid/pnu-public-notice-feed/">
   <link rel="alternate" type="application/feed+json" title="PNU Public Notice Feed" href="./latest.json">
   <link rel="alternate" type="application/rss+xml" title="PNU Public Notice Feed RSS" href="./rss.xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PNU Public Notice Feed">
+  <meta property="og:description" content="Unofficial AI-friendly JSON/RSS metadata feed for public Pusan National University notices.">
+  <meta property="og:url" content="https://example.invalid/pnu-public-notice-feed/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "PNU Public Notice Feed",
+    "alternateName": "부산대학교 공지사항 공개 피드",
+    "description": "Unofficial AI-friendly JSON/RSS metadata feed for public notices from Pusan National University.",
+    "url": "https://example.invalid/pnu-public-notice-feed/",
+    "sameAs": "https://github.com/lofidonut3/pnu-public-notice-feed",
+    "license": "https://github.com/lofidonut3/pnu-public-notice-feed/blob/main/LICENSE",
+    "keywords": [
+      "PNU",
+      "Pusan National University",
+      "부산대학교",
+      "부산대",
+      "public notices",
+      "university notices",
+      "JSON feed",
+      "RSS feed",
+      "AI agents"
+    ],
+    "distribution": [
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://example.invalid/pnu-public-notice-feed/index.json"
+      },
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://example.invalid/pnu-public-notice-feed/events.json"
+      },
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/feed+json",
+        "contentUrl": "https://example.invalid/pnu-public-notice-feed/latest.json"
+      },
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/rss+xml",
+        "contentUrl": "https://example.invalid/pnu-public-notice-feed/rss.xml"
+      }
+    ]
+  }
+  </script>
   <style>
     body {
       color: #17202a;
@@ -192,7 +249,7 @@ INDEX_HTML = """<!doctype html>
   <main>
     <h1>PNU Public Notice Feed</h1>
     <p class="notice">Unofficial public metadata feed for public notices from Pusan National University. This project is not operated by Pusan National University.</p>
-    <p>This site publishes static, AI-friendly public notice metadata. It links back to official notice pages and attachment download URLs instead of mirroring full notice or attachment content.</p>
+    <p>PNU Public Notice Feed is an unofficial AI-friendly JSON/RSS feed for Pusan National University public notice metadata, including 부산대학교 and 부산대 public notice boards. It links back to official notice pages and attachment download URLs instead of mirroring full notice or attachment content.</p>
 
     <h2>Endpoints</h2>
     <ul>
@@ -1536,13 +1593,18 @@ def sync_static_assets(
     public_base_url: str = DEFAULT_PUBLIC_BASE_URL,
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
-    write_text_if_changed(output_dir / "index.html", INDEX_HTML)
+    write_text_if_changed(
+        output_dir / "index.html",
+        text_with_base_url(INDEX_HTML, public_base_url),
+    )
     copy_text_with_base_url(
         PROJECT_ROOT / "openapi.json",
         output_dir / "openapi.json",
         public_base_url,
     )
     write_text_if_changed(output_dir / "llms.txt", LLMS_TXT)
+    write_text_if_changed(output_dir / "robots.txt", build_robots_txt(public_base_url))
+    write_text_if_changed(output_dir / "sitemap.xml", build_sitemap_xml(public_base_url))
 
     schema_output_dir = output_dir / "schema"
     schema_output_dir.mkdir(parents=True, exist_ok=True)
@@ -1770,11 +1832,46 @@ def copy_text_if_changed(source: Path, target: Path) -> None:
 def copy_text_with_base_url(source: Path, target: Path, public_base_url: str) -> None:
     if not source.exists():
         raise ValueError(f"static asset not found: {source}")
-    content = source.read_text(encoding="utf-8").replace(
-        "https://example.invalid/pnu-public-notice-feed",
-        public_base_url.rstrip("/"),
-    )
+    content = text_with_base_url(source.read_text(encoding="utf-8"), public_base_url)
     write_text_if_changed(target, content)
+
+
+def text_with_base_url(content: str, public_base_url: str) -> str:
+    return content.replace(PUBLIC_BASE_URL_PLACEHOLDER, public_base_url.rstrip("/"))
+
+
+def build_robots_txt(public_base_url: str) -> str:
+    base_url = public_base_url.rstrip("/")
+    return (
+        "User-agent: *\n"
+        "Allow: /\n"
+        f"Sitemap: {base_url}/sitemap.xml\n"
+    )
+
+
+def build_sitemap_xml(public_base_url: str) -> str:
+    base_url = public_base_url.rstrip("/")
+    paths = [
+        "/",
+        "/llms.txt",
+        "/openapi.json",
+        "/index.json",
+        "/events.json",
+        "/latest.json",
+        "/rss.xml",
+    ]
+    urls = "\n".join(
+        "  <url>\n"
+        f"    <loc>{base_url}{path}</loc>\n"
+        "  </url>"
+        for path in paths
+    )
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{urls}\n"
+        "</urlset>\n"
+    )
 
 
 def write_text_if_changed(path: Path, content: str) -> None:
