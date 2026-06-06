@@ -13,10 +13,13 @@ from pnu_notice_feed.generator import (
     PublicSource,
     SourceResult,
     archive_input_from_state,
+    assert_size_budget,
     build_latest,
+    build_output_file_diagnostics,
     build_public_index,
     build_run_diff,
     build_rss,
+    build_size_budget_diagnostics,
     build_state,
     build_status,
     all_sources_skipped,
@@ -31,6 +34,9 @@ from pnu_notice_feed.generator import (
     normalize_feed_item,
     notice_to_feed_item,
     outputs_match_source_metadata,
+    should_write_public_outputs,
+    size_budget_check,
+    state_items_by_id,
     sync_static_assets,
 )
 
@@ -857,7 +863,7 @@ def test_build_public_index_combines_status_archives_dedupe_and_diagnostics():
     assert index["diagnostics"]["run"]["duration_ms"] == 25
 
 
-def test_build_state_preserves_cached_items_and_success_metadata():
+def test_build_state_stores_compact_items_and_hydrates_cached_items():
     source = _source()
     checked_at = "2026-06-04T12:00:00+09:00"
     result = _result(
@@ -876,8 +882,177 @@ def test_build_state_preserves_cached_items_and_success_metadata():
     assert source_state["status"] == "ok"
     assert source_state["next_check_at"] == "2026-06-04T12:30:00+09:00"
     assert source_state["items"][0]["id"] == "pnu-main-notice:1"
-    assert source_state["items"][0]["_pnu"]["source_category"] == "university_notice"
-    assert source_state["items"][0]["_pnu"]["topics"] == ["academic"]
+    assert "content_text" not in source_state["items"][0]
+    assert "date_published" not in source_state["items"][0]
+    assert "source_category" not in source_state["items"][0]["_pnu"]
+    assert "topics" not in source_state["items"][0]["_pnu"]
+
+    hydrated = state_items_by_id(state)["pnu-main-notice:1"]
+    assert hydrated["content_text"] == CONTENT_TEXT_NOTICE
+    assert hydrated["date_published"] == "2026-06-04T00:00:00+09:00"
+    assert hydrated["_pnu"]["source_name"] == "부산대 대학공지"
+    assert hydrated["_pnu"]["source_category"] == "university_notice"
+    assert hydrated["_pnu"]["topics"] == ["academic"]
+
+
+def test_build_state_diagnostics_reports_compact_state_size():
+    source = _source()
+    checked_at = "2026-06-04T12:00:00+09:00"
+
+    generated = build_state(
+        [_result(source, checked_at, [_notice(source, "1", "2026-06-04")])],
+        checked_at,
+    )
+
+    diagnostics = generator.build_state_diagnostics(generated)
+
+    assert diagnostics["source_count"] == 1
+    assert diagnostics["item_count"] == 1
+    assert diagnostics["estimated_compact_json_bytes"] > 0
+
+
+def test_build_output_file_diagnostics_reports_archive_and_largest_files(tmp_path):
+    output_dir = tmp_path / "public"
+    archive_dir = output_dir / "archive"
+    archive_dir.mkdir(parents=True)
+    (output_dir / "latest.json").write_text("{}", encoding="utf-8")
+    (archive_dir / "2026-06.json").write_text("archive", encoding="utf-8")
+    (output_dir / "rss.xml").write_text("rss", encoding="utf-8")
+
+    diagnostics = build_output_file_diagnostics(output_dir)
+
+    assert diagnostics["file_count"] == 3
+    assert diagnostics["archive_file_count"] == 1
+    assert diagnostics["archive_total_bytes"] == len("archive")
+    assert diagnostics["largest_files"][0]["path"] == "archive/2026-06.json"
+
+
+def test_size_budget_diagnostics_fails_when_budget_is_exceeded(tmp_path, monkeypatch):
+    output_dir = tmp_path / "public"
+    output_dir.mkdir()
+    (output_dir / "latest.json").write_text("large", encoding="utf-8")
+    state_path = tmp_path / "feed-state.json"
+    state_path.write_text("state", encoding="utf-8")
+    monkeypatch.setitem(
+        generator.SIZE_BUDGETS,
+        "public_total",
+        {"warning_bytes": 1, "failure_bytes": 2},
+    )
+
+    diagnostics = build_size_budget_diagnostics(output_dir, state_path)
+
+    assert diagnostics["overall_status"] == "fail"
+    assert [
+        check["name"]
+        for check in diagnostics["checks"]
+        if check["status"] == "fail"
+    ] == ["public_total"]
+    try:
+        assert_size_budget(diagnostics)
+    except ValueError as error:
+        assert "public_total" in str(error)
+    else:
+        raise AssertionError("expected size budget failure")
+
+
+def test_size_budget_check_warns_before_failure():
+    assert size_budget_check("x", 5, 10, 20, "bytes")["status"] == "ok"
+    assert size_budget_check("x", 10, 10, 20, "bytes")["status"] == "warn"
+    assert size_budget_check("x", 20, 10, 20, "bytes")["status"] == "fail"
+
+
+def test_should_write_public_outputs_skips_when_no_notice_or_status_change(tmp_path):
+    output_dir = tmp_path / "public"
+    state_path = tmp_path / "feed-state.json"
+    output_dir.mkdir()
+    state_path.write_text("{}", encoding="utf-8")
+    latest = {
+        "feed_url": "https://feeds.example.test/latest.json",
+        "_pnu": {
+            "sources": [
+                {
+                    "id": "source-a",
+                    "name": "Source A",
+                    "official_url": "https://example.test/a",
+                    "adapter": "k2web-board",
+                    "category": "notice",
+                    "poll_interval_minutes": 30,
+                    "public_only": True,
+                    "access_policy": "public_official_url_only",
+                }
+            ]
+        },
+        "items": [
+            {
+                "id": "source-a:1",
+                "url": "https://example.test/a/1",
+                "title": "Notice",
+                "content_text": CONTENT_TEXT_NOTICE,
+                "summary": None,
+                "_pnu": {"source_id": "source-a"},
+            }
+        ],
+    }
+    index = {
+        "home_page_url": "https://feeds.example.test",
+        "archives": {"months": []},
+        "status": {
+            "overall_status": "ok",
+            "source_count": 1,
+            "failed_source_count": 0,
+            "sources": [{"id": "source-a", "status": "ok", "error_count": 0}],
+        },
+    }
+    for name, value in {
+        "latest.json": latest,
+        "index.json": index,
+        "events.json": {"events": []},
+    }.items():
+        (output_dir / name).write_text(json.dumps(value), encoding="utf-8")
+    (output_dir / "rss.xml").write_text("<rss></rss>", encoding="utf-8")
+    (output_dir / "index.html").write_text("<html></html>", encoding="utf-8")
+
+    generated = {
+        "latest": latest,
+        "run_diff": {"added_count": 0, "updated_count": 0, "removed_count": 0},
+        "status": {
+            **index["status"],
+            "sources": [
+                {
+                    **index["status"]["sources"][0],
+                    "status": "skipped",
+                    "skipped_reason": "poll_interval",
+                    "last_checked_at": "2026-06-05T12:00:00+09:00",
+                    "duration_ms": 123,
+                }
+            ],
+        },
+    }
+
+    assert not should_write_public_outputs(
+        output_dir,
+        state_path,
+        generated,
+        "https://feeds.example.test",
+    )
+
+
+def test_should_write_public_outputs_writes_when_notice_changes(tmp_path):
+    output_dir = tmp_path / "public"
+    state_path = tmp_path / "feed-state.json"
+    output_dir.mkdir()
+    state_path.write_text("{}", encoding="utf-8")
+
+    assert should_write_public_outputs(
+        output_dir,
+        state_path,
+        {
+            "latest": {"_pnu": {"sources": []}},
+            "run_diff": {"added_count": 1},
+            "status": {"sources": []},
+        },
+        "https://feeds.example.test",
+    )
 
 
 def test_all_sources_skipped_only_when_every_source_is_skipped():
@@ -941,7 +1116,10 @@ def test_fetch_source_result_reuses_cached_items_on_source_failure():
 
     assert not result.success
     assert result.last_success_at == "2026-06-03T12:00:00+09:00"
-    assert result.items == [cached_item]
+    assert result.items[0]["id"] == cached_item["id"]
+    assert result.items[0]["title"] == cached_item["title"]
+    assert result.items[0]["_pnu"]["content_hash"] == "cached-hash"
+    assert result.items[0]["_pnu"]["source_category"] == "notice"
     assert "unsupported adapter" in result.error
     assert result.status == "error"
     assert result.backoff_until == "2026-06-04T12:30:00+09:00"
@@ -973,7 +1151,10 @@ def test_fetch_source_result_skips_when_poll_interval_has_not_elapsed():
     assert result.status == "skipped"
     assert result.skipped_reason == "poll_interval"
     assert result.next_check_at == "2026-06-04T12:30:00+09:00"
-    assert result.items == [cached_item]
+    assert result.items[0]["id"] == cached_item["id"]
+    assert result.items[0]["title"] == cached_item["title"]
+    assert result.items[0]["_pnu"]["source_category"] == "university_notice"
+    assert result.items[0]["_pnu"]["topics"] == ["academic"]
 
 
 def test_fetch_source_result_respects_backoff_without_cached_items():

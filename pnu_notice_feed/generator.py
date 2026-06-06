@@ -35,6 +35,29 @@ DEFAULT_FEED_ITEM_LIMIT = 150
 DEFAULT_SNIPPET_LIMIT = 500
 DEFAULT_FETCH_CONCURRENCY = 4
 DEFAULT_PER_HOST_CONCURRENCY = 1
+BYTES_PER_MIB = 1024 * 1024
+SIZE_BUDGETS = {
+    "public_total": {
+        "warning_bytes": 500 * BYTES_PER_MIB,
+        "failure_bytes": 800 * BYTES_PER_MIB,
+    },
+    "archive_total": {
+        "warning_bytes": 400 * BYTES_PER_MIB,
+        "failure_bytes": 700 * BYTES_PER_MIB,
+    },
+    "single_public_file": {
+        "warning_bytes": 25 * BYTES_PER_MIB,
+        "failure_bytes": 50 * BYTES_PER_MIB,
+    },
+    "state_file": {
+        "warning_bytes": 25 * BYTES_PER_MIB,
+        "failure_bytes": 50 * BYTES_PER_MIB,
+    },
+    "generator_runtime": {
+        "warning_ms": 8 * 60 * 1000,
+        "failure_ms": 10 * 60 * 1000,
+    },
+}
 SENSITIVE_QUERY_PARAM_RE = re.compile(
     r"([?&](?:secret|token|access_token|auth|authorization|api[_-]?key|key|password|passwd)=)([^\s&#]+)",
     re.IGNORECASE,
@@ -313,12 +336,23 @@ def main(argv: list[str] | None = None) -> int:
         default=DEFAULT_PER_HOST_CONCURRENCY,
         help="Maximum number of concurrent source fetches for the same host.",
     )
+    parser.add_argument(
+        "--check-size-budget",
+        action="store_true",
+        help="Check generated public/cache size budgets and exit.",
+    )
     args = parser.parse_args(argv)
     output_dir = Path(args.output_dir)
     state_path = Path(args.state)
     sources_path = Path(args.sources)
 
     try:
+        if args.check_size_budget:
+            diagnostics = build_size_budget_diagnostics(output_dir, state_path)
+            print(json.dumps(diagnostics, ensure_ascii=False, indent=2))
+            assert_size_budget(diagnostics)
+            return 0
+
         generated = generate_outputs(
             sources_path=sources_path,
             state_path=state_path,
@@ -342,23 +376,36 @@ def main(argv: list[str] | None = None) -> int:
             output_dir,
         ):
             return 0
-        write_outputs(
+        if should_write_public_outputs(
             output_dir=output_dir,
-            latest=generated["latest"],
-            rss=generated["rss"],
-            status=generated["status"],
-            run_diff=generated["run_diff"],
-            duplicates=generated["duplicates"],
-            state=generated["state"],
-            diagnostics=generated["diagnostics"],
-            baseline_source_ids=generated["baseline_source_ids"],
+            state_path=state_path,
+            generated=generated,
             public_base_url=args.public_base_url,
-            pretty=args.pretty,
-        )
+        ):
+            write_outputs(
+                output_dir=output_dir,
+                latest=generated["latest"],
+                rss=generated["rss"],
+                status=generated["status"],
+                run_diff=generated["run_diff"],
+                duplicates=generated["duplicates"],
+                state=generated["state"],
+                diagnostics=generated["diagnostics"],
+                baseline_source_ids=generated["baseline_source_ids"],
+                public_base_url=args.public_base_url,
+                pretty=args.pretty,
+            )
         write_state(
             path=state_path,
             state=generated["state"],
             pretty=args.pretty,
+        )
+        assert_size_budget(
+            build_size_budget_diagnostics(
+                output_dir,
+                state_path,
+                runtime_ms=generated["diagnostics"].get("duration_ms"),
+            )
         )
     except Exception as error:  # noqa: BLE001 - CLI boundary should show explicit failures.
         print(f"feed generation failed: {error}", file=sys.stderr)
@@ -405,6 +452,7 @@ def generate_outputs(
     diagnostics = build_run_diagnostics(
         results=enriched_results,
         latest=latest,
+        state=updated_state,
         generated_at=generated_at,
         generation_started_at=generation_started_at,
         fetch_concurrency=fetch_concurrency,
@@ -543,7 +591,7 @@ def fetch_source_result(
     source_state = get_source_state(state, source.id)
     skip_reason, next_check_at = source_skip_reason(source, source_state, checked_at)
     if skip_reason:
-        cached_items = list(cached_items_by_id(source_state).values())
+        cached_items = list(cached_items_by_id(source_state, source).values())
         return source_result_with_duration(
             SourceResult(
                 source=source,
@@ -561,7 +609,7 @@ def fetch_source_result(
         )
 
     try:
-        cached_items = cached_items_by_id(source_state)
+        cached_items = cached_items_by_id(source_state, source)
         notices = fetch_source(
             source,
             limit,
@@ -598,7 +646,7 @@ def fetch_source_result(
             started_at,
         )
     except Exception as error:  # noqa: BLE001 - source failures belong in index status.
-        cached_items = list(cached_items_by_id(source_state).values())
+        cached_items = list(cached_items_by_id(source_state, source).values())
         error_count = int(source_state.get("error_count") or 0) + 1
         backoff_until = backoff_until_for_error(
             checked_at,
@@ -667,9 +715,17 @@ def get_source_state(state: dict | None, source_id: str) -> dict:
     return sources.get(source_id, {})
 
 
-def cached_items_by_id(source_state: dict) -> dict[str, dict]:
+def cached_items_by_id(
+    source_state: dict,
+    source: PublicSource | None = None,
+) -> dict[str, dict]:
+    source_metadata = (
+        source_to_state_json(source)
+        if source is not None
+        else source_state.get("source", {})
+    )
     return {
-        str(item["id"]): item
+        str(item["id"]): hydrate_state_item(item, source_metadata)
         for item in source_state.get("items", [])
         if item.get("id")
     }
@@ -824,6 +880,7 @@ def build_state(
         "generated_at": generated_at,
         "sources": {
             result.source.id: {
+                "source": source_to_state_json(result.source),
                 "baseline_completed_at": baseline_completed_at_for_source(
                     result,
                     previous_state,
@@ -839,7 +896,7 @@ def build_state(
                 "skipped_reason": result.skipped_reason,
                 "error": result.error,
                 "items": [
-                    normalize_feed_item(
+                    compact_state_item(
                         enrich_item_with_source_metadata(item, result.source),
                     )
                     for item in result.items
@@ -847,6 +904,128 @@ def build_state(
             }
             for result in results
         },
+    }
+
+
+def source_to_state_json(source: PublicSource) -> dict:
+    return {
+        "id": source.id,
+        "name": source.name,
+        "official_url": source.official_url,
+        "adapter": source.adapter,
+        "category": source.category,
+        "poll_interval_minutes": source.poll_interval_minutes,
+        "public_only": source.public_only,
+        "access_policy": source.access_policy,
+        "tags": list(source.tags),
+    }
+
+
+def compact_state_item(item: dict) -> dict:
+    normalized = normalize_feed_item(item)
+    pnu = normalized.get("_pnu", {})
+    compact_pnu = {
+        "source_id": pnu.get("source_id"),
+        "published_at": pnu.get("published_at"),
+        "fetched_at": pnu.get("fetched_at"),
+        "snippet": pnu.get("snippet"),
+        "attachments": pnu.get("attachments", []),
+        "content_hash": pnu.get("content_hash"),
+    }
+    optional_keys = [
+        "detail_checked_at",
+    ]
+    for key in optional_keys:
+        if pnu.get(key) is not None:
+            compact_pnu = {**compact_pnu, key: pnu.get(key)}
+
+    duplicate_keys = [
+        "same_notice_group_id",
+        "canonical_item_id",
+        "is_canonical",
+        "same_notice_source_ids",
+    ]
+    for key in duplicate_keys:
+        if key in pnu:
+            compact_pnu = {**compact_pnu, key: pnu.get(key)}
+    content_access = pnu.get("content_access")
+    if content_access and content_access != default_content_access(normalized.get("url")):
+        compact_pnu = {**compact_pnu, "content_access": content_access}
+
+    compact = {
+        "id": normalized.get("id"),
+        "url": normalized.get("url"),
+        "title": normalized.get("title"),
+        "_pnu": compact_pnu,
+    }
+    summary = normalized.get("summary")
+    if summary and summary != pnu.get("snippet"):
+        compact = {**compact, "summary": summary}
+    return compact
+
+
+def hydrate_state_item(item: dict, source_metadata: dict | None = None) -> dict:
+    source_metadata = source_metadata or {}
+    pnu = item.get("_pnu", {})
+    source_id = (
+        pnu.get("source_id")
+        or source_metadata.get("id")
+        or str(item.get("id") or "").split(":", 1)[0]
+    )
+    source_name = pnu.get("source_name") or source_metadata.get("name") or source_id
+    source_tags = [
+        str(tag)
+        for tag in (
+            pnu.get("source_tags")
+            or source_metadata.get("tags")
+            or pnu.get("tags")
+            or []
+        )
+    ]
+    source_category = pnu.get("source_category") or source_metadata.get("category")
+    url = item.get("url") or pnu.get("content_access", {}).get("detail_url")
+    snippet = (
+        pnu.get("snippet")
+        if pnu.get("snippet") is not None
+        else item.get("summary")
+    )
+    published_at = pnu.get("published_at")
+    hydrated_pnu = {
+        **pnu,
+        "source_id": source_id,
+        "source_name": source_name,
+        "published_at": published_at,
+        "snippet": snippet,
+        "content_access": pnu.get("content_access") or default_content_access(url),
+        "attachments": pnu.get("attachments", []),
+        "tags": pnu.get("tags") or source_tags,
+        "source_category": source_category,
+        "source_tags": source_tags,
+        "topics": pnu.get("topics")
+        or infer_topics(
+            str(item.get("title") or ""),
+            str(source_category or ""),
+            source_tags,
+        ),
+    }
+    hydrated = {
+        **item,
+        "url": url,
+        "content_text": CONTENT_TEXT_NOTICE,
+        "summary": item.get("summary") or snippet,
+        "date_published": item.get("date_published")
+        or date_to_json_feed_timestamp(published_at),
+        "_pnu": hydrated_pnu,
+    }
+    return normalize_feed_item(hydrated)
+
+
+def default_content_access(url: str | None) -> dict:
+    return {
+        "detail_url": url,
+        "requires_login": False,
+        "content_mirrored": False,
+        "attachments_mirrored": False,
     }
 
 
@@ -920,6 +1099,7 @@ def source_is_degraded(result: SourceResult) -> bool:
 def build_run_diagnostics(
     results: list[SourceResult],
     latest: dict,
+    state: dict,
     generated_at: str,
     generation_started_at: float,
     fetch_concurrency: int,
@@ -957,7 +1137,23 @@ def build_run_diagnostics(
             "max": max(durations) if durations else None,
             "avg": round(sum(durations) / len(durations), 2) if durations else None,
         },
+        "state": build_state_diagnostics(state),
         "source_results": [source_to_diagnostics_json(result) for result in results],
+    }
+
+
+def build_state_diagnostics(state: dict) -> dict:
+    sources = state.get("sources", {})
+    item_count = sum(
+        len(source_state.get("items", []))
+        for source_state in sources.values()
+    )
+    return {
+        "source_count": len(sources),
+        "item_count": item_count,
+        "estimated_compact_json_bytes": len(
+            json.dumps(state, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+        ),
     }
 
 
@@ -1071,12 +1267,7 @@ def notice_to_feed_item(
         "published_at": notice.published_at,
         "fetched_at": fetched_at,
         "snippet": snippet,
-        "content_access": {
-            "detail_url": notice.url,
-            "requires_login": False,
-            "content_mirrored": False,
-            "attachments_mirrored": False,
-        },
+        "content_access": default_content_access(notice.url),
         "attachments": [
             attachment_to_feed_json(attachment)
             for attachment in notice.attachments
@@ -1358,6 +1549,66 @@ def outputs_match_source_metadata(output_dir: Path, latest: dict) -> bool:
     return public_source_signatures(previous_latest) == public_source_signatures(latest)
 
 
+def should_write_public_outputs(
+    output_dir: Path,
+    state_path: Path,
+    generated: dict,
+    public_base_url: str,
+) -> bool:
+    if not outputs_exist(output_dir, state_path):
+        return True
+    if not outputs_match_public_base_url(output_dir, public_base_url):
+        return True
+    if not outputs_match_source_metadata(output_dir, generated["latest"]):
+        return True
+    if not outputs_match_current_format(output_dir):
+        return True
+    if not archive_outputs_exist(output_dir):
+        return True
+    if run_diff_has_notice_changes(generated["run_diff"]):
+        return True
+    previous_index = read_json_if_exists(output_dir / "index.json")
+    if not previous_index:
+        return True
+    return status_signature(previous_index.get("status", {})) != status_signature(
+        generated["status"]
+    )
+
+
+def run_diff_has_notice_changes(run_diff: dict) -> bool:
+    return any(
+        int(run_diff.get(key) or 0) > 0
+        for key in ["added_count", "updated_count", "removed_count"]
+    )
+
+
+def status_signature(status: dict) -> dict:
+    return {
+        "overall_status": status.get("overall_status"),
+        "source_count": status.get("source_count"),
+        "failed_source_count": status.get("failed_source_count"),
+        "sources": [
+            source_status_signature(source)
+            for source in status.get("sources", [])
+        ],
+    }
+
+
+def source_status_signature(source: dict) -> dict:
+    skipped_reason = source.get("skipped_reason")
+    status = source.get("status")
+    if status == "skipped" and skipped_reason == "poll_interval":
+        status = "ok"
+        skipped_reason = None
+    return {
+        "id": source.get("id"),
+        "status": status,
+        "error_type": source.get("error_type"),
+        "error_count": source.get("error_count"),
+        "skipped_reason": skipped_reason,
+    }
+
+
 def public_source_signatures(latest: dict) -> list[dict]:
     return [
         {
@@ -1447,12 +1698,11 @@ def read_json_if_exists(path: Path) -> dict | None:
 
 
 def build_output_file_diagnostics(output_dir: Path) -> dict:
-    paths = [
-        output_dir / "latest.json",
-        output_dir / "rss.xml",
-        output_dir / "events.json",
-        *sorted((output_dir / "archive").glob("*.json")),
-    ]
+    paths = sorted(
+        path
+        for path in output_dir.rglob("*")
+        if path.is_file()
+    )
     files = [
         {
             "path": str(path.relative_to(output_dir)),
@@ -1461,11 +1711,125 @@ def build_output_file_diagnostics(output_dir: Path) -> dict:
         for path in paths
         if path.exists()
     ]
+    archive_files = [
+        file
+        for file in files
+        if str(file["path"]).startswith("archive/")
+    ]
     return {
         "file_count": len(files),
         "total_bytes": sum(file["bytes"] for file in files),
+        "archive_file_count": len(archive_files),
+        "archive_total_bytes": sum(file["bytes"] for file in archive_files),
+        "largest_files": sorted(
+            files,
+            key=lambda file: file["bytes"],
+            reverse=True,
+        )[:20],
         "files": files,
     }
+
+
+def build_size_budget_diagnostics(
+    output_dir: Path,
+    state_path: Path | None = None,
+    runtime_ms: int | None = None,
+) -> dict:
+    output = build_output_file_diagnostics(output_dir)
+    state_bytes = state_path.stat().st_size if state_path and state_path.exists() else 0
+    largest_public_file = max(
+        [file["bytes"] for file in output["files"]],
+        default=0,
+    )
+    checks = [
+        size_budget_check(
+            "public_total",
+            output["total_bytes"],
+            SIZE_BUDGETS["public_total"]["warning_bytes"],
+            SIZE_BUDGETS["public_total"]["failure_bytes"],
+            unit="bytes",
+        ),
+        size_budget_check(
+            "archive_total",
+            output["archive_total_bytes"],
+            SIZE_BUDGETS["archive_total"]["warning_bytes"],
+            SIZE_BUDGETS["archive_total"]["failure_bytes"],
+            unit="bytes",
+        ),
+        size_budget_check(
+            "single_public_file",
+            largest_public_file,
+            SIZE_BUDGETS["single_public_file"]["warning_bytes"],
+            SIZE_BUDGETS["single_public_file"]["failure_bytes"],
+            unit="bytes",
+        ),
+        size_budget_check(
+            "state_file",
+            state_bytes,
+            SIZE_BUDGETS["state_file"]["warning_bytes"],
+            SIZE_BUDGETS["state_file"]["failure_bytes"],
+            unit="bytes",
+        ),
+    ]
+    if runtime_ms is not None:
+        checks = [
+            *checks,
+            size_budget_check(
+                "generator_runtime",
+                runtime_ms,
+                SIZE_BUDGETS["generator_runtime"]["warning_ms"],
+                SIZE_BUDGETS["generator_runtime"]["failure_ms"],
+                unit="ms",
+            ),
+        ]
+    overall_status = "ok"
+    if any(check["status"] == "fail" for check in checks):
+        overall_status = "fail"
+    elif any(check["status"] == "warn" for check in checks):
+        overall_status = "warn"
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "overall_status": overall_status,
+        "output": output,
+        "state": {
+            "path": str(state_path) if state_path else None,
+            "bytes": state_bytes,
+        },
+        "checks": checks,
+    }
+
+
+def size_budget_check(
+    name: str,
+    value: int,
+    warning: int,
+    failure: int,
+    unit: str,
+) -> dict:
+    status = "ok"
+    if value >= failure:
+        status = "fail"
+    elif value >= warning:
+        status = "warn"
+    return {
+        "name": name,
+        "status": status,
+        "value": value,
+        "warning": warning,
+        "failure": failure,
+        "unit": unit,
+    }
+
+
+def assert_size_budget(diagnostics: dict) -> None:
+    failures = [
+        check
+        for check in diagnostics.get("checks", [])
+        if check.get("status") == "fail"
+    ]
+    if failures:
+        names = ", ".join(str(check.get("name")) for check in failures)
+        raise ValueError(f"feed size budget exceeded: {names}")
 
 
 def build_run_diff(previous_state: dict | None, current_state: dict) -> dict:
@@ -1523,12 +1887,11 @@ def archive_input_from_state(
 def state_items_by_id(state: dict | None) -> dict[str, dict]:
     if not state:
         return {}
-    return {
-        str(item["id"]): item
-        for source_state in state.get("sources", {}).values()
-        for item in source_state.get("items", [])
-        if item.get("id")
-    }
+    items: dict[str, dict] = {}
+    for source_state in state.get("sources", {}).values():
+        for item_id, item in cached_items_by_id(source_state).items():
+            items = {**items, item_id: item}
+    return items
 
 
 def change_item(item: dict) -> dict:

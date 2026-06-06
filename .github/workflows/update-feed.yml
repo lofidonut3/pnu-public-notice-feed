@@ -43,6 +43,9 @@ jobs:
           PUBLIC_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
         run: python3 -m pnu_notice_feed.generator --pretty --public-base-url "$PUBLIC_BASE_URL"
 
+      - name: Check feed size budget
+        run: python3 -m pnu_notice_feed.generator --check-size-budget
+
       - name: Commit updated feed
         run: |
           if git diff --quiet -- public cache/feed-state.json; then
