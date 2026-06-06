@@ -7,8 +7,8 @@ import shutil
 from pathlib import Path
 from typing import Any
 
-ARCHIVE_VERSION = "0.2"
-EVENT_STREAM_VERSION = "0.2"
+ARCHIVE_VERSION = "0.3"
+EVENT_STREAM_VERSION = "0.3"
 RECENT_EVENT_LIMIT = 1000
 TIMEZONE = "Asia/Seoul"
 
@@ -51,15 +51,23 @@ def build_archive_documents(
     pretty: bool = False,
 ) -> tuple[dict[str, dict], dict]:
     generated_at = str(feed.get("_pnu", {}).get("generated_at"))
+    baseline_source_ids = {
+        str(source_id)
+        for source_id in feed.get("_pnu", {}).get("baseline_source_ids", [])
+    }
     archive_docs = copy.deepcopy(existing_archive_docs or {})
     archived_items = archived_items_by_id(archive_docs)
     touched_months: set[str] = set()
+    baseline_item_ids: set[str] = set()
 
     for current_item in feed.get("items", []):
         item = normalize_archive_input_item(current_item)
         item_id = str(item["id"])
         current_hash = item_content_hash(item)
         seen_at = str(item.get("_pnu", {}).get("fetched_at") or generated_at)
+        is_baseline_item = item_source_id(item) in baseline_source_ids
+        if is_baseline_item:
+            baseline_item_ids = {*baseline_item_ids, item_id}
         existing = archived_items.get(item_id)
 
         if existing is None:
@@ -70,26 +78,54 @@ def build_archive_documents(
                 first_seen_at=seen_at,
                 last_seen_at=seen_at,
                 last_changed_at=seen_at,
+                baseline_imported_at=seen_at if is_baseline_item else None,
             )
             archive_docs = upsert_archive_item(archive_docs, item_month, archived_item)
-            archive_docs = add_event(
-                archive_docs,
-                event_type="added",
-                item=archived_item,
-                item_month=item_month,
-                event_time=seen_at,
-                previous_content_hash=None,
-            )
             touched_months = {
                 *touched_months,
                 item_month,
-                month_from_timestamp(seen_at),
             }
+            if not is_baseline_item:
+                archive_docs = add_event(
+                    archive_docs,
+                    event_type="added",
+                    item=archived_item,
+                    item_month=item_month,
+                    event_time=seen_at,
+                    previous_content_hash=None,
+                )
+                touched_months = {
+                    *touched_months,
+                    month_from_timestamp(seen_at),
+                }
             continue
 
         existing_month, existing_item = existing
         previous_hash = item_content_hash(existing_item)
         if previous_hash == current_hash:
+            existing_archive = existing_item.get("_archive", {})
+            archived_item = archive_item(
+                item,
+                archive_month=existing_month,
+                first_seen_at=str(existing_archive.get("first_seen_at") or seen_at),
+                last_seen_at=str(existing_archive.get("last_seen_at") or seen_at),
+                last_changed_at=str(
+                    existing_archive.get("last_changed_at")
+                    or existing_archive.get("first_seen_at")
+                    or seen_at
+                ),
+                baseline_imported_at=existing_archive.get("baseline_imported_at"),
+            )
+            if archive_metadata_core(existing_item) != archive_metadata_core(archived_item):
+                archive_docs = upsert_archive_item(
+                    archive_docs,
+                    existing_month,
+                    archived_item,
+                )
+                touched_months = {
+                    *touched_months,
+                    existing_month,
+                }
             continue
 
         existing_archive = existing_item.get("_archive", {})
@@ -100,6 +136,7 @@ def build_archive_documents(
             first_seen_at=first_seen_at,
             last_seen_at=generated_at,
             last_changed_at=generated_at,
+            baseline_imported_at=existing_archive.get("baseline_imported_at"),
         )
         archive_docs = upsert_archive_item(archive_docs, existing_month, archived_item)
         archive_docs = add_event(
@@ -116,7 +153,25 @@ def build_archive_documents(
             month_from_timestamp(generated_at),
         }
 
-    archive_docs = rebuild_archive_docs(archive_docs, touched_months, generated_at)
+    if baseline_item_ids:
+        baseline_event_months = months_with_events_for_items(
+            archive_docs,
+            baseline_item_ids,
+        )
+        archive_docs = remove_events_for_items(archive_docs, baseline_item_ids)
+        touched_months = {
+            *touched_months,
+            *baseline_event_months,
+        }
+
+    archive_docs = rebuild_archive_docs(
+        archive_docs,
+        {
+            *touched_months,
+            *months_needing_rebuild(archive_docs),
+        },
+        generated_at,
+    )
     archive_index = build_archive_index(
         archive_docs,
         previous_index=previous_index,
@@ -133,7 +188,7 @@ def build_recent_events_document(
 ) -> dict:
     all_events = sorted(
         [
-            event
+            compact_event(event)
             for doc in archive_docs.values()
             for event in doc.get("events", [])
         ],
@@ -226,7 +281,7 @@ def migrate_split_event(
 ) -> dict:
     notice_id = str(event.get("archive_notice_id") or event.get("notice_id"))
     item_month, item = archived_items.get(notice_id, (archive_month_from_event(event), {}))
-    return {
+    return compact_event({
         "event_id": event.get("event_id"),
         "event_type": event.get("event_type"),
         "notice_id": event.get("notice_id"),
@@ -240,7 +295,7 @@ def migrate_split_event(
         "archive_file": f"./archive/{item_month}.json",
         "archive_item_id": notice_id,
         "item": event_item_snapshot(item) if item else None,
-    }
+    })
 
 
 def archive_month_from_event(event: dict) -> str:
@@ -309,17 +364,24 @@ def archive_item(
     first_seen_at: str,
     last_seen_at: str,
     last_changed_at: str,
+    baseline_imported_at: str | None = None,
 ) -> dict:
     normalized = normalize_archive_input_item(item)
+    archive_metadata = {
+        "archive_month": archive_month,
+        "first_seen_at": first_seen_at,
+        "last_seen_at": last_seen_at,
+        "last_changed_at": last_changed_at,
+        "current_content_hash": item_content_hash(normalized),
+    }
+    if baseline_imported_at:
+        archive_metadata = {
+            **archive_metadata,
+            "baseline_imported_at": baseline_imported_at,
+        }
     return {
         **normalized,
-        "_archive": {
-            "archive_month": archive_month,
-            "first_seen_at": first_seen_at,
-            "last_seen_at": last_seen_at,
-            "last_changed_at": last_changed_at,
-            "current_content_hash": item_content_hash(normalized),
-        },
+        "_archive": archive_metadata,
     }
 
 
@@ -341,6 +403,35 @@ def upsert_archive_item(
             **doc,
             "items": sorted(items.values(), key=notice_sort_key, reverse=True),
         },
+    }
+
+
+def remove_events_for_items(
+    archive_docs: dict[str, dict],
+    item_ids: set[str],
+) -> dict[str, dict]:
+    return {
+        month: {
+            **doc,
+            "events": [
+                event
+                for event in doc.get("events", [])
+                if str(event.get("archive_item_id") or event.get("notice_id")) not in item_ids
+            ],
+        }
+        for month, doc in archive_docs.items()
+    }
+
+
+def months_with_events_for_items(
+    archive_docs: dict[str, dict],
+    item_ids: set[str],
+) -> set[str]:
+    return {
+        month
+        for month, doc in archive_docs.items()
+        for event in doc.get("events", [])
+        if str(event.get("archive_item_id") or event.get("notice_id")) in item_ids
     }
 
 
@@ -400,11 +491,20 @@ def event_for_item(
         "published_at": pnu.get("published_at"),
         "title": item.get("title"),
         "url": item.get("url"),
+        "source_name": pnu.get("source_name"),
+        "source_category": pnu.get("source_category"),
+        "source_tags": pnu.get("source_tags") or pnu.get("tags") or [],
+        "topics": pnu.get("topics") or [],
+        "same_notice_group_id": pnu.get("same_notice_group_id"),
+        "canonical_item_id": pnu.get("canonical_item_id") or notice_id,
+        "is_canonical": pnu.get("is_canonical", True),
+        "same_notice_source_ids": pnu.get("same_notice_source_ids") or [
+            pnu.get("source_id")
+        ],
         "content_hash": content_hash,
         "previous_content_hash": previous_content_hash,
         "archive_file": f"./archive/{item_month}.json",
         "archive_item_id": notice_id,
-        "item": event_item_snapshot(item),
     }
 
 
@@ -413,6 +513,51 @@ def event_item_snapshot(item: dict) -> dict:
         key: copy.deepcopy(value)
         for key, value in item.items()
         if key != "_archive"
+    }
+
+
+def compact_event(event: dict) -> dict:
+    item = event.get("item") or {}
+    pnu = item.get("_pnu") or {}
+    notice_id = str(event.get("notice_id") or item.get("id") or "")
+    source_id = event.get("source_id") or pnu.get("source_id")
+    return {
+        "event_id": event.get("event_id"),
+        "event_type": event.get("event_type"),
+        "notice_id": notice_id,
+        "source_id": source_id,
+        "source_name": event.get("source_name") or pnu.get("source_name"),
+        "source_category": event.get("source_category") or pnu.get("source_category"),
+        "source_tags": event.get("source_tags") or pnu.get("source_tags") or pnu.get("tags") or [],
+        "seen_at": event.get("seen_at"),
+        "published_at": event.get("published_at") or pnu.get("published_at"),
+        "title": event.get("title") or item.get("title"),
+        "url": event.get("url") or item.get("url"),
+        "topics": event.get("topics") or pnu.get("topics") or [],
+        "same_notice_group_id": (
+            event.get("same_notice_group_id")
+            if "same_notice_group_id" in event
+            else pnu.get("same_notice_group_id")
+        ),
+        "canonical_item_id": (
+            event.get("canonical_item_id")
+            or pnu.get("canonical_item_id")
+            or notice_id
+        ),
+        "is_canonical": (
+            event.get("is_canonical")
+            if "is_canonical" in event
+            else pnu.get("is_canonical", True)
+        ),
+        "same_notice_source_ids": (
+            event.get("same_notice_source_ids")
+            or pnu.get("same_notice_source_ids")
+            or ([source_id] if source_id else [])
+        ),
+        "content_hash": event.get("content_hash"),
+        "previous_content_hash": event.get("previous_content_hash"),
+        "archive_file": event.get("archive_file"),
+        "archive_item_id": event.get("archive_item_id") or notice_id,
     }
 
 
@@ -453,7 +598,10 @@ def rebuild_archive_doc(
     last_modified_at: str | None,
 ) -> dict:
     items = sorted(doc.get("items", []), key=notice_sort_key, reverse=True)
-    events = sorted(doc.get("events", []), key=event_sort_key)
+    events = sorted(
+        [compact_event(event) for event in doc.get("events", [])],
+        key=event_sort_key,
+    )
     return {
         "schema_version": "0.1",
         "archive_version": ARCHIVE_VERSION,
@@ -645,6 +793,35 @@ def event_sort_key(event: dict) -> tuple[str, str]:
 def item_content_hash(item: dict) -> str | None:
     pnu = item.get("_pnu", {})
     return pnu.get("content_hash") or item.get("content_hash")
+
+
+def item_source_id(item: dict) -> str:
+    return str(item.get("_pnu", {}).get("source_id") or item.get("source_id") or "")
+
+
+def archive_metadata_core(item: dict) -> dict:
+    pnu = item.get("_pnu", {})
+    return {
+        **{
+            key: copy.deepcopy(value)
+            for key, value in item.items()
+            if key != "_archive" and key != "_pnu"
+        },
+        "_pnu": {
+            key: copy.deepcopy(value)
+            for key, value in pnu.items()
+            if key not in {"fetched_at", "detail_checked_at"}
+        },
+    }
+
+
+def months_needing_rebuild(archive_docs: dict[str, dict]) -> set[str]:
+    return {
+        month
+        for month, doc in archive_docs.items()
+        if doc.get("archive_version") != ARCHIVE_VERSION
+        or any("item" in event for event in doc.get("events", []))
+    }
 
 
 def min_known(left: str | None, right: str | None) -> str | None:

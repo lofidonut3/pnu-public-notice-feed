@@ -82,15 +82,21 @@
         "event_type",
         "notice_id",
         "source_id",
+        "source_name",
+        "source_category",
+        "source_tags",
         "seen_at",
         "published_at",
         "title",
         "url",
+        "topics",
+        "canonical_item_id",
+        "is_canonical",
+        "same_notice_source_ids",
         "content_hash",
         "previous_content_hash",
         "archive_file",
-        "archive_item_id",
-        "item"
+        "archive_item_id"
       ],
       "properties": {
         "event_id": {
@@ -105,6 +111,18 @@
         "source_id": {
           "type": ["string", "null"]
         },
+        "source_name": {
+          "type": ["string", "null"]
+        },
+        "source_category": {
+          "type": ["string", "null"]
+        },
+        "source_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "seen_at": {
           "type": "string"
         },
@@ -118,6 +136,27 @@
           "type": ["string", "null"],
           "format": "uri"
         },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "same_notice_group_id": {
+          "type": ["string", "null"]
+        },
+        "canonical_item_id": {
+          "type": "string"
+        },
+        "is_canonical": {
+          "type": "boolean"
+        },
+        "same_notice_source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "content_hash": {
           "type": ["string", "null"]
         },
@@ -129,9 +168,6 @@
         },
         "archive_item_id": {
           "type": "string"
-        },
-        "item": {
-          "type": ["object", "null"]
         }
       },
       "additionalProperties": true

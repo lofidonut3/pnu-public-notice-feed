@@ -59,8 +59,9 @@
     </ul>
 
     <h2>Agent Notes</h2>
-    <p>Use <code>events.json</code> as the primary cursor stream. Each event includes an <code>item</code> metadata snapshot, plus <code>archive_file</code> and <code>archive_item_id</code> for durable catch-up.</p>
-    <p>Check <code>index.json.same_notice_groups</code> before sending notifications for multiple matching items from different sources. Use <code>latest.json</code> for latest discovery and <code>rss.xml</code> for compatibility.</p>
+    <p>Use <code>events.json</code> as the primary cursor stream. Each event is a compact routing record with <code>archive_file</code> and <code>archive_item_id</code> for durable metadata lookup.</p>
+    <p>No project-specific client library is required. Any HTTP/JSON client can keep a local cursor and fetch archive files when detailed metadata is needed.</p>
+    <p>Use event duplicate fields or <code>index.json.same_notice_groups</code> before sending notifications for multiple matching items from different sources. Use <code>latest.json</code> for latest discovery and <code>rss.xml</code> for compatibility.</p>
   </main>
 </body>
 </html>

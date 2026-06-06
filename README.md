@@ -6,7 +6,7 @@ This repository generates and publishes a compact static notice feed surface tha
 
 This project is not operated by Pusan National University.
 
-Current indexed source families include university-wide notices, Onestop academic and scholarship notices, dormitory notices by campus, PNU International notices, Career Development Office notices and recruitment listings, PNU Library notices, public campus-service notices, support-center notices, language education notices, project notices, and public PLATO notices. Source registry metadata and source status are published in [`index.json`](https://lofidonut3.github.io/pnu-public-notice-feed/index.json).
+Current indexed source families include university-wide notices, Onestop academic and scholarship notices, college/department/major academic-unit notices, dormitory notices by campus, PNU International notices, Career Development Office notices and recruitment listings, PNU Library notices, public campus-service notices, support-center notices, language education notices, project notices, and public PLATO notices. Source registry metadata and source status are published in [`index.json`](https://lofidonut3.github.io/pnu-public-notice-feed/index.json).
 
 ## Endpoints
 
@@ -31,24 +31,30 @@ Available endpoints:
 
 This project is a metadata relay, not a content mirror.
 
-Each event item and latest item includes a title, source, original notice URL, published date, short preview, content access metadata, and attachment metadata. Full notice text and attachment contents stay on the official PNU source pages.
+Each latest item and archive item includes a title, source, original notice URL, published date, short preview, content access metadata, and attachment metadata. `events.json` is a compact cursor stream for detecting and routing recent notice events. Full notice text and attachment contents stay on the official PNU source pages.
 
 Agents should treat `summary` and `_pnu.snippet` as previews only. Fetch full notice text from `item.url` or `item._pnu.content_access.detail_url`, and fetch attachments from `item._pnu.attachments[].download_url`.
 
 ## Endpoint Roles
 
 - `index.json` is the manifest. It combines source registry, source status, archive manifest, same-notice groups, and latest run diagnostics.
-- `events.json` is the primary endpoint for AI agents doing cursor-based notice checks. Store a local `latest_event_id` or `seen_at` cursor and process newer events.
+- `events.json` is the primary compact cursor endpoint for notice checks. Store a local `latest_event_id` or `seen_at` cursor and process newer events.
 - `archive/YYYY-MM.json` is the durable monthly archive for catch-up when a local cursor is older than the `events.json` window.
 - `latest.json` is a JSON Feed 1.1 compatible latest-discovery endpoint, currently limited to the latest 150 items globally. It is not the primary cursor endpoint and not a complete archive.
 - `rss.xml` is a compatibility endpoint for RSS readers and legacy automation tools.
+
+No project-specific client library is required. Any HTTP/JSON client can read `events.json`, keep its own cursor, and fetch archive files when detailed metadata is needed.
+
+## Example Consumer
+
+For a concrete optional reference CLI/helper that keeps a local cursor, enriches events from archive metadata, and collapses same-notice duplicate groups, see [`pnu-public-notice-event-gate`](https://github.com/lofidonut3/pnu-public-notice-event-gate).
 
 ## Operations
 
 - Source refresh status is published in `index.json.status`.
 - Recent durable notice events are published in `events.json` for cursor-based agent checks.
 - Agents should store a local `latest_event_id` or `seen_at` cursor, then process newer events from `events.json`. If the cursor is older than the `events.json` window, use `index.json.archives` and monthly archive files.
-- Event metadata is included as an `item` snapshot. Monthly archive lookup is available through `archive_file` and `archive_item_id`.
+- Events include routing metadata, duplicate metadata, topic hints, and monthly archive lookup fields. Full item metadata is available through `archive_file` and `archive_item_id`.
 - Check `index.json.same_notice_groups` before sending notifications for multiple matching items from different sources.
 - Source polling is rate-limited by `sources.json` and cached in `cache/feed-state.json`.
 - Failed sources use cached items when available and report errors in `index.json.status`.

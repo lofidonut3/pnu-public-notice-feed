@@ -34,7 +34,7 @@
         "summary": "Recent durable notice events",
         "responses": {
           "200": {
-            "description": "Primary recent observed notice event stream for cursor-based agent checks. Each event includes an item metadata snapshot and archive file pointers.",
+            "description": "Primary recent observed notice event stream for cursor-based agent checks. Each event is a compact routing record with source, topic, duplicate, and archive lookup fields.",
             "content": {
               "application/json": {
                 "schema": {

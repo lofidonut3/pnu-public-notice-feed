@@ -1,4 +1,8 @@
+import json
+import threading
+import time
 from datetime import datetime
+from pathlib import Path
 from xml.etree import ElementTree
 from zoneinfo import ZoneInfo
 
@@ -18,6 +22,7 @@ from pnu_notice_feed.generator import (
     all_sources_skipped,
     backoff_until_for_error,
     date_to_json_feed_timestamp,
+    fetch_source_results,
     fetch_source_result,
     generate_outputs,
     load_sources,
@@ -25,6 +30,7 @@ from pnu_notice_feed.generator import (
     next_check_at_from_interval,
     normalize_feed_item,
     notice_to_feed_item,
+    outputs_match_source_metadata,
     sync_static_assets,
 )
 
@@ -86,6 +92,33 @@ def test_notice_to_feed_item_uses_stable_public_schema():
             "content_hash": "abc123",
         },
     }
+
+
+def test_notice_to_feed_item_redacts_sensitive_query_values_from_preview_text():
+    notice = Notice(
+        source_id="pnu-main-notice",
+        source_name="부산대 대학공지",
+        notice_id="pnu-main-notice:secret",
+        title="공지 제목",
+        url="https://www.pusan.ac.kr/notice?secret=keep-in-url",
+        published_at="2026-06-02",
+        snippet=(
+            "신청 링크 https://plato.pusan.ac.kr/local/apply.php"
+            "?id=5818&secret=8rToK&token=abc123"
+        ),
+        attachments=[],
+        tags=["pnu", "official"],
+        content_hash="abc123",
+    )
+
+    item = notice_to_feed_item(notice, "2026-06-03T12:00:00+09:00")
+
+    assert item["url"] == "https://www.pusan.ac.kr/notice?secret=keep-in-url"
+    assert "secret=8rToK" not in item["summary"]
+    assert "token=abc123" not in item["summary"]
+    assert "secret=[redacted]" in item["summary"]
+    assert "token=[redacted]" in item["summary"]
+    assert item["_pnu"]["snippet"] == item["summary"]
 
 
 def test_notice_to_feed_item_includes_detail_checked_at_when_present():
@@ -226,6 +259,26 @@ def test_normalize_feed_item_migrates_cached_snippet_to_summary():
     assert normalized["_pnu"] == item["_pnu"]
 
 
+def test_normalize_feed_item_redacts_cached_preview_text():
+    item = {
+        "id": "pnu-main-notice:1",
+        "url": "https://www.pusan.ac.kr/notice",
+        "title": "공지",
+        "content_text": "old",
+        "summary": "https://example.test/apply?secret=abc",
+        "_pnu": {
+            "snippet": "https://example.test/apply?token=def",
+        },
+    }
+
+    normalized = normalize_feed_item(item)
+
+    assert normalized["summary"] == "https://example.test/apply?secret=[redacted]"
+    assert normalized["_pnu"]["snippet"] == (
+        "https://example.test/apply?token=[redacted]"
+    )
+
+
 def test_build_status_reports_partial_failure():
     checked_at = datetime(2026, 6, 3, 12, 0, tzinfo=ZoneInfo("Asia/Seoul")).isoformat(
         timespec="seconds"
@@ -278,6 +331,27 @@ def test_build_status_reports_partial_failure():
     assert status["sources"][1]["status"] == "error"
     assert status["sources"][1]["error_type"] == "timeout"
     assert status["sources"][1]["error"] == "network timeout"
+
+
+def test_build_status_includes_source_duration_diagnostics():
+    checked_at = "2026-06-03T12:00:00+09:00"
+    source = _source()
+
+    status = build_status(
+        [
+            SourceResult(
+                source=source,
+                checked_at=checked_at,
+                items=[],
+                last_success_at=checked_at,
+                status="ok",
+                duration_ms=123,
+            )
+        ],
+        checked_at,
+    )
+
+    assert status["sources"][0]["duration_ms"] == 123
 
 
 def test_public_source_preserves_optional_websquare_filters():
@@ -463,6 +537,21 @@ def test_generate_outputs_includes_duplicate_groups(tmp_path, monkeypatch):
         "pnu-main-notice:1",
         "pnu-onestop-notices:1",
     ]
+    assert generated["duplicates"]["groups"][0]["canonical_item_id"] == (
+        "pnu-main-notice:1"
+    )
+    latest_items = {
+        item["id"]: item
+        for item in generated["latest"]["items"]
+    }
+    assert latest_items["pnu-main-notice:1"]["_pnu"]["same_notice_group_id"]
+    assert latest_items["pnu-main-notice:1"]["_pnu"]["is_canonical"] is True
+    assert latest_items["pnu-onestop-notices:1"]["_pnu"]["is_canonical"] is False
+    assert "scholarship" in latest_items["pnu-main-notice:1"]["_pnu"]["topics"]
+    assert generated["baseline_source_ids"] == [
+        "pnu-main-notice",
+        "pnu-onestop-notices",
+    ]
 
 
 def test_generate_outputs_keeps_run_diff_state_and_duplicates_full_when_feed_is_limited(
@@ -562,6 +651,125 @@ def test_generate_outputs_keeps_run_diff_state_and_duplicates_full_when_feed_is_
     ]
 
 
+def test_generate_outputs_includes_run_diagnostics(tmp_path, monkeypatch):
+    sources_path = tmp_path / "sources.json"
+    state_path = tmp_path / "feed-state.json"
+    sources_path.write_text(
+        """
+        {
+          "schema_version": "0.1",
+          "sources": [
+            {
+              "id": "pnu-main-notice",
+              "name": "부산대 대학공지",
+              "official_url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do",
+              "adapter": "pusan-cms-static-board",
+              "category": "notice",
+              "poll_interval_minutes": 30,
+              "public_only": true,
+              "tags": ["pnu", "official"]
+            }
+          ]
+        }
+        """,
+        encoding="utf-8",
+    )
+
+    def fake_fetch_source(source, limit, cached_items=None, checked_at=None):
+        return [_notice(source, "1", "2026-06-04")]
+
+    monkeypatch.setattr(generator, "fetch_source", fake_fetch_source)
+
+    generated = generate_outputs(
+        sources_path=sources_path,
+        state_path=state_path,
+        limit=20,
+        public_base_url="https://feeds.example.test",
+        now=datetime(2026, 6, 5, 12, 0, tzinfo=ZoneInfo("Asia/Seoul")),
+        fetch_concurrency=4,
+        per_host_concurrency=1,
+    )
+
+    diagnostics = generated["diagnostics"]
+    assert diagnostics["source_count"] == 1
+    assert diagnostics["fetched_source_count"] == 1
+    assert diagnostics["skipped_source_count"] == 0
+    assert diagnostics["error_source_count"] == 0
+    assert diagnostics["fetch_concurrency"] == 4
+    assert diagnostics["per_host_concurrency"] == 1
+    assert diagnostics["total_item_count"] == 1
+    assert diagnostics["latest_item_count"] == 1
+    assert diagnostics["duration_ms"] >= 0
+    assert diagnostics["source_results"][0]["id"] == "pnu-main-notice"
+    assert diagnostics["source_results"][0]["duration_ms"] >= 0
+
+
+def test_fetch_source_results_preserves_source_registry_order(monkeypatch):
+    source_a = _source("source-a")
+    source_b = _source("source-b")
+
+    def fake_fetch_source_result(source, limit, checked_at, state):
+        if source.id == "source-a":
+            time.sleep(0.02)
+        return SourceResult(
+            source=source,
+            checked_at=checked_at,
+            items=[],
+            last_success_at=checked_at,
+            status="ok",
+        )
+
+    monkeypatch.setattr(generator, "fetch_source_result", fake_fetch_source_result)
+
+    results = fetch_source_results(
+        [source_a, source_b],
+        limit=20,
+        generated_at="2026-06-05T12:00:00+09:00",
+        state={},
+        fetch_concurrency=2,
+        per_host_concurrency=2,
+    )
+
+    assert [result.source.id for result in results] == ["source-a", "source-b"]
+
+
+def test_fetch_source_results_limits_same_host_concurrency(monkeypatch):
+    source_a = _source("source-a")
+    source_b = _source("source-b")
+    active = 0
+    max_active = 0
+    lock = threading.Lock()
+
+    def fake_fetch_source_result(source, limit, checked_at, state):
+        nonlocal active, max_active
+        with lock:
+            active += 1
+            max_active = max(max_active, active)
+        time.sleep(0.02)
+        with lock:
+            active -= 1
+        return SourceResult(
+            source=source,
+            checked_at=checked_at,
+            items=[],
+            last_success_at=checked_at,
+            status="ok",
+        )
+
+    monkeypatch.setattr(generator, "fetch_source_result", fake_fetch_source_result)
+
+    fetch_source_results(
+        [source_a, source_b],
+        limit=20,
+        generated_at="2026-06-05T12:00:00+09:00",
+        state={},
+        fetch_concurrency=2,
+        per_host_concurrency=1,
+    )
+
+    assert max_active == 1
+
+
 def test_archive_input_is_built_from_state_items():
     source = _source()
     checked_at = "2026-06-04T12:00:00+09:00"
@@ -635,6 +843,7 @@ def test_build_public_index_combines_status_archives_dedupe_and_diagnostics():
         duplicates=duplicates,
         archives=archives,
         events=events,
+        diagnostics={"duration_ms": 25},
         public_base_url="https://feeds.example.test",
     )
 
@@ -645,6 +854,7 @@ def test_build_public_index_combines_status_archives_dedupe_and_diagnostics():
     assert index["archives"]["months"][0]["url"] == "./archive/2026-06.json"
     assert index["same_notice_groups"] == [{"id": "same_notice:1"}]
     assert index["diagnostics"]["latest_run_diff"]["added_count"] == 1
+    assert index["diagnostics"]["run"]["duration_ms"] == 25
 
 
 def test_build_state_preserves_cached_items_and_success_metadata():
@@ -660,11 +870,14 @@ def test_build_state_preserves_cached_items_and_success_metadata():
 
     source_state = state["sources"]["pnu-main-notice"]
     assert source_state["last_checked_at"] == checked_at
+    assert source_state["baseline_completed_at"] == checked_at
     assert source_state["last_success_at"] == checked_at
     assert source_state["last_error_at"] is None
     assert source_state["status"] == "ok"
     assert source_state["next_check_at"] == "2026-06-04T12:30:00+09:00"
     assert source_state["items"][0]["id"] == "pnu-main-notice:1"
+    assert source_state["items"][0]["_pnu"]["source_category"] == "university_notice"
+    assert source_state["items"][0]["_pnu"]["topics"] == ["academic"]
 
 
 def test_all_sources_skipped_only_when_every_source_is_skipped():
@@ -916,6 +1129,80 @@ def test_sync_static_assets_makes_public_output_self_contained(tmp_path):
     assert (output_dir / "llms.txt").exists()
     assert (output_dir / "schema" / "index.schema.json").exists()
     assert (output_dir / "schema" / "latest.schema.json").exists()
+
+
+def test_outputs_match_source_metadata_detects_registry_changes(tmp_path):
+    output_dir = tmp_path / "public"
+    output_dir.mkdir()
+    old_latest = {
+        "_pnu": {
+            "sources": [
+                {
+                    "id": "source-a",
+                    "name": "Source A",
+                    "official_url": "https://example.test/a",
+                    "adapter": "k2web-board",
+                    "category": "notice",
+                    "poll_interval_minutes": 30,
+                    "public_only": True,
+                    "access_policy": "public_official_url_only",
+                    "last_checked_at": "2026-06-05T11:00:00+09:00",
+                    "last_success_at": "2026-06-05T11:00:00+09:00",
+                }
+            ]
+        }
+    }
+    new_latest = {
+        "_pnu": {
+            "sources": [
+                {
+                    **old_latest["_pnu"]["sources"][0],
+                    "poll_interval_minutes": 60,
+                    "last_checked_at": "2026-06-05T12:00:00+09:00",
+                }
+            ]
+        }
+    }
+    (output_dir / "latest.json").write_text(
+        json.dumps(old_latest),
+        encoding="utf-8",
+    )
+
+    assert not outputs_match_source_metadata(output_dir, new_latest)
+    assert outputs_match_source_metadata(output_dir, old_latest)
+
+
+def test_sources_registry_uses_polling_tiers():
+    data = json.loads((Path(__file__).resolve().parents[1] / "sources.json").read_text(
+        encoding="utf-8",
+    ))
+    intervals = {
+        source["id"]: source["poll_interval_minutes"]
+        for source in data["sources"]
+    }
+
+    assert intervals["pnu-main-notice"] == 30
+    assert intervals["pnu-onestop-notices"] == 30
+    assert intervals["pnu-onestop-scholarship"] == 30
+    assert len(set(intervals.values())) > 1
+    assert all(interval >= 30 for interval in intervals.values())
+
+
+def test_sources_registry_includes_academic_unit_sources_without_duplicate_urls():
+    data = json.loads((Path(__file__).resolve().parents[1] / "sources.json").read_text(
+        encoding="utf-8",
+    ))
+    academic_sources = [
+        source
+        for source in data["sources"]
+        if source["id"].startswith("pnu-academic-")
+    ]
+    urls = [source["official_url"] for source in academic_sources]
+
+    assert len(academic_sources) >= 150
+    assert all(source["adapter"] == "k2web-board" for source in academic_sources)
+    assert all(source["poll_interval_minutes"] == 180 for source in academic_sources)
+    assert len(urls) == len(set(urls))
 
 
 def test_date_to_json_feed_timestamp_preserves_unknown_formats():

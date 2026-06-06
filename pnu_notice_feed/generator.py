@@ -1,12 +1,17 @@
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
+import re
 import sys
-from dataclasses import dataclass
+import threading
+import time
+from dataclasses import dataclass, replace
 from datetime import datetime, timedelta
 from email.utils import format_datetime
 from pathlib import Path
+from urllib.parse import urlparse
 from xml.etree import ElementTree
 from zoneinfo import ZoneInfo
 
@@ -18,6 +23,7 @@ from .k2web_board import fetch_k2web_board
 from .library_pyxis_board import fetch_library_pyxis_board
 from .onestop_js_board import fetch_onestop_js_board
 from .simple_html_board import fetch_plato_ubboard, fetch_simple_html_board
+from .topics import infer_topics
 from .types import Notice, Source
 from .websquare_js_board import fetch_websquare_js_board
 
@@ -27,6 +33,12 @@ FEED_VERSION = "2026-06-04"
 DEFAULT_LIMIT = 40
 DEFAULT_FEED_ITEM_LIMIT = 150
 DEFAULT_SNIPPET_LIMIT = 500
+DEFAULT_FETCH_CONCURRENCY = 4
+DEFAULT_PER_HOST_CONCURRENCY = 1
+SENSITIVE_QUERY_PARAM_RE = re.compile(
+    r"([?&](?:secret|token|access_token|auth|authorization|api[_-]?key|key|password|passwd)=)([^\s&#]+)",
+    re.IGNORECASE,
+)
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE_REGISTRY = PROJECT_ROOT / "sources.json"
 DEFAULT_STATE_PATH = PROJECT_ROOT / "cache" / "feed-state.json"
@@ -91,13 +103,14 @@ This project is not operated by Pusan National University.
 - Check `index.json.status` before relying on source freshness.
 - Use `events.json` as the primary cursor-based notice stream.
 - Store a local `latest_event_id` or `seen_at` cursor and process newer events.
-- Use each event `item` snapshot for notice metadata; use `archive_file` and `archive_item_id` when catching up from monthly archive files.
+- Treat each event as a compact routing record; use `archive_file` and `archive_item_id` when full notice metadata is needed.
 - Check `index.json.same_notice_groups` before sending notifications for multiple matching items from different sources.
 - Use `latest.json` only as a latest discovery feed, not as the primary cursor endpoint or a complete archive.
 - Use `index.json.diagnostics.latest_run_diff` only as a latest generator-run diagnostic, not as durable history.
 - Use `index.json.archives` and monthly archive files for catch-up after downtime.
 - Use `rss.xml` only as a compatibility feed; prefer JSON endpoints for structured agent workflows.
-- Use `_pnu` fields in event `item` snapshots or `latest.json` for source, attachment, fetched_at, and content_hash metadata.
+- Use archive item `_pnu` fields or `latest.json` for source, attachment, fetched_at, and content_hash metadata.
+- No project-specific client library is required. Any HTTP/JSON client can consume these endpoints directly.
 """
 INDEX_HTML = """<!doctype html>
 <html lang="en">
@@ -160,8 +173,9 @@ INDEX_HTML = """<!doctype html>
     </ul>
 
     <h2>Agent Notes</h2>
-    <p>Use <code>events.json</code> as the primary cursor stream. Each event includes an <code>item</code> metadata snapshot, plus <code>archive_file</code> and <code>archive_item_id</code> for durable catch-up.</p>
-    <p>Check <code>index.json.same_notice_groups</code> before sending notifications for multiple matching items from different sources. Use <code>latest.json</code> for latest discovery and <code>rss.xml</code> for compatibility.</p>
+    <p>Use <code>events.json</code> as the primary cursor stream. Each event is a compact routing record with <code>archive_file</code> and <code>archive_item_id</code> for durable metadata lookup.</p>
+    <p>No project-specific client library is required. Any HTTP/JSON client can keep a local cursor and fetch archive files when detailed metadata is needed.</p>
+    <p>Use event duplicate fields or <code>index.json.same_notice_groups</code> before sending notifications for multiple matching items from different sources. Use <code>latest.json</code> for latest discovery and <code>rss.xml</code> for compatibility.</p>
   </main>
 </body>
 </html>
@@ -241,6 +255,7 @@ class SourceResult:
     error_count: int = 0
     skipped_reason: str | None = None
     error: str | None = None
+    duration_ms: int | None = None
 
     @property
     def success(self) -> bool:
@@ -286,6 +301,18 @@ def main(argv: list[str] | None = None) -> int:
         default=DEFAULT_PUBLIC_BASE_URL,
         help="Published base URL used in feed metadata.",
     )
+    parser.add_argument(
+        "--fetch-concurrency",
+        type=int,
+        default=DEFAULT_FETCH_CONCURRENCY,
+        help="Maximum number of sources to fetch concurrently.",
+    )
+    parser.add_argument(
+        "--per-host-concurrency",
+        type=int,
+        default=DEFAULT_PER_HOST_CONCURRENCY,
+        help="Maximum number of concurrent source fetches for the same host.",
+    )
     args = parser.parse_args(argv)
     output_dir = Path(args.output_dir)
     state_path = Path(args.state)
@@ -298,6 +325,8 @@ def main(argv: list[str] | None = None) -> int:
             limit=args.limit,
             public_base_url=args.public_base_url,
             feed_item_limit=args.feed_item_limit,
+            fetch_concurrency=args.fetch_concurrency,
+            per_host_concurrency=args.per_host_concurrency,
         )
         sync_static_assets(output_dir, sources_path, args.public_base_url)
         if generated["all_sources_skipped"] and outputs_exist(
@@ -306,7 +335,12 @@ def main(argv: list[str] | None = None) -> int:
         ) and outputs_match_public_base_url(
             output_dir,
             args.public_base_url,
-        ) and outputs_match_current_format(output_dir) and archive_outputs_exist(output_dir):
+        ) and outputs_match_source_metadata(
+            output_dir,
+            generated["latest"],
+        ) and outputs_match_current_format(output_dir) and archive_outputs_exist(
+            output_dir,
+        ):
             return 0
         write_outputs(
             output_dir=output_dir,
@@ -316,6 +350,8 @@ def main(argv: list[str] | None = None) -> int:
             run_diff=generated["run_diff"],
             duplicates=generated["duplicates"],
             state=generated["state"],
+            diagnostics=generated["diagnostics"],
+            baseline_source_ids=generated["baseline_source_ids"],
             public_base_url=args.public_base_url,
             pretty=args.pretty,
         )
@@ -338,25 +374,42 @@ def generate_outputs(
     public_base_url: str = DEFAULT_PUBLIC_BASE_URL,
     now: datetime | None = None,
     feed_item_limit: int = DEFAULT_FEED_ITEM_LIMIT,
+    fetch_concurrency: int = DEFAULT_FETCH_CONCURRENCY,
+    per_host_concurrency: int = DEFAULT_PER_HOST_CONCURRENCY,
 ) -> dict[str, dict]:
+    generation_started_at = time.perf_counter()
     generated_at = iso_now(now)
     sources = load_sources(sources_path)
     state = load_state(state_path)
-    results = [
-        fetch_source_result(source, limit, generated_at, state)
-        for source in sources
-    ]
+    results = fetch_source_results(
+        sources,
+        limit,
+        generated_at,
+        state,
+        fetch_concurrency=fetch_concurrency,
+        per_host_concurrency=per_host_concurrency,
+    )
     all_items = collect_result_items(results)
+    duplicates = build_duplicates(all_items, generated_at, FEED_VERSION)
+    enriched_results = apply_duplicate_metadata_to_results(results, duplicates)
     latest = build_latest(
-        results,
+        enriched_results,
         generated_at,
         public_base_url,
         item_limit=feed_item_limit,
     )
-    status = build_status(results, generated_at)
-    updated_state = build_state(results, generated_at)
+    status = build_status(enriched_results, generated_at)
+    baseline_source_ids = baseline_source_ids_for_results(enriched_results, state)
+    updated_state = build_state(enriched_results, generated_at, state)
     run_diff = build_run_diff(state, updated_state)
-    duplicates = build_duplicates(all_items, generated_at, FEED_VERSION)
+    diagnostics = build_run_diagnostics(
+        results=enriched_results,
+        latest=latest,
+        generated_at=generated_at,
+        generation_started_at=generation_started_at,
+        fetch_concurrency=fetch_concurrency,
+        per_host_concurrency=per_host_concurrency,
+    )
     return {
         "latest": latest,
         "rss": build_rss(latest),
@@ -364,7 +417,9 @@ def generate_outputs(
         "run_diff": run_diff,
         "duplicates": duplicates,
         "state": updated_state,
-        "all_sources_skipped": all_sources_skipped(results),
+        "diagnostics": diagnostics,
+        "baseline_source_ids": baseline_source_ids,
+        "all_sources_skipped": all_sources_skipped(enriched_results),
     }
 
 
@@ -428,27 +483,81 @@ def validate_sources(sources: list[PublicSource]) -> None:
         )
 
 
+def fetch_source_results(
+    sources: list[PublicSource],
+    limit: int,
+    generated_at: str,
+    state: dict | None,
+    fetch_concurrency: int = DEFAULT_FETCH_CONCURRENCY,
+    per_host_concurrency: int = DEFAULT_PER_HOST_CONCURRENCY,
+) -> list[SourceResult]:
+    fetch_concurrency = positive_int(fetch_concurrency, "fetch_concurrency")
+    per_host_concurrency = positive_int(
+        per_host_concurrency,
+        "per_host_concurrency",
+    )
+    if fetch_concurrency == 1 or len(sources) <= 1:
+        return [
+            fetch_source_result(source, limit, generated_at, state)
+            for source in sources
+        ]
+
+    host_limiters: dict[str, threading.Semaphore] = {}
+    host_limiter_lock = threading.Lock()
+
+    def limiter_for(source: PublicSource) -> threading.Semaphore:
+        nonlocal host_limiters
+        host = source_host(source)
+        with host_limiter_lock:
+            limiter = host_limiters.get(host)
+            if limiter is None:
+                limiter = threading.Semaphore(per_host_concurrency)
+                host_limiters = {**host_limiters, host: limiter}
+            return limiter
+
+    def fetch_one(index: int, source: PublicSource) -> tuple[int, SourceResult]:
+        limiter = limiter_for(source)
+        with limiter:
+            return index, fetch_source_result(source, limit, generated_at, state)
+
+    with ThreadPoolExecutor(max_workers=fetch_concurrency) as executor:
+        futures = [
+            executor.submit(fetch_one, index, source)
+            for index, source in enumerate(sources)
+        ]
+        pairs = [future.result() for future in as_completed(futures)]
+
+    return [
+        result
+        for _index, result in sorted(pairs, key=lambda pair: pair[0])
+    ]
+
+
 def fetch_source_result(
     source: PublicSource,
     limit: int,
     checked_at: str,
     state: dict | None = None,
 ) -> SourceResult:
+    started_at = time.perf_counter()
     source_state = get_source_state(state, source.id)
     skip_reason, next_check_at = source_skip_reason(source, source_state, checked_at)
     if skip_reason:
         cached_items = list(cached_items_by_id(source_state).values())
-        return SourceResult(
-            source=source,
-            checked_at=source_state.get("last_checked_at") or checked_at,
-            items=cached_items,
-            last_success_at=source_state.get("last_success_at"),
-            status="skipped",
-            next_check_at=next_check_at,
-            backoff_until=source_state.get("backoff_until"),
-            error_count=int(source_state.get("error_count") or 0),
-            skipped_reason=skip_reason,
-            error=source_state.get("error") if skip_reason == "backoff" else None,
+        return source_result_with_duration(
+            SourceResult(
+                source=source,
+                checked_at=source_state.get("last_checked_at") or checked_at,
+                items=cached_items,
+                last_success_at=source_state.get("last_success_at"),
+                status="skipped",
+                next_check_at=next_check_at,
+                backoff_until=source_state.get("backoff_until"),
+                error_count=int(source_state.get("error_count") or 0),
+                skipped_reason=skip_reason,
+                error=source_state.get("error") if skip_reason == "backoff" else None,
+            ),
+            started_at,
         )
 
     try:
@@ -460,24 +569,33 @@ def fetch_source_result(
             checked_at=checked_at,
         )
         fetched_items = [
-            notice_to_feed_item(notice, checked_at)
+            enrich_item_with_source_metadata(
+                notice_to_feed_item(notice, checked_at),
+                source,
+            )
             for notice in notices
         ]
         merged_items = merge_cached_items(
-            list(cached_items.values()),
+            [
+                enrich_item_with_source_metadata(item, source)
+                for item in cached_items.values()
+            ],
             fetched_items,
             limit,
         )
-        return SourceResult(
-            source=source,
-            checked_at=checked_at,
-            items=merged_items,
-            last_success_at=checked_at,
-            status="ok",
-            next_check_at=next_check_at_from_interval(
-                checked_at,
-                source.poll_interval_minutes,
+        return source_result_with_duration(
+            SourceResult(
+                source=source,
+                checked_at=checked_at,
+                items=merged_items,
+                last_success_at=checked_at,
+                status="ok",
+                next_check_at=next_check_at_from_interval(
+                    checked_at,
+                    source.poll_interval_minutes,
+                ),
             ),
+            started_at,
         )
     except Exception as error:  # noqa: BLE001 - source failures belong in index status.
         cached_items = list(cached_items_by_id(source_state).values())
@@ -487,16 +605,19 @@ def fetch_source_result(
             source.poll_interval_minutes,
             error_count,
         )
-        return SourceResult(
-            source=source,
-            checked_at=checked_at,
-            items=cached_items,
-            last_success_at=source_state.get("last_success_at"),
-            status="error",
-            next_check_at=backoff_until,
-            backoff_until=backoff_until,
-            error_count=error_count,
-            error=str(error),
+        return source_result_with_duration(
+            SourceResult(
+                source=source,
+                checked_at=checked_at,
+                items=cached_items,
+                last_success_at=source_state.get("last_success_at"),
+                status="error",
+                next_check_at=backoff_until,
+                backoff_until=backoff_until,
+                error_count=error_count,
+                error=str(error),
+            ),
+            started_at,
         )
 
 
@@ -573,13 +694,141 @@ def merge_cached_items(
     )[:limit]
 
 
-def build_state(results: list[SourceResult], generated_at: str) -> dict:
+def enrich_item_with_source_metadata(item: dict, source: PublicSource) -> dict:
+    pnu = item.get("_pnu", {})
+    source_tags = list(source.tags)
+    topics = infer_topics(
+        str(item.get("title") or ""),
+        source.category,
+        source_tags,
+    )
+    return {
+        **item,
+        "_pnu": {
+            **pnu,
+            "source_category": source.category,
+            "source_tags": source_tags,
+            "topics": topics,
+        },
+    }
+
+
+def apply_duplicate_metadata_to_results(
+    results: list[SourceResult],
+    duplicates: dict,
+) -> list[SourceResult]:
+    membership = duplicate_membership_by_item_id(duplicates)
+    return [
+        replace(
+            result,
+            items=[
+                apply_duplicate_metadata_to_item(item, membership.get(str(item.get("id"))))
+                for item in result.items
+            ],
+        )
+        for result in results
+    ]
+
+
+def duplicate_membership_by_item_id(duplicates: dict) -> dict[str, dict]:
+    membership: dict[str, dict] = {}
+    for group in duplicates.get("groups", []):
+        item_ids = [str(item_id) for item_id in group.get("item_ids", [])]
+        source_ids = [str(source_id) for source_id in group.get("source_ids", [])]
+        canonical_item_id = str(group.get("canonical_item_id") or "")
+        for item_id in item_ids:
+            membership = {
+                **membership,
+                item_id: {
+                    "same_notice_group_id": group.get("id"),
+                    "canonical_item_id": canonical_item_id,
+                    "is_canonical": item_id == canonical_item_id,
+                    "same_notice_source_ids": source_ids,
+                },
+            }
+    return membership
+
+
+def apply_duplicate_metadata_to_item(
+    item: dict,
+    duplicate_metadata: dict | None,
+) -> dict:
+    pnu = item.get("_pnu", {})
+    if not duplicate_metadata:
+        return {
+            **item,
+            "_pnu": {
+                **pnu,
+                "same_notice_group_id": None,
+                "canonical_item_id": str(item.get("id") or ""),
+                "is_canonical": True,
+                "same_notice_source_ids": [str(pnu.get("source_id") or "")],
+            },
+        }
+    return {
+        **item,
+        "_pnu": {
+            **pnu,
+            **duplicate_metadata,
+        },
+    }
+
+
+def baseline_source_ids_for_results(
+    results: list[SourceResult],
+    previous_state: dict | None,
+) -> list[str]:
+    return [
+        result.source.id
+        for result in results
+        if result.status == "ok"
+        and result.items
+        and source_needs_initial_baseline(
+            get_source_state(previous_state, result.source.id),
+        )
+    ]
+
+
+def baseline_completed_at_for_source(
+    result: SourceResult,
+    previous_state: dict | None,
+    generated_at: str,
+) -> str | None:
+    source_state = get_source_state(previous_state, result.source.id)
+    existing = source_state.get("baseline_completed_at")
+    if existing:
+        return str(existing)
+    if source_state.get("last_success_at") or source_state.get("items"):
+        return generated_at if result.status == "ok" else None
+    if result.status == "ok" and result.items:
+        return generated_at
+    return None
+
+
+def source_needs_initial_baseline(source_state: dict) -> bool:
+    return (
+        not source_state.get("baseline_completed_at")
+        and not source_state.get("last_success_at")
+        and not source_state.get("items")
+    )
+
+
+def build_state(
+    results: list[SourceResult],
+    generated_at: str,
+    previous_state: dict | None = None,
+) -> dict:
     return {
         "schema_version": SCHEMA_VERSION,
         "feed_version": FEED_VERSION,
         "generated_at": generated_at,
         "sources": {
             result.source.id: {
+                "baseline_completed_at": baseline_completed_at_for_source(
+                    result,
+                    previous_state,
+                    generated_at,
+                ),
                 "last_checked_at": result.checked_at,
                 "last_success_at": result.last_success_at,
                 "last_error_at": result.checked_at if result.error else None,
@@ -589,7 +838,12 @@ def build_state(results: list[SourceResult], generated_at: str) -> dict:
                 "status": result.status,
                 "skipped_reason": result.skipped_reason,
                 "error": result.error,
-                "items": [normalize_feed_item(item) for item in result.items],
+                "items": [
+                    normalize_feed_item(
+                        enrich_item_with_source_metadata(item, result.source),
+                    )
+                    for item in result.items
+                ],
             }
             for result in results
         },
@@ -661,6 +915,66 @@ def build_status(results: list[SourceResult], generated_at: str) -> dict:
 
 def source_is_degraded(result: SourceResult) -> bool:
     return result.status == "error" or result.skipped_reason == "backoff"
+
+
+def build_run_diagnostics(
+    results: list[SourceResult],
+    latest: dict,
+    generated_at: str,
+    generation_started_at: float,
+    fetch_concurrency: int,
+    per_host_concurrency: int,
+) -> dict:
+    durations = [
+        result.duration_ms
+        for result in results
+        if result.duration_ms is not None
+    ]
+    latest_pnu = latest.get("_pnu", {})
+    return {
+        "generated_at": generated_at,
+        "duration_ms": duration_ms_since(generation_started_at),
+        "fetch_concurrency": positive_int(fetch_concurrency, "fetch_concurrency"),
+        "per_host_concurrency": positive_int(
+            per_host_concurrency,
+            "per_host_concurrency",
+        ),
+        "source_count": len(results),
+        "fetched_source_count": len(
+            [result for result in results if result.status == "ok"]
+        ),
+        "skipped_source_count": len(
+            [result for result in results if result.status == "skipped"]
+        ),
+        "error_source_count": len(
+            [result for result in results if result.status == "error"]
+        ),
+        "total_item_count": latest_pnu.get("total_item_count"),
+        "latest_item_count": latest_pnu.get("item_count"),
+        "latest_item_limit": latest_pnu.get("item_limit"),
+        "source_duration_ms": {
+            "min": min(durations) if durations else None,
+            "max": max(durations) if durations else None,
+            "avg": round(sum(durations) / len(durations), 2) if durations else None,
+        },
+        "source_results": [source_to_diagnostics_json(result) for result in results],
+    }
+
+
+def source_to_diagnostics_json(result: SourceResult) -> dict:
+    return {
+        "id": result.source.id,
+        "host": source_host(result.source),
+        "adapter": result.source.adapter,
+        "status": result.status,
+        "skipped_reason": result.skipped_reason,
+        "duration_ms": result.duration_ms,
+        "item_count": len(result.items),
+        "poll_interval_minutes": result.source.poll_interval_minutes,
+        "next_check_at": result.next_check_at,
+        "backoff_until": result.backoff_until,
+        "error_type": error_type(result.error),
+    }
 
 
 def build_rss(feed: dict) -> str:
@@ -750,7 +1064,7 @@ def notice_to_feed_item(
     fetched_at: str,
     snippet_limit: int = DEFAULT_SNIPPET_LIMIT,
 ) -> dict:
-    snippet = truncate_text(notice.snippet, snippet_limit)
+    snippet = truncate_text(sanitize_preview_text(notice.snippet), snippet_limit)
     pnu = {
         "source_id": notice.source_id,
         "source_name": notice.source_name,
@@ -785,15 +1099,19 @@ def notice_to_feed_item(
 
 def normalize_feed_item(item: dict) -> dict:
     pnu = item.get("_pnu", {})
-    snippet = pnu.get("snippet")
+    snippet = sanitize_preview_text(pnu.get("snippet"))
+    summary = sanitize_preview_text(item.get("summary", snippet))
     normalized = {
         **item,
         "content_text": CONTENT_TEXT_NOTICE,
-        "summary": item.get("summary", snippet),
+        "summary": summary,
     }
     return {
         **normalized,
-        "_pnu": pnu,
+        "_pnu": {
+            **pnu,
+            "snippet": snippet,
+        },
     }
 
 
@@ -830,6 +1148,7 @@ def source_to_status_json(result: SourceResult) -> dict:
         "backoff_until": result.backoff_until,
         "error_count": result.error_count,
         "skipped_reason": result.skipped_reason,
+        "duration_ms": result.duration_ms,
         "item_count": len(result.items),
         "error_type": error_type(result.error),
         "error": result.error,
@@ -843,6 +1162,7 @@ def build_public_index(
     duplicates: dict,
     archives: dict,
     events: dict,
+    diagnostics: dict | None = None,
     public_base_url: str = DEFAULT_PUBLIC_BASE_URL,
 ) -> dict:
     base_url = public_base_url.rstrip("/")
@@ -898,6 +1218,7 @@ def build_public_index(
         "same_notice_groups": duplicates.get("groups", []),
         "same_notice_group_count": duplicates.get("group_count", 0),
         "diagnostics": {
+            "run": diagnostics or {},
             "latest_run_diff": run_diff,
         },
     }
@@ -923,6 +1244,8 @@ def write_outputs(
     run_diff: dict,
     duplicates: dict,
     state: dict,
+    diagnostics: dict,
+    baseline_source_ids: list[str],
     public_base_url: str,
     pretty: bool,
 ) -> None:
@@ -932,9 +1255,13 @@ def write_outputs(
     write_text_if_changed(output_dir / "rss.xml", rss)
     archives, events = write_archive_outputs(
         output_dir,
-        archive_input_from_state(state),
+        archive_input_from_state(state, baseline_source_ids=baseline_source_ids),
         pretty,
     )
+    diagnostics_with_outputs = {
+        **diagnostics,
+        "output": build_output_file_diagnostics(output_dir),
+    }
     write_json(
         output_dir / "index.json",
         build_public_index(
@@ -944,6 +1271,7 @@ def write_outputs(
             duplicates=duplicates,
             archives=archives,
             events=events,
+            diagnostics=diagnostics_with_outputs,
             public_base_url=public_base_url,
         ),
         pretty,
@@ -1023,6 +1351,29 @@ def outputs_match_public_base_url(output_dir: Path, public_base_url: str) -> boo
     )
 
 
+def outputs_match_source_metadata(output_dir: Path, latest: dict) -> bool:
+    previous_latest = read_json_if_exists(output_dir / "latest.json")
+    if not previous_latest:
+        return False
+    return public_source_signatures(previous_latest) == public_source_signatures(latest)
+
+
+def public_source_signatures(latest: dict) -> list[dict]:
+    return [
+        {
+            "id": source.get("id"),
+            "name": source.get("name"),
+            "official_url": source.get("official_url"),
+            "adapter": source.get("adapter"),
+            "category": source.get("category"),
+            "poll_interval_minutes": source.get("poll_interval_minutes"),
+            "public_only": source.get("public_only"),
+            "access_policy": source.get("access_policy"),
+        }
+        for source in latest.get("_pnu", {}).get("sources", [])
+    ]
+
+
 def outputs_match_current_format(output_dir: Path) -> bool:
     latest = read_json_if_exists(output_dir / "latest.json")
     index = read_json_if_exists(output_dir / "index.json")
@@ -1095,6 +1446,28 @@ def read_json_if_exists(path: Path) -> dict | None:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def build_output_file_diagnostics(output_dir: Path) -> dict:
+    paths = [
+        output_dir / "latest.json",
+        output_dir / "rss.xml",
+        output_dir / "events.json",
+        *sorted((output_dir / "archive").glob("*.json")),
+    ]
+    files = [
+        {
+            "path": str(path.relative_to(output_dir)),
+            "bytes": path.stat().st_size,
+        }
+        for path in paths
+        if path.exists()
+    ]
+    return {
+        "file_count": len(files),
+        "total_bytes": sum(file["bytes"] for file in files),
+        "files": files,
+    }
+
+
 def build_run_diff(previous_state: dict | None, current_state: dict) -> dict:
     previous_items = state_items_by_id(previous_state)
     current_items = state_items_by_id(current_state)
@@ -1134,10 +1507,14 @@ def build_run_diff(previous_state: dict | None, current_state: dict) -> dict:
     }
 
 
-def archive_input_from_state(state: dict) -> dict:
+def archive_input_from_state(
+    state: dict,
+    baseline_source_ids: list[str] | None = None,
+) -> dict:
     return {
         "_pnu": {
             "generated_at": state["generated_at"],
+            "baseline_source_ids": baseline_source_ids or [],
         },
         "items": list(state_items_by_id(state).values()),
     }
@@ -1177,6 +1554,12 @@ def truncate_text(value: str | None, limit: int) -> str | None:
     if len(value) <= limit:
         return value
     return value[:limit].rstrip()
+
+
+def sanitize_preview_text(value: str | None) -> str | None:
+    if value is None:
+        return None
+    return SENSITIVE_QUERY_PARAM_RE.sub(r"\1[redacted]", value)
 
 
 def error_type(error: str | None) -> str | None:
@@ -1234,6 +1617,27 @@ def backoff_until_for_error(
     return (parse_iso(checked_at) + timedelta(minutes=delay_minutes)).isoformat(
         timespec="seconds"
     )
+
+
+def source_result_with_duration(
+    result: SourceResult,
+    started_at: float,
+) -> SourceResult:
+    return replace(result, duration_ms=duration_ms_since(started_at))
+
+
+def duration_ms_since(started_at: float) -> int:
+    return max(0, round((time.perf_counter() - started_at) * 1000))
+
+
+def positive_int(value: int, name: str) -> int:
+    if value < 1:
+        raise ValueError(f"{name} must be positive")
+    return value
+
+
+def source_host(source: PublicSource) -> str:
+    return urlparse(source.official_url).netloc.lower() or source.id
 
 
 def parse_iso(value: str) -> datetime:

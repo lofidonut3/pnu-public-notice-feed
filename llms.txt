@@ -39,10 +39,11 @@ This project is not operated by Pusan National University.
 - Check `public/index.json.status` before relying on source freshness.
 - Use `public/events.json` as the primary cursor-based notice stream.
 - Store a local `latest_event_id` or `seen_at` cursor and process newer events.
-- Use each event `item` snapshot for notice metadata; use `archive_file` and `archive_item_id` when catching up from monthly archive files.
+- Treat each event as a compact routing record; use `archive_file` and `archive_item_id` when full notice metadata is needed.
 - Check `public/index.json.same_notice_groups` before sending notifications for multiple matching items from different sources.
 - Use `public/latest.json` only as a latest discovery feed, not as the primary cursor endpoint or a complete archive.
 - Use `public/index.json.diagnostics.latest_run_diff` only as a latest generator-run diagnostic, not as durable history.
 - Use `public/index.json.archives` and monthly archive files for catch-up after downtime.
 - Use `public/rss.xml` only as a compatibility feed; prefer JSON endpoints for structured agent workflows.
-- Use `_pnu` fields in event `item` snapshots or `public/latest.json` for source, attachment, fetched_at, and content_hash metadata.
+- Use archive item `_pnu` fields or `public/latest.json` for source, attachment, fetched_at, and content_hash metadata.
+- No project-specific client library is required. Any HTTP/JSON client can consume these endpoints directly.

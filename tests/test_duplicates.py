@@ -78,6 +78,33 @@ def test_build_duplicates_does_not_merge_sequence_notices():
     assert duplicates["groups"] == []
 
 
+def test_build_duplicates_uses_source_priority_for_canonical_item():
+    generated_at = "2026-06-05T12:00:00+09:00"
+    academic_item = _item(
+        item_id="pnu-academic-bkorea-undergrad-3346:1",
+        source_id="pnu-academic-bkorea-undergrad-3346",
+        title="2026학년도 2학기 국가장학금 1차 신청 안내",
+        published_at="2026-06-04",
+        attachments=[],
+        source_category="academic_unit_undergraduate_notice",
+        source_tags=["pnu", "official", "department_notice"],
+    )
+    onestop_item = _item(
+        item_id="pnu-onestop-scholarship:681",
+        source_id="pnu-onestop-scholarship",
+        title="2026학년도 2학기 국가장학금 1차 신청 안내",
+        published_at="2026-06-04",
+        attachments=[],
+        source_category="scholarship_notice",
+        source_tags=["pnu", "official", "onestop", "scholarship"],
+    )
+
+    duplicates = build_duplicates([academic_item, onestop_item], generated_at)
+
+    assert duplicates["group_count"] == 1
+    assert duplicates["groups"][0]["canonical_item_id"] == "pnu-onestop-scholarship:681"
+
+
 def test_build_duplicates_skips_recruitment_and_dorm_title_only_matches():
     generated_at = "2026-06-05T12:00:00+09:00"
     recruitment_a = _item(
@@ -124,6 +151,8 @@ def _item(
     title: str,
     published_at: str,
     attachments: list[str],
+    source_category: str = "notice",
+    source_tags: list[str] | None = None,
 ) -> dict:
     return {
         "id": item_id,
@@ -135,6 +164,8 @@ def _item(
         "_pnu": {
             "source_id": source_id,
             "source_name": source_id,
+            "source_category": source_category,
+            "source_tags": source_tags or ["pnu", "official"],
             "published_at": published_at,
             "fetched_at": "2026-06-05T12:00:00+09:00",
             "snippet": None,

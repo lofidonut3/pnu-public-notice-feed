@@ -67,6 +67,13 @@ def duplicate_group(key: tuple[str, str], items: list[dict]) -> dict:
     sorted_items = sorted(items, key=lambda item: str(item.get("id") or ""))
     item_ids = [str(item["id"]) for item in sorted_items if item.get("id")]
     source_ids = sorted({item_source_id(item) for item in sorted_items})
+    canonical_item = sorted(
+        sorted_items,
+        key=lambda item: (
+            source_priority(item),
+            str(item.get("id") or ""),
+        ),
+    )[0]
     evidence = [
         "cross_source",
         "same_normalized_title",
@@ -79,11 +86,11 @@ def duplicate_group(key: tuple[str, str], items: list[dict]) -> dict:
         "relationship": "same_notice",
         "confidence": "high",
         "consumer_action": "dedupe_notifications",
-        "canonical_item_id": item_ids[0],
+        "canonical_item_id": str(canonical_item.get("id") or item_ids[0]),
         "item_ids": item_ids,
         "source_ids": source_ids,
         "published_dates": [published_date],
-        "representative_title": str(sorted_items[0].get("title") or ""),
+        "representative_title": str(canonical_item.get("title") or ""),
         "evidence": evidence,
     }
 
@@ -104,6 +111,24 @@ def source_is_excluded(source_id: str) -> bool:
 
 def item_source_id(item: dict) -> str:
     return str(item.get("_pnu", {}).get("source_id") or item.get("source_id") or "")
+
+
+def source_priority(item: dict) -> int:
+    source_id = item_source_id(item)
+    category = str(item.get("_pnu", {}).get("source_category") or "")
+    tags = {str(tag) for tag in item.get("_pnu", {}).get("source_tags", [])}
+
+    if source_id == "pnu-main-notice":
+        return 10
+    if source_id in {"pnu-onestop-notices", "pnu-onestop-scholarship"}:
+        return 20
+    if category and not category.startswith("academic_unit_"):
+        return 30
+    if "college_notice" in tags:
+        return 40
+    if category.startswith("academic_unit_") or "department_notice" in tags:
+        return 50
+    return 60
 
 
 def item_published_date(item: dict) -> str | None:

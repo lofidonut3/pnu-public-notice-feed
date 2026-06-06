@@ -1,15 +1,18 @@
 {
   "schema_version": "0.1",
-  "archive_version": "0.2",
+  "archive_version": "0.3",
   "archive_type": "month",
   "archive_month": "2023-06",
-  "last_modified_at": "2026-06-05T14:52:35+09:00",
+  "last_modified_at": "2026-06-06T10:31:15+09:00",
   "timezone": "Asia/Seoul",
-  "item_count": 4,
+  "item_count": 7,
   "event_count": 0,
   "source_counts": {
     "pnu-health-notices": 2,
     "pnu-counsel-notices": 1,
+    "pnu-academic-ppm-general-9468": 1,
+    "pnu-academic-biz-undergrad-8941": 1,
+    "pnu-academic-aerospace-general-1456": 1,
     "pnu-lei-korean-course-notices": 1
   },
   "items": [
@@ -24,7 +27,7 @@
         "source_id": "pnu-health-notices",
         "source_name": "부산대 보건진료소 공지사항",
         "published_at": "2023-06-29",
-        "fetched_at": "2026-06-05T14:52:35+09:00",
+        "fetched_at": "2026-06-06T10:31:15+09:00",
         "snippet": "23년 7월 식품안전 소식지를 게재하오니 참고바랍니다.",
         "content_access": {
           "detail_url": "https://health.pusan.ac.kr/page?menuCD=000000000000002&mode=DETAIL&seq=47&typeSeqNo=1",
@@ -48,7 +51,23 @@
           "health",
           "campus_service"
         ],
-        "content_hash": "dae6ef9dfdb78f1b511a2060631c64dceaa98004b3605add7ae4e032bf9e8e7c"
+        "content_hash": "dae6ef9dfdb78f1b511a2060631c64dceaa98004b3605add7ae4e032bf9e8e7c",
+        "source_category": "health_notice",
+        "source_tags": [
+          "pnu",
+          "official",
+          "health",
+          "campus_service"
+        ],
+        "topics": [
+          "health"
+        ],
+        "same_notice_group_id": null,
+        "canonical_item_id": "pnu-health-notices:47",
+        "is_canonical": true,
+        "same_notice_source_ids": [
+          "pnu-health-notices"
+        ]
       },
       "_archive": {
         "archive_month": "2023-06",
@@ -69,7 +88,7 @@
         "source_id": "pnu-counsel-notices",
         "source_name": "부산대 효원상담원 공지사항",
         "published_at": "2023-06-27",
-        "fetched_at": "2026-06-05T14:52:35+09:00",
+        "fetched_at": "2026-06-06T10:31:15+09:00",
         "snippet": null,
         "content_access": {
           "detail_url": "https://pnucounsel.pusan.ac.kr/bbs/pnucounsel/1174/1433057/artclView.do",
@@ -84,7 +103,23 @@
           "counseling",
           "student_support"
         ],
-        "content_hash": "7bd24fe96653ac78b1197e846382752abe27201b880b89e95b534f8c3b0ac011"
+        "content_hash": "7bd24fe96653ac78b1197e846382752abe27201b880b89e95b534f8c3b0ac011",
+        "source_category": "student_support_notice",
+        "source_tags": [
+          "pnu",
+          "official",
+          "counseling",
+          "student_support"
+        ],
+        "topics": [
+          "student_support"
+        ],
+        "same_notice_group_id": null,
+        "canonical_item_id": "pnu-counsel-notices:1433057",
+        "is_canonical": true,
+        "same_notice_source_ids": [
+          "pnu-counsel-notices"
+        ]
       },
       "_archive": {
         "archive_month": "2023-06",
@@ -92,6 +127,61 @@
         "last_seen_at": "2026-06-05T14:52:35+09:00",
         "last_changed_at": "2026-06-05T14:52:35+09:00",
         "current_content_hash": "7bd24fe96653ac78b1197e846382752abe27201b880b89e95b534f8c3b0ac011"
+      }
+    },
+    {
+      "id": "pnu-academic-ppm-general-9468:1067919",
+      "url": "https://ppm.pusan.ac.kr/bbs/ppm/892/1067919/artclView.do",
+      "title": "2024년 지역인재 7급 수습직원 추천 대비 예비대상자 선발 및 활동 지원 안내",
+      "content_text": "This feed does not mirror the full notice body. Fetch the original notice URL for complete content.",
+      "summary": null,
+      "date_published": "2023-06-20T00:00:00+09:00",
+      "_pnu": {
+        "source_id": "pnu-academic-ppm-general-9468",
+        "source_name": "부산대 공공정책학부 공지사항",
+        "published_at": "2023-06-20",
+        "fetched_at": "2026-06-06T10:31:15+09:00",
+        "snippet": null,
+        "content_access": {
+          "detail_url": "https://ppm.pusan.ac.kr/bbs/ppm/892/1067919/artclView.do",
+          "requires_login": false,
+          "content_mirrored": false,
+          "attachments_mirrored": false
+        },
+        "attachments": [],
+        "tags": [
+          "pnu",
+          "official",
+          "academic_unit",
+          "college_department",
+          "department_notice",
+          "general"
+        ],
+        "content_hash": "70fb22c73d8cf58c2c3e77cf1af8404e540e83b59d6becfd9399435f5435cda5",
+        "source_category": "academic_unit_notice",
+        "source_tags": [
+          "pnu",
+          "official",
+          "academic_unit",
+          "college_department",
+          "department_notice",
+          "general"
+        ],
+        "topics": [],
+        "same_notice_group_id": null,
+        "canonical_item_id": "pnu-academic-ppm-general-9468:1067919",
+        "is_canonical": true,
+        "same_notice_source_ids": [
+          "pnu-academic-ppm-general-9468"
+        ]
+      },
+      "_archive": {
+        "archive_month": "2023-06",
+        "first_seen_at": "2026-06-06T10:31:15+09:00",
+        "last_seen_at": "2026-06-06T10:31:15+09:00",
+        "last_changed_at": "2026-06-06T10:31:15+09:00",
+        "current_content_hash": "70fb22c73d8cf58c2c3e77cf1af8404e540e83b59d6becfd9399435f5435cda5",
+        "baseline_imported_at": "2026-06-06T10:31:15+09:00"
       }
     },
     {
@@ -129,7 +219,23 @@
           "health",
           "campus_service"
         ],
-        "content_hash": "87cf438b254d767833ffe8a3247a0ee8172ccdb0c9b39854d3435a9ce461f2f3"
+        "content_hash": "87cf438b254d767833ffe8a3247a0ee8172ccdb0c9b39854d3435a9ce461f2f3",
+        "source_category": "health_notice",
+        "source_tags": [
+          "pnu",
+          "official",
+          "health",
+          "campus_service"
+        ],
+        "topics": [
+          "health"
+        ],
+        "same_notice_group_id": null,
+        "canonical_item_id": "pnu-health-notices:46",
+        "is_canonical": true,
+        "same_notice_source_ids": [
+          "pnu-health-notices"
+        ]
       },
       "_archive": {
         "archive_month": "2023-06",
@@ -137,6 +243,120 @@
         "last_seen_at": "2026-06-05T14:52:35+09:00",
         "last_changed_at": "2026-06-05T14:52:35+09:00",
         "current_content_hash": "87cf438b254d767833ffe8a3247a0ee8172ccdb0c9b39854d3435a9ce461f2f3"
+      }
+    },
+    {
+      "id": "pnu-academic-biz-undergrad-8941:1143411",
+      "url": "https://biz.pusan.ac.kr/bbs/biz/1091/1143411/artclView.do",
+      "title": "[졸업요건] 영어능력 졸업인증제도 시행 및 졸업예정자의 표준외국어능력시험 성적표 제출 관",
+      "content_text": "This feed does not mirror the full notice body. Fetch the original notice URL for complete content.",
+      "summary": null,
+      "date_published": "2023-06-16T00:00:00+09:00",
+      "_pnu": {
+        "source_id": "pnu-academic-biz-undergrad-8941",
+        "source_name": "부산대 경영대학 학부 공지사항",
+        "published_at": "2023-06-16",
+        "fetched_at": "2026-06-06T10:31:15+09:00",
+        "snippet": null,
+        "content_access": {
+          "detail_url": "https://biz.pusan.ac.kr/bbs/biz/1091/1143411/artclView.do",
+          "requires_login": false,
+          "content_mirrored": false,
+          "attachments_mirrored": false
+        },
+        "attachments": [],
+        "tags": [
+          "pnu",
+          "official",
+          "academic_unit",
+          "college_department",
+          "college_notice",
+          "undergrad"
+        ],
+        "content_hash": "2fecace075635f44488470889fe32d3155eb5e16d47bf8c8da6b1eee09f606c7",
+        "source_category": "academic_unit_undergraduate_notice",
+        "source_tags": [
+          "pnu",
+          "official",
+          "academic_unit",
+          "college_department",
+          "college_notice",
+          "undergrad"
+        ],
+        "topics": [
+          "undergraduate",
+          "course",
+          "graduation"
+        ],
+        "same_notice_group_id": null,
+        "canonical_item_id": "pnu-academic-biz-undergrad-8941:1143411",
+        "is_canonical": true,
+        "same_notice_source_ids": [
+          "pnu-academic-biz-undergrad-8941"
+        ]
+      },
+      "_archive": {
+        "archive_month": "2023-06",
+        "first_seen_at": "2026-06-06T10:31:15+09:00",
+        "last_seen_at": "2026-06-06T10:31:15+09:00",
+        "last_changed_at": "2026-06-06T10:31:15+09:00",
+        "current_content_hash": "2fecace075635f44488470889fe32d3155eb5e16d47bf8c8da6b1eee09f606c7",
+        "baseline_imported_at": "2026-06-06T10:31:15+09:00"
+      }
+    },
+    {
+      "id": "pnu-academic-aerospace-general-1456:473419",
+      "url": "https://aerospace.pusan.ac.kr/bbs/aerospace/154/473419/artclView.do",
+      "title": "2023학년도 여름 방학 비행시뮬레이터 운영 관련 공지",
+      "content_text": "This feed does not mirror the full notice body. Fetch the original notice URL for complete content.",
+      "summary": null,
+      "date_published": "2023-06-15T00:00:00+09:00",
+      "_pnu": {
+        "source_id": "pnu-academic-aerospace-general-1456",
+        "source_name": "부산대 항공우주공학과 FLT&SIM공지",
+        "published_at": "2023-06-15",
+        "fetched_at": "2026-06-06T10:31:15+09:00",
+        "snippet": null,
+        "content_access": {
+          "detail_url": "https://aerospace.pusan.ac.kr/bbs/aerospace/154/473419/artclView.do",
+          "requires_login": false,
+          "content_mirrored": false,
+          "attachments_mirrored": false
+        },
+        "attachments": [],
+        "tags": [
+          "pnu",
+          "official",
+          "academic_unit",
+          "college_department",
+          "department_notice",
+          "general"
+        ],
+        "content_hash": "ba2f6e1ad756742913d12fc6341daa2a18cbc0f02372914175b37113bcd5c359",
+        "source_category": "academic_unit_notice",
+        "source_tags": [
+          "pnu",
+          "official",
+          "academic_unit",
+          "college_department",
+          "department_notice",
+          "general"
+        ],
+        "topics": [],
+        "same_notice_group_id": null,
+        "canonical_item_id": "pnu-academic-aerospace-general-1456:473419",
+        "is_canonical": true,
+        "same_notice_source_ids": [
+          "pnu-academic-aerospace-general-1456"
+        ]
+      },
+      "_archive": {
+        "archive_month": "2023-06",
+        "first_seen_at": "2026-06-06T10:31:15+09:00",
+        "last_seen_at": "2026-06-06T10:31:15+09:00",
+        "last_changed_at": "2026-06-06T10:31:15+09:00",
+        "current_content_hash": "ba2f6e1ad756742913d12fc6341daa2a18cbc0f02372914175b37113bcd5c359",
+        "baseline_imported_at": "2026-06-06T10:31:15+09:00"
       }
     },
     {
@@ -150,7 +370,7 @@
         "source_id": "pnu-lei-korean-course-notices",
         "source_name": "부산대 언어교육원 한국어과정 공지사항",
         "published_at": "2023-06-05",
-        "fetched_at": "2026-06-05T14:52:35+09:00",
+        "fetched_at": "2026-06-06T10:31:15+09:00",
         "snippet": "2023학년도 여름학기 대학원 학위청구 외국어시험 대체강좌(한국어) 수강생을 아래와 같이 모집합니다. 1. Qualifications to Apply : Graduate Students ※ Foreign students only 2. Course Application 가. Application period : 2023. 6. 7. ~ 2023. 6. 11. 나. How to Apply : Language Education Institute website 3. Course Schedule 가. Class Period : 2023. 6. 28. ~ 2023. 8. 2. ( 5weeks) 나. Class time : [Mon, Wed, Fri] 18:30 ∼ 21:30(three hours a day) / (48 hours) 4. Qualifications for Korean Course : Applicants who submit Korean language certification (T",
         "content_access": {
           "detail_url": "https://lei.pusan.ac.kr/page?menuCD=000000000000226&mode=DETAIL&seq=279&typeSeqNo=1&mainbbsTabIndex=0&cateSeq=9",
@@ -174,7 +394,26 @@
           "language_education",
           "korean_course"
         ],
-        "content_hash": "5583c25e9bfabf5adb39828ef0b4e1d58e06a5df08f9aed073ec5eb6f4a7f3f9"
+        "content_hash": "5583c25e9bfabf5adb39828ef0b4e1d58e06a5df08f9aed073ec5eb6f4a7f3f9",
+        "source_category": "language_education_notice",
+        "source_tags": [
+          "pnu",
+          "official",
+          "language_education",
+          "korean_course"
+        ],
+        "topics": [
+          "language",
+          "course",
+          "graduation",
+          "graduate"
+        ],
+        "same_notice_group_id": null,
+        "canonical_item_id": "pnu-lei-korean-course-notices:279",
+        "is_canonical": true,
+        "same_notice_source_ids": [
+          "pnu-lei-korean-course-notices"
+        ]
       },
       "_archive": {
         "archive_month": "2023-06",
