@@ -19,3 +19,17 @@ def test_infer_topics_deduplicates_category_and_tag_topics():
     )
 
     assert topics == ["career"]
+
+
+def test_infer_topics_supports_event_and_graduate_admissions_categories():
+    assert infer_topics(
+        "2026학년도 입학공지",
+        "graduate_school_admissions_notice",
+        ["graduate_school", "admissions"],
+    ) == ["graduate", "admissions"]
+
+    assert infer_topics(
+        "학과세미나 개최 안내",
+        "academic_unit_event_notice",
+        ["event"],
+    ) == ["event"]

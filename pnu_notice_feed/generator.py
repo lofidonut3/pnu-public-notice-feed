@@ -20,6 +20,7 @@ from .cms_static_board import fetch_cms_static_board
 from .duplicates import build_duplicates
 from .job_board import fetch_job_notice_board, fetch_job_recruit_board
 from .k2web_board import fetch_k2web_board
+from .legacy_php_board import fetch_legacy_php_board
 from .library_pyxis_board import fetch_library_pyxis_board
 from .onestop_js_board import fetch_onestop_js_board
 from .simple_html_board import fetch_plato_ubboard, fetch_simple_html_board
@@ -71,6 +72,7 @@ SUPPORTED_ADAPTERS = {
     "onestop-js-board",
     "websquare-js-board",
     "k2web-board",
+    "legacy-php-board",
     "job-notice-html-board",
     "job-recruit-html-board",
     "library-pyxis-board",
@@ -689,6 +691,8 @@ def fetch_source(
         return fetch_websquare_js_board(adapter_source, limit)
     if source.adapter == "k2web-board":
         return fetch_k2web_board(adapter_source, limit)
+    if source.adapter == "legacy-php-board":
+        return fetch_legacy_php_board(adapter_source, limit)
     if source.adapter == "job-notice-html-board":
         return fetch_job_notice_board(adapter_source, limit)
     if source.adapter == "job-recruit-html-board":

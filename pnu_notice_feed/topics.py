@@ -7,10 +7,12 @@ SOURCE_CATEGORY_TOPICS = {
     "academic_notice": ["academic"],
     "academic_unit_career_notice": ["career"],
     "academic_unit_class_notice": ["course"],
+    "academic_unit_event_notice": ["event"],
     "academic_unit_graduation_notice": ["graduation"],
     "academic_unit_graduate_notice": ["graduate"],
     "academic_unit_scholarship_notice": ["scholarship"],
     "academic_unit_undergraduate_notice": ["undergraduate"],
+    "admissions_notice": ["admissions"],
     "campus_service_notice": ["campus_service"],
     "career_notice": ["career"],
     "dormitory_notice": ["dormitory"],
@@ -25,13 +27,19 @@ SOURCE_CATEGORY_TOPICS = {
     "student_support_notice": ["student_support"],
     "university_notice": ["academic"],
     "university_project_notice": ["campus_service"],
+    "graduate_school_career_notice": ["graduate", "career"],
+    "graduate_school_admissions_notice": ["graduate", "admissions"],
+    "graduate_school_event_notice": ["graduate", "event"],
+    "graduate_school_notice": ["graduate"],
 }
 
 TAG_TOPICS = {
     "academic": "academic",
+    "admissions": "admissions",
     "career": "career",
     "dormitory": "dormitory",
     "employment": "recruitment",
+    "event": "event",
     "health": "health",
     "international": "international",
     "library": "library",
@@ -60,6 +68,7 @@ TITLE_TOPIC_PATTERNS = [
     ("tuition", r"등록금|등록"),
     ("academic_records", r"학적|휴학|복학|전과|재입학"),
     ("campus_service", r"주차|시설|시스템|서비스|앱"),
+    ("admissions", r"입학|입시|모집요강"),
 ]
 
 

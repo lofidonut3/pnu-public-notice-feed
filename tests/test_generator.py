@@ -1380,8 +1380,16 @@ def test_sources_registry_includes_academic_unit_sources_without_duplicate_urls(
     ]
     urls = [source["official_url"] for source in academic_sources]
 
-    assert len(academic_sources) >= 150
-    assert all(source["adapter"] == "k2web-board" for source in academic_sources)
+    assert len(academic_sources) >= 250
+    assert all(
+        source["adapter"] in {"k2web-board", "legacy-php-board"}
+        for source in academic_sources
+    )
+    assert all(
+        source["official_url"].startswith("https://me.pusan.ac.kr/")
+        for source in academic_sources
+        if source["adapter"] == "legacy-php-board"
+    )
     assert all(source["poll_interval_minutes"] == 180 for source in academic_sources)
     assert len(urls) == len(set(urls))
 
