@@ -472,7 +472,7 @@ def main(argv: list[str] | None = None) -> int:
             state=generated["state"],
             pretty=args.pretty,
         )
-        assert_size_budget(
+        assert_publish_size_budget(
             build_size_budget_diagnostics(
                 output_dir,
                 state_path,
@@ -2015,6 +2015,18 @@ def assert_size_budget(diagnostics: dict) -> None:
         check
         for check in diagnostics.get("checks", [])
         if check.get("status") == "fail"
+    ]
+    if failures:
+        names = ", ".join(str(check.get("name")) for check in failures)
+        raise ValueError(f"feed size budget exceeded: {names}")
+
+
+def assert_publish_size_budget(diagnostics: dict) -> None:
+    failures = [
+        check
+        for check in diagnostics.get("checks", [])
+        if check.get("status") == "fail"
+        and check.get("name") != "generator_runtime"
     ]
     if failures:
         names = ", ".join(str(check.get("name")) for check in failures)

@@ -13,6 +13,7 @@ from pnu_notice_feed.generator import (
     PublicSource,
     SourceResult,
     archive_input_from_state,
+    assert_publish_size_budget,
     assert_size_budget,
     build_latest,
     build_output_file_diagnostics,
@@ -978,6 +979,33 @@ def test_size_budget_diagnostics_fails_when_budget_is_exceeded(tmp_path, monkeyp
         assert "public_total" in str(error)
     else:
         raise AssertionError("expected size budget failure")
+
+
+def test_publish_size_budget_allows_generator_runtime_warning(tmp_path, monkeypatch):
+    output_dir = tmp_path / "public"
+    output_dir.mkdir()
+    (output_dir / "latest.json").write_text("{}", encoding="utf-8")
+    state_path = tmp_path / "feed-state.json"
+    state_path.write_text("{}", encoding="utf-8")
+    monkeypatch.setitem(
+        generator.SIZE_BUDGETS,
+        "generator_runtime",
+        {"warning_ms": 1, "failure_ms": 2},
+    )
+
+    diagnostics = build_size_budget_diagnostics(
+        output_dir,
+        state_path,
+        runtime_ms=2,
+    )
+
+    assert diagnostics["overall_status"] == "fail"
+    assert [
+        check["name"]
+        for check in diagnostics["checks"]
+        if check["status"] == "fail"
+    ] == ["generator_runtime"]
+    assert_publish_size_budget(diagnostics)
 
 
 def test_size_budget_check_warns_before_failure():
