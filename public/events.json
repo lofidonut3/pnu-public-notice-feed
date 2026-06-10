@@ -1,1392 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-06-10T14:03:13+09:00",
+  "generated_at": "2026-06-10T18:05:45+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 1248,
+  "total_event_count": 1292,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-10T14:03:13+09:00|updated|pnu-library-notices:56954|6446b7bbfea1",
-  "oldest_event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5253|6a9d00766b53",
+  "latest_event_id": "2026-06-10T18:05:45+09:00|updated|pnu-academic-bce-general-5008:1442196|f5cbca9a2e99",
+  "oldest_event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1989|ad047a976281",
   "oldest_seen_at": "2026-06-05T11:07:25+09:00",
-  "latest_seen_at": "2026-06-10T14:03:13+09:00",
+  "latest_seen_at": "2026-06-10T18:05:45+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5253|6a9d00766b53",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5253",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-02-24",
-      "title": "웅비관 A동 이륜차 주차장 사용 불가 안내(Notice of Woongbee A Hall Two-Wheeled Car Parking Lot Not Available)",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5253",
-      "topics": [
-        "dormitory",
-        "campus_service"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5253",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "6a9d00766b5346e7570643632e600ecad4784490d45c9c0d1d7bd2ab57ae17a7",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-02.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5253"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5254|07d213110577",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5254",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-02-25",
-      "title": "인터넷 장비 설치로 인한 인터넷 중단 안내/Dormitory Internet Outage Notice",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5254",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5254",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "07d213110577971f2e3568203bf104c762345fcbc9619d9f1194756e24e67119",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-02.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5254"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5255|0bf1d4c3bb55",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5255",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-04",
-      "title": "(마감) 부산대학교 천원의 아침밥 근로학생 모집 (1명)",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5255",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5255",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "0bf1d4c3bb555170d91ddd701e939ff63487bbe6935c4206b5521b8d583f54cc",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5255"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5256|6a6197072b5d",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5256",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-04",
-      "title": "2026학년도 1학기 온라인 OT 수강 안내 Notice for 2026 - 1st semester Dorm Online-OT",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5256",
-      "topics": [
-        "dormitory",
-        "course"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5256",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "6a6197072b5dbab08b6588a959557729ced0a890aa85608ded43a6ed5d0d52de",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5256"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5257|c8c6d8378c1e",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5257",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-09",
-      "title": "2026학년도 대학생활원 지도부(동장) 2차 모집",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5257",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5257",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "c8c6d8378c1eb23436c7f665b049f408d62b5e4cca666d3c7d8619b66abe2f32",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5257"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5258|ff49eba8fee2",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5258",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-10",
-      "title": "2026학년도 1학기 온라인 식사변경 및 시간표 환불 신청 안내 Notice for 26-1st Online Meal Change & Refund due to timetable",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5258",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5258",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "ff49eba8fee2081f9d750e5e87a70b41da160756e053a343c51ba24f2ef48945",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5258"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5260|43a358bd9ca6",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5260",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-13",
-      "title": "2026학년도 1학기 대학생활원(부산) 학기 중 추가모집요강",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5260",
-      "topics": [
-        "dormitory",
-        "admissions"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5260",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "43a358bd9ca610361981b941cb5302d208bc35f569dd4fdb826e1c421c96a67c",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5260"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5261|f00d3f897d47",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5261",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-25",
-      "title": "2026학년도 대학생활원 지도부 합격자 공고(2차)",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5261",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5261",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "f00d3f897d472625fa33b58bf483cb42b4629f5b86d06961fb99785d0527c2e0",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5261"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5262|d71ce8bbd2f2",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5262",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-31",
-      "title": "[웅비관]소방시설 종합점검 안내 Precise Inspection Notice for Firefighting Facilities",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5262",
-      "topics": [
-        "dormitory",
-        "campus_service"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5262",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "d71ce8bbd2f26a3e2f31f475776b96e84eb6783ff616407d3f903a079fe5f890",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5262"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5263|69e86d1066e7",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5263",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-04-01",
-      "title": "대학생활원 BTL(웅비관, 자유관) 1/4분기 시설이용 만족도 조사 이벤트 안내",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5263",
-      "topics": [
-        "dormitory",
-        "campus_service"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5263",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "69e86d1066e7ec53fea244842db59c91875b3e17a28e6e8a32eb25ff2ccdc27e",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-04.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5263"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5264|0f259bf9baa6",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5264",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-04-01",
-      "title": "난방 공급 중단 및 에어컨 필터 청소 안내 Discontinuation of Room Heating and Air Conditioner Filter Cleaning",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5264",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5264",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "0f259bf9baa6b40a842bda1e5110d0e20878d974dfabc1441de25c7a03a79984",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-04.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5264"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5265|3da2976979d3",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5265",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-04-06",
-      "title": "2026학년도 1학기 중간고사 기간 대학생활원 통금 시간 변경 안내 PNU Dormitory Curfew Change during 2026-1 Mid-term Exams",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5265",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5265",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "3da2976979d3f99125829c84bb262c170db9255d369b654b17a14659a2f07364",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-04.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5265"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5266|da079fe3798e",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5266",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-04-08",
-      "title": "웅비관 택배실 설치 공사 안내/Notice of Construction for Installation of Delivery Room in Woongbee Hall",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5266",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5266",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "da079fe3798e83e536466fc235fe2633316122eb34ccc281100714a9453b8669",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-04.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5266"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-busan-notices:5267|6cdaf34ea673",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-busan-notices:5267",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-04-14",
-      "title": "대학생활원 BTL(웅비관, 자유관) 1/4분기 시설이용 만족도 조사 이벤트 당첨자 발표",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5267",
-      "topics": [
-        "dormitory",
-        "campus_service"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5267",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "6cdaf34ea6734201ee0bc4ad0e37b4111da10c605efe907e5b3731d86fe14274",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-04.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5267"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2380|548fe2e2be16",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2380",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2025-12-08",
-      "title": "2학기 종료 퇴사 및 동기개원 안내",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2380",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2380",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "548fe2e2be16bdd836cdc8a2c2f4a8819c923e50a51cb32d1fbc1a7d1d0ca03c",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2025-12.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2380"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2381|55889a9bac0b",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2381",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2025-12-10",
-      "title": "대학생활원 밀양캠퍼스 건물 명칭 변경 안내",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2381",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2381",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "55889a9bac0bd6b99fefa85e84b9ee75275d904aa2d3d6b98e281f43d0c97527",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2025-12.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2381"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2383|d1e3519f73e4",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2383",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2025-12-31",
-      "title": "25년 2학기 대학생활원 만족도 설문조사 결과",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2383",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2383",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "d1e3519f73e48bcbbf7fc8ffb16385583a14e3a0104ec1c84b8f5fc0e435c5f2",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2025-12.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2383"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2385|8384f03a1971",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2385",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-01-09",
-      "title": "대학생활원 밀양캠퍼스 분원 조교 모집 공고",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2385",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2385",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "8384f03a1971b01493072ed68bd7633aff10f2345daf8b4568036b4b26055696",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-01.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2385"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2389|af03feb03671",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2389",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-01-26",
-      "title": "2026학년도 1학기 재학생 추가모집 공고문(인원확정)",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2389",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2389",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "af03feb0367129da2d229c71b8977db24a0481f5c204cc231d391223d04bf99a",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-01.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2389"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2393|ae8e0b636d9b",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2393",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-02-12",
-      "title": "2026학년도 1학기 대학생활원 밀양캠퍼스분원 재학생 추가모집 공고(날짜 수정)",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2393",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2393",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "ae8e0b636d9b69bcfe2700d9a6f98cd293fe1cf7b3a2c81203f3ad432507071f",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-02.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2393"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2394|61681f8de85c",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2394",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-02-20",
-      "title": "2026학년도 1학기 입사 안내",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2394",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2394",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "61681f8de85c0b100ac0c57d65c538797f9a0b7e9c238d09a5a8f466d2a763fc",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-02.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2394"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2395|7adee9251c61",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2395",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-02-26",
-      "title": "2026학년도 1학기 대학생활원생 상시 추가모집 공고",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2395",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2395",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "7adee9251c614c5c1992955c6a1e76e0fda88cb23da2e85f8642e80297001dc2",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-02.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2395"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2396|da3b3f8a9b04",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2396",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-02-27",
-      "title": "대학생활원 입사자 유의사항",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2396",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2396",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "da3b3f8a9b0409e602db05bbbbf5c0ea5e7cb2432980665577f3f610c881a6ab",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-02.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2396"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2397|4f5334b8da7c",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2397",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-02-27",
-      "title": "중도퇴사 방법 안내",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2397",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2397",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "4f5334b8da7c7abcebcb8f8c1f2aa202d1f73d2ff7b19e950e9ee99a28158c70",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-02.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2397"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2398|6f0aab6847d3",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2398",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-02",
-      "title": "호실 내 Wi-Fi(공유기) 비밀번호 안내",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2398",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2398",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "6f0aab6847d3744e2d84840f72d628ee19831e68e62b2eb3820bcaf4fa66b9af",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2398"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2399|4b0a734c4b37",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2399",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-02",
-      "title": "전열기기 사용등록 안내",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2399",
-      "topics": [
-        "dormitory",
-        "tuition"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2399",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "4b0a734c4b37a0623b69fc5ac16103ee41746d0be5d58a6b9c99f87acc78b611",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2399"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2400|de24510e4684",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2400",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-03",
-      "title": "텀블러 세척기 이용하세요",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2400",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2400",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "de24510e468414a3a005b6ba2d9d060198a046131cba61b398c202d346050c78",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2400"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2401|1a608dcd8f7b",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2401",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-05",
-      "title": "2026학년도 1학기 온라인OT 및 화재안전 교육 수강 안내",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2401",
-      "topics": [
-        "dormitory",
-        "course"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2401",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "1a608dcd8f7b070f66015c2f4dc085c253cd14f9be2a9b923d52cc00410debfc",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2401"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2402|55d1b12c0cf4",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2402",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-09",
-      "title": "[긴급]인터넷 장비 교체 안내",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2402",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2402",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "55d1b12c0cf4aa1a63863a4dd104fae4d97c6eb17f75b171cb12336ae96ebdec",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2402"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2403|fb63f5a06109",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2403",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-10",
-      "title": "죽제공(흰죽, 야채죽)",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2403",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2403",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "fb63f5a061096718104e0044c60d6c1323ac68865d339eaffb9e9fbb174fbc30",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2403"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2404|24758e91a18e",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2404",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-11",
-      "title": "2026학년도 1학기 식사변경 신청안내",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2404",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2404",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "24758e91a18e223ec546f68c479f801eb29a540efd0a1519ba7fab05c8711032",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2404"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2405|bdb8fa7acbd7",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2405",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-11",
-      "title": "결식비 환불 신청안내",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2405",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2405",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "bdb8fa7acbd786b0f6ef9fe9f27a1f9d1e44acf784a3934fa7be499c5c1e312e",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2405"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2406|df53d7e2ae77",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2406",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-11",
-      "title": "2026학년도 1학기 대학생활원생 상시 추가모집 공고(5/25 기준)",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2406",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2406",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "df53d7e2ae770803ccfae4806b9ebb00b545206dc008a12a43ecd2279fc89a19",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2406"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-miryang-notices:2407|89913e6055e0",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-miryang-notices:2407",
-      "source_id": "pnu-dorm-miryang-notices",
-      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "miryang_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-12",
-      "title": "대학생활원 화재대피훈련 안내",
-      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2407",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-miryang-notices:2407",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-miryang-notices"
-      ],
-      "content_hash": "89913e6055e040182c6d0f215b760b5dbc77644c3fd3c31dc2fbf1a06559aa18",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-miryang-notices:2407"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1978|0e362262dc34",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-yangsan-notices:1978",
-      "source_id": "pnu-dorm-yangsan-notices",
-      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "yangsan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-02-13",
-      "title": "[지행관] 정수기 필터 교체 및 스팀 청소 안내",
-      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=1978",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-yangsan-notices:1978",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-yangsan-notices"
-      ],
-      "content_hash": "0e362262dc344c1e29118a27b1a313a772d9f0ded9c2113ac7ff783c917eb9b3",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-02.json",
-      "archive_item_id": "pnu-dorm-yangsan-notices:1978"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1979|f164b6728e63",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-yangsan-notices:1979",
-      "source_id": "pnu-dorm-yangsan-notices",
-      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "yangsan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-02-13",
-      "title": "[행림관] 2월 승강기 안전 점검 실시 안내",
-      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=1979",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-yangsan-notices:1979",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-yangsan-notices"
-      ],
-      "content_hash": "f164b6728e63894379135040d74e492a16776b33a208bed3bf5fd2de841f199e",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-02.json",
-      "archive_item_id": "pnu-dorm-yangsan-notices:1979"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1980|c0e4567239d3",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-yangsan-notices:1980",
-      "source_id": "pnu-dorm-yangsan-notices",
-      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "yangsan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-02-20",
-      "title": "대학생활원 식당 2월 방역 안내",
-      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=1980",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-yangsan-notices:1980",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-yangsan-notices"
-      ],
-      "content_hash": "c0e4567239d3f25b823d7de1c7d3cd69521c9c3945de5513b12a9d7f174346c0",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-02.json",
-      "archive_item_id": "pnu-dorm-yangsan-notices:1980"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1982|79641d23a600",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-yangsan-notices:1982",
-      "source_id": "pnu-dorm-yangsan-notices",
-      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "yangsan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-02-26",
-      "title": "[정보공개] 2025년 2학기 지행관 시설이용만족도 조사결과 알림",
-      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=1982",
-      "topics": [
-        "dormitory",
-        "campus_service"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-yangsan-notices:1982",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-yangsan-notices"
-      ],
-      "content_hash": "79641d23a6001eb05bb44a3a6759790c405d0c363def5a0fe9b45ccbf864db03",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-02.json",
-      "archive_item_id": "pnu-dorm-yangsan-notices:1982"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1983|b034bfb307c7",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-yangsan-notices:1983",
-      "source_id": "pnu-dorm-yangsan-notices",
-      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "yangsan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-05",
-      "title": "2026학년도 1학기 식사구분 변경 신청 안내",
-      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=1983",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-yangsan-notices:1983",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-yangsan-notices"
-      ],
-      "content_hash": "b034bfb307c7cbf514ca4521d4729f2bc346f48497c2b9ba058d3dd35670a4b7",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-yangsan-notices:1983"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1984|69e01ec85f2b",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-yangsan-notices:1984",
-      "source_id": "pnu-dorm-yangsan-notices",
-      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "yangsan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-06",
-      "title": "3월 원생실 정기점검 실시",
-      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=1984",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-yangsan-notices:1984",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-yangsan-notices"
-      ],
-      "content_hash": "69e01ec85f2b3b35e823bf905d2942a087d731c34c7c3c1cca00150399ca4e5f",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-yangsan-notices:1984"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1985|a9122319043f",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-yangsan-notices:1985",
-      "source_id": "pnu-dorm-yangsan-notices",
-      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "yangsan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-09",
-      "title": "대학생활원 식당 3월 방역 안내",
-      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=1985",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-yangsan-notices:1985",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-yangsan-notices"
-      ],
-      "content_hash": "a9122319043fc5914706bf8835982dca7845b70c27e01492c760f91f928f99f3",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-yangsan-notices:1985"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1986|a0e34489dc57",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-yangsan-notices:1986",
-      "source_id": "pnu-dorm-yangsan-notices",
-      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "yangsan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-11",
-      "title": "[행림관] 3월 정수기 필터교체 및 스팀청소 안내",
-      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=1986",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-yangsan-notices:1986",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-yangsan-notices"
-      ],
-      "content_hash": "a0e34489dc570122cac39216607500038d4527fdd6f5b6e2ca0eea653095c6f1",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-yangsan-notices:1986"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1987|40eb61792e4a",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-yangsan-notices:1987",
-      "source_id": "pnu-dorm-yangsan-notices",
-      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "yangsan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-11",
-      "title": "[지행관] 인터넷 장비 점검 안내",
-      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=1987",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-yangsan-notices:1987",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-yangsan-notices"
-      ],
-      "content_hash": "40eb61792e4adce4128289ca1ff950e4f7d0e5e533b0577c9c4c1e0075a3a7fc",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-yangsan-notices:1987"
-    },
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1988|2caa2f37ee39",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-yangsan-notices:1988",
-      "source_id": "pnu-dorm-yangsan-notices",
-      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "yangsan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-12",
-      "title": "[행림관] 3월 승강기 안전 점검 실시 안내",
-      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=1988",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-yangsan-notices:1988",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-yangsan-notices"
-      ],
-      "content_hash": "2caa2f37ee3953e86a549453352f2b9d0ab728aa72c18474c4114cd46648f6f2",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-yangsan-notices:1988"
-    },
     {
       "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1989|ad047a976281",
       "event_type": "added",
@@ -28917,11 +27544,10 @@
         "course"
       ],
       "same_notice_group_id": "same_notice:b6a9e9d98e10df58",
-      "canonical_item_id": "pnu-main-notice:1509229",
+      "canonical_item_id": "pnu-onestop-notices:2077",
       "is_canonical": false,
       "same_notice_source_ids": [
         "pnu-academic-ee-general-5204",
-        "pnu-main-notice",
         "pnu-onestop-notices"
       ],
       "content_hash": "90a0c055e202242a51975fbd55b1d8a1c6931ea4a07f4c9b40d3b3f8ac77e137",
@@ -31289,6 +29915,7 @@
       "same_notice_source_ids": [
         "pnu-academic-cdfs-general-1556",
         "pnu-academic-chem-general-6291",
+        "pnu-academic-china-general-2652",
         "pnu-academic-ocean-career-12799"
       ],
       "content_hash": "41d85c2ead98c0e86c2eaddc4d9fd0846c16a49f966d64ec78d5672e00e48fec",
@@ -31524,6 +30151,7 @@
       "same_notice_source_ids": [
         "pnu-academic-cdfs-general-1556",
         "pnu-academic-chem-general-6291",
+        "pnu-academic-china-general-2652",
         "pnu-academic-ocean-career-12799"
       ],
       "content_hash": "0ae82a222ef94b76a1915c3a5139264ce6131e27a04e530ebb390ac207b859cf",
@@ -31560,6 +30188,7 @@
       "same_notice_source_ids": [
         "pnu-academic-cdfs-general-1556",
         "pnu-academic-chem-general-6291",
+        "pnu-academic-china-general-2652",
         "pnu-academic-ocean-career-12799"
       ],
       "content_hash": "987cae4f9eaffe525ef0e562d7307befbedfa25211c8ed4a034bb2a6bc5b3c3f",
@@ -32096,10 +30725,11 @@
       "topics": [
         "international"
       ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-ste-general-9557:1443028",
-      "is_canonical": true,
+      "same_notice_group_id": "same_notice:c6eddccbf9b03ec5",
+      "canonical_item_id": "pnu-academic-ee-general-5204:1443063",
+      "is_canonical": false,
       "same_notice_source_ids": [
+        "pnu-academic-ee-general-5204",
         "pnu-academic-ste-general-9557"
       ],
       "content_hash": "822124bff4b6c2b62eade941aa23cfd397b6bb47de7c996e142480d85df706c1",
@@ -32611,6 +31241,1458 @@
       "previous_content_hash": "61d6284b52cff15edc95f9bf0c0360011caee846decfb04e079ccfa78ecae523",
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-library-notices:56954"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-academic-aerospace-general-1455:1443053|6aac114894a7",
+      "event_type": "added",
+      "notice_id": "pnu-academic-aerospace-general-1455:1443053",
+      "source_id": "pnu-academic-aerospace-general-1455",
+      "source_name": "부산대 항공우주공학과 학과공지",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "2026학년도 1학기 기말고사 일정 및 유의사항 안내",
+      "url": "https://aerospace.pusan.ac.kr/bbs/aerospace/96/1443053/artclView.do",
+      "topics": [],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-aerospace-general-1455:1443053",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-aerospace-general-1455"
+      ],
+      "content_hash": "6aac114894a718540c980deafe5672fd5705f53ec79a60820a4a1702f6798e47",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-aerospace-general-1455:1443053"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-academic-aerospace-general-1455:1443058|576cfead9324",
+      "event_type": "added",
+      "notice_id": "pnu-academic-aerospace-general-1455:1443058",
+      "source_id": "pnu-academic-aerospace-general-1455",
+      "source_name": "부산대 항공우주공학과 학과공지",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "[BK21 대학원혁신] 2026학년도 1학기 BK21 Bridge 학부생 장학 프로그램 운",
+      "url": "https://aerospace.pusan.ac.kr/bbs/aerospace/96/1443058/artclView.do",
+      "topics": [
+        "scholarship",
+        "graduate",
+        "undergraduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-aerospace-general-1455:1443058",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-aerospace-general-1455"
+      ],
+      "content_hash": "576cfead9324b2bffce4c9992d235cefc56c616346544d8b54683193407b6853",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-aerospace-general-1455:1443058"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-academic-bce-general-5012:1443067|a9b6fd4b74ef",
+      "event_type": "added",
+      "notice_id": "pnu-academic-bce-general-5012:1443067",
+      "source_id": "pnu-academic-bce-general-5012",
+      "source_name": "부산대 의생명융합공학부 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "2026학년도 여름계절학기 미래시민교육원 수강생 모집 안내 새글",
+      "url": "https://bce.pusan.ac.kr/bbs/bce/572/1443067/artclView.do",
+      "topics": [
+        "course"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-bce-general-5012:1443067",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-bce-general-5012"
+      ],
+      "content_hash": "a9b6fd4b74ef04152fc9eb7778336d202ad39d77a1cf486df1612e37b687b75f",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-bce-general-5012:1443067"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-academic-china-general-2652:1443071|efa5943e8456",
+      "event_type": "added",
+      "notice_id": "pnu-academic-china-general-2652:1443071",
+      "source_id": "pnu-academic-china-general-2652",
+      "source_name": "부산대 중어중문학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "[ 인문사회융합인재양성사업(HUSS)단] '예비대학생을 위한 DX융합전공 설명회 새글",
+      "url": "https://china.pusan.ac.kr/bbs/china/218/1443071/artclView.do",
+      "topics": [
+        "event"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-china-general-2652:1443071",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-china-general-2652"
+      ],
+      "content_hash": "efa5943e84564185a5a1928dfa70228b077ba719a5ed9acaf907741ccffc448c",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-china-general-2652:1443071"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-academic-china-general-2652:1443073|f79b80e2ba71",
+      "event_type": "added",
+      "notice_id": "pnu-academic-china-general-2652:1443073",
+      "source_id": "pnu-academic-china-general-2652",
+      "source_name": "부산대 중어중문학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "2026학년도 1차 진로부트캠프(온라인) 모집 안내 새글",
+      "url": "https://china.pusan.ac.kr/bbs/china/218/1443073/artclView.do",
+      "topics": [
+        "event"
+      ],
+      "same_notice_group_id": "same_notice:0b32f4b90ae59d0e",
+      "canonical_item_id": "pnu-academic-cdfs-general-1556:1443042",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-cdfs-general-1556",
+        "pnu-academic-chem-general-6291",
+        "pnu-academic-china-general-2652",
+        "pnu-academic-ocean-career-12799"
+      ],
+      "content_hash": "f79b80e2ba71c46b4ad0d2dd425749908c489451f03a3ae63b1a729749906770",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-china-general-2652:1443073"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-academic-china-general-2652:1443074|52cd83d09f0f",
+      "event_type": "added",
+      "notice_id": "pnu-academic-china-general-2652:1443074",
+      "source_id": "pnu-academic-china-general-2652",
+      "source_name": "부산대 중어중문학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "[경제정의연구소/카카오] ESG 아카데미 모집 안내 새글",
+      "url": "https://china.pusan.ac.kr/bbs/china/218/1443074/artclView.do",
+      "topics": [
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-china-general-2652:1443074",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-china-general-2652"
+      ],
+      "content_hash": "52cd83d09f0ffea3f4610c3e5a3f8631523885805e76da0f32792701e992b45c",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-china-general-2652:1443074"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-academic-ee-career-5185:1443072|28d4ac994b17",
+      "event_type": "added",
+      "notice_id": "pnu-academic-ee-career-5185:1443072",
+      "source_id": "pnu-academic-ee-career-5185",
+      "source_name": "부산대 전자공학전공 취업공지",
+      "source_category": "academic_unit_career_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "career"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "[한국요꼬가와일렉트로닉스매뉴팩처링(주)] 추천채용 새글",
+      "url": "https://ee.pusan.ac.kr/bbs/ee/591/1443072/artclView.do",
+      "topics": [
+        "career",
+        "recruitment"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-ee-career-5185:1443072",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-ee-career-5185"
+      ],
+      "content_hash": "28d4ac994b1731ef94ed6adbb9757b77c6c04c6fa3861af8083934de31e42ace",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-ee-career-5185:1443072"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-academic-ee-general-5204:1443063|d04084b4a208",
+      "event_type": "added",
+      "notice_id": "pnu-academic-ee-general-5204:1443063",
+      "source_id": "pnu-academic-ee-general-5204",
+      "source_name": "부산대 전자공학전공 학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "[국제처] 2026년 파란사다리 사업 참여학생 모집 새글",
+      "url": "https://ee.pusan.ac.kr/bbs/ee/1542/1443063/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": "same_notice:c6eddccbf9b03ec5",
+      "canonical_item_id": "pnu-academic-ee-general-5204:1443063",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-ee-general-5204",
+        "pnu-academic-ste-general-9557"
+      ],
+      "content_hash": "d04084b4a208fd2c7c2a11a739b287d5e6e02582503d734270e9ed0819796292",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-ee-general-5204:1443063"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-academic-lais-undergrad-9201:1443075|d2c7b666cf2c",
+      "event_type": "added",
+      "notice_id": "pnu-academic-lais-undergrad-9201:1443075",
+      "source_id": "pnu-academic-lais-undergrad-9201",
+      "source_name": "부산대 문헌정보학과 학부 공지사항",
+      "source_category": "academic_unit_undergraduate_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "undergrad"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "[학사] 2026년 여름방학 대학도서관 실습 신청 안내 새글",
+      "url": "https://lais.pusan.ac.kr/bbs/lais/486/1443075/artclView.do",
+      "topics": [
+        "undergraduate",
+        "library"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-lais-undergrad-9201:1443075",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-lais-undergrad-9201"
+      ],
+      "content_hash": "d2c7b666cf2cf6ec235edd949ace1fcadfbbd96afa4a6973ae96a49c3fce20e1",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-lais-undergrad-9201:1443075"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-academic-medicine-general-14551:1443061|f92e3a17baa4",
+      "event_type": "added",
+      "notice_id": "pnu-academic-medicine-general-14551:1443061",
+      "source_id": "pnu-academic-medicine-general-14551",
+      "source_name": "부산대 의과대학 행정실 공지",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "college_notice",
+        "general"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "[부산대학교병원] 2026년도 부산대학교병원 하계 학생인턴 모집공고 새글",
+      "url": "https://medicine.pusan.ac.kr/bbs/medicine/1954/1443061/artclView.do",
+      "topics": [
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-medicine-general-14551:1443061",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-medicine-general-14551"
+      ],
+      "content_hash": "f92e3a17baa423eba0695039193be7aa68b755a37aaa0a0efc22999e5d293509",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-medicine-general-14551:1443061"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-academic-nanomecha-general-10848:1443068|809af12ef2cd",
+      "event_type": "added",
+      "notice_id": "pnu-academic-nanomecha-general-10848:1443068",
+      "source_id": "pnu-academic-nanomecha-general-10848",
+      "source_name": "부산대 나노메카트로닉스공학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "[첨단융합학부 나노소자첨단제조전공] 2026학년도 하반기 전임교원 신규채용 공개강의 안내 새글",
+      "url": "https://nanomecha.pusan.ac.kr/bbs/nanomecha/1324/1443068/artclView.do",
+      "topics": [
+        "recruitment",
+        "course",
+        "undergraduate"
+      ],
+      "same_notice_group_id": "same_notice:b36b68bb1dde6ed4",
+      "canonical_item_id": "pnu-academic-uni-general-7597:1443062",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-nanomecha-general-10848",
+        "pnu-academic-uni-general-7597"
+      ],
+      "content_hash": "809af12ef2cd9319b127b74ea967f74d11293a89fba1860e69eb191104a3696e",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-nanomecha-general-10848:1443068"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-academic-ocean-scholarship-12797:1443064|ce9a6d08b78a",
+      "event_type": "added",
+      "notice_id": "pnu-academic-ocean-scholarship-12797:1443064",
+      "source_id": "pnu-academic-ocean-scholarship-12797",
+      "source_name": "부산대 해양학과 장학 공지사항",
+      "source_category": "academic_unit_scholarship_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "scholarship"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "‘2026 파란사다리’ 사업 참여학생 추가 모집 안내 새글",
+      "url": "https://ocean.pusan.ac.kr/bbs/ocean/1602/1443064/artclView.do",
+      "topics": [
+        "scholarship"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-ocean-scholarship-12797:1443064",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-ocean-scholarship-12797"
+      ],
+      "content_hash": "ce9a6d08b78a197438d7d2fc3c659b9f5a1cbfb8159e63157e53c2b3802b8c37",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-ocean-scholarship-12797:1443064"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-academic-uni-general-7597:1443062|38a78128a7f1",
+      "event_type": "added",
+      "notice_id": "pnu-academic-uni-general-7597:1443062",
+      "source_id": "pnu-academic-uni-general-7597",
+      "source_name": "부산대 학부대학 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "college_notice",
+        "general"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "[자유전공학부] 2026학년도 하반기 전임교원 신규채용 공개강의 안내 새글",
+      "url": "https://uni.pusan.ac.kr/bbs/uni/897/1443062/artclView.do",
+      "topics": [
+        "recruitment",
+        "course",
+        "undergraduate"
+      ],
+      "same_notice_group_id": "same_notice:b36b68bb1dde6ed4",
+      "canonical_item_id": "pnu-academic-uni-general-7597:1443062",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-nanomecha-general-10848",
+        "pnu-academic-uni-general-7597"
+      ],
+      "content_hash": "38a78128a7f1b939ba235381749ec8d97a708cf5cda9ea4db9fdb58b91eae475",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-uni-general-7597:1443062"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-counsel-notices:1443060|9755f4a27357",
+      "event_type": "added",
+      "notice_id": "pnu-counsel-notices:1443060",
+      "source_id": "pnu-counsel-notices",
+      "source_name": "부산대 효원상담원 공지사항",
+      "source_category": "student_support_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "counseling",
+        "student_support"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "종합심리평가(나와미주하는시간) 신청 안내",
+      "url": "https://pnucounsel.pusan.ac.kr/bbs/pnucounsel/1174/1443060/artclView.do",
+      "topics": [
+        "student_support"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-counsel-notices:1443060",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-counsel-notices"
+      ],
+      "content_hash": "9755f4a2735783d0f85c08a897ab242c4f5dba30125bac08c06d42c04c0b35dc",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-counsel-notices:1443060"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-dorm-yangsan-notices:2024|97e62b1ae640",
+      "event_type": "added",
+      "notice_id": "pnu-dorm-yangsan-notices:2024",
+      "source_id": "pnu-dorm-yangsan-notices",
+      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
+      "source_category": "dormitory_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "dormitory",
+        "yangsan_campus"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "에어컨 사용 시 베란다 창문 개방 안내",
+      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=2024&typeSeqNo=3&cateSeq=3",
+      "topics": [
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-dorm-yangsan-notices:2024",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-dorm-yangsan-notices"
+      ],
+      "content_hash": "97e62b1ae64064c28c717b85de9575dacaf8edfe26f27eb71123fd460e067a55",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-dorm-yangsan-notices:2024"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-dorm-yangsan-notices:2025|fee7c9a14400",
+      "event_type": "added",
+      "notice_id": "pnu-dorm-yangsan-notices:2025",
+      "source_id": "pnu-dorm-yangsan-notices",
+      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
+      "source_category": "dormitory_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "dormitory",
+        "yangsan_campus"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "2026학년도 1학기 종료 퇴사 절차 및 환불 안내",
+      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=2025&typeSeqNo=3&cateSeq=1",
+      "topics": [
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-dorm-yangsan-notices:2025",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-dorm-yangsan-notices"
+      ],
+      "content_hash": "fee7c9a1440007d1d522cc27595525b6b9aa7f146de660698fc845c974310b2b",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-dorm-yangsan-notices:2025"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-graduate-dent-grad-3456:1443066|72c6484f46a3",
+      "event_type": "added",
+      "notice_id": "pnu-graduate-dent-grad-3456:1443066",
+      "source_id": "pnu-graduate-dent-grad-3456",
+      "source_name": "부산대 치의학전문대학원 공지",
+      "source_category": "graduate_school_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "graduate_school",
+        "graduate"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "2026학년도 여름계절학기 미래시민교육원 수강생 모집 새글",
+      "url": "https://dent.pusan.ac.kr/bbs/newdent/616/1443066/artclView.do",
+      "topics": [
+        "graduate",
+        "course"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-graduate-dent-grad-3456:1443066",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-graduate-dent-grad-3456"
+      ],
+      "content_hash": "72c6484f46a311789b6b26062fd09606fff6f8341d4cb3fcf2060497b5d4591e",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-graduate-dent-grad-3456:1443066"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-graduate-dent-grad-3456:1443069|a93647526ec9",
+      "event_type": "added",
+      "notice_id": "pnu-graduate-dent-grad-3456:1443069",
+      "source_id": "pnu-graduate-dent-grad-3456",
+      "source_name": "부산대 치의학전문대학원 공지",
+      "source_category": "graduate_school_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "graduate_school",
+        "graduate"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "[학부_장학] 2026학년도 하계방학 국가근로장학생 추천 안내(6/12) 새글",
+      "url": "https://dent.pusan.ac.kr/bbs/newdent/616/1443069/artclView.do",
+      "topics": [
+        "graduate",
+        "scholarship",
+        "undergraduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-graduate-dent-grad-3456:1443069",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-graduate-dent-grad-3456"
+      ],
+      "content_hash": "a93647526ec9fa7995622c4b874c64c8b9d8b4d94665cfe5b6b29ad994065d1e",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-graduate-dent-grad-3456:1443069"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-graduate-gsedu-grad-12989:1443054|048bff850a09",
+      "event_type": "added",
+      "notice_id": "pnu-graduate-gsedu-grad-12989:1443054",
+      "source_id": "pnu-graduate-gsedu-grad-12989",
+      "source_name": "부산대 교육대학원 공지",
+      "source_category": "graduate_school_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "graduate_school",
+        "graduate"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "[부산대 효원상담원] 지역 현직교원 대상 개인상담 안내 새글",
+      "url": "https://gsedu.pusan.ac.kr/bbs/gsedu/840/1443054/artclView.do",
+      "topics": [
+        "graduate",
+        "student_support"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-graduate-gsedu-grad-12989:1443054",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-graduate-gsedu-grad-12989"
+      ],
+      "content_hash": "048bff850a09743a8ca15688f5c1c20d1d3ec1466163fac827c8bfd5ed1979be",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-graduate-gsedu-grad-12989:1443054"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-notices:204033|0095dabb31ab",
+      "event_type": "added",
+      "notice_id": "pnu-job-notices:204033",
+      "source_id": "pnu-job-notices",
+      "source_name": "부산대 취업전략과 공지사항",
+      "source_category": "career_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "job_notice"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "국가과학기술인력개발원 이공계 대학원생 대상 경력설계 교육 개최",
+      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204033?p=1",
+      "topics": [
+        "career",
+        "graduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-notices:204033",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-notices"
+      ],
+      "content_hash": "0095dabb31ab33160e46f648ea4cf5830e36e639e55af8b34c8a928872848c73",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-notices:204033"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-notices:204034|6eb5927d9118",
+      "event_type": "added",
+      "notice_id": "pnu-job-notices:204034",
+      "source_id": "pnu-job-notices",
+      "source_name": "부산대 취업전략과 공지사항",
+      "source_category": "career_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "job_notice"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "「제28기 세명대 저널리즘대학원 예비언론인캠프」",
+      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204034?p=1",
+      "topics": [
+        "career",
+        "event",
+        "graduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-notices:204034",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-notices"
+      ],
+      "content_hash": "6eb5927d91180aa12fa295ec168b8bfef7b39f10b06087605adf4e1263f9a8b0",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-notices:204034"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-notices:204035|99cf9989ab92",
+      "event_type": "added",
+      "notice_id": "pnu-job-notices:204035",
+      "source_id": "pnu-job-notices",
+      "source_name": "부산대 취업전략과 공지사항",
+      "source_category": "career_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "job_notice"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "「2026 한국남동발전과 함께하는 직무 이해 캠프」참가자 모집",
+      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204035?p=1",
+      "topics": [
+        "career",
+        "event",
+        "academic_records"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-notices:204035",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-notices"
+      ],
+      "content_hash": "99cf9989ab9269b78953b149b868cc1478053203cfeda587ebb8bd119047bef8",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-notices:204035"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-general:117431|fa8c773d7c21",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117431",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "(사)부산광역시자원봉사센터 직원(전산코디네이터) 채용 공고",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117431",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117431",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "fa8c773d7c2173ba52ad0e5f0ea8897961406af3f38d4dd89ca2dab7d6012362",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-general:117431"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-general:117432|f1099ea315d7",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117432",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "마케팅본부 신입/경력직 채용공고",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117432",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117432",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "f1099ea315d7de19a57f3e3a283e650fa91e476c6cda73d58c931640664ac479",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-general:117432"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-general:117433|2eecb5053fab",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117433",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "RA(Regulatory Affairs) 담당자 모집",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117433",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117433",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "2eecb5053fabae75103086b10e366a0963481e372db68e841d761a5186b3ffb1",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-general:117433"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-general:117434|22c2e78db26d",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117434",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "한국소비자포럼 캠페인 전문 미디어 [캠페인 인사이트] 기자 모집 공고",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117434",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117434",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "22c2e78db26d9d3543918f1b2fb2789550e4ad0b0e15ca6332c2691b2a2561d1",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-general:117434"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-general:117435|63da04489861",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117435",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "2026년 과학기술정책연구원 3차 전문연구직(계약직)(재공고) 채용",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117435",
+      "topics": [
+        "recruitment",
+        "career",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117435",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "63da04489861885d1f15cd8bc285250c3e67e9467f982328934cc3bbac7b6579",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-general:117435"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-general:117436|0e8f10cbe458",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117436",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "[대한상공회의소] 2026년 정규직 채용",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117436",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117436",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "0e8f10cbe458d0933f186512f17e4f22e782ef1815cd20c1e78bfa5e1184067d",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-general:117436"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-general:117437|bb807f7bf722",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117437",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "[삼성웰스토리] AI 보안 경력사원 채용",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117437",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117437",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "bb807f7bf722a8651b27713017c8c03bb567bb9a0dbbbf7fc90716ee410ea3d2",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-general:117437"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-general:117439|9b9789b2edae",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117439",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "[국보디자인] 2026년 하반기 신입사원 공개채용",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117439",
+      "topics": [
+        "recruitment",
+        "career",
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117439",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "9b9789b2edae88d96d13c8e8cf134355c926283a94ed143341eb88ffcd60d825",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-general:117439"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-general:117440|5e0ab3a285db",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117440",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "2026년 하반기 대졸신입 공개채용",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117440",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117440",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "5e0ab3a285db6862bf8f6e2e500f4edafed2a353ead139ebb90450f2c8fc975c",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-general:117440"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-internship:117430|be3e0c06c64e",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-internship:117430",
+      "source_id": "pnu-job-recruit-internship",
+      "source_name": "부산대 취업전략과 인턴십/교육연수생",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "internship"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "[NAVER Z] SNS 바이럴 마케팅 체험형 인턴",
+      "url": "https://job.pusan.ac.kr/ko/recruit/Intern/view/117430",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-internship:117430",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-internship"
+      ],
+      "content_hash": "be3e0c06c64e17b277caf383d6256e8b86f242b8ca8a206175bbcda70a313ed9",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-internship:117430"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-internship:117438|7d1615b07a43",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-internship:117438",
+      "source_id": "pnu-job-recruit-internship",
+      "source_name": "부산대 취업전략과 인턴십/교육연수생",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "internship"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "[Spigen Inc.] 미국 Irvine 법인 / E-Commerce Operations Associate 채용 (~06.21 마감)",
+      "url": "https://job.pusan.ac.kr/ko/recruit/Intern/view/117438",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-internship:117438",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-internship"
+      ],
+      "content_hash": "7d1615b07a4319563c40a0cc6612e619ae1062a7e46d91979b307e07dcd2ea8f",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-internship:117438"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-internship:117441|b07462cece32",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-internship:117441",
+      "source_id": "pnu-job-recruit-internship",
+      "source_name": "부산대 취업전략과 인턴십/교육연수생",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "internship"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "[서울대 KDT] 제13기 빅데이터 핀테크 AI 고급 전문가 과정",
+      "url": "https://job.pusan.ac.kr/ko/recruit/Intern/view/117441",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-internship:117441",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-internship"
+      ],
+      "content_hash": "b07462cece32caacbd7d0dad5d163a75cf6ecf65e32347db5099c20ae4530999",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-internship:117441"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-internship:117442|080ccfbab79e",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-internship:117442",
+      "source_id": "pnu-job-recruit-internship",
+      "source_name": "부산대 취업전략과 인턴십/교육연수생",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "internship"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "2026년 SW파일럿 학습과정' 참가자 추가 모집",
+      "url": "https://job.pusan.ac.kr/ko/recruit/Intern/view/117442",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-internship:117442",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-internship"
+      ],
+      "content_hash": "080ccfbab79e74f6ec616f8faae88848b787b587ff90e0a1c4c51af1f3f6a15a",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-internship:117442"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-internship:117443|ac7530891194",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-internship:117443",
+      "source_id": "pnu-job-recruit-internship",
+      "source_name": "부산대 취업전략과 인턴십/교육연수생",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "internship"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "2026년 구글클라우드, 엔비디아, AWS 인공지능(AI) 전문인력 양성 과정",
+      "url": "https://job.pusan.ac.kr/ko/recruit/Intern/view/117443",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-internship:117443",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-internship"
+      ],
+      "content_hash": "ac753089119420bb2ce45581d673c25b148e08b9e8f2016e3713916177eb9f0e",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-internship:117443"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-internship:117444|43fb5e30240a",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-internship:117444",
+      "source_id": "pnu-job-recruit-internship",
+      "source_name": "부산대 취업전략과 인턴십/교육연수생",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "internship"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "[서울대학교산학협력단] 서울대학교 빅데이터 AI핀테크 고급 전문가 과정",
+      "url": "https://job.pusan.ac.kr/ko/recruit/Intern/view/117444",
+      "topics": [
+        "recruitment",
+        "career",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-internship:117444",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-internship"
+      ],
+      "content_hash": "43fb5e30240a2a406fe5341d5fb21fd4f58febe77a603b0ffa422aedc95c677f",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-internship:117444"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-internship:117445|5ccbdd4ba0cf",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-internship:117445",
+      "source_id": "pnu-job-recruit-internship",
+      "source_name": "부산대 취업전략과 인턴십/교육연수생",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "internship"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "2026 로레알코리아 채용 전제형 인턴십 채용",
+      "url": "https://job.pusan.ac.kr/ko/recruit/Intern/view/117445",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-internship:117445",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-internship"
+      ],
+      "content_hash": "5ccbdd4ba0cf954cb7833eac446988b1aa34bc4c85c8da19b6cf86b71a0d60ea",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-internship:117445"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-internship:117446|72b8200a80eb",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-internship:117446",
+      "source_id": "pnu-job-recruit-internship",
+      "source_name": "부산대 취업전략과 인턴십/교육연수생",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "internship"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": null,
+      "title": "2026 미래내일 일경험 지원사업 로컬 AI 메이커스랩 1차수",
+      "url": "https://job.pusan.ac.kr/ko/recruit/Intern/view/117446",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-internship:117446",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-internship"
+      ],
+      "content_hash": "72b8200a80ebbc9ae6e5ade28701bec7890277bc87d9de5248a14bff43cde354",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-recruit-internship:117446"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-main-faculty-staff-recruitment:1509400|b5fdbfffd82e",
+      "event_type": "added",
+      "notice_id": "pnu-main-faculty-staff-recruitment:1509400",
+      "source_id": "pnu-main-faculty-staff-recruitment",
+      "source_name": "부산대 교수초빙/직원채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "recruitment",
+        "faculty",
+        "staff"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "부산대학교 클라우드 보안 연구센터 사무원 채용 공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1509400",
+      "topics": [
+        "recruitment",
+        "career",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1509400",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-faculty-staff-recruitment"
+      ],
+      "content_hash": "b5fdbfffd82e51558a219991895d62fdff7992d201b2db6a23042dbb916ed3a5",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-main-faculty-staff-recruitment:1509400"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-main-notice:1509396|3293e65f6bc2",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1509396",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "[지역사회혁신본부] KNN 앵커(ANCHOR) 대학생 미디어 아카데미 참가자 모집",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509396",
+      "topics": [
+        "academic"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1509396",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "3293e65f6bc28a8e70755912965cfbb3a957721834d35edaa80a46c4472e67d3",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-main-notice:1509396"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-main-notice:1509397|eebedad6320e",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1509397",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "[에듀테크센터] Google Gemini X 부산대 ‘Travel Busan with Google Gemini’ 부스 운영 안내 (6.16 ~ 19)",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509397",
+      "topics": [
+        "academic"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1509397",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "eebedad6320ed6956dabdc1fe86fcd3c131908597f4908dd89db311dfbb40e65",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-main-notice:1509397"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-main-notice:1509398|a030b5519b1e",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1509398",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-10",
+      "title": "「2026년 조선해양미래혁신인재양성센터사업」 프로젝트 실습과정 모집 공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509398",
+      "topics": [
+        "academic"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1509398",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "a030b5519b1e27d929e2361b68cceef9718c98fe62e0eb3326a141ad14bbd70f",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-main-notice:1509398"
+    },
+    {
+      "event_id": "2026-06-10T18:05:45+09:00|updated|pnu-academic-bce-general-5008:1442196|f5cbca9a2e99",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-bce-general-5008:1442196",
+      "source_id": "pnu-academic-bce-general-5008",
+      "source_name": "부산대 의생명융합공학부 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-06-10T18:05:45+09:00",
+      "published_at": "2026-06-02",
+      "title": "[(글로컬) 1-3-2] 2026학년도 Arise Glocal-PBL 참가팀 모집 안내(~",
+      "url": "https://bce.pusan.ac.kr/bbs/bce/220/1442196/artclView.do",
+      "topics": [],
+      "same_notice_group_id": "same_notice:03435ab09fb240d7",
+      "canonical_item_id": "pnu-academic-bce-general-5008:1442196",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-bce-general-5008",
+        "pnu-academic-ee-general-5204",
+        "pnu-academic-history-general-6500",
+        "pnu-academic-japan-undergrad-8796",
+        "pnu-academic-philosophy-undergrad-11291"
+      ],
+      "content_hash": "f5cbca9a2e992b32c6b2d1239d4cb6daa91520b7773b7b2390756d4ae05fec62",
+      "previous_content_hash": "4c01b2d957a4e4fb11c2195a874ab6dbca749fdd6d08f6bc5f0b7c0f69084c4a",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-bce-general-5008:1442196"
     }
   ]
 }
