@@ -1,50 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-06-10T21:44:45+09:00",
+  "generated_at": "2026-06-11T01:41:36+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 1294,
+  "total_event_count": 1295,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-10T21:44:45+09:00|updated|pnu-academic-me-undergrad-sub01-01:5035|affc2a094f27",
-  "oldest_event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1991|464bbd0663a8",
+  "latest_event_id": "2026-06-11T01:41:36+09:00|updated|pnu-academic-ed-general-2957:1442883|6d5804e77c25",
+  "oldest_event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1992|093b88fbcfec",
   "oldest_seen_at": "2026-06-05T11:07:25+09:00",
-  "latest_seen_at": "2026-06-10T21:44:45+09:00",
+  "latest_seen_at": "2026-06-11T01:41:36+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1991|464bbd0663a8",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-yangsan-notices:1991",
-      "source_id": "pnu-dorm-yangsan-notices",
-      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "yangsan_campus"
-      ],
-      "seen_at": "2026-06-05T11:07:25+09:00",
-      "published_at": "2026-03-20",
-      "title": "[지행관] 3월 원생실 소독 안내",
-      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=1991",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-yangsan-notices:1991",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-yangsan-notices"
-      ],
-      "content_hash": "464bbd0663a8f4398f0c73e529c888b60e4b6164e657c9d108787225a88f6e53",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-03.json",
-      "archive_item_id": "pnu-dorm-yangsan-notices:1991"
-    },
     {
       "event_id": "2026-06-05T11:07:25+09:00|added|pnu-dorm-yangsan-notices:1992|093b88fbcfec",
       "event_type": "added",
@@ -32696,6 +32665,37 @@
       "previous_content_hash": "2ac8b36b57fba93483bb41e4e7771036a693495b38f643ae4f44b03ad93ba6ef",
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-academic-me-undergrad-sub01-01:5035"
+    },
+    {
+      "event_id": "2026-06-11T01:41:36+09:00|updated|pnu-academic-ed-general-2957:1442883|6d5804e77c25",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-ed-general-2957:1442883",
+      "source_id": "pnu-academic-ed-general-2957",
+      "source_name": "부산대 교육학과 전체공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-06-11T01:41:36+09:00",
+      "published_at": "2026-06-08",
+      "title": "전체] 2026학년도 1학기 출석인정 신청 기한 알림(~6.10. 13:00까지) 새글",
+      "url": "https://ed.pusan.ac.kr/bbs/ed/282/1442883/artclView.do",
+      "topics": [],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-ed-general-2957:1442883",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-ed-general-2957"
+      ],
+      "content_hash": "6d5804e77c25b21e31ed6253628301fb04c2a5480f376c3004cd67d2f209253e",
+      "previous_content_hash": "a66dc6c6fdb1a3b3418f0a1317ffda6413c48499b98d309c943fa09611efd919",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-ed-general-2957:1442883"
     }
   ]
 }
