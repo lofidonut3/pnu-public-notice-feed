@@ -1,50 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-06-11T18:18:04+09:00",
+  "generated_at": "2026-06-11T22:04:01+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 1409,
+  "total_event_count": 1410,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-11T18:18:04+09:00|updated|pnu-main-notice:1509397|7332eca577d6",
-  "oldest_event_id": "2026-06-05T14:52:35+09:00|added|pnu-lei-foreign-language-notices:1207|9a9468ca00f1",
+  "latest_event_id": "2026-06-11T22:04:01+09:00|added|pnu-main-notice:1509410|3ac4682215e2",
+  "oldest_event_id": "2026-06-05T14:52:35+09:00|added|pnu-lei-foreign-language-notices:1209|fda3650b9bb0",
   "oldest_seen_at": "2026-06-05T14:52:35+09:00",
-  "latest_seen_at": "2026-06-11T18:18:04+09:00",
+  "latest_seen_at": "2026-06-11T22:04:01+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-05T14:52:35+09:00|added|pnu-lei-foreign-language-notices:1207|9a9468ca00f1",
-      "event_type": "added",
-      "notice_id": "pnu-lei-foreign-language-notices:1207",
-      "source_id": "pnu-lei-foreign-language-notices",
-      "source_name": "부산대 언어교육원 외국어과정 공지사항",
-      "source_category": "language_education_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "language_education",
-        "foreign_language_course"
-      ],
-      "seen_at": "2026-06-05T14:52:35+09:00",
-      "published_at": "2025-12-30",
-      "title": "[2025학년도 부산대학교 재학생의 외국어 학습 수요에 대한 설문조사] 경품 지급 안내",
-      "url": "https://lei.pusan.ac.kr/page?menuCD=000000000000226&mode=DETAIL&seq=1207&typeSeqNo=1&mainbbsTabIndex=1&cateSeq=10",
-      "topics": [
-        "language"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-lei-foreign-language-notices:1207",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-lei-foreign-language-notices"
-      ],
-      "content_hash": "9a9468ca00f125317a72c94a45e41c01082377a1f0f2b067c9ac77c0f640967f",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2025-12.json",
-      "archive_item_id": "pnu-lei-foreign-language-notices:1207"
-    },
     {
       "event_id": "2026-06-05T14:52:35+09:00|added|pnu-lei-foreign-language-notices:1209|fda3650b9bb0",
       "event_type": "added",
@@ -32927,6 +32896,37 @@
       "previous_content_hash": "eebedad6320ed6956dabdc1fe86fcd3c131908597f4908dd89db311dfbb40e65",
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-main-notice:1509397"
+    },
+    {
+      "event_id": "2026-06-11T22:04:01+09:00|added|pnu-main-notice:1509410|3ac4682215e2",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1509410",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-06-11T22:04:01+09:00",
+      "published_at": "2026-06-11",
+      "title": "[부산광역시글로벌도시재단] 2026년 부산 글로벌 인턴십 참여자 모집 안내",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509410",
+      "topics": [
+        "academic",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1509410",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "3ac4682215e25711226c0f85e5245a01eaa336fc4d181ff5de803474c3d7e29f",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-main-notice:1509410"
     }
   ]
 }
