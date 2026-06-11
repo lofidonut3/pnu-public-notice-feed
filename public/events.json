@@ -1,51 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-06-11T22:04:01+09:00",
+  "generated_at": "2026-06-12T02:08:22+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 1410,
+  "total_event_count": 1411,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-11T22:04:01+09:00|added|pnu-main-notice:1509410|3ac4682215e2",
-  "oldest_event_id": "2026-06-05T14:52:35+09:00|added|pnu-lei-foreign-language-notices:1209|fda3650b9bb0",
+  "latest_event_id": "2026-06-12T02:08:22+09:00|updated|pnu-graduate-ds-grad-7710:1442950|344fa9ffdfa5",
+  "oldest_event_id": "2026-06-05T14:52:35+09:00|added|pnu-lei-foreign-language-notices:1214|ec101eee55d7",
   "oldest_seen_at": "2026-06-05T14:52:35+09:00",
-  "latest_seen_at": "2026-06-11T22:04:01+09:00",
+  "latest_seen_at": "2026-06-12T02:08:22+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-05T14:52:35+09:00|added|pnu-lei-foreign-language-notices:1209|fda3650b9bb0",
-      "event_type": "added",
-      "notice_id": "pnu-lei-foreign-language-notices:1209",
-      "source_id": "pnu-lei-foreign-language-notices",
-      "source_name": "부산대 언어교육원 외국어과정 공지사항",
-      "source_category": "language_education_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "language_education",
-        "foreign_language_course"
-      ],
-      "seen_at": "2026-06-05T14:52:35+09:00",
-      "published_at": "2026-01-12",
-      "title": "[2026신입생] 2026학년도 신입생 영어 특별 프로그램 어학설명회 안내",
-      "url": "https://lei.pusan.ac.kr/page?menuCD=000000000000226&mode=DETAIL&seq=1209&typeSeqNo=1&mainbbsTabIndex=1&cateSeq=10",
-      "topics": [
-        "language",
-        "event"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-lei-foreign-language-notices:1209",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-lei-foreign-language-notices"
-      ],
-      "content_hash": "fda3650b9bb08597fcce13944c47bc98da63cd9a153245d4afc843f8dc578ddd",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-01.json",
-      "archive_item_id": "pnu-lei-foreign-language-notices:1209"
-    },
     {
       "event_id": "2026-06-05T14:52:35+09:00|added|pnu-lei-foreign-language-notices:1214|ec101eee55d7",
       "event_type": "added",
@@ -21817,7 +21785,8 @@
       "title": "2026학년도 후기 데이터사이언스전문대학원 면접고사 안내",
       "url": "https://ds.pusan.ac.kr/bbs/ds/806/1442950/artclView.do",
       "topics": [
-        "graduate"
+        "graduate",
+        "admissions"
       ],
       "same_notice_group_id": null,
       "canonical_item_id": "pnu-graduate-ds-grad-7710:1442950",
@@ -32927,6 +32896,38 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-main-notice:1509410"
+    },
+    {
+      "event_id": "2026-06-12T02:08:22+09:00|updated|pnu-graduate-ds-grad-7710:1442950|344fa9ffdfa5",
+      "event_type": "updated",
+      "notice_id": "pnu-graduate-ds-grad-7710:1442950",
+      "source_id": "pnu-graduate-ds-grad-7710",
+      "source_name": "부산대 데이터사이언스전문대학원 공지사항",
+      "source_category": "graduate_school_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "graduate_school",
+        "graduate"
+      ],
+      "seen_at": "2026-06-12T02:08:22+09:00",
+      "published_at": "2026-06-09",
+      "title": "[입학] 2026학년도 후기 데이터사이언스전문대학원 면접고사 안내 새글",
+      "url": "https://ds.pusan.ac.kr/bbs/ds/806/1442950/artclView.do",
+      "topics": [
+        "graduate",
+        "admissions"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-graduate-ds-grad-7710:1442950",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-graduate-ds-grad-7710"
+      ],
+      "content_hash": "344fa9ffdfa508a9960f1ebc9e8b830776a929c0387faa4616704d898c4968e5",
+      "previous_content_hash": "837b56a8e845773f9b65b67da90828a0daa95c8d1f8f20af319c2507b6a05e31",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-graduate-ds-grad-7710:1442950"
     }
   ]
 }
