@@ -1,50 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-06-12T22:34:54+09:00",
+  "generated_at": "2026-06-13T01:51:31+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 1565,
+  "total_event_count": 1566,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-12T22:34:54+09:00|updated|pnu-international-office-notices:1442526|43325077e5c0",
-  "oldest_event_id": "2026-06-05T14:52:35+09:00|added|pnu-sanhak-notices:4-27|b19d32a719ad",
+  "latest_event_id": "2026-06-13T01:51:31+09:00|updated|pnu-graduate-gspa-grad-10899:1440879|4b1666311a25",
+  "oldest_event_id": "2026-06-05T14:52:35+09:00|added|pnu-sanhak-notices:4-47|cb9a1d6e9696",
   "oldest_seen_at": "2026-06-05T14:52:35+09:00",
-  "latest_seen_at": "2026-06-12T22:34:54+09:00",
+  "latest_seen_at": "2026-06-13T01:51:31+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-05T14:52:35+09:00|added|pnu-sanhak-notices:4-27|b19d32a719ad",
-      "event_type": "added",
-      "notice_id": "pnu-sanhak-notices:4-27",
-      "source_id": "pnu-sanhak-notices",
-      "source_name": "부산대 산학협력단 공지사항",
-      "source_category": "research_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "sanhak",
-        "research"
-      ],
-      "seen_at": "2026-06-05T14:52:35+09:00",
-      "published_at": "2026-02-27",
-      "title": "[산학협력단] 산학협력단 사무실 이전 완료 및 위치 안내드립니다.",
-      "url": "https://sanhak.pusan.ac.kr/sanhak/boardview/4/27",
-      "topics": [
-        "research"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-sanhak-notices:4-27",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-sanhak-notices"
-      ],
-      "content_hash": "b19d32a719ad8eacb69fc021b015d105d083824df15287e2adbff07cec824915",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-02.json",
-      "archive_item_id": "pnu-sanhak-notices:4-27"
-    },
     {
       "event_id": "2026-06-05T14:52:35+09:00|added|pnu-sanhak-notices:4-47|cb9a1d6e9696",
       "event_type": "added",
@@ -33856,6 +33825,38 @@
       "previous_content_hash": "83a1cf869b1a9c61bd870f30cf4f69b92c74e6d3e4cd6d32580a02ef3baa9982",
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-international-office-notices:1442526"
+    },
+    {
+      "event_id": "2026-06-13T01:51:31+09:00|updated|pnu-graduate-gspa-grad-10899:1440879|4b1666311a25",
+      "event_type": "updated",
+      "notice_id": "pnu-graduate-gspa-grad-10899:1440879",
+      "source_id": "pnu-graduate-gspa-grad-10899",
+      "source_name": "부산대 행정대학원 공지사항 1",
+      "source_category": "graduate_school_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "graduate_school",
+        "graduate"
+      ],
+      "seen_at": "2026-06-13T01:51:31+09:00",
+      "published_at": "2026-05-19",
+      "title": "[기타] 2026학년도 하계 사회복지 현장실습 신청(~6/12)",
+      "url": "https://gspa.pusan.ac.kr/bbs/gspa/1338/1440879/artclView.do",
+      "topics": [
+        "graduate",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-graduate-gspa-grad-10899:1440879",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-graduate-gspa-grad-10899"
+      ],
+      "content_hash": "4b1666311a25e0851423af89bdbb883420f49a1792cebed7ae5a3e74640f1083",
+      "previous_content_hash": "f2b70234ccab3ccb37fc64c3fee54afc012c4ea8432f5ca158685bf5eb7bf523",
+      "archive_file": "./archive/2026-05.json",
+      "archive_item_id": "pnu-graduate-gspa-grad-10899:1440879"
     }
   ]
 }
