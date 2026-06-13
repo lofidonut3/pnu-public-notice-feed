@@ -41,6 +41,7 @@ DEFAULT_FEED_ITEM_LIMIT = 150
 DEFAULT_SNIPPET_LIMIT = 500
 DEFAULT_FETCH_CONCURRENCY = 4
 DEFAULT_PER_HOST_CONCURRENCY = 1
+DEFAULT_FETCH_ATTEMPTS = 2
 BYTES_PER_MIB = 1024 * 1024
 SIZE_BUDGETS = {
     "public_total": {
@@ -83,6 +84,20 @@ SUPPORTED_ADAPTERS = {
     "library-pyxis-board",
     "simple-html-board",
     "plato-ubboard",
+}
+CRITICAL_SOURCE_IDS = {
+    "pnu-main-notice",
+    "pnu-onestop-notices",
+    "pnu-onestop-scholarship",
+    "pnu-dorm-busan-notices",
+    "pnu-dorm-yangsan-notices",
+    "pnu-dorm-miryang-notices",
+    "pnu-international-notices",
+    "pnu-international-student-notices",
+    "pnu-job-notices",
+    "pnu-job-recommend",
+    "pnu-job-internship",
+    "pnu-job-recruit-general",
 }
 DISCLAIMER = (
     "Unofficial PNU Public Notice Feed. This project indexes public official "
@@ -404,6 +419,12 @@ def main(argv: list[str] | None = None) -> int:
         help="Maximum number of concurrent source fetches for the same host.",
     )
     parser.add_argument(
+        "--fetch-attempts",
+        type=int,
+        default=DEFAULT_FETCH_ATTEMPTS,
+        help="Maximum attempts per source before marking it as failed.",
+    )
+    parser.add_argument(
         "--check-size-budget",
         action="store_true",
         help="Check generated public/cache size budgets and exit.",
@@ -429,6 +450,7 @@ def main(argv: list[str] | None = None) -> int:
             feed_item_limit=args.feed_item_limit,
             fetch_concurrency=args.fetch_concurrency,
             per_host_concurrency=args.per_host_concurrency,
+            fetch_attempts=args.fetch_attempts,
         )
         sync_static_assets(output_dir, sources_path, args.public_base_url)
         if generated["all_sources_skipped"] and outputs_exist(
@@ -495,6 +517,7 @@ def generate_outputs(
     feed_item_limit: int = DEFAULT_FEED_ITEM_LIMIT,
     fetch_concurrency: int = DEFAULT_FETCH_CONCURRENCY,
     per_host_concurrency: int = DEFAULT_PER_HOST_CONCURRENCY,
+    fetch_attempts: int = DEFAULT_FETCH_ATTEMPTS,
 ) -> dict[str, dict]:
     generation_started_at = time.perf_counter()
     generated_at = iso_now(now)
@@ -507,6 +530,7 @@ def generate_outputs(
         state,
         fetch_concurrency=fetch_concurrency,
         per_host_concurrency=per_host_concurrency,
+        fetch_attempts=fetch_attempts,
     )
     all_items = collect_result_items(results)
     duplicates = build_duplicates(all_items, generated_at, FEED_VERSION)
@@ -529,6 +553,7 @@ def generate_outputs(
         generation_started_at=generation_started_at,
         fetch_concurrency=fetch_concurrency,
         per_host_concurrency=per_host_concurrency,
+        fetch_attempts=fetch_attempts,
     )
     return {
         "latest": latest,
@@ -610,15 +635,17 @@ def fetch_source_results(
     state: dict | None,
     fetch_concurrency: int = DEFAULT_FETCH_CONCURRENCY,
     per_host_concurrency: int = DEFAULT_PER_HOST_CONCURRENCY,
+    fetch_attempts: int = DEFAULT_FETCH_ATTEMPTS,
 ) -> list[SourceResult]:
     fetch_concurrency = positive_int(fetch_concurrency, "fetch_concurrency")
     per_host_concurrency = positive_int(
         per_host_concurrency,
         "per_host_concurrency",
     )
+    fetch_attempts = positive_int(fetch_attempts, "fetch_attempts")
     if fetch_concurrency == 1 or len(sources) <= 1:
         return [
-            fetch_source_result(source, limit, generated_at, state)
+            fetch_source_result(source, limit, generated_at, state, fetch_attempts)
             for source in sources
         ]
 
@@ -638,7 +665,13 @@ def fetch_source_results(
     def fetch_one(index: int, source: PublicSource) -> tuple[int, SourceResult]:
         limiter = limiter_for(source)
         with limiter:
-            return index, fetch_source_result(source, limit, generated_at, state)
+            return index, fetch_source_result(
+                source,
+                limit,
+                generated_at,
+                state,
+                fetch_attempts,
+            )
 
     with ThreadPoolExecutor(max_workers=fetch_concurrency) as executor:
         futures = [
@@ -658,6 +691,7 @@ def fetch_source_result(
     limit: int,
     checked_at: str,
     state: dict | None = None,
+    fetch_attempts: int = DEFAULT_FETCH_ATTEMPTS,
 ) -> SourceResult:
     started_at = time.perf_counter()
     source_state = get_source_state(state, source.id)
@@ -680,42 +714,14 @@ def fetch_source_result(
             started_at,
         )
 
+    cached_items = cached_items_by_id(source_state, source)
     try:
-        cached_items = cached_items_by_id(source_state, source)
-        notices = fetch_source(
+        notices = fetch_source_with_retries(
             source,
             limit,
             cached_items=cached_items,
             checked_at=checked_at,
-        )
-        fetched_items = [
-            enrich_item_with_source_metadata(
-                notice_to_feed_item(notice, checked_at),
-                source,
-            )
-            for notice in notices
-        ]
-        merged_items = merge_cached_items(
-            [
-                enrich_item_with_source_metadata(item, source)
-                for item in cached_items.values()
-            ],
-            fetched_items,
-            limit,
-        )
-        return source_result_with_duration(
-            SourceResult(
-                source=source,
-                checked_at=checked_at,
-                items=merged_items,
-                last_success_at=checked_at,
-                status="ok",
-                next_check_at=next_check_at_from_interval(
-                    checked_at,
-                    source.poll_interval_minutes,
-                ),
-            ),
-            started_at,
+            fetch_attempts=fetch_attempts,
         )
     except Exception as error:  # noqa: BLE001 - source failures belong in index status.
         cached_items = list(cached_items_by_id(source_state, source).values())
@@ -739,6 +745,64 @@ def fetch_source_result(
             ),
             started_at,
         )
+
+    fetched_items = [
+        enrich_item_with_source_metadata(
+            notice_to_feed_item(notice, checked_at),
+            source,
+        )
+        for notice in notices
+    ]
+    merged_items = merge_cached_items(
+        [
+            enrich_item_with_source_metadata(item, source)
+            for item in cached_items.values()
+        ],
+        fetched_items,
+        limit,
+    )
+    return source_result_with_duration(
+        SourceResult(
+            source=source,
+            checked_at=checked_at,
+            items=merged_items,
+            last_success_at=checked_at,
+            status="ok",
+            next_check_at=next_check_at_from_interval(
+                checked_at,
+                source.poll_interval_minutes,
+            ),
+        ),
+        started_at,
+    )
+
+
+def fetch_source_with_retries(
+    source: PublicSource,
+    limit: int,
+    cached_items: dict[str, dict],
+    checked_at: str,
+    fetch_attempts: int,
+) -> list[Notice]:
+    last_error: Exception | None = None
+    max_attempts = positive_int(fetch_attempts, "fetch_attempts")
+    if not source_is_critical(source):
+        max_attempts = 1
+    for attempt in range(max_attempts):
+        try:
+            return fetch_source(
+                source,
+                limit,
+                cached_items=cached_items,
+                checked_at=checked_at,
+            )
+        except Exception as error:  # noqa: BLE001 - retry source fetch boundaries.
+            last_error = error
+            if attempt < max_attempts - 1:
+                time.sleep(min(2 ** attempt, 5))
+    if last_error:
+        raise last_error
+    raise ValueError("fetch_attempts produced no source fetch attempt")
 
 
 def fetch_source(
@@ -1154,6 +1218,13 @@ def collect_result_items(results: list[SourceResult]) -> list[dict]:
 def build_status(results: list[SourceResult], generated_at: str) -> dict:
     source_statuses = [source_to_status_json(result) for result in results]
     failed_count = len([result for result in results if source_is_degraded(result)])
+    critical_failed_count = len(
+        [
+            result
+            for result in results
+            if source_is_critical(result.source) and source_is_degraded(result)
+        ]
+    )
     status_counts = source_result_status_counts(results)
     skipped_reason_counts = source_result_skipped_reason_counts(results)
 
@@ -1172,6 +1243,7 @@ def build_status(results: list[SourceResult], generated_at: str) -> dict:
         "backoff_source_count": skipped_reason_counts.get("backoff", 0),
         "error_source_count": status_counts.get("error", 0),
         "degraded_source_count": failed_count,
+        "critical_degraded_source_count": critical_failed_count,
         "failed_source_count": failed_count,
         "status_counts": status_counts,
         "skipped_reason_counts": skipped_reason_counts,
@@ -1181,6 +1253,10 @@ def build_status(results: list[SourceResult], generated_at: str) -> dict:
 
 def source_is_degraded(result: SourceResult) -> bool:
     return result.status == "error" or result.skipped_reason == "backoff"
+
+
+def source_is_critical(source: PublicSource) -> bool:
+    return source.id in CRITICAL_SOURCE_IDS
 
 
 def source_result_status_counts(results: list[SourceResult]) -> dict[str, int]:
@@ -1209,6 +1285,7 @@ def build_run_diagnostics(
     generation_started_at: float,
     fetch_concurrency: int,
     per_host_concurrency: int,
+    fetch_attempts: int,
 ) -> dict:
     durations = [
         result.duration_ms
@@ -1224,6 +1301,7 @@ def build_run_diagnostics(
             per_host_concurrency,
             "per_host_concurrency",
         ),
+        "fetch_attempts": positive_int(fetch_attempts, "fetch_attempts"),
         "source_count": len(results),
         "fetched_source_count": len(
             [result for result in results if result.status == "ok"]
@@ -1436,6 +1514,7 @@ def source_to_status_json(result: SourceResult) -> dict:
         "poll_interval_minutes": result.source.poll_interval_minutes,
         "public_only": result.source.public_only,
         "access_policy": result.source.access_policy,
+        "critical": source_is_critical(result.source),
         "status": result.status,
         "last_checked_at": result.checked_at,
         "last_success_at": result.last_success_at,
@@ -1517,6 +1596,10 @@ def build_public_index(
                 "degraded_source_count",
                 status.get("failed_source_count"),
             ),
+            "critical_degraded_source_count": status.get(
+                "critical_degraded_source_count",
+                0,
+            ),
             "failed_source_count": status.get("failed_source_count"),
             "status_counts": status.get("status_counts", {}),
             "skipped_reason_counts": status.get("skipped_reason_counts", {}),
@@ -1567,9 +1650,11 @@ def write_outputs(
         archive_input_from_state(state, baseline_source_ids=baseline_source_ids),
         pretty,
     )
+    archive_coverage = build_archive_coverage_diagnostics(output_dir, state)
     diagnostics_with_outputs = {
         **diagnostics,
         "output": build_output_file_diagnostics(output_dir),
+        "archive_coverage": archive_coverage,
     }
     write_json(
         output_dir / "index.json",
@@ -1615,6 +1700,38 @@ def sync_static_assets(
             schema_output_dir / schema_path.name,
             public_base_url,
         )
+
+
+def build_archive_coverage_diagnostics(output_dir: Path, state: dict) -> dict:
+    state_items = state_items_by_id(state)
+    archive_item_ids = archive_item_ids_from_output(output_dir)
+    missing_ids = sorted(set(state_items) - archive_item_ids)
+    missing = [change_item(state_items[item_id]) for item_id in missing_ids[:50]]
+    return {
+        "state_item_count": len(state_items),
+        "archive_item_count": len(archive_item_ids),
+        "missing_current_state_item_count": len(missing_ids),
+        "missing_current_state_items": missing,
+        "ok": not missing_ids,
+    }
+
+
+def archive_item_ids_from_output(output_dir: Path) -> set[str]:
+    archive_dir = output_dir / "archive"
+    if not archive_dir.exists():
+        return set()
+    item_ids: set[str] = set()
+    for path in sorted(archive_dir.glob("????-??.json")):
+        doc = read_json_if_exists(path) or {}
+        item_ids = {
+            *item_ids,
+            *{
+                str(item.get("id"))
+                for item in doc.get("items", [])
+                if item.get("id")
+            },
+        }
+    return item_ids
 
 
 def cleanup_legacy_public_outputs(output_dir: Path) -> None:
@@ -1760,6 +1877,7 @@ def outputs_match_current_format(output_dir: Path) -> bool:
         "status_counts",
         "skipped_reason_counts",
         "degraded_source_count",
+        "critical_degraded_source_count",
         "poll_interval_skipped_source_count",
         "backoff_source_count",
         "error_source_count",
@@ -2048,6 +2166,7 @@ def print_feed_health_snapshot(output_dir: Path, state_path: Path) -> None:
             max_degraded_sources=100,
             max_backoff_sources=100,
             max_error_sources=50,
+            max_critical_degraded_sources=0,
             max_public_total_mib=500,
             max_state_mib=50,
             min_event_count=1,

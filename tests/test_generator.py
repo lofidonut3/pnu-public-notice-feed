@@ -25,6 +25,7 @@ from pnu_notice_feed.generator import (
     build_status,
     all_sources_skipped,
     backoff_until_for_error,
+    build_archive_coverage_diagnostics,
     date_to_json_feed_timestamp,
     fetch_source_results,
     fetch_source_result,
@@ -730,7 +731,7 @@ def test_fetch_source_results_preserves_source_registry_order(monkeypatch):
     source_a = _source("source-a")
     source_b = _source("source-b")
 
-    def fake_fetch_source_result(source, limit, checked_at, state):
+    def fake_fetch_source_result(source, limit, checked_at, state, fetch_attempts=1):
         if source.id == "source-a":
             time.sleep(0.02)
         return SourceResult(
@@ -762,7 +763,7 @@ def test_fetch_source_results_limits_same_host_concurrency(monkeypatch):
     max_active = 0
     lock = threading.Lock()
 
-    def fake_fetch_source_result(source, limit, checked_at, state):
+    def fake_fetch_source_result(source, limit, checked_at, state, fetch_attempts=1):
         nonlocal active, max_active
         with lock:
             active += 1
@@ -790,6 +791,56 @@ def test_fetch_source_results_limits_same_host_concurrency(monkeypatch):
     )
 
     assert max_active == 1
+
+
+def test_fetch_source_result_retries_critical_source(monkeypatch):
+    source = _source("pnu-main-notice")
+    attempts = 0
+
+    def flaky_fetch_source(source, limit, cached_items=None, checked_at=None):
+        nonlocal attempts
+        attempts += 1
+        if attempts == 1:
+            raise TimeoutError("temporary timeout")
+        return [_notice(source, "1", "2026-06-04")]
+
+    monkeypatch.setattr(generator, "fetch_source", flaky_fetch_source)
+    monkeypatch.setattr(generator.time, "sleep", lambda _seconds: None)
+
+    result = fetch_source_result(
+        source,
+        limit=20,
+        checked_at="2026-06-04T12:00:00+09:00",
+        state={},
+        fetch_attempts=2,
+    )
+
+    assert result.status == "ok"
+    assert attempts == 2
+    assert result.items[0]["id"] == "pnu-main-notice:1"
+
+
+def test_fetch_source_result_does_not_retry_noncritical_source(monkeypatch):
+    source = _source("source-a")
+    attempts = 0
+
+    def broken_fetch_source(source, limit, cached_items=None, checked_at=None):
+        nonlocal attempts
+        attempts += 1
+        raise TimeoutError("temporary timeout")
+
+    monkeypatch.setattr(generator, "fetch_source", broken_fetch_source)
+
+    result = fetch_source_result(
+        source,
+        limit=20,
+        checked_at="2026-06-04T12:00:00+09:00",
+        state={},
+        fetch_attempts=3,
+    )
+
+    assert result.status == "error"
+    assert attempts == 1
 
 
 def test_archive_input_is_built_from_state_items():
@@ -881,12 +932,47 @@ def test_build_public_index_combines_status_archives_dedupe_and_diagnostics():
     assert index["endpoints"]["latest"] == "https://feeds.example.test/latest.json"
     assert index["status"]["overall_status"] == "partial"
     assert index["status"]["degraded_source_count"] == 1
+    assert index["status"]["critical_degraded_source_count"] == 0
     assert index["status"]["status_counts"] == {"ok": 1, "error": 1}
     assert index["event_stream"]["latest_event_id"] == "event-5"
     assert index["archives"]["months"][0]["url"] == "./archive/2026-06.json"
     assert index["same_notice_groups"] == [{"id": "same_notice:1"}]
     assert index["diagnostics"]["latest_run_diff"]["added_count"] == 1
     assert index["diagnostics"]["run"]["duration_ms"] == 25
+
+
+def test_build_archive_coverage_diagnostics_reports_missing_current_state_items(tmp_path):
+    source = _source()
+    checked_at = "2026-06-04T12:00:00+09:00"
+    state = build_state(
+        [
+            _result(
+                source,
+                checked_at,
+                [
+                    _notice(source, "archived", "2026-06-03"),
+                    _notice(source, "missing", "2026-06-04"),
+                ],
+            )
+        ],
+        checked_at,
+    )
+    archive_dir = tmp_path / "archive"
+    archive_dir.mkdir()
+    _write_json(
+        archive_dir / "2026-06.json",
+        {"items": [{"id": "pnu-main-notice:archived"}]},
+    )
+
+    diagnostics = build_archive_coverage_diagnostics(tmp_path, state)
+
+    assert diagnostics["ok"] is False
+    assert diagnostics["state_item_count"] == 2
+    assert diagnostics["archive_item_count"] == 1
+    assert diagnostics["missing_current_state_item_count"] == 1
+    assert diagnostics["missing_current_state_items"][0]["id"] == (
+        "pnu-main-notice:missing"
+    )
 
 
 def test_build_state_stores_compact_items_and_hydrates_cached_items():
@@ -1117,6 +1203,7 @@ def test_should_write_public_outputs_skips_when_no_notice_or_status_change(tmp_p
             "backoff_source_count": 0,
             "error_source_count": 0,
             "degraded_source_count": 0,
+            "critical_degraded_source_count": 0,
             "failed_source_count": 0,
             "status_counts": {"ok": 1},
             "skipped_reason_counts": {},
@@ -1276,6 +1363,7 @@ def test_fetch_source_result_reuses_cached_items_on_source_failure():
         limit=20,
         checked_at="2026-06-04T12:00:00+09:00",
         state=state,
+        fetch_attempts=1,
     )
 
     assert not result.success

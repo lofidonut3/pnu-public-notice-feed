@@ -39,6 +39,7 @@ class Thresholds:
     max_degraded_sources: int
     max_backoff_sources: int
     max_error_sources: int
+    max_critical_degraded_sources: int
     max_public_total_mib: float | None
     max_state_mib: float | None
     min_event_count: int
@@ -58,6 +59,7 @@ def main(argv: list[str] | None = None) -> int:
         max_degraded_sources=args.max_degraded_sources,
         max_backoff_sources=args.max_backoff_sources,
         max_error_sources=args.max_error_sources,
+        max_critical_degraded_sources=args.max_critical_degraded_sources,
         max_public_total_mib=args.max_public_total_mib,
         max_state_mib=args.max_state_mib,
         min_event_count=args.min_event_count,
@@ -127,6 +129,12 @@ def parse_args(argv: list[str] | None) -> argparse.Namespace:
         type=int,
         default=50,
         help="Fail when error source count exceeds this value.",
+    )
+    parser.add_argument(
+        "--max-critical-degraded-sources",
+        type=int,
+        default=0,
+        help="Fail when degraded critical source count exceeds this value.",
     )
     parser.add_argument(
         "--max-public-total-mib",
@@ -253,6 +261,7 @@ def build_report(
         "degraded_source_count",
         int_value(status, "failed_source_count"),
     )
+    critical_degraded_count = int_value(status, "critical_degraded_source_count")
     backoff_count = int_value(status, "backoff_source_count")
     error_count = int_value(status, "error_source_count")
     poll_skip_count = int_value(status, "poll_interval_skipped_source_count")
@@ -277,6 +286,15 @@ def build_report(
         issues = [*issues, f"backoff_source_count {backoff_count} exceeds {thresholds.max_backoff_sources}"]
     if error_count > thresholds.max_error_sources:
         issues = [*issues, f"error_source_count {error_count} exceeds {thresholds.max_error_sources}"]
+    if critical_degraded_count > thresholds.max_critical_degraded_sources:
+        issues = [
+            *issues,
+            (
+                "critical_degraded_source_count "
+                f"{critical_degraded_count} exceeds "
+                f"{thresholds.max_critical_degraded_sources}"
+            ),
+        ]
     if event_count < thresholds.min_event_count:
         issues = [*issues, f"event_count {event_count} is below {thresholds.min_event_count}"]
     if event_count != len(list_value(events, "events")):
@@ -301,6 +319,17 @@ def build_report(
         state_limit = int(thresholds.max_state_mib * BYTES_PER_MIB)
         if sizes.state_bytes > state_limit:
             issues = [*issues, f"state size {mib(sizes.state_bytes)} exceeds {thresholds.max_state_mib:.2f} MiB"]
+    diagnostics = dict_value(index, "diagnostics")
+    archive_coverage = dict_value(diagnostics, "archive_coverage") or dict_value(
+        dict_value(diagnostics, "run"),
+        "archive_coverage",
+    )
+    missing_archive_count = int_value(archive_coverage, "missing_current_state_item_count")
+    if missing_archive_count > 0:
+        issues = [
+            *issues,
+            f"archive coverage missing {missing_archive_count} current state items",
+        ]
 
     degraded_sources = [
         source
@@ -319,7 +348,8 @@ def build_report(
             f"poll_interval {poll_skip_count}, "
             f"backoff {backoff_count}, "
             f"error {error_count}, "
-            f"degraded {degraded_count})"
+            f"degraded {degraded_count}, "
+            f"critical_degraded {critical_degraded_count})"
         ),
         (
             "events: "
@@ -339,6 +369,17 @@ def build_report(
         lines = [*lines, f"  archive_total: {mib(sizes.archive_total_bytes)}"]
     if sizes.state_bytes is not None:
         lines = [*lines, f"  state: {mib(sizes.state_bytes)}"]
+    if archive_coverage:
+        lines = [
+            *lines,
+            (
+                "archive_coverage: "
+                f"{'ok' if archive_coverage.get('ok') else 'fail'} "
+                f"(state {int_value(archive_coverage, 'state_item_count')}, "
+                f"archive {int_value(archive_coverage, 'archive_item_count')}, "
+                f"missing {missing_archive_count})"
+            ),
+        ]
     if degraded_sources:
         lines = [
             *lines,

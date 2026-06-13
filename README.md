@@ -50,7 +50,7 @@ For AI agents reading this repository directly, start with [`llms.txt`](./llms.t
 
 ## Example Consumer
 
-For a concrete optional reference CLI/helper that keeps a local cursor, enriches events from archive metadata, and collapses same-notice duplicate groups, see [`pnu-public-notice-event-gate`](https://github.com/lofidonut3/pnu-public-notice-event-gate).
+For a concrete optional reference CLI/helper that keeps a local cursor, enriches events from archive metadata, and collapses same-notice duplicate groups, see [`pnu-notice-agent-tools`](https://github.com/lofidonut3/pnu-notice-agent-tools).
 
 ## Operations
 
@@ -106,6 +106,9 @@ The repository uses GitHub Actions:
 - `.github/workflows/test.yml` runs tests on push and pull request.
 - `.github/workflows/update-feed.yml` refreshes the feed on a schedule, checks feed health, commits generated output when it changes, and deploys `public/` to GitHub Pages.
 - Scheduled feed refresh runs every 30 minutes, subject to GitHub Actions scheduling delays.
+- External watchdogs can trigger the same refresh workflow with a `repository_dispatch` event of type `update-feed`. This is the fallback path when GitHub scheduled workflows are delayed or skipped.
+- Feed health fails when a critical source is degraded, when too many sources are degraded, or when the current generator state contains items that are missing from the durable archive.
+- The production workflow keeps up to 80 notices per source and retries critical source fetches once before publishing degraded status.
 
 GitHub Pages should use GitHub Actions as its source.
 

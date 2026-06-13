@@ -76,6 +76,65 @@ def test_build_report_fails_when_degraded_sources_exceed_threshold():
     assert report.lines[-1] == "result: fail"
 
 
+def test_build_report_fails_when_critical_source_is_degraded():
+    report = build_report(
+        _index(
+            status={
+                "overall_status": "partial",
+                "source_count": 1,
+                "ok_source_count": 0,
+                "skipped_source_count": 0,
+                "poll_interval_skipped_source_count": 0,
+                "backoff_source_count": 0,
+                "error_source_count": 1,
+                "degraded_source_count": 1,
+                "critical_degraded_source_count": 1,
+                "sources": [
+                    {
+                        "id": "pnu-main-notice",
+                        "status": "error",
+                        "critical": True,
+                        "error_count": 1,
+                    }
+                ],
+            }
+        ),
+        _events(),
+        _latest(),
+        _sizes(),
+        _thresholds(max_critical_degraded_sources=0),
+    )
+
+    assert "critical_degraded_source_count 1 exceeds 0" in report.issues
+    assert any("critical_degraded 1" in line for line in report.lines)
+
+
+def test_build_report_fails_when_archive_coverage_is_missing_state_items():
+    index = _index()
+    index = {
+        **index,
+        "diagnostics": {
+            "archive_coverage": {
+                "state_item_count": 2,
+                "archive_item_count": 1,
+                "missing_current_state_item_count": 1,
+                "ok": False,
+            }
+        },
+    }
+
+    report = build_report(
+        index,
+        _events(),
+        _latest(),
+        _sizes(),
+        _thresholds(),
+    )
+
+    assert "archive coverage missing 1 current state items" in report.issues
+    assert any("archive_coverage: fail" in line for line in report.lines)
+
+
 def test_build_report_detects_event_count_mismatch():
     events = _events()
     events = {**events, "event_count": 2}
@@ -170,11 +229,13 @@ def _thresholds(
     max_degraded_sources=100,
     max_backoff_sources=100,
     max_error_sources=50,
+    max_critical_degraded_sources=0,
 ):
     return Thresholds(
         max_degraded_sources=max_degraded_sources,
         max_backoff_sources=max_backoff_sources,
         max_error_sources=max_error_sources,
+        max_critical_degraded_sources=max_critical_degraded_sources,
         max_public_total_mib=500,
         max_state_mib=50,
         min_event_count=1,
