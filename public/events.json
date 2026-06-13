@@ -1,50 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-06-13T01:51:31+09:00",
+  "generated_at": "2026-06-13T15:24:17+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 1566,
+  "total_event_count": 1567,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-13T01:51:31+09:00|updated|pnu-graduate-gspa-grad-10899:1440879|4b1666311a25",
-  "oldest_event_id": "2026-06-05T14:52:35+09:00|added|pnu-sanhak-notices:4-47|cb9a1d6e9696",
+  "latest_event_id": "2026-06-13T15:24:17+09:00|added|pnu-main-notice:1509423|d3c53388db00",
+  "oldest_event_id": "2026-06-05T14:52:35+09:00|added|pnu-sanhak-notices:4-48|25ef578752c1",
   "oldest_seen_at": "2026-06-05T14:52:35+09:00",
-  "latest_seen_at": "2026-06-13T01:51:31+09:00",
+  "latest_seen_at": "2026-06-13T15:24:17+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-05T14:52:35+09:00|added|pnu-sanhak-notices:4-47|cb9a1d6e9696",
-      "event_type": "added",
-      "notice_id": "pnu-sanhak-notices:4-47",
-      "source_id": "pnu-sanhak-notices",
-      "source_name": "부산대 산학협력단 공지사항",
-      "source_category": "research_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "sanhak",
-        "research"
-      ],
-      "seen_at": "2026-06-05T14:52:35+09:00",
-      "published_at": "2026-05-18",
-      "title": "[디지털인문학센터][글로컬대학 30] 'DH 이해하기 I: 인문학도로서 디지털 시대 마주하기' 비교과 프로그램 운영 안내",
-      "url": "https://sanhak.pusan.ac.kr/sanhak/boardview/4/47",
-      "topics": [
-        "research"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-sanhak-notices:4-47",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-sanhak-notices"
-      ],
-      "content_hash": "cb9a1d6e969643b37857e72b78565531feec8ef4fe08271a0d1573c39abafa46",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-05.json",
-      "archive_item_id": "pnu-sanhak-notices:4-47"
-    },
     {
       "event_id": "2026-06-05T14:52:35+09:00|added|pnu-sanhak-notices:4-48|25ef578752c1",
       "event_type": "added",
@@ -33857,6 +33826,37 @@
       "previous_content_hash": "f2b70234ccab3ccb37fc64c3fee54afc012c4ea8432f5ca158685bf5eb7bf523",
       "archive_file": "./archive/2026-05.json",
       "archive_item_id": "pnu-graduate-gspa-grad-10899:1440879"
+    },
+    {
+      "event_id": "2026-06-13T15:24:17+09:00|added|pnu-main-notice:1509423|d3c53388db00",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1509423",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-06-13T15:24:17+09:00",
+      "published_at": "2026-06-13",
+      "title": "[효원상담원] (무료 블렌딩티 클래스 2차, 간식 제공) 마음지킴 프로젝트 안내(6/26)",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509423",
+      "topics": [
+        "academic",
+        "student_support"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1509423",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "d3c53388db00fe23a43d1d688b297ade7279a22b945e98de49dcec58778ece91",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-main-notice:1509423"
     }
   ]
 }
