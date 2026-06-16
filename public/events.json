@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-06-16T23:23:05+09:00",
+  "generated_at": "2026-06-17T03:44:54+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 2277,
+  "total_event_count": 2278,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-16T23:23:05+09:00|updated|pnu-academic-polsci-undergrad-7498:1443004|6fe0c4ea7027",
-  "oldest_event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-general:117439|9b9789b2edae",
+  "latest_event_id": "2026-06-17T03:44:54+09:00|added|pnu-lei-foreign-language-notices:1131|17ae97d9a4ef",
+  "oldest_event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-general:117440|5e0ab3a285db",
   "oldest_seen_at": "2026-06-10T18:05:45+09:00",
-  "latest_seen_at": "2026-06-16T23:23:05+09:00",
+  "latest_seen_at": "2026-06-17T03:44:54+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-general:117439|9b9789b2edae",
-      "event_type": "added",
-      "notice_id": "pnu-job-recruit-general:117439",
-      "source_id": "pnu-job-recruit-general",
-      "source_name": "부산대 취업전략과 일반채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "recruitment",
-        "general_recruitment"
-      ],
-      "seen_at": "2026-06-10T18:05:45+09:00",
-      "published_at": null,
-      "title": "[국보디자인] 2026년 하반기 신입사원 공개채용",
-      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117439",
-      "topics": [
-        "recruitment",
-        "career",
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-recruit-general:117439",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-recruit-general"
-      ],
-      "content_hash": "9b9789b2edae88d96d13c8e8cf134355c926283a94ed143341eb88ffcd60d825",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-job-recruit-general:117439"
-    },
     {
       "event_id": "2026-06-10T18:05:45+09:00|added|pnu-job-recruit-general:117440|5e0ab3a285db",
       "event_type": "added",
@@ -33327,6 +33293,40 @@
       "previous_content_hash": "e09c20b54d6609ae7f0df3ede35f61544b0d7e20d28495aa69a0e93e3971c269",
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-academic-polsci-undergrad-7498:1443004"
+    },
+    {
+      "event_id": "2026-06-17T03:44:54+09:00|added|pnu-lei-foreign-language-notices:1131|17ae97d9a4ef",
+      "event_type": "added",
+      "notice_id": "pnu-lei-foreign-language-notices:1131",
+      "source_id": "pnu-lei-foreign-language-notices",
+      "source_name": "부산대 언어교육원 외국어과정 공지사항",
+      "source_category": "language_education_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "language_education",
+        "foreign_language_course"
+      ],
+      "seen_at": "2026-06-17T03:44:54+09:00",
+      "published_at": "2024-11-18",
+      "title": "2024학년도 겨울학기 대학원학위청구 외국어시험 (영어) 대체강좌 수강생 모집.",
+      "url": "https://lei.pusan.ac.kr/page?menuCD=000000000000226&mode=DETAIL&seq=1131&typeSeqNo=1&mainbbsTabIndex=1&cateSeq=10",
+      "topics": [
+        "language",
+        "course",
+        "graduation",
+        "graduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-lei-foreign-language-notices:1131",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-lei-foreign-language-notices"
+      ],
+      "content_hash": "17ae97d9a4efdf17504d7ad447da27ffaca9840e12c40ae9cdd8e9f95fbc1a4c",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2024-11.json",
+      "archive_item_id": "pnu-lei-foreign-language-notices:1131"
     }
   ]
 }
