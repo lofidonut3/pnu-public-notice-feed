@@ -1,50 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-06-21T11:00:50+09:00",
+  "generated_at": "2026-06-21T16:17:27+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 2742,
+  "total_event_count": 2743,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-21T11:00:50+09:00|added|pnu-job-notices:204065|5c414612d7d3",
-  "oldest_event_id": "2026-06-13T20:58:32+09:00|added|pnu-lei-foreign-language-notices:1156|7bc9ead482eb",
+  "latest_event_id": "2026-06-21T16:17:27+09:00|added|pnu-job-notices:204066|def642ea6241",
+  "oldest_event_id": "2026-06-13T20:58:32+09:00|added|pnu-lei-foreign-language-notices:1157|9ac99950af7c",
   "oldest_seen_at": "2026-06-13T20:58:32+09:00",
-  "latest_seen_at": "2026-06-21T11:00:50+09:00",
+  "latest_seen_at": "2026-06-21T16:17:27+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-13T20:58:32+09:00|added|pnu-lei-foreign-language-notices:1156|7bc9ead482eb",
-      "event_type": "added",
-      "notice_id": "pnu-lei-foreign-language-notices:1156",
-      "source_id": "pnu-lei-foreign-language-notices",
-      "source_name": "부산대 언어교육원 외국어과정 공지사항",
-      "source_category": "language_education_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "language_education",
-        "foreign_language_course"
-      ],
-      "seen_at": "2026-06-13T20:58:32+09:00",
-      "published_at": "2025-03-31",
-      "title": "2025학년도 4월 정기 모의 테스트(토익, 오픽) 실시 안내",
-      "url": "https://lei.pusan.ac.kr/page?menuCD=000000000000226&mode=DETAIL&seq=1156&typeSeqNo=1&mainbbsTabIndex=1&cateSeq=10",
-      "topics": [
-        "language"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-lei-foreign-language-notices:1156",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-lei-foreign-language-notices"
-      ],
-      "content_hash": "7bc9ead482eb2a50ce0f04d48ecabebf9ad1236f7e515628710135f42f8a5f17",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2025-03.json",
-      "archive_item_id": "pnu-lei-foreign-language-notices:1156"
-    },
     {
       "event_id": "2026-06-13T20:58:32+09:00|added|pnu-lei-foreign-language-notices:1157|9ac99950af7c",
       "event_type": "added",
@@ -33838,6 +33807,38 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-job-notices:204065"
+    },
+    {
+      "event_id": "2026-06-21T16:17:27+09:00|added|pnu-job-notices:204066|def642ea6241",
+      "event_type": "added",
+      "notice_id": "pnu-job-notices:204066",
+      "source_id": "pnu-job-notices",
+      "source_name": "부산대 취업전략과 공지사항",
+      "source_category": "career_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "job_notice"
+      ],
+      "seen_at": "2026-06-21T16:17:27+09:00",
+      "published_at": "2026-06-21",
+      "title": "[대학일자리플러스센터] 2026 구글코리아 청년 AI 역량강화 프로그램 (Google AI Professional Certificate) 수강생 모집",
+      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204066?p=1",
+      "topics": [
+        "career",
+        "course"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-notices:204066",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-notices"
+      ],
+      "content_hash": "def642ea624127bc1478843b10ba4bcd03a013e649423771b9687c7ae5ed0020",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-notices:204066"
     }
   ]
 }
