@@ -1,52 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-06-28T14:05:11+09:00",
+  "generated_at": "2026-06-28T17:33:55+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 3601,
+  "total_event_count": 3602,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-28T14:05:11+09:00|added|pnu-main-notice:1509635|4ad7eb1d769a",
-  "oldest_event_id": "2026-06-19T14:35:46+09:00|added|pnu-job-recruit-recommendation:117534|5f0aeefe4f78",
+  "latest_event_id": "2026-06-28T17:33:55+09:00|updated|pnu-main-notice:1509635|7965e26368da",
+  "oldest_event_id": "2026-06-19T14:35:46+09:00|added|pnu-job-recruit-recommendation:117535|46a5e822aa1b",
   "oldest_seen_at": "2026-06-19T14:35:46+09:00",
-  "latest_seen_at": "2026-06-28T14:05:11+09:00",
+  "latest_seen_at": "2026-06-28T17:33:55+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-19T14:35:46+09:00|added|pnu-job-recruit-recommendation:117534|5f0aeefe4f78",
-      "event_type": "added",
-      "notice_id": "pnu-job-recruit-recommendation:117534",
-      "source_id": "pnu-job-recruit-recommendation",
-      "source_name": "부산대 취업전략과 추천채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "recruitment",
-        "recommended_recruitment"
-      ],
-      "seen_at": "2026-06-19T14:35:46+09:00",
-      "published_at": null,
-      "title": "[동국씨엠(주)] 주니어사원(채용연계형 인턴십) 추천채용 안내",
-      "url": "https://job.pusan.ac.kr/ko/recruit/Recommendation_intro/view/117534",
-      "topics": [
-        "recruitment",
-        "career"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-recruit-recommendation:117534",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-recruit-recommendation"
-      ],
-      "content_hash": "5f0aeefe4f78bb1ceda1f0a643d9e926698c80d56cc48685aefa87a2d8c0b5a6",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-job-recruit-recommendation:117534"
-    },
     {
       "event_id": "2026-06-19T14:35:46+09:00|added|pnu-job-recruit-recommendation:117535|46a5e822aa1b",
       "event_type": "added",
@@ -34919,6 +34886,37 @@
       ],
       "content_hash": "4ad7eb1d769a0f440b564925dfea223a05d9d2fc1aaaf88c7973e9fa32141af7",
       "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-main-notice:1509635"
+    },
+    {
+      "event_id": "2026-06-28T17:33:55+09:00|updated|pnu-main-notice:1509635|7965e26368da",
+      "event_type": "updated",
+      "notice_id": "pnu-main-notice:1509635",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-06-28T17:33:55+09:00",
+      "published_at": "2026-06-28",
+      "title": "[초청특강] 부산 AX: AI 시대 대한민국의 성장엔진 - 하정우 前 청와대 대통령비서실 AI미래기획수석비서관",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509635",
+      "topics": [
+        "academic",
+        "event"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1509635",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "7965e26368dad8de61e371437fd178103b5cbd7390207945ebe702ee5963fdf2",
+      "previous_content_hash": "4ad7eb1d769a0f440b564925dfea223a05d9d2fc1aaaf88c7973e9fa32141af7",
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-main-notice:1509635"
     }
