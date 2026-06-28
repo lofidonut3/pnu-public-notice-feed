@@ -1,182 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-06-27T14:34:53+09:00",
+  "generated_at": "2026-06-28T09:10:47+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 3583,
+  "total_event_count": 3588,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-27T14:34:53+09:00|added|pnu-main-notice:1509631|660bdc7c07dc",
-  "oldest_event_id": "2026-06-19T14:35:46+09:00|added|pnu-academic-me-grad-sub01-02:3464|bb36ab25194e",
+  "latest_event_id": "2026-06-28T09:10:47+09:00|added|pnu-main-notice:1509634|fccb86a2cf82",
+  "oldest_event_id": "2026-06-19T14:35:46+09:00|added|pnu-academic-ocean-general-12798:1443851|ebdf9b8685ca",
   "oldest_seen_at": "2026-06-19T14:35:46+09:00",
-  "latest_seen_at": "2026-06-27T14:34:53+09:00",
+  "latest_seen_at": "2026-06-28T09:10:47+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-19T14:35:46+09:00|added|pnu-academic-me-grad-sub01-02:3464|bb36ab25194e",
-      "event_type": "added",
-      "notice_id": "pnu-academic-me-grad-sub01-02:3464",
-      "source_id": "pnu-academic-me-grad-sub01-02",
-      "source_name": "부산대 기계공학부 대학원공지",
-      "source_category": "academic_unit_graduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "graduate"
-      ],
-      "seen_at": "2026-06-19T14:35:46+09:00",
-      "published_at": "2026-06-19",
-      "title": "[BK21 대학원혁신실] 공동실험실습관 「주사전자현미경(SEM, FIB, EPMA) 워크숍...",
-      "url": "https://me.pusan.ac.kr/new/sub05/sub01_02.php?db=gradnotice&seq=3464&page=1&perPage=10&page_mode=view",
-      "topics": [
-        "graduate",
-        "event"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-me-grad-sub01-02:3464",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-me-grad-sub01-02"
-      ],
-      "content_hash": "bb36ab25194effb510e514ee857001fda93c42fcb15f0a27d66f2f45d4157200",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-me-grad-sub01-02:3464"
-    },
-    {
-      "event_id": "2026-06-19T14:35:46+09:00|added|pnu-academic-me-undergrad-sub01-01:5051|d5c7f1fc9ef9",
-      "event_type": "added",
-      "notice_id": "pnu-academic-me-undergrad-sub01-01:5051",
-      "source_id": "pnu-academic-me-undergrad-sub01-01",
-      "source_name": "부산대 기계공학부 학부공지",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergraduate"
-      ],
-      "seen_at": "2026-06-19T14:35:46+09:00",
-      "published_at": "2026-06-19",
-      "title": "[참가모집] 2026 PNU International PBL Competition Work...",
-      "url": "https://me.pusan.ac.kr/new/sub05/sub01_01.php?db=hakbunotice&seq=5051&page=1&perPage=10&page_mode=view",
-      "topics": [
-        "undergraduate"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-me-undergrad-sub01-01:5051",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-me-undergrad-sub01-01"
-      ],
-      "content_hash": "d5c7f1fc9ef966041ad6c7802b04e9d93f5a6d782df7ac74649264c456f0d30d",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-me-undergrad-sub01-01:5051"
-    },
-    {
-      "event_id": "2026-06-19T14:35:46+09:00|added|pnu-academic-music-general-11763:1443884|5a59c3de553f",
-      "event_type": "added",
-      "notice_id": "pnu-academic-music-general-11763:1443884",
-      "source_id": "pnu-academic-music-general-11763",
-      "source_name": "부산대 음악학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-06-19T14:35:46+09:00",
-      "published_at": "2026-06-19",
-      "title": "[교강사] 2026-1학기 출석부 제출 안내 새글",
-      "url": "https://music.pusan.ac.kr/bbs/music/1354/1443884/artclView.do",
-      "topics": [],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-music-general-11763:1443884",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-music-general-11763"
-      ],
-      "content_hash": "5a59c3de553f4d6cb52b95ad1af54083043966755d704d5fe86b290a2dada59b",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-music-general-11763:1443884"
-    },
-    {
-      "event_id": "2026-06-19T14:35:46+09:00|added|pnu-academic-nanomecha-general-10848:1443903|6e62f4475a58",
-      "event_type": "added",
-      "notice_id": "pnu-academic-nanomecha-general-10848:1443903",
-      "source_id": "pnu-academic-nanomecha-general-10848",
-      "source_name": "부산대 나노메카트로닉스공학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-06-19T14:35:46+09:00",
-      "published_at": "2026-06-19",
-      "title": "[미래모빌리티전공] 비교과과정-미래모빌리티 혁신 역량강화 과정 공모 사업의 신청 접수 안내 새글",
-      "url": "https://nanomecha.pusan.ac.kr/bbs/nanomecha/1324/1443903/artclView.do",
-      "topics": [
-        "career",
-        "contest"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-nanomecha-general-10848:1443903",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-nanomecha-general-10848"
-      ],
-      "content_hash": "6e62f4475a5844edbe3bf71504f90155fb632b7f00d4eed4bc1fcb776ccc9c20",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-nanomecha-general-10848:1443903"
-    },
-    {
-      "event_id": "2026-06-19T14:35:46+09:00|added|pnu-academic-ocean-general-12798:1443849|4b6fbd7742cf",
-      "event_type": "added",
-      "notice_id": "pnu-academic-ocean-general-12798:1443849",
-      "source_id": "pnu-academic-ocean-general-12798",
-      "source_name": "부산대 해양학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-06-19T14:35:46+09:00",
-      "published_at": "2026-06-19",
-      "title": "2026년 국립부산과학관 여름학기 교육봉사단 모집 안내 새글",
-      "url": "https://ocean.pusan.ac.kr/bbs/ocean/2001/1443849/artclView.do",
-      "topics": [],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-ocean-general-12798:1443849",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-ocean-general-12798"
-      ],
-      "content_hash": "4b6fbd7742cf0abfea11c27318de37cd396bc43bf5408db4201bd7298271ed87",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-ocean-general-12798:1443849"
-    },
     {
       "event_id": "2026-06-19T14:35:46+09:00|added|pnu-academic-ocean-general-12798:1443851|ebdf9b8685ca",
       "event_type": "added",
@@ -34927,6 +34764,171 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-main-notice:1509631"
+    },
+    {
+      "event_id": "2026-06-28T09:10:47+09:00|added|pnu-job-notices:204073|3ac8685cd16e",
+      "event_type": "added",
+      "notice_id": "pnu-job-notices:204073",
+      "source_id": "pnu-job-notices",
+      "source_name": "부산대 취업전략과 공지사항",
+      "source_category": "career_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "job_notice"
+      ],
+      "seen_at": "2026-06-28T09:10:47+09:00",
+      "published_at": "2026-06-28",
+      "title": "[한국 딜로이트 그룹] 안진 회계법인 채용설명회 일정 안내 (7/16)",
+      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204073?p=1",
+      "topics": [
+        "career",
+        "recruitment",
+        "event"
+      ],
+      "same_notice_group_id": "same_notice:cde1aa906e6c21bf",
+      "canonical_item_id": "pnu-main-notice:1509633",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-job-notices",
+        "pnu-main-notice"
+      ],
+      "content_hash": "3ac8685cd16e141d1398d7540e6008117b556a1349d3242b582fa7254ef857d2",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-notices:204073"
+    },
+    {
+      "event_id": "2026-06-28T09:10:47+09:00|added|pnu-job-notices:204074|500bd68be5ba",
+      "event_type": "added",
+      "notice_id": "pnu-job-notices:204074",
+      "source_id": "pnu-job-notices",
+      "source_name": "부산대 취업전략과 공지사항",
+      "source_category": "career_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "job_notice"
+      ],
+      "seen_at": "2026-06-28T09:10:47+09:00",
+      "published_at": "2026-06-28",
+      "title": "[EY한영] 한영 회계법인 채용설명회 일정 안내 (7/10)",
+      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204074?p=1",
+      "topics": [
+        "career",
+        "recruitment",
+        "event"
+      ],
+      "same_notice_group_id": "same_notice:2f0c262f161c8a37",
+      "canonical_item_id": "pnu-main-notice:1509634",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-job-notices",
+        "pnu-main-notice"
+      ],
+      "content_hash": "500bd68be5bad43bc084b9cca8ca7792fd08f87e192641c7035f101f1709afc9",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-notices:204074"
+    },
+    {
+      "event_id": "2026-06-28T09:10:47+09:00|added|pnu-job-notices:204075|7b698a48b161",
+      "event_type": "added",
+      "notice_id": "pnu-job-notices:204075",
+      "source_id": "pnu-job-notices",
+      "source_name": "부산대 취업전략과 공지사항",
+      "source_category": "career_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "job_notice"
+      ],
+      "seen_at": "2026-06-28T09:10:47+09:00",
+      "published_at": "2026-06-28",
+      "title": "[부산진구 부전 청소년센터] '면접관의 관점에서 본 취업 면접 컨설팅' 모집 안내",
+      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204075?p=1",
+      "topics": [
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-notices:204075",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-notices"
+      ],
+      "content_hash": "7b698a48b161280ed107b82fb7074880a7e1847dcc4d997f80b267b1da45c0aa",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-job-notices:204075"
+    },
+    {
+      "event_id": "2026-06-28T09:10:47+09:00|added|pnu-main-notice:1509633|9f9296eb7f0d",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1509633",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-06-28T09:10:47+09:00",
+      "published_at": "2026-06-28",
+      "title": "[한국 딜로이트 그룹] 안진 회계법인 채용설명회 일정 안내 (7/16)",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509633",
+      "topics": [
+        "academic",
+        "recruitment",
+        "event"
+      ],
+      "same_notice_group_id": "same_notice:cde1aa906e6c21bf",
+      "canonical_item_id": "pnu-main-notice:1509633",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-notices",
+        "pnu-main-notice"
+      ],
+      "content_hash": "9f9296eb7f0de1c0cf83198ed0d2c8a6d30a969e36382d1a90e6d085fd646557",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-main-notice:1509633"
+    },
+    {
+      "event_id": "2026-06-28T09:10:47+09:00|added|pnu-main-notice:1509634|fccb86a2cf82",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1509634",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-06-28T09:10:47+09:00",
+      "published_at": "2026-06-28",
+      "title": "[EY한영] 한영 회계법인 채용설명회 일정 안내 (7/10)",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509634",
+      "topics": [
+        "academic",
+        "recruitment",
+        "event"
+      ],
+      "same_notice_group_id": "same_notice:2f0c262f161c8a37",
+      "canonical_item_id": "pnu-main-notice:1509634",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-notices",
+        "pnu-main-notice"
+      ],
+      "content_hash": "fccb86a2cf829b8113c92d96fed1aff149adb4b0cb0991764249eacc576af425",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-main-notice:1509634"
     }
   ]
 }
