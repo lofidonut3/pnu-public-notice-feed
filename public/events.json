@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-06-29T23:35:46+09:00",
+  "generated_at": "2026-06-30T08:06:42+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 3787,
+  "total_event_count": 3788,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-29T23:35:46+09:00|updated|pnu-onestop-notices:2099|967bfeb8fb74",
-  "oldest_event_id": "2026-06-22T14:20:20+09:00|added|pnu-academic-microbio-grad-10801:1444013|210d205c2385",
+  "latest_event_id": "2026-06-30T08:06:42+09:00|updated|pnu-main-notice:1509656|82173f00e989",
+  "oldest_event_id": "2026-06-22T14:20:20+09:00|added|pnu-academic-microbio-grad-10801:1444018|40cade80e598",
   "oldest_seen_at": "2026-06-22T14:20:20+09:00",
-  "latest_seen_at": "2026-06-29T23:35:46+09:00",
+  "latest_seen_at": "2026-06-30T08:06:42+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-22T14:20:20+09:00|added|pnu-academic-microbio-grad-10801:1444013|210d205c2385",
-      "event_type": "added",
-      "notice_id": "pnu-academic-microbio-grad-10801:1444013",
-      "source_id": "pnu-academic-microbio-grad-10801",
-      "source_name": "부산대 미생물학과 대학원공지사항",
-      "source_category": "academic_unit_graduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "grad"
-      ],
-      "seen_at": "2026-06-22T14:20:20+09:00",
-      "published_at": "2026-06-22",
-      "title": "[프로그램]표절예방프로그램 '턴잇인(Turnitin)' 클래스 변경 이용 새글",
-      "url": "https://microbio.pusan.ac.kr/bbs/microbio/1315/1444013/artclView.do",
-      "topics": [
-        "graduate"
-      ],
-      "same_notice_group_id": "same_notice:0def728aaf5b5340",
-      "canonical_item_id": "pnu-academic-hid-general-10650:1444025",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-hid-general-10650",
-        "pnu-academic-microbio-grad-10801"
-      ],
-      "content_hash": "210d205c2385f9f7b5ae4f4d6460a3c0fed7eb5c1ef39867486fcf3a5025dbd3",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-microbio-grad-10801:1444013"
-    },
     {
       "event_id": "2026-06-22T14:20:20+09:00|added|pnu-academic-microbio-grad-10801:1444018|40cade80e598",
       "event_type": "added",
@@ -34500,6 +34466,38 @@
       "previous_content_hash": "a363b54ccb8dddec42e0d564e9ffc2cbc011eeefc5ca278f3d9b02896a9e7159",
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-onestop-notices:2099"
+    },
+    {
+      "event_id": "2026-06-30T08:06:42+09:00|updated|pnu-main-notice:1509656|82173f00e989",
+      "event_type": "updated",
+      "notice_id": "pnu-main-notice:1509656",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-06-30T08:06:42+09:00",
+      "published_at": "2026-06-29",
+      "title": "[장학]이재모피자(반석나라) 장학회 26년 하반기 비전유형 장학생 선발 안내",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509656",
+      "topics": [
+        "academic",
+        "scholarship"
+      ],
+      "same_notice_group_id": "same_notice:f617f63471858e66",
+      "canonical_item_id": "pnu-main-notice:1509656",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice",
+        "pnu-onestop-notices"
+      ],
+      "content_hash": "82173f00e98924aa9f764d2dec420d1d7915d586a0068493cd482bf50d4f22c6",
+      "previous_content_hash": "79f43d6588cab0b3af67d0e627c12ae486bc49c33ec44fd1dd3a545afc852575",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-main-notice:1509656"
     }
   ]
 }
