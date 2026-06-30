@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-06-30T19:09:32+09:00",
+  "generated_at": "2026-06-30T21:30:32+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 4009,
+  "total_event_count": 4010,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-30T19:09:32+09:00|updated|pnu-sedu-support-notices:1761982|9f9d3ca58d08",
-  "oldest_event_id": "2026-06-23T17:05:00+09:00|added|pnu-academic-philosophy-undergrad-11291:1444221|0bd173b599a8",
+  "latest_event_id": "2026-06-30T21:30:32+09:00|added|pnu-international-student-notices:1447617|7d746231dff5",
+  "oldest_event_id": "2026-06-23T17:05:00+09:00|added|pnu-academic-philosophy-undergrad-11296:1444186|71be712789c0",
   "oldest_seen_at": "2026-06-23T17:05:00+09:00",
-  "latest_seen_at": "2026-06-30T19:09:32+09:00",
+  "latest_seen_at": "2026-06-30T21:30:32+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-23T17:05:00+09:00|added|pnu-academic-philosophy-undergrad-11291:1444221|0bd173b599a8",
-      "event_type": "added",
-      "notice_id": "pnu-academic-philosophy-undergrad-11291:1444221",
-      "source_id": "pnu-academic-philosophy-undergrad-11291",
-      "source_name": "부산대 철학과 학부 공지사항",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-06-23T17:05:00+09:00",
-      "published_at": "2026-06-23",
-      "title": "2026학년도 2학기 단위기관 협정에 따른 교환학생 추천 요청 및 PNU 장학금 지원 안 새글",
-      "url": "https://philosophy.pusan.ac.kr/bbs/philosophy/1450/1444221/artclView.do",
-      "topics": [
-        "undergraduate",
-        "scholarship",
-        "international"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-philosophy-undergrad-11291:1444221",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-philosophy-undergrad-11291"
-      ],
-      "content_hash": "0bd173b599a82957f5acf003d7365a59a5912ed4f3df5af7805f11d7d736903b",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-philosophy-undergrad-11291:1444221"
-    },
     {
       "event_id": "2026-06-23T17:05:00+09:00|added|pnu-academic-philosophy-undergrad-11296:1444186|71be712789c0",
       "event_type": "added",
@@ -34636,6 +34601,37 @@
       "previous_content_hash": "ff125da7429f23a05bfe3d3bc5d1dd9ebcd79b4d2054d29e5635cd99a121887c",
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-sedu-support-notices:1761982"
+    },
+    {
+      "event_id": "2026-06-30T21:30:32+09:00|added|pnu-international-student-notices:1447617|7d746231dff5",
+      "event_type": "added",
+      "notice_id": "pnu-international-student-notices:1447617",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-06-30T21:30:32+09:00",
+      "published_at": "2026-06-30",
+      "title": "비자 관련 서류 서명 가능 시간 알림(2026년 7월) Available time for signature",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1447617/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1447617",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "7d746231dff5141eb57bb9996342522c797b0880e3576c417082de02fc9e391f",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-international-student-notices:1447617"
     }
   ]
 }
