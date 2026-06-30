@@ -1,122 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-06-30T21:30:32+09:00",
+  "generated_at": "2026-07-01T00:37:16+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 4010,
+  "total_event_count": 4013,
   "event_limit": 1000,
-  "latest_event_id": "2026-06-30T21:30:32+09:00|added|pnu-international-student-notices:1447617|7d746231dff5",
-  "oldest_event_id": "2026-06-23T17:05:00+09:00|added|pnu-academic-philosophy-undergrad-11296:1444186|71be712789c0",
+  "latest_event_id": "2026-07-01T00:37:16+09:00|updated|pnu-academic-history-general-6500:1447551|c918755690c6",
+  "oldest_event_id": "2026-06-23T17:05:00+09:00|added|pnu-academic-sportscience-general-3107:1444187|6e675158bedb",
   "oldest_seen_at": "2026-06-23T17:05:00+09:00",
-  "latest_seen_at": "2026-06-30T21:30:32+09:00",
+  "latest_seen_at": "2026-07-01T00:37:16+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-23T17:05:00+09:00|added|pnu-academic-philosophy-undergrad-11296:1444186|71be712789c0",
-      "event_type": "added",
-      "notice_id": "pnu-academic-philosophy-undergrad-11296:1444186",
-      "source_id": "pnu-academic-philosophy-undergrad-11296",
-      "source_name": "부산대 철학과 학부생 학생회 공지",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-06-23T17:05:00+09:00",
-      "published_at": "2026-06-23",
-      "title": "[글로컬] Google AI 도구 제공을 위한 부산대 웹메일 계정 신청·사용 안내(재학생에",
-      "url": "https://philosophy.pusan.ac.kr/bbs/philosophy/1450/1444186/artclView.do",
-      "topics": [
-        "undergraduate"
-      ],
-      "same_notice_group_id": "same_notice:10a89a2a7d8413af",
-      "canonical_item_id": "pnu-academic-philosophy-event-15171:1444186",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-philosophy-event-15171",
-        "pnu-academic-philosophy-grad-11294",
-        "pnu-academic-philosophy-grad-11297",
-        "pnu-academic-philosophy-undergrad-11291",
-        "pnu-academic-philosophy-undergrad-11296"
-      ],
-      "content_hash": "71be712789c0e63220b4ab736a8470c5b4902488c871d41fdb252fce48b298bd",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-philosophy-undergrad-11296:1444186"
-    },
-    {
-      "event_id": "2026-06-23T17:05:00+09:00|added|pnu-academic-polymer-scholarship-5488:1444190|c46b30137da8",
-      "event_type": "added",
-      "notice_id": "pnu-academic-polymer-scholarship-5488:1444190",
-      "source_id": "pnu-academic-polymer-scholarship-5488",
-      "source_name": "부산대 고분자공학과 장학",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-06-23T17:05:00+09:00",
-      "published_at": "2026-06-23",
-      "title": "학생과 미경유 교내외 장학금 수혜현황 제출 안내 새글",
-      "url": "https://polymer.pusan.ac.kr/bbs/polymer/647/1444190/artclView.do",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-polymer-scholarship-5488:1444190",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-polymer-scholarship-5488"
-      ],
-      "content_hash": "c46b30137da8ea22c09b235fe7cd9da8548d82b4092b76df127dd7326079677f",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-polymer-scholarship-5488:1444190"
-    },
-    {
-      "event_id": "2026-06-23T17:05:00+09:00|added|pnu-academic-semi-general-2869:1444194|d7b09eefd72f",
-      "event_type": "added",
-      "notice_id": "pnu-academic-semi-general-2869:1444194",
-      "source_id": "pnu-academic-semi-general-2869",
-      "source_name": "부산대 반도체공학전공 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-06-23T17:05:00+09:00",
-      "published_at": "2026-06-23",
-      "title": "[장학] 학생과 미경유 교내·외 장학금 수혜현황 제출 요청(~6/25(목) 17시까지) 새글",
-      "url": "https://semi.pusan.ac.kr/bbs/semi/248/1444194/artclView.do",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-semi-general-2869:1444194",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-semi-general-2869"
-      ],
-      "content_hash": "d7b09eefd72f8b8c0a62e5cc3c587bb9f1f5d8e4d897954170eb3923cdc2fc5e",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-semi-general-2869:1444194"
-    },
     {
       "event_id": "2026-06-23T17:05:00+09:00|added|pnu-academic-sportscience-general-3107:1444187|6e675158bedb",
       "event_type": "added",
@@ -34632,6 +34529,121 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-international-student-notices:1447617"
+    },
+    {
+      "event_id": "2026-07-01T00:37:16+09:00|updated|pnu-academic-aerospace-general-1455:1444336|7f15266b0461",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-aerospace-general-1455:1444336",
+      "source_id": "pnu-academic-aerospace-general-1455",
+      "source_name": "부산대 항공우주공학과 학과공지",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-07-01T00:37:16+09:00",
+      "published_at": "2026-06-24",
+      "title": "2026학년도 2학기 학·석(박)사 (통합)연계과정 학생 및 전환 희망 학생 모집 안내 새글",
+      "url": "https://aerospace.pusan.ac.kr/bbs/aerospace/96/1444336/artclView.do",
+      "topics": [],
+      "same_notice_group_id": "same_notice:d955421ec00adfdd",
+      "canonical_item_id": "pnu-academic-natural-general-14107:1444320",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-aerospace-general-1455",
+        "pnu-academic-bce-general-5012",
+        "pnu-academic-chem-general-6291",
+        "pnu-academic-china-general-2652",
+        "pnu-academic-history-general-6500",
+        "pnu-academic-math-undergrad-11218",
+        "pnu-academic-natural-general-14107",
+        "pnu-academic-pnutrade-undergrad-2560",
+        "pnu-academic-polymer-general-3892",
+        "pnu-academic-semi-general-2869"
+      ],
+      "content_hash": "7f15266b0461f7c9380d35cc40491abc72a70fb378494a3493aeae5e3286f099",
+      "previous_content_hash": "c60e0ca0a6e21159e236e1e6450bca70a658ce48bd65844ac9962ae0c8a8c79d",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-aerospace-general-1455:1444336"
+    },
+    {
+      "event_id": "2026-07-01T00:37:16+09:00|updated|pnu-academic-cse-general-14221:1444262|fdb568c6e22d",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-cse-general-14221:1444262",
+      "source_id": "pnu-academic-cse-general-14221",
+      "source_name": "부산대 정보컴퓨터공학부 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-07-01T00:37:16+09:00",
+      "published_at": "2026-06-23",
+      "title": "[모집] 부트캠프 NVIDIA 딥러닝 PBL(여름계절학기) 학부 3·4학년 TA 모집",
+      "url": "https://cse.pusan.ac.kr/bbs/cse/2055/1444262/artclView.do",
+      "topics": [
+        "event",
+        "course",
+        "undergraduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-cse-general-14221:1444262",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-cse-general-14221"
+      ],
+      "content_hash": "fdb568c6e22de97c5a8c23413b9e64b762ee6fece69abf50d51f14afafc62714",
+      "previous_content_hash": "3f161cfaf90190f94bc67df5d872163019391ae7363068ec3cf8dacaa356d679",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-cse-general-14221:1444262"
+    },
+    {
+      "event_id": "2026-07-01T00:37:16+09:00|updated|pnu-academic-history-general-6500:1447551|c918755690c6",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-history-general-6500:1447551",
+      "source_id": "pnu-academic-history-general-6500",
+      "source_name": "부산대 사학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-07-01T00:37:16+09:00",
+      "published_at": "2026-06-30",
+      "title": "2026학년도 2학기 부·복수(융합)전공 이수자 선발 계획 안내",
+      "url": "https://history.pusan.ac.kr/bbs/history/174/1447551/artclView.do",
+      "topics": [],
+      "same_notice_group_id": "same_notice:b2bce71d3e636031",
+      "canonical_item_id": "pnu-academic-archaeology-undergrad-3497:1447607",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-archaeology-undergrad-3497",
+        "pnu-academic-bce-general-5008",
+        "pnu-academic-bime-general-8508",
+        "pnu-academic-cdfs-general-1556",
+        "pnu-academic-chem-general-6291",
+        "pnu-academic-china-general-2652",
+        "pnu-academic-history-general-6500",
+        "pnu-academic-math-undergrad-11218",
+        "pnu-academic-sportscience-general-3107",
+        "pnu-academic-ste-general-9557"
+      ],
+      "content_hash": "c918755690c66ac76aa70e957efbb7486871f8e73547730c54166cb88a8c6772",
+      "previous_content_hash": "34c4b839b7cba33cba65902a161e1a2f50cd34e73007a928d9f5e2b8f3085047",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-history-general-6500:1447551"
     }
   ]
 }
