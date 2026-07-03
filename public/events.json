@@ -1,335 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-03T19:46:15+09:00",
+  "generated_at": "2026-07-03T22:01:41+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 4568,
+  "total_event_count": 4577,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-03T19:46:15+09:00|added|pnu-main-notice:1509762|6aba1df4b934",
-  "oldest_event_id": "2026-06-26T20:26:36+09:00|added|pnu-academic-history-grad-6510:1444744|80ed6a75379c",
+  "latest_event_id": "2026-07-03T22:01:41+09:00|updated|pnu-academic-liberal-general-8696:1444733|08007676d5f3",
+  "oldest_event_id": "2026-06-26T20:26:36+09:00|updated|pnu-main-faculty-staff-recruitment:1509608|39c555ee7b1a",
   "oldest_seen_at": "2026-06-26T20:26:36+09:00",
-  "latest_seen_at": "2026-07-03T19:46:15+09:00",
+  "latest_seen_at": "2026-07-03T22:01:41+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-26T20:26:36+09:00|added|pnu-academic-history-grad-6510:1444744|80ed6a75379c",
-      "event_type": "added",
-      "notice_id": "pnu-academic-history-grad-6510:1444744",
-      "source_id": "pnu-academic-history-grad-6510",
-      "source_name": "부산대 사학과 대학원소식",
-      "source_category": "academic_unit_graduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "graduate"
-      ],
-      "seen_at": "2026-06-26T20:26:36+09:00",
-      "published_at": "2026-06-26",
-      "title": "「부산AX_ AI시대 대한민국의 성장엔진」특강 안내 새글",
-      "url": "https://history.pusan.ac.kr/bbs/history/717/1444744/artclView.do",
-      "topics": [
-        "graduate",
-        "event"
-      ],
-      "same_notice_group_id": "same_notice:0acf1dcdab77f039",
-      "canonical_item_id": "pnu-academic-history-general-6500:1444743",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-history-general-6500",
-        "pnu-academic-history-grad-6510"
-      ],
-      "content_hash": "80ed6a75379c5c28179413af83366b3364838d88acbf37c8f98aaa81ead45e81",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-history-grad-6510:1444744"
-    },
-    {
-      "event_id": "2026-06-26T20:26:36+09:00|added|pnu-dorm-yangsan-notices:2034|dc22845f2a68",
-      "event_type": "added",
-      "notice_id": "pnu-dorm-yangsan-notices:2034",
-      "source_id": "pnu-dorm-yangsan-notices",
-      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "yangsan_campus"
-      ],
-      "seen_at": "2026-06-26T20:26:36+09:00",
-      "published_at": "2026-06-26",
-      "title": "[행림관] 하기 원생실 청소 안내",
-      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=2034&typeSeqNo=3&cateSeq=2",
-      "topics": [
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-yangsan-notices:2034",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-yangsan-notices"
-      ],
-      "content_hash": "dc22845f2a68a52b456d4c56018fb49eb3925c777e89f115ea703ae7c81693f6",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-dorm-yangsan-notices:2034"
-    },
-    {
-      "event_id": "2026-06-26T20:26:36+09:00|added|pnu-main-notice:1509630|9549cbb6e18f",
-      "event_type": "added",
-      "notice_id": "pnu-main-notice:1509630",
-      "source_id": "pnu-main-notice",
-      "source_name": "부산대 대학공지",
-      "source_category": "university_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "main_notice"
-      ],
-      "seen_at": "2026-06-26T20:26:36+09:00",
-      "published_at": "2026-06-26",
-      "title": "[교수학습지원센터] 맞춤형 학습컨설팅: 방학 놀면 뭐하니? 컨설팅 받고 학습 끌어올려~ (7/10까지 접수)",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509630",
-      "topics": [
-        "academic"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-notice:1509630",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-notice"
-      ],
-      "content_hash": "9549cbb6e18f5c23b1a9aa0ecba2e50e4bbeffe176e8d6bced86a5e70f76c24a",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-main-notice:1509630"
-    },
-    {
-      "event_id": "2026-06-26T20:26:36+09:00|updated|pnu-academic-bce-general-5012:1443960|f9502b7ad945",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-bce-general-5012:1443960",
-      "source_id": "pnu-academic-bce-general-5012",
-      "source_name": "부산대 의생명융합공학부 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-06-26T20:26:36+09:00",
-      "published_at": "2026-06-19",
-      "title": "외국인 학생 등록금 수납방법 개선 및 납부방법 안내",
-      "url": "https://bce.pusan.ac.kr/bbs/bce/572/1443960/artclView.do",
-      "topics": [
-        "tuition"
-      ],
-      "same_notice_group_id": "same_notice:b2ba359531484710",
-      "canonical_item_id": "pnu-graduate-dent-grad-3456:1443945",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-bce-general-5012",
-        "pnu-academic-biology-undergrad-5536",
-        "pnu-academic-biz-grad-8949",
-        "pnu-academic-chem-general-6291",
-        "pnu-academic-hid-general-10650",
-        "pnu-graduate-dent-grad-3456"
-      ],
-      "content_hash": "f9502b7ad945997a64974f595c9bf67c83c1020f8b820ce69400a21c9a86d253",
-      "previous_content_hash": "2c8d34ce4fe5f5141312f8eafa7278d696222f85e2922ce2a50c5427021cb334",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-bce-general-5012:1443960"
-    },
-    {
-      "event_id": "2026-06-26T20:26:36+09:00|updated|pnu-academic-biology-undergrad-5536:1443955|9dbcc4a9819e",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-biology-undergrad-5536:1443955",
-      "source_id": "pnu-academic-biology-undergrad-5536",
-      "source_name": "부산대 생명과학과 학부공지사항",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-06-26T20:26:36+09:00",
-      "published_at": "2026-06-19",
-      "title": "[학적] 외국인 학생 등록금 수납방법 개선 및 납부방법 안내",
-      "url": "https://biology.pusan.ac.kr/bbs/biology/434/1443955/artclView.do",
-      "topics": [
-        "undergraduate",
-        "tuition",
-        "academic_records"
-      ],
-      "same_notice_group_id": "same_notice:b2ba359531484710",
-      "canonical_item_id": "pnu-graduate-dent-grad-3456:1443945",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-bce-general-5012",
-        "pnu-academic-biology-undergrad-5536",
-        "pnu-academic-biz-grad-8949",
-        "pnu-academic-chem-general-6291",
-        "pnu-academic-hid-general-10650",
-        "pnu-graduate-dent-grad-3456"
-      ],
-      "content_hash": "9dbcc4a9819ebe3822eb3a3caebaca9dbb5bc1904b8fe5887f3bb36d2d9abd61",
-      "previous_content_hash": "1343e9a3b0dabc7069ebb48bb2aee6a27e4982e5d534b014a3ba792f5b937529",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-biology-undergrad-5536:1443955"
-    },
-    {
-      "event_id": "2026-06-26T20:26:36+09:00|updated|pnu-academic-biz-undergrad-8941:1443963|70aa32462a32",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-biz-undergrad-8941:1443963",
-      "source_id": "pnu-academic-biz-undergrad-8941",
-      "source_name": "부산대 경영대학 학부 공지사항",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "college_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-06-26T20:26:36+09:00",
-      "published_at": "2026-06-19",
-      "title": "[에듀테크센터] 생성형 AI 서비스 개시 안내 및 부산대 웹메일 계정 신청‧사용 안내",
-      "url": "https://biz.pusan.ac.kr/bbs/biz/1091/1443963/artclView.do",
-      "topics": [
-        "undergraduate",
-        "campus_service"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-biz-undergrad-8941:1443963",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-biz-undergrad-8941"
-      ],
-      "content_hash": "70aa32462a3251435a677d1c878199262756f5a070d690f222b62b9f2d266258",
-      "previous_content_hash": "01f1e28203ec565d89ac2b9f6522f51aba424bfa6b3d6950d2a4b8d9c9130b53",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-biz-undergrad-8941:1443963"
-    },
-    {
-      "event_id": "2026-06-26T20:26:36+09:00|updated|pnu-academic-chem-general-6291:1443957|5813d0af2d3b",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-chem-general-6291:1443957",
-      "source_id": "pnu-academic-chem-general-6291",
-      "source_name": "부산대 화학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-06-26T20:26:36+09:00",
-      "published_at": "2026-06-19",
-      "title": "[화학] 외국인 학생 등록금 수납방법 개선 및 납부방법 안내",
-      "url": "https://chem.pusan.ac.kr/bbs/chem/164/1443957/artclView.do",
-      "topics": [
-        "tuition"
-      ],
-      "same_notice_group_id": "same_notice:b2ba359531484710",
-      "canonical_item_id": "pnu-graduate-dent-grad-3456:1443945",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-bce-general-5012",
-        "pnu-academic-biology-undergrad-5536",
-        "pnu-academic-biz-grad-8949",
-        "pnu-academic-chem-general-6291",
-        "pnu-academic-hid-general-10650",
-        "pnu-graduate-dent-grad-3456"
-      ],
-      "content_hash": "5813d0af2d3bd049ddac6384e7461b7076305eb5c5ccb928368ca6118abbf9b2",
-      "previous_content_hash": "e20b8166715ac842b9cb019664346aa39fc8a03b60cc08855985f419237630dd",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-chem-general-6291:1443957"
-    },
-    {
-      "event_id": "2026-06-26T20:26:36+09:00|updated|pnu-graduate-gsis-grad-11587:1443964|8fb416eac682",
-      "event_type": "updated",
-      "notice_id": "pnu-graduate-gsis-grad-11587:1443964",
-      "source_id": "pnu-graduate-gsis-grad-11587",
-      "source_name": "부산대 국제전문대학원 공지사항",
-      "source_category": "graduate_school_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "graduate_school",
-        "graduate"
-      ],
-      "seen_at": "2026-06-26T20:26:36+09:00",
-      "published_at": "2026-06-19",
-      "title": "2026학년도 신입생 학생증 추가 신청 안내",
-      "url": "https://gsis.pusan.ac.kr/bbs/gsis/232/1443964/artclView.do",
-      "topics": [
-        "graduate"
-      ],
-      "same_notice_group_id": "same_notice:4fd36a028af55dd0",
-      "canonical_item_id": "pnu-graduate-gsis-grad-11587:1443964",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-liberal-general-8696",
-        "pnu-graduate-gsis-grad-11587"
-      ],
-      "content_hash": "8fb416eac6822874414c5cdfc68c107b12337beca0d72169aaee6d0df8604c09",
-      "previous_content_hash": "f72d8392921ca5bb3d3f92d7efecd9efe617c7d963c6720c8d7c9ba1aaac7b27",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-graduate-gsis-grad-11587:1443964"
-    },
-    {
-      "event_id": "2026-06-26T20:26:36+09:00|updated|pnu-health-notices:102|1eb04e59b970",
-      "event_type": "updated",
-      "notice_id": "pnu-health-notices:102",
-      "source_id": "pnu-health-notices",
-      "source_name": "부산대 보건진료소 공지사항",
-      "source_category": "health_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "health",
-        "campus_service"
-      ],
-      "seen_at": "2026-06-26T20:26:36+09:00",
-      "published_at": "2026-06-24",
-      "title": "[부산대학교 부속의원] 교직원 및 재학생 건강검진 결과 무료 상담 실시 (7~8월 한정)",
-      "url": "https://health.pusan.ac.kr/page?menuCD=000000000000002&mode=DETAIL&seq=102&typeSeqNo=1",
-      "topics": [
-        "health",
-        "student_support"
-      ],
-      "same_notice_group_id": "same_notice:e00583e699758242",
-      "canonical_item_id": "pnu-health-notices:102",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-history-general-6500",
-        "pnu-academic-history-grad-6510",
-        "pnu-academic-japan-grad-8797",
-        "pnu-academic-japan-undergrad-8796",
-        "pnu-academic-medicine-general-14551",
-        "pnu-academic-stat-general-4227",
-        "pnu-health-notices"
-      ],
-      "content_hash": "1eb04e59b9708c91f9028b3ac4c3ef79fd4c949bc8d0e6e73c8861471e4fb01e",
-      "previous_content_hash": "22160aa5971fec5848c6e5c16e8671303c719d6d9044dfd25bb6907fcc68c9ba",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-health-notices:102"
-    },
     {
       "event_id": "2026-06-26T20:26:36+09:00|updated|pnu-main-faculty-staff-recruitment:1509608|39c555ee7b1a",
       "event_type": "updated",
@@ -30911,6 +30595,7 @@
         "pnu-academic-cse-general-14221",
         "pnu-academic-fashion-general-8618",
         "pnu-academic-fu-general-4474",
+        "pnu-academic-history-general-6500",
         "pnu-academic-it-general-4402",
         "pnu-academic-math-undergrad-11218",
         "pnu-academic-microbio-undergrad-10800",
@@ -31050,6 +30735,8 @@
       "is_canonical": true,
       "same_notice_source_ids": [
         "pnu-academic-bce-general-5008",
+        "pnu-academic-cse-general-14221",
+        "pnu-academic-cse-general-14227",
         "pnu-academic-fashion-general-8612"
       ],
       "content_hash": "d4a1f38bf5e36a6c2c5b66f53bf8bf739802556c6af722f859662169c05861b8",
@@ -31359,6 +31046,7 @@
         "pnu-academic-cse-general-14221",
         "pnu-academic-fashion-general-8618",
         "pnu-academic-fu-general-4474",
+        "pnu-academic-history-general-6500",
         "pnu-academic-it-general-4402",
         "pnu-academic-math-undergrad-11218",
         "pnu-academic-microbio-undergrad-10800",
@@ -31564,6 +31252,8 @@
       "is_canonical": false,
       "same_notice_source_ids": [
         "pnu-academic-bce-general-5008",
+        "pnu-academic-cse-general-14221",
+        "pnu-academic-cse-general-14227",
         "pnu-academic-fashion-general-8612"
       ],
       "content_hash": "f303af9e24b288f473629ab92f657dc84870b96a6999e470757d5a584deb970f",
@@ -31765,6 +31455,7 @@
         "pnu-academic-cse-general-14221",
         "pnu-academic-fashion-general-8618",
         "pnu-academic-fu-general-4474",
+        "pnu-academic-history-general-6500",
         "pnu-academic-it-general-4402",
         "pnu-academic-math-undergrad-11218",
         "pnu-academic-microbio-undergrad-10800",
@@ -31805,6 +31496,7 @@
         "pnu-academic-cse-general-14221",
         "pnu-academic-fashion-general-8618",
         "pnu-academic-fu-general-4474",
+        "pnu-academic-history-general-6500",
         "pnu-academic-it-general-4402",
         "pnu-academic-math-undergrad-11218",
         "pnu-academic-microbio-undergrad-10800",
@@ -31845,6 +31537,7 @@
         "pnu-academic-cse-general-14221",
         "pnu-academic-fashion-general-8618",
         "pnu-academic-fu-general-4474",
+        "pnu-academic-history-general-6500",
         "pnu-academic-it-general-4402",
         "pnu-academic-math-undergrad-11218",
         "pnu-academic-microbio-undergrad-10800",
@@ -31886,6 +31579,7 @@
         "pnu-academic-cse-general-14221",
         "pnu-academic-fashion-general-8618",
         "pnu-academic-fu-general-4474",
+        "pnu-academic-history-general-6500",
         "pnu-academic-it-general-4402",
         "pnu-academic-math-undergrad-11218",
         "pnu-academic-microbio-undergrad-10800",
@@ -31994,6 +31688,7 @@
         "pnu-academic-cse-general-14221",
         "pnu-academic-fashion-general-8618",
         "pnu-academic-fu-general-4474",
+        "pnu-academic-history-general-6500",
         "pnu-academic-it-general-4402",
         "pnu-academic-math-undergrad-11218",
         "pnu-academic-microbio-undergrad-10800",
@@ -32034,6 +31729,7 @@
         "pnu-academic-cse-general-14221",
         "pnu-academic-fashion-general-8618",
         "pnu-academic-fu-general-4474",
+        "pnu-academic-history-general-6500",
         "pnu-academic-it-general-4402",
         "pnu-academic-math-undergrad-11218",
         "pnu-academic-microbio-undergrad-10800",
@@ -34270,6 +33966,313 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-main-notice:1509762"
+    },
+    {
+      "event_id": "2026-07-03T22:01:41+09:00|added|pnu-academic-cse-general-14221:1447991|b8a48d198cc8",
+      "event_type": "added",
+      "notice_id": "pnu-academic-cse-general-14221:1447991",
+      "source_id": "pnu-academic-cse-general-14221",
+      "source_name": "부산대 정보컴퓨터공학부 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-07-03T22:01:41+09:00",
+      "published_at": "2026-07-03",
+      "title": "[장학] 2026.2학기 AI학업장려 학자금대출 안내 새글",
+      "url": "https://cse.pusan.ac.kr/bbs/cse/2055/1447991/artclView.do",
+      "topics": [
+        "scholarship"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-cse-general-14221:1447991",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-cse-general-14221"
+      ],
+      "content_hash": "b8a48d198cc88e25d5b04c1b34ed0791842325c74842ec5a87db5b4144ff1cfd",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-academic-cse-general-14221:1447991"
+    },
+    {
+      "event_id": "2026-07-03T22:01:41+09:00|added|pnu-academic-cse-general-14221:1447995|03bc7df560b0",
+      "event_type": "added",
+      "notice_id": "pnu-academic-cse-general-14221:1447995",
+      "source_id": "pnu-academic-cse-general-14221",
+      "source_name": "부산대 정보컴퓨터공학부 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-07-03T22:01:41+09:00",
+      "published_at": "2026-07-03",
+      "title": "[장학] 2026학년도 2학기 학자금 대출 기본계획 알림 새글",
+      "url": "https://cse.pusan.ac.kr/bbs/cse/2055/1447995/artclView.do",
+      "topics": [
+        "scholarship"
+      ],
+      "same_notice_group_id": "same_notice:4e5a2408ace049fc",
+      "canonical_item_id": "pnu-academic-bce-general-5008:1447903",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-bce-general-5008",
+        "pnu-academic-cse-general-14221",
+        "pnu-academic-cse-general-14227",
+        "pnu-academic-fashion-general-8612"
+      ],
+      "content_hash": "03bc7df560b0e4787d589940be27d2a7e251d3e69c14be6fcfec168e841dbca6",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-academic-cse-general-14221:1447995"
+    },
+    {
+      "event_id": "2026-07-03T22:01:41+09:00|added|pnu-academic-cse-general-14227:1447992|07d435387e6b",
+      "event_type": "added",
+      "notice_id": "pnu-academic-cse-general-14227:1447992",
+      "source_id": "pnu-academic-cse-general-14227",
+      "source_name": "부산대 정보컴퓨터공학부 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-07-03T22:01:41+09:00",
+      "published_at": "2026-07-03",
+      "title": "[장학] 2026학년도 2학기 학자금 대출 기본계획 알림 새글",
+      "url": "https://cse.pusan.ac.kr/bbs/cse/2058/1447992/artclView.do",
+      "topics": [
+        "scholarship"
+      ],
+      "same_notice_group_id": "same_notice:4e5a2408ace049fc",
+      "canonical_item_id": "pnu-academic-bce-general-5008:1447903",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-bce-general-5008",
+        "pnu-academic-cse-general-14221",
+        "pnu-academic-cse-general-14227",
+        "pnu-academic-fashion-general-8612"
+      ],
+      "content_hash": "07d435387e6b98021be403dc92b81bfb8394026a948eb3660f625fdbd6fa5be2",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-academic-cse-general-14227:1447992"
+    },
+    {
+      "event_id": "2026-07-03T22:01:41+09:00|added|pnu-academic-history-general-6500:1447998|4f35b2846729",
+      "event_type": "added",
+      "notice_id": "pnu-academic-history-general-6500:1447998",
+      "source_id": "pnu-academic-history-general-6500",
+      "source_name": "부산대 사학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-07-03T22:01:41+09:00",
+      "published_at": "2026-07-03",
+      "title": "[교류/교환/파견/어학연수] 2026학년도 2학기 교류 수학 안내 [서울대, 제주대, 강원대, 서울대(혁신융합)] 새글",
+      "url": "https://history.pusan.ac.kr/bbs/history/174/1447998/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-history-general-6500:1447998",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-history-general-6500"
+      ],
+      "content_hash": "4f35b28467299cd02f79149c853843a3ba81ba04b39e354108d5c3e674a3c0eb",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-academic-history-general-6500:1447998"
+    },
+    {
+      "event_id": "2026-07-03T22:01:41+09:00|added|pnu-academic-history-general-6500:1447999|5baee2f3bc03",
+      "event_type": "added",
+      "notice_id": "pnu-academic-history-general-6500:1447999",
+      "source_id": "pnu-academic-history-general-6500",
+      "source_name": "부산대 사학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-07-03T22:01:41+09:00",
+      "published_at": "2026-07-03",
+      "title": "[학사일정] 2026학년도 2학기 전과 시행 계획 안내 새글",
+      "url": "https://history.pusan.ac.kr/bbs/history/174/1447999/artclView.do",
+      "topics": [
+        "academic_records"
+      ],
+      "same_notice_group_id": "same_notice:99635b7cc1db24f6",
+      "canonical_item_id": "pnu-academic-am-general-4498:1447925",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-am-general-4498",
+        "pnu-academic-cse-general-14221",
+        "pnu-academic-fashion-general-8618",
+        "pnu-academic-fu-general-4474",
+        "pnu-academic-history-general-6500",
+        "pnu-academic-it-general-4402",
+        "pnu-academic-math-undergrad-11218",
+        "pnu-academic-microbio-undergrad-10800",
+        "pnu-academic-mo-general-4426"
+      ],
+      "content_hash": "5baee2f3bc035e09a5d5433f87e14e50d1ee62f05f08d000601de9d211320941",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-academic-history-general-6500:1447999"
+    },
+    {
+      "event_id": "2026-07-03T22:01:41+09:00|added|pnu-academic-history-grad-6510:1447997|cac22afcfbf0",
+      "event_type": "added",
+      "notice_id": "pnu-academic-history-grad-6510:1447997",
+      "source_id": "pnu-academic-history-grad-6510",
+      "source_name": "부산대 사학과 대학원소식",
+      "source_category": "academic_unit_graduate_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "graduate"
+      ],
+      "seen_at": "2026-07-03T22:01:41+09:00",
+      "published_at": "2026-07-03",
+      "title": "2026학년도 2학기 교류 수학 안내 [동국대(일반대학원), 충북대(일반대학원)] 새글",
+      "url": "https://history.pusan.ac.kr/bbs/history/717/1447997/artclView.do",
+      "topics": [
+        "graduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-history-grad-6510:1447997",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-history-grad-6510"
+      ],
+      "content_hash": "cac22afcfbf0ae03941f9a7aa1b9bd36f6ff2a7b4890729a5fbf1f3c726202a7",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-academic-history-grad-6510:1447997"
+    },
+    {
+      "event_id": "2026-07-03T22:01:41+09:00|updated|pnu-academic-comm-general-12531:1444737|45fc46a615fa",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-comm-general-12531:1444737",
+      "source_id": "pnu-academic-comm-general-12531",
+      "source_name": "부산대 미디어커뮤니케이션학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-07-03T22:01:41+09:00",
+      "published_at": "2026-06-26",
+      "title": "[글로컬] Google AI 도구 제공을 위한 부산대 웹메일 계정 신청·사용 협조 요청",
+      "url": "https://comm.pusan.ac.kr/bbs/comm/1632/1444737/artclView.do",
+      "topics": [],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-comm-general-12531:1444737",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-comm-general-12531"
+      ],
+      "content_hash": "45fc46a615fa3a2c5c9c6b859c63fb9a2e85c871e5415d84a9e9c86b7beadb2d",
+      "previous_content_hash": "c565ef34919da7caa4c2f1a8b5bec489d1b9da7705759737b75142adb69fc3e5",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-comm-general-12531:1444737"
+    },
+    {
+      "event_id": "2026-07-03T22:01:41+09:00|updated|pnu-academic-comm-general-12531:1444739|c3fb9c3e1755",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-comm-general-12531:1444739",
+      "source_id": "pnu-academic-comm-general-12531",
+      "source_name": "부산대 미디어커뮤니케이션학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-07-03T22:01:41+09:00",
+      "published_at": "2026-06-26",
+      "title": "산지니 AI(생성형 AI) 안내 및 활용 협조 요청",
+      "url": "https://comm.pusan.ac.kr/bbs/comm/1632/1444739/artclView.do",
+      "topics": [],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-comm-general-12531:1444739",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-comm-general-12531"
+      ],
+      "content_hash": "c3fb9c3e175555d2a427d6ac01ecc39f912be548555054466b0aa4b9f71b00d3",
+      "previous_content_hash": "802f72e3babc4ebd3d561fe088eb87c88995bded114158cd1365023426baaea9",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-comm-general-12531:1444739"
+    },
+    {
+      "event_id": "2026-07-03T22:01:41+09:00|updated|pnu-academic-liberal-general-8696:1444733|08007676d5f3",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-liberal-general-8696:1444733",
+      "source_id": "pnu-academic-liberal-general-8696",
+      "source_name": "부산대 자유전공학부 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-07-03T22:01:41+09:00",
+      "published_at": "2026-06-26",
+      "title": "[하정우_전 대통령 AI미래기획수석비서관 특강]부산AX:AI시대 대한민국의 성장엔진",
+      "url": "https://liberal.pusan.ac.kr/bbs/liberal/858/1444733/artclView.do",
+      "topics": [
+        "event"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-liberal-general-8696:1444733",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-liberal-general-8696"
+      ],
+      "content_hash": "08007676d5f38c8cc4bdc09a0400284cfeef5ec074e445b076d65cdcea34fa31",
+      "previous_content_hash": "42db6f188cbf751dd95b7601c5d0f45fc5c445d89997d3f0ecfb4efe11f9ef66",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-liberal-general-8696:1444733"
     }
   ]
 }
