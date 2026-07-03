@@ -1,87 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-03T06:17:45+09:00",
+  "generated_at": "2026-07-03T09:15:00+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 4464,
+  "total_event_count": 4466,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-03T06:17:45+09:00|updated|pnu-main-faculty-staff-recruitment:1509735|5d56c3c7faf8",
-  "oldest_event_id": "2026-06-25T18:54:44+09:00|updated|pnu-academic-math-career-11232:1443834|60891041fc32",
+  "latest_event_id": "2026-07-03T09:15:00+09:00|added|pnu-main-notice:1509745|430590741ce3",
+  "oldest_event_id": "2026-06-25T18:54:44+09:00|updated|pnu-academic-microbio-undergrad-10800:1443825|f73cb85df864",
   "oldest_seen_at": "2026-06-25T18:54:44+09:00",
-  "latest_seen_at": "2026-07-03T06:17:45+09:00",
+  "latest_seen_at": "2026-07-03T09:15:00+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-25T18:54:44+09:00|updated|pnu-academic-math-career-11232:1443834|60891041fc32",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-math-career-11232:1443834",
-      "source_id": "pnu-academic-math-career-11232",
-      "source_name": "부산대 수학과 취업관련",
-      "source_category": "academic_unit_career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "career"
-      ],
-      "seen_at": "2026-06-25T18:54:44+09:00",
-      "published_at": "2026-06-18",
-      "title": "[글로컬] Google AI 도구 제공을 위한 부산대 웹메일 계정 신청·사용 협조 요청",
-      "url": "https://math.pusan.ac.kr/bbs/math/1392/1443834/artclView.do",
-      "topics": [
-        "career"
-      ],
-      "same_notice_group_id": "same_notice:ff674d1641152eec",
-      "canonical_item_id": "pnu-academic-math-career-11232:1443834",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-math-career-11232",
-        "pnu-academic-math-grad-11222"
-      ],
-      "content_hash": "60891041fc3221a35f0d94da8df428813b047a81373562611d528ad320396956",
-      "previous_content_hash": "7a2353ee2ef8d4513d94692e3fdd41b78f9e851a0eaf97ed3ae93af89f347eca",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-math-career-11232:1443834"
-    },
-    {
-      "event_id": "2026-06-25T18:54:44+09:00|updated|pnu-academic-math-grad-11222:1443835|f098d366e2d2",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-math-grad-11222:1443835",
-      "source_id": "pnu-academic-math-grad-11222",
-      "source_name": "부산대 수학과 대학원공지",
-      "source_category": "academic_unit_graduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "grad"
-      ],
-      "seen_at": "2026-06-25T18:54:44+09:00",
-      "published_at": "2026-06-18",
-      "title": "[글로컬] Google AI 도구 제공을 위한 부산대 웹메일 계정 신청·사용 협조 요청",
-      "url": "https://math.pusan.ac.kr/bbs/math/1399/1443835/artclView.do",
-      "topics": [
-        "graduate"
-      ],
-      "same_notice_group_id": "same_notice:ff674d1641152eec",
-      "canonical_item_id": "pnu-academic-math-career-11232:1443834",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-math-career-11232",
-        "pnu-academic-math-grad-11222"
-      ],
-      "content_hash": "f098d366e2d25bbcde5f3d928dc6d09b6305b5c3d50deb5800e17e313080ef9f",
-      "previous_content_hash": "223e6a7ff0d62ae1e3ad435666976a3c5c666fb62f021597a16937c54b476286",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-math-grad-11222:1443835"
-    },
     {
       "event_id": "2026-06-25T18:54:44+09:00|updated|pnu-academic-microbio-undergrad-10800:1443825|f73cb85df864",
       "event_type": "updated",
@@ -34302,6 +34234,69 @@
       "previous_content_hash": "49d16fafc2657350e583bc87a51cd0b697b64ed0eccc1932f73d50281f7139ca",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-main-faculty-staff-recruitment:1509735"
+    },
+    {
+      "event_id": "2026-07-03T09:15:00+09:00|added|pnu-main-faculty-staff-recruitment:1509747|171ce5777fec",
+      "event_type": "added",
+      "notice_id": "pnu-main-faculty-staff-recruitment:1509747",
+      "source_id": "pnu-main-faculty-staff-recruitment",
+      "source_name": "부산대 교수초빙/직원채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "recruitment",
+        "faculty",
+        "staff"
+      ],
+      "seen_at": "2026-07-03T09:15:00+09:00",
+      "published_at": "2026-07-03",
+      "title": "글로컬대학30프로젝트 추진을 위한 계약직원 공개경쟁 채용 공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1509747",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1509747",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-faculty-staff-recruitment"
+      ],
+      "content_hash": "171ce5777fec2030aae54540bc14e74ef3e8db781238c4d0f5a75b3e9c24172f",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-faculty-staff-recruitment:1509747"
+    },
+    {
+      "event_id": "2026-07-03T09:15:00+09:00|added|pnu-main-notice:1509745|430590741ce3",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1509745",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-07-03T09:15:00+09:00",
+      "published_at": "2026-07-03",
+      "title": "[삼성전자] 삼성 오픈 테크 컴패니언즈 7기 모집 안내",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509745",
+      "topics": [
+        "academic"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1509745",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "430590741ce3acc33846c74e05cdf3a364ef5782fa8e4bb5b766d07649c44788",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-notice:1509745"
     }
   ]
 }
