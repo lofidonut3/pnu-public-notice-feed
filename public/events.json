@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-03T22:01:41+09:00",
+  "generated_at": "2026-07-04T02:41:10+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 4577,
+  "total_event_count": 4578,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-03T22:01:41+09:00|updated|pnu-academic-liberal-general-8696:1444733|08007676d5f3",
-  "oldest_event_id": "2026-06-26T20:26:36+09:00|updated|pnu-main-faculty-staff-recruitment:1509608|39c555ee7b1a",
+  "latest_event_id": "2026-07-04T02:41:10+09:00|added|pnu-international-student-notices:1448005|d05b0d75640f",
+  "oldest_event_id": "2026-06-26T20:26:36+09:00|updated|pnu-main-notice:1509628|eb4ccab6aab0",
   "oldest_seen_at": "2026-06-26T20:26:36+09:00",
-  "latest_seen_at": "2026-07-03T22:01:41+09:00",
+  "latest_seen_at": "2026-07-04T02:41:10+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-26T20:26:36+09:00|updated|pnu-main-faculty-staff-recruitment:1509608|39c555ee7b1a",
-      "event_type": "updated",
-      "notice_id": "pnu-main-faculty-staff-recruitment:1509608",
-      "source_id": "pnu-main-faculty-staff-recruitment",
-      "source_name": "부산대 교수초빙/직원채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "recruitment",
-        "faculty",
-        "staff"
-      ],
-      "seen_at": "2026-06-26T20:26:36+09:00",
-      "published_at": "2026-06-25",
-      "title": "2026학년도 2학기(제4차) 부산대학교 강사 신규채용 공고",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1509608",
-      "topics": [
-        "recruitment",
-        "career"
-      ],
-      "same_notice_group_id": "same_notice:ffc0ac46ed051ed2",
-      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1509608",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-faculty-staff-recruitment",
-        "pnu-ppes-employment"
-      ],
-      "content_hash": "39c555ee7b1a19ca8915261455b7e68dfe2cabd3200be373a83c2c1539b6736e",
-      "previous_content_hash": "e2bc59800ee82b27805fa145c479bbbfd1be0645a014c8d6c9e1660c473508de",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-main-faculty-staff-recruitment:1509608"
-    },
     {
       "event_id": "2026-06-26T20:26:36+09:00|updated|pnu-main-notice:1509628|eb4ccab6aab0",
       "event_type": "updated",
@@ -34273,6 +34239,38 @@
       "previous_content_hash": "42db6f188cbf751dd95b7601c5d0f45fc5c445d89997d3f0ecfb4efe11f9ef66",
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-academic-liberal-general-8696:1444733"
+    },
+    {
+      "event_id": "2026-07-04T02:41:10+09:00|added|pnu-international-student-notices:1448005|d05b0d75640f",
+      "event_type": "added",
+      "notice_id": "pnu-international-student-notices:1448005",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-07-04T02:41:10+09:00",
+      "published_at": "2026-07-04",
+      "title": "[장학] GBS 장학생 선발 Recruitment of Global Busan Scholarship 새글",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1448005/artclView.do",
+      "topics": [
+        "international",
+        "scholarship"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1448005",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "d05b0d75640f0f5236eddb693ee54395bba04d4f793847834148a5ada97fe0d5",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-international-student-notices:1448005"
     }
   ]
 }
