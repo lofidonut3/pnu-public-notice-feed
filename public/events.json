@@ -1,353 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-05T13:42:38+09:00",
+  "generated_at": "2026-07-05T17:07:31+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 4579,
+  "total_event_count": 4589,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-05T13:42:38+09:00|updated|pnu-academic-me-undergrad-sub01-01:5061|37a59bac8bac",
-  "oldest_event_id": "2026-06-27T01:23:21+09:00|updated|pnu-academic-aerospace-general-1455:1444139|4780220be1d1",
-  "oldest_seen_at": "2026-06-27T01:23:21+09:00",
-  "latest_seen_at": "2026-07-05T13:42:38+09:00",
+  "latest_event_id": "2026-07-05T17:07:31+09:00|added|pnu-job-recruit-internship:117618|7ee3b1ee37c9",
+  "oldest_event_id": "2026-06-28T14:05:11+09:00|added|pnu-job-notices:204088|e82ca3ae2ab0",
+  "oldest_seen_at": "2026-06-28T14:05:11+09:00",
+  "latest_seen_at": "2026-07-05T17:07:31+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-27T01:23:21+09:00|updated|pnu-academic-aerospace-general-1455:1444139|4780220be1d1",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-aerospace-general-1455:1444139",
-      "source_id": "pnu-academic-aerospace-general-1455",
-      "source_name": "부산대 항공우주공학과 학과공지",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-06-27T01:23:21+09:00",
-      "published_at": "2026-06-23",
-      "title": "[국립대육성] LIG 디펜스 & 에어로스페이스와 함께하는 직무체험 멘토링 캠프 모집 안내 새글",
-      "url": "https://aerospace.pusan.ac.kr/bbs/aerospace/96/1444139/artclView.do",
-      "topics": [
-        "event"
-      ],
-      "same_notice_group_id": "same_notice:b553a95cdd8925ed",
-      "canonical_item_id": "pnu-academic-eng-general-4664:1444136",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-aerospace-general-1455",
-        "pnu-academic-bce-general-5008",
-        "pnu-academic-chem-general-6291",
-        "pnu-academic-eng-general-4664",
-        "pnu-academic-history-general-6500",
-        "pnu-academic-japan-undergrad-8796",
-        "pnu-academic-ome-career-9053",
-        "pnu-academic-omse-career-9154",
-        "pnu-academic-philosophy-undergrad-11291",
-        "pnu-academic-phys-undergrad-12920",
-        "pnu-academic-ste-general-9557"
-      ],
-      "content_hash": "4780220be1d1ac9be82683a72fcbc3af9bc1853454a1425bca0859108ea94f7c",
-      "previous_content_hash": "e6cf301204e349095d730ac146619fd1e85879c1922044485229da2a9519d0a4",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-aerospace-general-1455:1444139"
-    },
-    {
-      "event_id": "2026-06-27T01:23:21+09:00|updated|pnu-academic-philosophy-event-15171:1443966|8b2855ce49e9",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-philosophy-event-15171:1443966",
-      "source_id": "pnu-academic-philosophy-event-15171",
-      "source_name": "부산대 철학과 철학과 학술행사 안내",
-      "source_category": "academic_unit_event_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "event"
-      ],
-      "seen_at": "2026-06-27T01:23:21+09:00",
-      "published_at": "2026-06-19",
-      "title": "[BK21] 대만중앙국립대와의 공동학술세미나 및 MOU 체결식 안내(06.25.(목) 13",
-      "url": "https://philosophy.pusan.ac.kr/bbs/philosophy/2075/1443966/artclView.do",
-      "topics": [
-        "event",
-        "research"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-philosophy-event-15171:1443966",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-philosophy-event-15171"
-      ],
-      "content_hash": "8b2855ce49e91bc2d38e693b4b293e4402280977d194f71f30febc255dc75810",
-      "previous_content_hash": "81a57faf556bce5e6aee6b0771e819e980988292277a526b681ad36d01203e7e",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-philosophy-event-15171:1443966"
-    },
-    {
-      "event_id": "2026-06-27T14:34:53+09:00|added|pnu-job-notices:204072|9cfe493c0f7d",
-      "event_type": "added",
-      "notice_id": "pnu-job-notices:204072",
-      "source_id": "pnu-job-notices",
-      "source_name": "부산대 취업전략과 공지사항",
-      "source_category": "career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "job_notice"
-      ],
-      "seen_at": "2026-06-27T14:34:53+09:00",
-      "published_at": "2026-06-27",
-      "title": "[2027년 전국 지역인재 7급 수습직원 추천 대비 예비대상자 모집 및 활동 지원 안내 ]",
-      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204072?p=1",
-      "topics": [
-        "career"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-notices:204072",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-notices"
-      ],
-      "content_hash": "9cfe493c0f7d9940ec7f1a041f4859544469b9643cb05f49c33925471a1f00e3",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-job-notices:204072"
-    },
-    {
-      "event_id": "2026-06-27T14:34:53+09:00|added|pnu-main-notice:1509631|660bdc7c07dc",
-      "event_type": "added",
-      "notice_id": "pnu-main-notice:1509631",
-      "source_id": "pnu-main-notice",
-      "source_name": "부산대 대학공지",
-      "source_category": "university_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "main_notice"
-      ],
-      "seen_at": "2026-06-27T14:34:53+09:00",
-      "published_at": "2026-06-27",
-      "title": "[병무청] 육군, 해군, 해병, 공군 현역병 7월 모집계획 안내",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509631",
-      "topics": [
-        "academic"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-notice:1509631",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-notice"
-      ],
-      "content_hash": "660bdc7c07dc0128c6220f1709abe2a8686f332856bbb7760bf36e4f850678ff",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-main-notice:1509631"
-    },
-    {
-      "event_id": "2026-06-28T09:10:47+09:00|added|pnu-job-notices:204073|3ac8685cd16e",
-      "event_type": "added",
-      "notice_id": "pnu-job-notices:204073",
-      "source_id": "pnu-job-notices",
-      "source_name": "부산대 취업전략과 공지사항",
-      "source_category": "career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "job_notice"
-      ],
-      "seen_at": "2026-06-28T09:10:47+09:00",
-      "published_at": "2026-06-28",
-      "title": "[한국 딜로이트 그룹] 안진 회계법인 채용설명회 일정 안내 (7/16)",
-      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204073?p=1",
-      "topics": [
-        "career",
-        "recruitment",
-        "event"
-      ],
-      "same_notice_group_id": "same_notice:cde1aa906e6c21bf",
-      "canonical_item_id": "pnu-main-notice:1509633",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-job-notices",
-        "pnu-main-notice"
-      ],
-      "content_hash": "3ac8685cd16e141d1398d7540e6008117b556a1349d3242b582fa7254ef857d2",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-job-notices:204073"
-    },
-    {
-      "event_id": "2026-06-28T09:10:47+09:00|added|pnu-job-notices:204074|500bd68be5ba",
-      "event_type": "added",
-      "notice_id": "pnu-job-notices:204074",
-      "source_id": "pnu-job-notices",
-      "source_name": "부산대 취업전략과 공지사항",
-      "source_category": "career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "job_notice"
-      ],
-      "seen_at": "2026-06-28T09:10:47+09:00",
-      "published_at": "2026-06-28",
-      "title": "[EY한영] 한영 회계법인 채용설명회 일정 안내 (7/10)",
-      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204074?p=1",
-      "topics": [
-        "career",
-        "recruitment",
-        "event"
-      ],
-      "same_notice_group_id": "same_notice:2f0c262f161c8a37",
-      "canonical_item_id": "pnu-main-notice:1509634",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-job-notices",
-        "pnu-main-notice"
-      ],
-      "content_hash": "500bd68be5bad43bc084b9cca8ca7792fd08f87e192641c7035f101f1709afc9",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-job-notices:204074"
-    },
-    {
-      "event_id": "2026-06-28T09:10:47+09:00|added|pnu-job-notices:204075|7b698a48b161",
-      "event_type": "added",
-      "notice_id": "pnu-job-notices:204075",
-      "source_id": "pnu-job-notices",
-      "source_name": "부산대 취업전략과 공지사항",
-      "source_category": "career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "job_notice"
-      ],
-      "seen_at": "2026-06-28T09:10:47+09:00",
-      "published_at": "2026-06-28",
-      "title": "[부산진구 부전 청소년센터] '면접관의 관점에서 본 취업 면접 컨설팅' 모집 안내",
-      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204075?p=1",
-      "topics": [
-        "career"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-notices:204075",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-notices"
-      ],
-      "content_hash": "7b698a48b161280ed107b82fb7074880a7e1847dcc4d997f80b267b1da45c0aa",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-job-notices:204075"
-    },
-    {
-      "event_id": "2026-06-28T09:10:47+09:00|added|pnu-main-notice:1509633|9f9296eb7f0d",
-      "event_type": "added",
-      "notice_id": "pnu-main-notice:1509633",
-      "source_id": "pnu-main-notice",
-      "source_name": "부산대 대학공지",
-      "source_category": "university_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "main_notice"
-      ],
-      "seen_at": "2026-06-28T09:10:47+09:00",
-      "published_at": "2026-06-28",
-      "title": "[한국 딜로이트 그룹] 안진 회계법인 채용설명회 일정 안내 (7/16)",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509633",
-      "topics": [
-        "academic",
-        "recruitment",
-        "event"
-      ],
-      "same_notice_group_id": "same_notice:cde1aa906e6c21bf",
-      "canonical_item_id": "pnu-main-notice:1509633",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-notices",
-        "pnu-main-notice"
-      ],
-      "content_hash": "9f9296eb7f0de1c0cf83198ed0d2c8a6d30a969e36382d1a90e6d085fd646557",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-main-notice:1509633"
-    },
-    {
-      "event_id": "2026-06-28T09:10:47+09:00|added|pnu-main-notice:1509634|fccb86a2cf82",
-      "event_type": "added",
-      "notice_id": "pnu-main-notice:1509634",
-      "source_id": "pnu-main-notice",
-      "source_name": "부산대 대학공지",
-      "source_category": "university_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "main_notice"
-      ],
-      "seen_at": "2026-06-28T09:10:47+09:00",
-      "published_at": "2026-06-28",
-      "title": "[EY한영] 한영 회계법인 채용설명회 일정 안내 (7/10)",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509634",
-      "topics": [
-        "academic",
-        "recruitment",
-        "event"
-      ],
-      "same_notice_group_id": "same_notice:2f0c262f161c8a37",
-      "canonical_item_id": "pnu-main-notice:1509634",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-notices",
-        "pnu-main-notice"
-      ],
-      "content_hash": "fccb86a2cf829b8113c92d96fed1aff149adb4b0cb0991764249eacc576af425",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-main-notice:1509634"
-    },
-    {
-      "event_id": "2026-06-28T14:05:11+09:00|added|pnu-job-notices:204087|c6ecb49dc5c4",
-      "event_type": "added",
-      "notice_id": "pnu-job-notices:204087",
-      "source_id": "pnu-job-notices",
-      "source_name": "부산대 취업전략과 공지사항",
-      "source_category": "career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "job_notice"
-      ],
-      "seen_at": "2026-06-28T14:05:11+09:00",
-      "published_at": "2026-06-28",
-      "title": "‘2026 항공일자리 청년 서포터즈’ 안내",
-      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204087?p=1",
-      "topics": [
-        "career"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-notices:204087",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-notices"
-      ],
-      "content_hash": "c6ecb49dc5c4712d165051d64813f9af4fa3b81a83d217266e9e6c3d361a75e2",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-job-notices:204087"
-    },
     {
       "event_id": "2026-06-28T14:05:11+09:00|added|pnu-job-notices:204088|e82ca3ae2ab0",
       "event_type": "added",
@@ -34273,6 +33939,341 @@
       "previous_content_hash": "b398a04bef8c51ce029c4dbca443a1d44c88deda45b124431aa2053dcdbb134d",
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-academic-me-undergrad-sub01-01:5061"
+    },
+    {
+      "event_id": "2026-07-05T17:07:31+09:00|added|pnu-academic-me-undergrad-sub01-01:5064|272382ea270f",
+      "event_type": "added",
+      "notice_id": "pnu-academic-me-undergrad-sub01-01:5064",
+      "source_id": "pnu-academic-me-undergrad-sub01-01",
+      "source_name": "부산대 기계공학부 학부공지",
+      "source_category": "academic_unit_undergraduate_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "undergraduate"
+      ],
+      "seen_at": "2026-07-05T17:07:31+09:00",
+      "published_at": "2026-07-05",
+      "title": "[선발 공지] 2026 PNU International PBL Competition Wor...",
+      "url": "https://me.pusan.ac.kr/new/sub05/sub01_01.php?db=hakbunotice&seq=5064&page=1&perPage=10&page_mode=view",
+      "topics": [
+        "undergraduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-me-undergrad-sub01-01:5064",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-me-undergrad-sub01-01"
+      ],
+      "content_hash": "272382ea270f77a1c0552a5a622cea6294ecf619f94a3929da78b97b2a1b69f7",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-academic-me-undergrad-sub01-01:5064"
+    },
+    {
+      "event_id": "2026-07-05T17:07:31+09:00|added|pnu-job-recruit-general:117629|ab8b368d1be3",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117629",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-07-05T17:07:31+09:00",
+      "published_at": null,
+      "title": "2026 ABlnBev Korea 오비맥주 GMT/CET 신입사원 채용 공고",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117629",
+      "topics": [
+        "recruitment",
+        "career",
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117629",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "ab8b368d1be34fd98dffe50973e39986e2134adbe52b01fd49a9fc54b9490390",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-job-recruit-general:117629"
+    },
+    {
+      "event_id": "2026-07-05T17:07:31+09:00|added|pnu-job-recruit-general:117630|f2a9f444f5f3",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117630",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-07-05T17:07:31+09:00",
+      "published_at": null,
+      "title": "[유라코퍼레이션] 해외인사팀 인사관리 담당자(신입/경력) 채용 공고",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117630",
+      "topics": [
+        "recruitment",
+        "career",
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117630",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "f2a9f444f5f37b10cc8d3679d90c250c651bf9aeace92838e346b8e31a01e2dd",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-job-recruit-general:117630"
+    },
+    {
+      "event_id": "2026-07-05T17:07:31+09:00|added|pnu-job-recruit-general:117631|a0dbffe1cb1d",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117631",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-07-05T17:07:31+09:00",
+      "published_at": null,
+      "title": "[SBSA&T] 2026년 SBSA&T 신입사원 공개채용 공고",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117631",
+      "topics": [
+        "recruitment",
+        "career",
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117631",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "a0dbffe1cb1d1b956ac2387e9f99caf4e4cc4b56ef9349bd2a8771d02ee814ad",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-job-recruit-general:117631"
+    },
+    {
+      "event_id": "2026-07-05T17:07:31+09:00|added|pnu-job-recruit-general:117632|2624d9ada90c",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117632",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-07-05T17:07:31+09:00",
+      "published_at": null,
+      "title": "[경농 및 계열사] 2026년 하반기 신입사원 모집 안내",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117632",
+      "topics": [
+        "recruitment",
+        "career",
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117632",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "2624d9ada90ca150d5807c9cdef7d42e881249907faa031e01f13494e7cb5729",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-job-recruit-general:117632"
+    },
+    {
+      "event_id": "2026-07-05T17:07:31+09:00|added|pnu-job-recruit-general:117633|925bd73dfa8e",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117633",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-07-05T17:07:31+09:00",
+      "published_at": null,
+      "title": "[법무법인(유한)] 법무법인(유한) 태평양 신입/경력 직원 정기채용 안내",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117633",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117633",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "925bd73dfa8ef72973a53135967f6f6471187625525c46ad7d4f4dbcc183294a",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-job-recruit-general:117633"
+    },
+    {
+      "event_id": "2026-07-05T17:07:31+09:00|added|pnu-job-recruit-general:117634|30c81dd3851d",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117634",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-07-05T17:07:31+09:00",
+      "published_at": null,
+      "title": "2026년 하반기 한국해외인프라도시개발지원공사(KIND) 직원(정규직/계약직) 채용 공고",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117634",
+      "topics": [
+        "recruitment",
+        "career",
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117634",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "30c81dd3851df2e092180b51c1585c35c2c50de856d6a0fd1feafc0ce3397907",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-job-recruit-general:117634"
+    },
+    {
+      "event_id": "2026-07-05T17:07:31+09:00|added|pnu-job-recruit-general:117635|766a4f51549a",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117635",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-07-05T17:07:31+09:00",
+      "published_at": null,
+      "title": "2026년도 주택도시보증공사 정규직(신입직) 채용 공고",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117635",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117635",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "766a4f51549aa9b35fa63fa0cf01597b98c03a6530a98aec0be4d24e3f85ee81",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-job-recruit-general:117635"
+    },
+    {
+      "event_id": "2026-07-05T17:07:31+09:00|added|pnu-job-recruit-internship:117617|945384a5cd36",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-internship:117617",
+      "source_id": "pnu-job-recruit-internship",
+      "source_name": "부산대 취업전략과 인턴십/교육연수생",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "internship"
+      ],
+      "seen_at": "2026-07-05T17:07:31+09:00",
+      "published_at": null,
+      "title": "[메타코미디] 비즈니스 인턴 (채용전환형)",
+      "url": "https://job.pusan.ac.kr/ko/recruit/Intern/view/117617",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-internship:117617",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-internship"
+      ],
+      "content_hash": "945384a5cd36f686a8272f3faf9c144c28a95a8837c56bee997bf39bd37a65d2",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-job-recruit-internship:117617"
+    },
+    {
+      "event_id": "2026-07-05T17:07:31+09:00|added|pnu-job-recruit-internship:117618|7ee3b1ee37c9",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-internship:117618",
+      "source_id": "pnu-job-recruit-internship",
+      "source_name": "부산대 취업전략과 인턴십/교육연수생",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "internship"
+      ],
+      "seen_at": "2026-07-05T17:07:31+09:00",
+      "published_at": null,
+      "title": "[SNOW] 8월 전분야 체험형 인턴 - 2차",
+      "url": "https://job.pusan.ac.kr/ko/recruit/Intern/view/117618",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-internship:117618",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-internship"
+      ],
+      "content_hash": "7ee3b1ee37c90551f821b8d9f576b48060097b981f8dcb7a342334b59d7d14f2",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-job-recruit-internship:117618"
     }
   ]
 }
