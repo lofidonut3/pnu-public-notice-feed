@@ -1,118 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-07T18:56:42+09:00",
+  "generated_at": "2026-07-07T21:33:46+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 4982,
+  "total_event_count": 4985,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-07T18:56:42+09:00|updated|pnu-health-notices:85|33027e2fd08a",
-  "oldest_event_id": "2026-06-30T19:09:32+09:00|added|pnu-glocal-notices:1762287|137b2fc7556c",
+  "latest_event_id": "2026-07-07T21:33:46+09:00|updated|pnu-main-faculty-staff-recruitment:1509775|c5a7060658f1",
+  "oldest_event_id": "2026-06-30T19:09:32+09:00|added|pnu-job-recruit-general:117610|aa9e9ce37e7c",
   "oldest_seen_at": "2026-06-30T19:09:32+09:00",
-  "latest_seen_at": "2026-07-07T18:56:42+09:00",
+  "latest_seen_at": "2026-07-07T21:33:46+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-06-30T19:09:32+09:00|added|pnu-glocal-notices:1762287|137b2fc7556c",
-      "event_type": "added",
-      "notice_id": "pnu-glocal-notices:1762287",
-      "source_id": "pnu-glocal-notices",
-      "source_name": "부산대 글로컬대학 공지사항",
-      "source_category": "university_project_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "glocal"
-      ],
-      "seen_at": "2026-06-30T19:09:32+09:00",
-      "published_at": "2026-06-30",
-      "title": "[창업지원부] 2026 BNUE-PNU 창업 챌린지 캠프 참가자 모집 새글",
-      "url": "https://glocal.pusan.ac.kr/bbs/glocal/18450/1762287/artclView.do",
-      "topics": [
-        "campus_service",
-        "event",
-        "startup"
-      ],
-      "same_notice_group_id": "same_notice:4e526a5e23ab600c",
-      "canonical_item_id": "pnu-main-notice:1509668",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-glocal-notices",
-        "pnu-main-notice"
-      ],
-      "content_hash": "137b2fc7556c70edde36da1cfcf012d5e5ff91f1d56701b07e6f50994e067650",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-glocal-notices:1762287"
-    },
-    {
-      "event_id": "2026-06-30T19:09:32+09:00|added|pnu-job-recruit-general:117608|337e840e0822",
-      "event_type": "added",
-      "notice_id": "pnu-job-recruit-general:117608",
-      "source_id": "pnu-job-recruit-general",
-      "source_name": "부산대 취업전략과 일반채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "recruitment",
-        "general_recruitment"
-      ],
-      "seen_at": "2026-06-30T19:09:32+09:00",
-      "published_at": null,
-      "title": "2026년 동아대학교의료원 정규직(행정) 공개채용 공고",
-      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117608",
-      "topics": [
-        "recruitment",
-        "career"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-recruit-general:117608",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-recruit-general"
-      ],
-      "content_hash": "337e840e08221cb6ed8e7b15c0510b086096ced3a4e7f97b26df109e226030b3",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-job-recruit-general:117608"
-    },
-    {
-      "event_id": "2026-06-30T19:09:32+09:00|added|pnu-job-recruit-general:117609|31cb5181d1d6",
-      "event_type": "added",
-      "notice_id": "pnu-job-recruit-general:117609",
-      "source_id": "pnu-job-recruit-general",
-      "source_name": "부산대 취업전략과 일반채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "recruitment",
-        "general_recruitment"
-      ],
-      "seen_at": "2026-06-30T19:09:32+09:00",
-      "published_at": null,
-      "title": "깨끗한나라 2026년 6월 수시채용 (경영기획(경영혁신파트))",
-      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117609",
-      "topics": [
-        "recruitment",
-        "career"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-recruit-general:117609",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-recruit-general"
-      ],
-      "content_hash": "31cb5181d1d6a1abded95c8eccb79858825b11d63ee1c4fbf36ed1e0d4c60f4e",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-job-recruit-general:117609"
-    },
     {
       "event_id": "2026-06-30T19:09:32+09:00|added|pnu-job-recruit-general:117610|aa9e9ce37e7c",
       "event_type": "added",
@@ -34339,6 +34240,101 @@
       "previous_content_hash": "3f7396b945b01eab7c6f181196456caac4a1e6fc266c2d8ee8a7f4458861bbc4",
       "archive_file": "./archive/2026-03.json",
       "archive_item_id": "pnu-health-notices:85"
+    },
+    {
+      "event_id": "2026-07-07T21:33:46+09:00|added|pnu-library-notices:57285|f921a293f740",
+      "event_type": "added",
+      "notice_id": "pnu-library-notices:57285",
+      "source_id": "pnu-library-notices",
+      "source_name": "부산대 도서관 공지사항",
+      "source_category": "library_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "library"
+      ],
+      "seen_at": "2026-07-07T21:33:46+09:00",
+      "published_at": "2026-07-07",
+      "title": "[당첨자 안내] 새벽벌도서관 환경 개선 설문조사 경품 추첨",
+      "url": "https://lib.pusan.ac.kr/guide/notice/57285",
+      "topics": [
+        "library"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-library-notices:57285",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-library-notices"
+      ],
+      "content_hash": "f921a293f7403ca3b1f7db9599add034d065f2088d19240fa87a0a8bf7f152e6",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-library-notices:57285"
+    },
+    {
+      "event_id": "2026-07-07T21:33:46+09:00|added|pnu-main-notice:1509799|57ce10f16fef",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1509799",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-07-07T21:33:46+09:00",
+      "published_at": "2026-07-07",
+      "title": "[에듀테크센터] 'Gemini pro 등 무료 제공, 부산대 웹메일 계정 신청 안내'(2027. 6. 23. 라이선스 종료)",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509799",
+      "topics": [
+        "academic"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1509799",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "57ce10f16fefc7e68d4b33cdc47d6a8c068ec8cf7fc6a9c3d000a51fe541e8e9",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-notice:1509799"
+    },
+    {
+      "event_id": "2026-07-07T21:33:46+09:00|updated|pnu-main-faculty-staff-recruitment:1509775|c5a7060658f1",
+      "event_type": "updated",
+      "notice_id": "pnu-main-faculty-staff-recruitment:1509775",
+      "source_id": "pnu-main-faculty-staff-recruitment",
+      "source_name": "부산대 교수초빙/직원채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "recruitment",
+        "faculty",
+        "staff"
+      ],
+      "seen_at": "2026-07-07T21:33:46+09:00",
+      "published_at": "2026-07-06",
+      "title": "부산대학교 의생명융합공학부 조교(교육공무원) 채용 공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1509775",
+      "topics": [
+        "recruitment",
+        "career",
+        "undergraduate"
+      ],
+      "same_notice_group_id": "same_notice:cd643f95ca21329a",
+      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1509775",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-bce-general-5008",
+        "pnu-main-faculty-staff-recruitment"
+      ],
+      "content_hash": "c5a7060658f10bcf3c0395995ab20d15d8538e44cb84ef7f6157004a09bf62bb",
+      "previous_content_hash": "cf4146ceb94c6557f5b52e930d98bf220c3c9fda8211cf0a7d947c1dd3c48793",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-faculty-staff-recruitment:1509775"
     }
   ]
 }
