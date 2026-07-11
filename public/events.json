@@ -1,85 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-11T12:54:19+09:00",
+  "generated_at": "2026-07-11T15:22:08+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 5545,
+  "total_event_count": 5547,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-11T12:54:19+09:00|added|pnu-main-notice:1509845|b299ad791078",
-  "oldest_event_id": "2026-07-03T16:48:14+09:00|added|pnu-graduate-gsis-grad-11587:1447957|53eb3638c74b",
+  "latest_event_id": "2026-07-11T15:22:08+09:00|updated|pnu-sedu-support-notices:1762217|189dc3c0c9ef",
+  "oldest_event_id": "2026-07-03T16:48:14+09:00|added|pnu-main-notice:1509755|5812925699f4",
   "oldest_seen_at": "2026-07-03T16:48:14+09:00",
-  "latest_seen_at": "2026-07-11T12:54:19+09:00",
+  "latest_seen_at": "2026-07-11T15:22:08+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-03T16:48:14+09:00|added|pnu-graduate-gsis-grad-11587:1447957|53eb3638c74b",
-      "event_type": "added",
-      "notice_id": "pnu-graduate-gsis-grad-11587:1447957",
-      "source_id": "pnu-graduate-gsis-grad-11587",
-      "source_name": "부산대 국제전문대학원 공지사항",
-      "source_category": "graduate_school_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "graduate_school",
-        "graduate"
-      ],
-      "seen_at": "2026-07-03T16:48:14+09:00",
-      "published_at": "2026-07-03",
-      "title": "[2026-1] 학위논문 도서관 제출 안내 Thesis Submission for PNU Library (~8.3.) 새글",
-      "url": "https://gsis.pusan.ac.kr/bbs/gsis/232/1447957/artclView.do",
-      "topics": [
-        "graduate",
-        "graduation",
-        "library"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-graduate-gsis-grad-11587:1447957",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-graduate-gsis-grad-11587"
-      ],
-      "content_hash": "53eb3638c74b873428dfc4d9cccb99632cdd791f2c9147431e1fde726f1464c9",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-graduate-gsis-grad-11587:1447957"
-    },
-    {
-      "event_id": "2026-07-03T16:48:14+09:00|added|pnu-graduate-law-grad-10741:1447969|e2ab32a31916",
-      "event_type": "added",
-      "notice_id": "pnu-graduate-law-grad-10741:1447969",
-      "source_id": "pnu-graduate-law-grad-10741",
-      "source_name": "부산대 법학전문대학원 공지사항",
-      "source_category": "graduate_school_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "graduate_school",
-        "graduate"
-      ],
-      "seen_at": "2026-07-03T16:48:14+09:00",
-      "published_at": "2026-07-03",
-      "title": "[공익인권법재단 공감] 제33회 공감 인권법캠프 개최 안내(7/23 목) 새글",
-      "url": "https://law.pusan.ac.kr/bbs/law/482/1447969/artclView.do",
-      "topics": [
-        "graduate",
-        "event",
-        "student_support"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-graduate-law-grad-10741:1447969",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-graduate-law-grad-10741"
-      ],
-      "content_hash": "e2ab32a319161aadb6347c7d257b62d982df8393573fe9c5e6d6220a60c35945",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-graduate-law-grad-10741:1447969"
-    },
     {
       "event_id": "2026-07-03T16:48:14+09:00|added|pnu-main-notice:1509755|5812925699f4",
       "event_type": "added",
@@ -34609,6 +34543,69 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-main-notice:1509845"
+    },
+    {
+      "event_id": "2026-07-11T15:22:08+09:00|updated|pnu-sedu-support-notices:1762216|a18cc9d2aa4f",
+      "event_type": "updated",
+      "notice_id": "pnu-sedu-support-notices:1762216",
+      "source_id": "pnu-sedu-support-notices",
+      "source_name": "부산대 장애학생지원센터 공지사항",
+      "source_category": "student_support_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "disabled_students",
+        "student_support"
+      ],
+      "seen_at": "2026-07-11T15:22:08+09:00",
+      "published_at": "2026-06-26",
+      "title": "[주택도시보증공사] 2026년도 정규직(신입직) 채용공고 - 장애인제한경쟁 5명 (~7/8 14시)",
+      "url": "https://sedu-support.pusan.ac.kr/bbs/sedu-support/8226/1762216/artclView.do",
+      "topics": [
+        "student_support",
+        "recruitment"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-sedu-support-notices:1762216",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-sedu-support-notices"
+      ],
+      "content_hash": "a18cc9d2aa4f737dfd40451fbce13a294cfd4893de27462676807dc68c2e5f07",
+      "previous_content_hash": "fc360bbf9dfc1c3f247ff093bc2ea0f3729c9a59fb4addf2913e530b16ae0286",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-sedu-support-notices:1762216"
+    },
+    {
+      "event_id": "2026-07-11T15:22:08+09:00|updated|pnu-sedu-support-notices:1762217|189dc3c0c9ef",
+      "event_type": "updated",
+      "notice_id": "pnu-sedu-support-notices:1762217",
+      "source_id": "pnu-sedu-support-notices",
+      "source_name": "부산대 장애학생지원센터 공지사항",
+      "source_category": "student_support_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "disabled_students",
+        "student_support"
+      ],
+      "seen_at": "2026-07-11T15:22:08+09:00",
+      "published_at": "2026-06-26",
+      "title": "[부산광역시 금정구] 느린학습자 학습동아리 지원사업",
+      "url": "https://sedu-support.pusan.ac.kr/bbs/sedu-support/8226/1762217/artclView.do",
+      "topics": [
+        "student_support"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-sedu-support-notices:1762217",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-sedu-support-notices"
+      ],
+      "content_hash": "189dc3c0c9eff02e7e0e5972249d11ff5d7fefdf24df5987582df2295af78e74",
+      "previous_content_hash": "1740ef143da7e8d9f762b5909466b4011040b5b4c9b06f02dbc3e22999169831",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-sedu-support-notices:1762217"
     }
   ]
 }
