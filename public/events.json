@@ -1,49 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-11T02:56:54+09:00",
+  "generated_at": "2026-07-11T12:54:19+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 5544,
+  "total_event_count": 5545,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-11T02:56:54+09:00|updated|pnu-international-student-notices:1448005|0ec1110a1338",
-  "oldest_event_id": "2026-07-03T16:48:14+09:00|added|pnu-glocal-notices:1762396|7a9bd11c999a",
+  "latest_event_id": "2026-07-11T12:54:19+09:00|added|pnu-main-notice:1509845|b299ad791078",
+  "oldest_event_id": "2026-07-03T16:48:14+09:00|added|pnu-graduate-gsis-grad-11587:1447957|53eb3638c74b",
   "oldest_seen_at": "2026-07-03T16:48:14+09:00",
-  "latest_seen_at": "2026-07-11T02:56:54+09:00",
+  "latest_seen_at": "2026-07-11T12:54:19+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-03T16:48:14+09:00|added|pnu-glocal-notices:1762396|7a9bd11c999a",
-      "event_type": "added",
-      "notice_id": "pnu-glocal-notices:1762396",
-      "source_id": "pnu-glocal-notices",
-      "source_name": "부산대 글로컬대학 공지사항",
-      "source_category": "university_project_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "glocal"
-      ],
-      "seen_at": "2026-07-03T16:48:14+09:00",
-      "published_at": "2026-07-03",
-      "title": "[종합교원양성센터] 2026학년도 Arise Glocal-PBL 최종 합격자 알림 새글",
-      "url": "https://glocal.pusan.ac.kr/bbs/glocal/18450/1762396/artclView.do",
-      "topics": [
-        "campus_service"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-glocal-notices:1762396",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-glocal-notices"
-      ],
-      "content_hash": "7a9bd11c999a0eb9daecfb9658480632bff6a27d92e7aca8f37056986591f47a",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-glocal-notices:1762396"
-    },
     {
       "event_id": "2026-07-03T16:48:14+09:00|added|pnu-graduate-gsis-grad-11587:1447957|53eb3638c74b",
       "event_type": "added",
@@ -34608,6 +34578,37 @@
       "previous_content_hash": "d05b0d75640f0f5236eddb693ee54395bba04d4f793847834148a5ada97fe0d5",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-international-student-notices:1448005"
+    },
+    {
+      "event_id": "2026-07-11T12:54:19+09:00|added|pnu-main-notice:1509845|b299ad791078",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1509845",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-07-11T12:54:19+09:00",
+      "published_at": "2026-07-11",
+      "title": "[학사과] 2026학년도 2학기 교류 수학 안내(서울과학기술대학교 대학원)",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509845",
+      "topics": [
+        "academic",
+        "graduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1509845",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "b299ad791078d699d7dff8063c4e0be97b3ea9c0da1735e6a31b6f534ff3d251",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-notice:1509845"
     }
   ]
 }
