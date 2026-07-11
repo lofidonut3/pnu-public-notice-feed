@@ -1,50 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-11T15:22:08+09:00",
+  "generated_at": "2026-07-11T19:01:30+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 5547,
+  "total_event_count": 5548,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-11T15:22:08+09:00|updated|pnu-sedu-support-notices:1762217|189dc3c0c9ef",
-  "oldest_event_id": "2026-07-03T16:48:14+09:00|added|pnu-main-notice:1509755|5812925699f4",
+  "latest_event_id": "2026-07-11T19:01:30+09:00|updated|pnu-main-faculty-staff-recruitment:1509796|9523b28277f9",
+  "oldest_event_id": "2026-07-03T16:48:14+09:00|added|pnu-onestop-notices:2105|1f3a041c1eaf",
   "oldest_seen_at": "2026-07-03T16:48:14+09:00",
-  "latest_seen_at": "2026-07-11T15:22:08+09:00",
+  "latest_seen_at": "2026-07-11T19:01:30+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-03T16:48:14+09:00|added|pnu-main-notice:1509755|5812925699f4",
-      "event_type": "added",
-      "notice_id": "pnu-main-notice:1509755",
-      "source_id": "pnu-main-notice",
-      "source_name": "부산대 대학공지",
-      "source_category": "university_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "main_notice"
-      ],
-      "seen_at": "2026-07-03T16:48:14+09:00",
-      "published_at": "2026-07-03",
-      "title": "「의료·헬스케어 스타트업 인큐베이터 사업」 창업 활력프로젝트 모집공고",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509755",
-      "topics": [
-        "academic",
-        "startup"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-notice:1509755",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-notice"
-      ],
-      "content_hash": "5812925699f463766bf088d0d37c3680dde3888ed020e38152331ea3abd2e9c2",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-main-notice:1509755"
-    },
     {
       "event_id": "2026-07-03T16:48:14+09:00|added|pnu-onestop-notices:2105|1f3a041c1eaf",
       "event_type": "added",
@@ -34606,6 +34575,39 @@
       "previous_content_hash": "1740ef143da7e8d9f762b5909466b4011040b5b4c9b06f02dbc3e22999169831",
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-sedu-support-notices:1762217"
+    },
+    {
+      "event_id": "2026-07-11T19:01:30+09:00|updated|pnu-main-faculty-staff-recruitment:1509796|9523b28277f9",
+      "event_type": "updated",
+      "notice_id": "pnu-main-faculty-staff-recruitment:1509796",
+      "source_id": "pnu-main-faculty-staff-recruitment",
+      "source_name": "부산대 교수초빙/직원채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "recruitment",
+        "faculty",
+        "staff"
+      ],
+      "seen_at": "2026-07-11T19:01:30+09:00",
+      "published_at": "2026-07-07",
+      "title": "부산대학교 교수회 계약 직원 채용 공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1509796",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1509796",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-faculty-staff-recruitment"
+      ],
+      "content_hash": "9523b28277f9603bd10ec54bdbaf25c9dcce964954f6448eaa2c584d64882fd3",
+      "previous_content_hash": "00f5a419142e43b1b711909fab42ae147aa04394f453dedbdfe437aa6e954690",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-faculty-staff-recruitment:1509796"
     }
   ]
 }
