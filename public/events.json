@@ -1,51 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-12T08:31:26+09:00",
+  "generated_at": "2026-07-12T12:41:34+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 5549,
+  "total_event_count": 5550,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-12T08:31:26+09:00|added|pnu-onestop-notices:2114|cd315090c594",
-  "oldest_event_id": "2026-07-03T16:48:14+09:00|added|pnu-onestop-notices:2106|738a0ad8b71a",
+  "latest_event_id": "2026-07-12T12:41:34+09:00|updated|pnu-academic-civil-general-10880:1443211|df346db03ecd",
+  "oldest_event_id": "2026-07-03T16:48:14+09:00|added|pnu-sce-notices:2586|5b4bdcaf293d",
   "oldest_seen_at": "2026-07-03T16:48:14+09:00",
-  "latest_seen_at": "2026-07-12T08:31:26+09:00",
+  "latest_seen_at": "2026-07-12T12:41:34+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-03T16:48:14+09:00|added|pnu-onestop-notices:2106|738a0ad8b71a",
-      "event_type": "added",
-      "notice_id": "pnu-onestop-notices:2106",
-      "source_id": "pnu-onestop-notices",
-      "source_name": "부산대 학지시 공지",
-      "source_category": "academic_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "onestop",
-        "academic"
-      ],
-      "seen_at": "2026-07-03T16:48:14+09:00",
-      "published_at": "2026-07-03",
-      "title": "제주평생교육장학진흥위원회 미래이음장학금 장학생 선발 안내",
-      "url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000386&mode=DETAIL&seq=2106",
-      "topics": [
-        "academic",
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-onestop-notices:2106",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-onestop-notices"
-      ],
-      "content_hash": "738a0ad8b71abb00ca97e35e3d33d241bec2f241283e9de2a0e3a299af948041",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-onestop-notices:2106"
-    },
     {
       "event_id": "2026-07-03T16:48:14+09:00|added|pnu-sce-notices:2586|5b4bdcaf293d",
       "event_type": "added",
@@ -34609,6 +34577,39 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-onestop-notices:2114"
+    },
+    {
+      "event_id": "2026-07-12T12:41:34+09:00|updated|pnu-academic-civil-general-10880:1443211|df346db03ecd",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-civil-general-10880:1443211",
+      "source_id": "pnu-academic-civil-general-10880",
+      "source_name": "부산대 사회기반시스템공학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-07-12T12:41:34+09:00",
+      "published_at": "2026-06-12",
+      "title": "[2026학년도 2학기] 휴ㆍ복학 신청 기간 안내",
+      "url": "https://civil.pusan.ac.kr/bbs/civil/592/1443211/artclView.do",
+      "topics": [
+        "academic_records"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-civil-general-10880:1443211",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-civil-general-10880"
+      ],
+      "content_hash": "df346db03ecdc12b47117a97c99844c1216bc466aa70dad56d9852b518cf6a04",
+      "previous_content_hash": "c735bd1fbef7b13817604ab21da7e8cc08513132cbd60edf1f66d2fcceeb6983",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-civil-general-10880:1443211"
     }
   ]
 }
