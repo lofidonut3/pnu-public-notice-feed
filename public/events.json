@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-14T01:07:08+09:00",
+  "generated_at": "2026-07-14T07:32:28+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 5755,
+  "total_event_count": 5756,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-14T01:07:08+09:00|updated|pnu-academic-polsci-undergrad-7498:1448155|f6e94c7802b8",
-  "oldest_event_id": "2026-07-06T20:14:03+09:00|updated|pnu-academic-pnuenglish-career-8313:1444896|c9c87767abb9",
+  "latest_event_id": "2026-07-14T07:32:28+09:00|added|pnu-main-faculty-staff-recruitment:1509873|d24a398a3c9e",
+  "oldest_event_id": "2026-07-06T20:14:03+09:00|updated|pnu-academic-pnuenv-general-5930:1447425|f62b3416c28f",
   "oldest_seen_at": "2026-07-06T20:14:03+09:00",
-  "latest_seen_at": "2026-07-14T01:07:08+09:00",
+  "latest_seen_at": "2026-07-14T07:32:28+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-06T20:14:03+09:00|updated|pnu-academic-pnuenglish-career-8313:1444896|c9c87767abb9",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-pnuenglish-career-8313:1444896",
-      "source_id": "pnu-academic-pnuenglish-career-8313",
-      "source_name": "부산대 영어영문학과 취업정보, 대외활동",
-      "source_category": "academic_unit_career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "career"
-      ],
-      "seen_at": "2026-07-06T20:14:03+09:00",
-      "published_at": "2026-06-29",
-      "title": "[고려아연] 2026 고려아연 및 계열사 신입사원 채용(~7/3(금) 23:59까지)",
-      "url": "https://pnuenglish.pusan.ac.kr/bbs/pnuenglish/953/1444896/artclView.do",
-      "topics": [
-        "career",
-        "recruitment",
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-pnuenglish-career-8313:1444896",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-pnuenglish-career-8313"
-      ],
-      "content_hash": "c9c87767abb9c9c70eaa1b07e6bf6845f52bad4a7b637495a88099ac7c47225a",
-      "previous_content_hash": "81e11e8b2e737de959d0c3819ebc072e12bb9411b07a172d311378ae91598d92",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-pnuenglish-career-8313:1444896"
-    },
     {
       "event_id": "2026-07-06T20:14:03+09:00|updated|pnu-academic-pnuenv-general-5930:1447425|f62b3416c28f",
       "event_type": "updated",
@@ -34564,6 +34529,41 @@
       "previous_content_hash": "8b990a24ea53bce8523e0f299a62cd946468f89605d76c3678218d2031a20e23",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-academic-polsci-undergrad-7498:1448155"
+    },
+    {
+      "event_id": "2026-07-14T07:32:28+09:00|added|pnu-main-faculty-staff-recruitment:1509873|d24a398a3c9e",
+      "event_type": "added",
+      "notice_id": "pnu-main-faculty-staff-recruitment:1509873",
+      "source_id": "pnu-main-faculty-staff-recruitment",
+      "source_name": "부산대 교수초빙/직원채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "recruitment",
+        "faculty",
+        "staff"
+      ],
+      "seen_at": "2026-07-14T07:32:28+09:00",
+      "published_at": "2026-07-14",
+      "title": "부산대학교 도시공학과 4단계 BK21 교육연구팀 박사후연구원 채용 공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1509873",
+      "topics": [
+        "recruitment",
+        "career",
+        "graduate",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1509873",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-faculty-staff-recruitment"
+      ],
+      "content_hash": "d24a398a3c9e82e9cc30a58a9a6bcd21e79cd6fe1cd0f62b401d5ed70d4bf45e",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-faculty-staff-recruitment:1509873"
     }
   ]
 }
