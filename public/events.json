@@ -1,58 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-14T19:19:29+09:00",
+  "generated_at": "2026-07-14T23:06:05+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 5911,
+  "total_event_count": 5912,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-14T19:19:29+09:00|updated|pnu-graduate-law-grad-10741:1448244|1147854e10c1",
-  "oldest_event_id": "2026-07-07T14:46:34+09:00|updated|pnu-academic-ste-general-9557:1447516|b223f7cb3409",
+  "latest_event_id": "2026-07-14T23:06:05+09:00|added|pnu-international-student-notices:1451845|66a76a0d3a36",
+  "oldest_event_id": "2026-07-07T14:46:34+09:00|updated|pnu-academic-ste-general-9557:1447518|44806ed889b6",
   "oldest_seen_at": "2026-07-07T14:46:34+09:00",
-  "latest_seen_at": "2026-07-14T19:19:29+09:00",
+  "latest_seen_at": "2026-07-14T23:06:05+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-07T14:46:34+09:00|updated|pnu-academic-ste-general-9557:1447516|b223f7cb3409",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-ste-general-9557:1447516",
-      "source_id": "pnu-academic-ste-general-9557",
-      "source_name": "부산대 첨단융합학부 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-07-07T14:46:34+09:00",
-      "published_at": "2026-06-30",
-      "title": "[학사과] 2026학년도 2학기 부·복수(융합)전공 이수자 선발 계획 안내",
-      "url": "https://ste.pusan.ac.kr/bbs/ste/1168/1447516/artclView.do",
-      "topics": [],
-      "same_notice_group_id": "same_notice:b2bce71d3e636031",
-      "canonical_item_id": "pnu-academic-archaeology-undergrad-3497:1447607",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-archaeology-undergrad-3497",
-        "pnu-academic-bce-general-5008",
-        "pnu-academic-bime-general-8508",
-        "pnu-academic-cdfs-general-1556",
-        "pnu-academic-chem-general-6291",
-        "pnu-academic-china-general-2652",
-        "pnu-academic-history-general-6500",
-        "pnu-academic-sportscience-general-3107",
-        "pnu-academic-ste-general-9557"
-      ],
-      "content_hash": "b223f7cb34097cf2efc855ac2e2fed6ae5c29d90fa4fb480d61248b095025665",
-      "previous_content_hash": "831bebcf0c95d395ee734ad4888964809b078ba56f81d2da938033a671612d71",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-ste-general-9557:1447516"
-    },
     {
       "event_id": "2026-07-07T14:46:34+09:00|updated|pnu-academic-ste-general-9557:1447518|44806ed889b6",
       "event_type": "updated",
@@ -34383,6 +34344,37 @@
       "previous_content_hash": "038680cc3a536a03cb79ae5b9a245871f2b050d8e9f3185674edd2ee7c737f42",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-graduate-law-grad-10741:1448244"
+    },
+    {
+      "event_id": "2026-07-14T23:06:05+09:00|added|pnu-international-student-notices:1451845|66a76a0d3a36",
+      "event_type": "added",
+      "notice_id": "pnu-international-student-notices:1451845",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-07-14T23:06:05+09:00",
+      "published_at": "2026-07-14",
+      "title": "2026학년도 2학기 비자(연장 및 변경) 단체접수 안내 / Fall 2026 Group Visa Appli",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1451845/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1451845",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "66a76a0d3a3671d2ae7ffd109b2d813d695f592dfb176a970d8f62b4191fcf03",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-international-student-notices:1451845"
     }
   ]
 }
