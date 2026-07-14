@@ -1,51 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-14T23:06:05+09:00",
+  "generated_at": "2026-07-15T03:42:21+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 5912,
+  "total_event_count": 5913,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-14T23:06:05+09:00|added|pnu-international-student-notices:1451845|66a76a0d3a36",
-  "oldest_event_id": "2026-07-07T14:46:34+09:00|updated|pnu-academic-ste-general-9557:1447518|44806ed889b6",
+  "latest_event_id": "2026-07-15T03:42:21+09:00|updated|pnu-main-notice:1509799|4697b0f2603e",
+  "oldest_event_id": "2026-07-07T14:46:34+09:00|updated|pnu-academic-ste-general-9557:1447519|82ed375db277",
   "oldest_seen_at": "2026-07-07T14:46:34+09:00",
-  "latest_seen_at": "2026-07-14T23:06:05+09:00",
+  "latest_seen_at": "2026-07-15T03:42:21+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-07T14:46:34+09:00|updated|pnu-academic-ste-general-9557:1447518|44806ed889b6",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-ste-general-9557:1447518",
-      "source_id": "pnu-academic-ste-general-9557",
-      "source_name": "부산대 첨단융합학부 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-07-07T14:46:34+09:00",
-      "published_at": "2026-06-30",
-      "title": "[학생과] 국립외교원 국립외교아카데미 제9기 대학생 외교 연수 대학 추천자 모집",
-      "url": "https://ste.pusan.ac.kr/bbs/ste/1168/1447518/artclView.do",
-      "topics": [],
-      "same_notice_group_id": "same_notice:9733ba68effa2d9e",
-      "canonical_item_id": "pnu-academic-bce-general-5008:1447482",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-bce-general-5008",
-        "pnu-academic-ste-general-9557"
-      ],
-      "content_hash": "44806ed889b6cc86c9c6da3008288e254db721ee8b2c6e4198186180b9701c6c",
-      "previous_content_hash": "f7eb37a0178cb93769a26d864a0128fbdca18d3a908416ea434bd2ded113346b",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-academic-ste-general-9557:1447518"
-    },
     {
       "event_id": "2026-07-07T14:46:34+09:00|updated|pnu-academic-ste-general-9557:1447519|82ed375db277",
       "event_type": "updated",
@@ -34375,6 +34343,36 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-international-student-notices:1451845"
+    },
+    {
+      "event_id": "2026-07-15T03:42:21+09:00|updated|pnu-main-notice:1509799|4697b0f2603e",
+      "event_type": "updated",
+      "notice_id": "pnu-main-notice:1509799",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-07-15T03:42:21+09:00",
+      "published_at": "2026-07-07",
+      "title": "[에듀테크센터] 'Gemini pro 등 무료 제공, 부산대 웹메일 계정 신청 안내'(2027. 6. 23. 라이선스 종료)",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509799",
+      "topics": [
+        "academic"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1509799",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "4697b0f2603e6847f81f5db907bd72e197f7e5bc0805b3c0cb4d7a5e52645ffc",
+      "previous_content_hash": "9e92471c0d62238acbb2b9b100239086d6eff17a4fa2993a4345268cc1b697b6",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-notice:1509799"
     }
   ]
 }
