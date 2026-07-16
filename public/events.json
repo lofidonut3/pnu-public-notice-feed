@@ -1,97 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-16T22:03:48+09:00",
+  "generated_at": "2026-07-17T01:50:14+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 6295,
+  "total_event_count": 6297,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-16T22:03:48+09:00|updated|pnu-academic-soc-general-9355:1448947|c64fc45cb1da",
-  "oldest_event_id": "2026-07-09T10:11:14+09:00|updated|pnu-academic-math-undergrad-11218:1447790|e64913cce0f8",
+  "latest_event_id": "2026-07-17T01:50:14+09:00|updated|pnu-main-faculty-staff-recruitment:1509979|8ae6f86ea6d3",
+  "oldest_event_id": "2026-07-09T10:11:14+09:00|updated|pnu-academic-ocean-career-12799:1447789|a06bd6f4269a",
   "oldest_seen_at": "2026-07-09T10:11:14+09:00",
-  "latest_seen_at": "2026-07-16T22:03:48+09:00",
+  "latest_seen_at": "2026-07-17T01:50:14+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-09T10:11:14+09:00|updated|pnu-academic-math-undergrad-11218:1447790|e64913cce0f8",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-math-undergrad-11218:1447790",
-      "source_id": "pnu-academic-math-undergrad-11218",
-      "source_name": "부산대 수학과 학부공지",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-07-09T10:11:14+09:00",
-      "published_at": "2026-07-02",
-      "title": "2026학년도 2학기 학자금 대출 기본계획 알림",
-      "url": "https://math.pusan.ac.kr/bbs/math/867/1447790/artclView.do",
-      "topics": [
-        "undergraduate",
-        "scholarship"
-      ],
-      "same_notice_group_id": "same_notice:5e8a94b2a7581d32",
-      "canonical_item_id": "pnu-graduate-dent-grad-3456:1447799",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-biology-grad-5539",
-        "pnu-academic-chem-general-6291",
-        "pnu-academic-linguistics-general-8764",
-        "pnu-academic-math-grad-11222",
-        "pnu-academic-math-undergrad-11218",
-        "pnu-academic-medicine-general-14551",
-        "pnu-academic-phys-undergrad-12920",
-        "pnu-academic-ste-scholarship-9558",
-        "pnu-graduate-dent-grad-3456"
-      ],
-      "content_hash": "e64913cce0f893568c7393942d0135634f1b113811c778219bf672db91d975cd",
-      "previous_content_hash": "cd5ec2039f2aa01be5921bdcd9501ace4f23adb527e22f6c6ae0014bc496a8c7",
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-math-undergrad-11218:1447790"
-    },
-    {
-      "event_id": "2026-07-09T10:11:14+09:00|updated|pnu-academic-math-undergrad-11218:1447812|1e91cf586f10",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-math-undergrad-11218:1447812",
-      "source_id": "pnu-academic-math-undergrad-11218",
-      "source_name": "부산대 수학과 학부공지",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-07-09T10:11:14+09:00",
-      "published_at": "2026-07-02",
-      "title": "2026학년도 2학기 AI학업장려 학자금대출 안내",
-      "url": "https://math.pusan.ac.kr/bbs/math/867/1447812/artclView.do",
-      "topics": [
-        "undergraduate",
-        "scholarship"
-      ],
-      "same_notice_group_id": "same_notice:0dbf0af3cf73910b",
-      "canonical_item_id": "pnu-onestop-scholarship:683",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-bce-general-5008",
-        "pnu-academic-math-undergrad-11218",
-        "pnu-onestop-scholarship"
-      ],
-      "content_hash": "1e91cf586f103d6c86e41a3a15e384f8a36adcaa2ce4593b1e6d65d2d6192e4b",
-      "previous_content_hash": "32dd51b0cc862aedfc99c191c856201c4178ee3a0df38e5ba96464dd021ae6cb",
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-math-undergrad-11218:1447812"
-    },
     {
       "event_id": "2026-07-09T10:11:14+09:00|updated|pnu-academic-ocean-career-12799:1447789|a06bd6f4269a",
       "event_type": "updated",
@@ -34404,6 +34326,75 @@
       "previous_content_hash": "072693e36e3afb0b2d46a07de1eb2074f1f684d15141e80cb04b67893d190940",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-academic-soc-general-9355:1448947"
+    },
+    {
+      "event_id": "2026-07-17T01:50:14+09:00|updated|pnu-academic-lais-undergrad-9201:1444573|3239dd68a209",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-lais-undergrad-9201:1444573",
+      "source_id": "pnu-academic-lais-undergrad-9201",
+      "source_name": "부산대 문헌정보학과 학부 공지사항",
+      "source_category": "academic_unit_undergraduate_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "undergrad"
+      ],
+      "seen_at": "2026-07-17T01:50:14+09:00",
+      "published_at": "2026-06-25",
+      "title": "[학사] 2026학년도 2학기 학.석(박)사 (통합)연계과정 및 전환 신청 안내",
+      "url": "https://lais.pusan.ac.kr/bbs/lais/486/1444573/artclView.do",
+      "topics": [
+        "undergraduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-lais-undergrad-9201:1444573",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-lais-undergrad-9201"
+      ],
+      "content_hash": "3239dd68a20999c166d2c52e1db30529a07286052f631078dec30c414a6a2dc5",
+      "previous_content_hash": "376f27b49d98b340c38dfdd71a502ab775f41d3b87ef263e925d0174f110c10d",
+      "archive_file": "./archive/2026-06.json",
+      "archive_item_id": "pnu-academic-lais-undergrad-9201:1444573"
+    },
+    {
+      "event_id": "2026-07-17T01:50:14+09:00|updated|pnu-main-faculty-staff-recruitment:1509979|8ae6f86ea6d3",
+      "event_type": "updated",
+      "notice_id": "pnu-main-faculty-staff-recruitment:1509979",
+      "source_id": "pnu-main-faculty-staff-recruitment",
+      "source_name": "부산대 교수초빙/직원채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "recruitment",
+        "faculty",
+        "staff"
+      ],
+      "seen_at": "2026-07-17T01:50:14+09:00",
+      "published_at": "2026-07-16",
+      "title": "[공고]문헌정보학과 BK21FOUR 생활밀착형정보서비스전문인력교육인력 박사후연구원 채용",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1509979",
+      "topics": [
+        "recruitment",
+        "career",
+        "graduate",
+        "research",
+        "campus_service"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1509979",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-faculty-staff-recruitment"
+      ],
+      "content_hash": "8ae6f86ea6d39110f6f91694e0ee017697c83fdefc25faf1821f603667303a16",
+      "previous_content_hash": "808f7032f724e3bf522f023d6df403c747f65946aaf325753e9a8f1cfc796fe6",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-faculty-staff-recruitment:1509979"
     }
   ]
 }
