@@ -1,156 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-18T05:11:42+09:00",
+  "generated_at": "2026-07-18T19:24:39+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 6357,
+  "total_event_count": 6361,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-18T05:11:42+09:00|updated|pnu-international-student-notices:1448981|57b52f0493fc",
-  "oldest_event_id": "2026-07-09T14:45:41+09:00|updated|pnu-job-recruit-recommendation:117607|f6bd28c62b04",
-  "oldest_seen_at": "2026-07-09T14:45:41+09:00",
-  "latest_seen_at": "2026-07-18T05:11:42+09:00",
+  "latest_event_id": "2026-07-18T19:24:39+09:00|updated|pnu-sedu-support-notices:1762392|f01cffa6e643",
+  "oldest_event_id": "2026-07-09T18:58:58+09:00|added|pnu-academic-ee-general-5204:1448530|c2603390e4e7",
+  "oldest_seen_at": "2026-07-09T18:58:58+09:00",
+  "latest_seen_at": "2026-07-18T19:24:39+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-09T14:45:41+09:00|updated|pnu-job-recruit-recommendation:117607|f6bd28c62b04",
-      "event_type": "updated",
-      "notice_id": "pnu-job-recruit-recommendation:117607",
-      "source_id": "pnu-job-recruit-recommendation",
-      "source_name": "부산대 취업전략과 추천채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "recruitment",
-        "recommended_recruitment"
-      ],
-      "seen_at": "2026-07-09T14:45:41+09:00",
-      "published_at": null,
-      "title": "[(주)보쉬렉스로스코리아] 추천채용 재안내(기한연장)",
-      "url": "https://job.pusan.ac.kr/ko/recruit/Recommendation_intro/view/117607",
-      "topics": [
-        "recruitment",
-        "career"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-recruit-recommendation:117607",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-recruit-recommendation"
-      ],
-      "content_hash": "f6bd28c62b04f00810bbbb4f38d09a732051a39e0c543b7984e30982004a8790",
-      "previous_content_hash": "018511ddd389ad0cb6ed1636b4ff9f6ba3bceb9fedb04ecfe4306f62194822f3",
-      "archive_file": "./archive/2026-06.json",
-      "archive_item_id": "pnu-job-recruit-recommendation:117607"
-    },
-    {
-      "event_id": "2026-07-09T18:58:58+09:00|added|pnu-academic-biz-scholarship-8960:1448945|19cc6a217847",
-      "event_type": "added",
-      "notice_id": "pnu-academic-biz-scholarship-8960:1448945",
-      "source_id": "pnu-academic-biz-scholarship-8960",
-      "source_name": "부산대 경영대학/경영학과 취업/장학",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-07-09T18:58:58+09:00",
-      "published_at": "2026-07-09",
-      "title": "[취업전략과] (주)위비스 추천채용 안내(~7/13) 새글",
-      "url": "https://biz.pusan.ac.kr/bbs/biz/1093/1448945/artclView.do",
-      "topics": [
-        "scholarship",
-        "recruitment",
-        "career"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-biz-scholarship-8960:1448945",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-biz-scholarship-8960"
-      ],
-      "content_hash": "19cc6a217847f188dae71b3c0f8721186de54f7dc57800207d657216e60e5158",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-biz-scholarship-8960:1448945"
-    },
-    {
-      "event_id": "2026-07-09T18:58:58+09:00|added|pnu-academic-chem-general-6291:1448940|353b739f995d",
-      "event_type": "added",
-      "notice_id": "pnu-academic-chem-general-6291:1448940",
-      "source_id": "pnu-academic-chem-general-6291",
-      "source_name": "부산대 화학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-07-09T18:58:58+09:00",
-      "published_at": "2026-07-09",
-      "title": "[대학원] KIRD 「2026년도 이공계 대학원생 경력설계 교육과정」 운영 안내 새글",
-      "url": "https://chem.pusan.ac.kr/bbs/chem/164/1448940/artclView.do",
-      "topics": [
-        "graduate"
-      ],
-      "same_notice_group_id": "same_notice:92777373dc8628be",
-      "canonical_item_id": "pnu-academic-aerospace-general-1455:1448515",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-aerospace-general-1455",
-        "pnu-academic-chem-general-6291",
-        "pnu-academic-fashion-general-8618",
-        "pnu-academic-ocean-general-12793"
-      ],
-      "content_hash": "353b739f995d06e37ca8dd0b3875306b86f2a67c4d0de6700ae79590aff22dba",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-chem-general-6291:1448940"
-    },
-    {
-      "event_id": "2026-07-09T18:58:58+09:00|added|pnu-academic-cse-general-14227:1448941|17694dbbafa9",
-      "event_type": "added",
-      "notice_id": "pnu-academic-cse-general-14227:1448941",
-      "source_id": "pnu-academic-cse-general-14227",
-      "source_name": "부산대 정보컴퓨터공학부 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-07-09T18:58:58+09:00",
-      "published_at": "2026-07-09",
-      "title": "[외국인:졸업] 2026.2학기 대학원 외국인공통 한국어(초,중,고급) 교과목 이수면제 안 새글",
-      "url": "https://cse.pusan.ac.kr/bbs/cse/2058/1448941/artclView.do",
-      "topics": [
-        "course"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-cse-general-14227:1448941",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-cse-general-14227"
-      ],
-      "content_hash": "17694dbbafa93b31fc9d303b0b48b5d64d04ccddf7f6f6f867b86e1d36e17999",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-cse-general-14227:1448941"
-    },
     {
       "event_id": "2026-07-09T18:58:58+09:00|added|pnu-academic-ee-general-5204:1448530|c2603390e4e7",
       "event_type": "added",
@@ -34470,6 +34333,137 @@
       "previous_content_hash": "990245d3ec1ed22e8655f5e58ca4bf069636f98852c017997eda131d1eacb8aa",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-international-student-notices:1448981"
+    },
+    {
+      "event_id": "2026-07-18T19:24:39+09:00|updated|pnu-international-office-notices:1448977|9d95925a65d9",
+      "event_type": "updated",
+      "notice_id": "pnu-international-office-notices:1448977",
+      "source_id": "pnu-international-office-notices",
+      "source_name": "부산대 국제처 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "outbound_exchange"
+      ],
+      "seen_at": "2026-07-18T19:24:39+09:00",
+      "published_at": "2026-07-10",
+      "title": "[홍보] [외부홍보] 2026-2027 독일정부초청장학생(DAAD 장학생) 선발 안내",
+      "url": "https://international.pusan.ac.kr/bbs/international/2080/1448977/artclView.do",
+      "topics": [
+        "international",
+        "scholarship"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-office-notices:1448977",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-office-notices"
+      ],
+      "content_hash": "9d95925a65d915d0bda4dcdc53e7c5bf3c153c1993419c19dcde375e0c8c8987",
+      "previous_content_hash": "65e1289712d15cc726ef16b47597853ffa432d1f844350657a129e13dd848f91",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-international-office-notices:1448977"
+    },
+    {
+      "event_id": "2026-07-18T19:24:39+09:00|updated|pnu-sedu-support-notices:1762389|d7dcb9ac0462",
+      "event_type": "updated",
+      "notice_id": "pnu-sedu-support-notices:1762389",
+      "source_id": "pnu-sedu-support-notices",
+      "source_name": "부산대 장애학생지원센터 공지사항",
+      "source_category": "student_support_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "disabled_students",
+        "student_support"
+      ],
+      "seen_at": "2026-07-18T19:24:39+09:00",
+      "published_at": "2026-07-03",
+      "title": "[한국장애인개발원] 장애청년 채용 취업 정보 안내(7월 1차)",
+      "url": "https://sedu-support.pusan.ac.kr/bbs/sedu-support/8226/1762389/artclView.do",
+      "topics": [
+        "student_support",
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-sedu-support-notices:1762389",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-sedu-support-notices"
+      ],
+      "content_hash": "d7dcb9ac0462546b6380afb97cc223112cad30a961655f737a119d219edbfb59",
+      "previous_content_hash": "4e6b17b362c99792c991786d3f248cf402e8ed35cf0069f64f8290259628d7f2",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-sedu-support-notices:1762389"
+    },
+    {
+      "event_id": "2026-07-18T19:24:39+09:00|updated|pnu-sedu-support-notices:1762390|dd466808abe6",
+      "event_type": "updated",
+      "notice_id": "pnu-sedu-support-notices:1762390",
+      "source_id": "pnu-sedu-support-notices",
+      "source_name": "부산대 장애학생지원센터 공지사항",
+      "source_category": "student_support_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "disabled_students",
+        "student_support"
+      ],
+      "seen_at": "2026-07-18T19:24:39+09:00",
+      "published_at": "2026-07-03",
+      "title": "[한국재정정보원] 2026년 제4차 채용(장애인 청년인턴) 안내 -장애제한 8명 (~7/15/(수))",
+      "url": "https://sedu-support.pusan.ac.kr/bbs/sedu-support/8226/1762390/artclView.do",
+      "topics": [
+        "student_support",
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-sedu-support-notices:1762390",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-sedu-support-notices"
+      ],
+      "content_hash": "dd466808abe679e068b54fcef51a364a78c374d18d0ce3c73d88f62f5b0a662b",
+      "previous_content_hash": "507d2733094b874ccbfa7a36d154101ccb3b15abc8a5eb775ed76ad1cfbb3b79",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-sedu-support-notices:1762390"
+    },
+    {
+      "event_id": "2026-07-18T19:24:39+09:00|updated|pnu-sedu-support-notices:1762392|f01cffa6e643",
+      "event_type": "updated",
+      "notice_id": "pnu-sedu-support-notices:1762392",
+      "source_id": "pnu-sedu-support-notices",
+      "source_name": "부산대 장애학생지원센터 공지사항",
+      "source_category": "student_support_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "disabled_students",
+        "student_support"
+      ],
+      "seen_at": "2026-07-18T19:24:39+09:00",
+      "published_at": "2026-07-03",
+      "title": "[한국재료연구원] 장애인 인턴 모집 공고 안내 (~7/13(월) 16:00)",
+      "url": "https://sedu-support.pusan.ac.kr/bbs/sedu-support/8226/1762392/artclView.do",
+      "topics": [
+        "student_support",
+        "career",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-sedu-support-notices:1762392",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-sedu-support-notices"
+      ],
+      "content_hash": "f01cffa6e64388ada10a454f27f2764db345a083ce94a23850bea172acf85dcf",
+      "previous_content_hash": "7f27a8b2da6f7bd525a07e2690bb97643513c85111cdb25332af33e2d339015e",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-sedu-support-notices:1762392"
     }
   ]
 }
