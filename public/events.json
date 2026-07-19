@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-20T00:32:36+09:00",
+  "generated_at": "2026-07-20T02:07:32+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 6389,
+  "total_event_count": 6390,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-19T22:53:42+09:00|updated|pnu-job-recruit-internship:117639|643a29d63808",
-  "oldest_event_id": "2026-07-09T18:58:58+09:00|updated|pnu-academic-microbio-undergrad-10800:1447857|327e08f9e3bc",
+  "latest_event_id": "2026-07-20T02:07:32+09:00|added|pnu-main-faculty-staff-recruitment:1509983|e90b9788d551",
+  "oldest_event_id": "2026-07-09T18:58:58+09:00|updated|pnu-academic-microbio-undergrad-10800:1447862|08aa96558687",
   "oldest_seen_at": "2026-07-09T18:58:58+09:00",
-  "latest_seen_at": "2026-07-19T22:53:42+09:00",
+  "latest_seen_at": "2026-07-20T02:07:32+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-09T18:58:58+09:00|updated|pnu-academic-microbio-undergrad-10800:1447857|327e08f9e3bc",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-microbio-undergrad-10800:1447857",
-      "source_id": "pnu-academic-microbio-undergrad-10800",
-      "source_name": "부산대 미생물학과 학부공지사항",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-07-09T18:58:58+09:00",
-      "published_at": "2026-07-02",
-      "title": "[졸업]2025학년도 후기('26년 8월) 학사학위취득 유예 시행 계획 알림",
-      "url": "https://microbio.pusan.ac.kr/bbs/microbio/222/1447857/artclView.do",
-      "topics": [
-        "undergraduate",
-        "graduation"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-microbio-undergrad-10800:1447857",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-microbio-undergrad-10800"
-      ],
-      "content_hash": "327e08f9e3bc57b38d0e1e904af8b59d4666f63694adf312b74d6ba16c896db3",
-      "previous_content_hash": "a990c743ef271440bf714cbab09d9705b3d64b94cd2db8166ce347861b70686e",
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-microbio-undergrad-10800:1447857"
-    },
     {
       "event_id": "2026-07-09T18:58:58+09:00|updated|pnu-academic-microbio-undergrad-10800:1447862|08aa96558687",
       "event_type": "updated",
@@ -5879,7 +5845,6 @@
         "pnu-academic-fu-general-4474",
         "pnu-academic-hanmun-undergrad-6062",
         "pnu-academic-hid-general-10648",
-        "pnu-academic-history-general-6500",
         "pnu-academic-history-grad-6510",
         "pnu-academic-it-general-4402",
         "pnu-academic-math-undergrad-11218",
@@ -34432,6 +34397,41 @@
       "previous_content_hash": "638c3b09a94770324ce31bc104a518315397d0e4459a0a0998e6902699b81dc7",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-job-recruit-internship:117639"
+    },
+    {
+      "event_id": "2026-07-20T02:07:32+09:00|added|pnu-main-faculty-staff-recruitment:1509983|e90b9788d551",
+      "event_type": "added",
+      "notice_id": "pnu-main-faculty-staff-recruitment:1509983",
+      "source_id": "pnu-main-faculty-staff-recruitment",
+      "source_name": "부산대 교수초빙/직원채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "recruitment",
+        "faculty",
+        "staff"
+      ],
+      "seen_at": "2026-07-20T02:07:32+09:00",
+      "published_at": "2026-07-20",
+      "title": "[장애학생지원센터] 장애학생 지원 권역별 선도대학 운영사업 연구원 공개 채용 공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1509983",
+      "topics": [
+        "recruitment",
+        "career",
+        "student_support",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1509983",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-faculty-staff-recruitment"
+      ],
+      "content_hash": "e90b9788d5515676cc106ac6ccd3cb8c9553d73d264b41cca7493ae914bfb658",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-faculty-staff-recruitment:1509983"
     }
   ]
 }
