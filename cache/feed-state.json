@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "feed_version": "2026-06-04",
-  "generated_at": "2026-07-20T05:09:35+09:00",
+  "generated_at": "2026-07-20T06:27:05+09:00",
   "sources": {
     "pnu-main-notice": {
       "source": {
@@ -20,15 +20,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T05:39:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T06:57:05+09:00",
+      "backoff_until": "2026-07-20T06:57:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": [
         {
           "id": "pnu-main-notice:1509980",
@@ -2906,15 +2906,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T05:39:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T06:57:05+09:00",
+      "backoff_until": "2026-07-20T06:57:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "fetch failed",
       "items": [
         {
           "id": "pnu-onestop-notices:2119",
@@ -5699,15 +5699,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T05:39:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T06:57:05+09:00",
+      "backoff_until": "2026-07-20T06:57:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "fetch failed",
       "items": [
         {
           "id": "pnu-onestop-scholarship:685",
@@ -8607,15 +8607,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T06:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T07:27:05+09:00",
+      "backoff_until": "2026-07-20T07:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "fetch failed",
       "items": [
         {
           "id": "pnu-dorm-busan-notices:5301",
@@ -11026,15 +11026,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T06:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T07:27:05+09:00",
+      "backoff_until": "2026-07-20T07:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "fetch failed",
       "items": [
         {
           "id": "pnu-dorm-yangsan-notices:2039",
@@ -12626,8 +12626,8 @@
       "next_check_at": "2026-07-20T09:09:35+09:00",
       "backoff_until": "2026-07-20T09:09:35+09:00",
       "error_count": 3,
-      "status": "error",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "backoff",
       "error": "fetch failed",
       "items": [
         {
@@ -14646,15 +14646,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T06:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T07:27:05+09:00",
+      "backoff_until": "2026-07-20T07:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": [
         {
           "id": "pnu-international-student-notices:1451960",
@@ -15588,15 +15588,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T06:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T07:27:05+09:00",
+      "backoff_until": "2026-07-20T07:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": [
         {
           "id": "pnu-international-office-notices:1451924",
@@ -16140,15 +16140,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T06:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T07:27:05+09:00",
+      "backoff_until": "2026-07-20T07:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": [
         {
           "id": "pnu-job-notices:204124",
@@ -17813,15 +17813,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T06:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T07:27:05+09:00",
+      "backoff_until": "2026-07-20T07:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": [
         {
           "id": "pnu-job-recruit-general:117672",
@@ -19364,15 +19364,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T06:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T07:27:05+09:00",
+      "backoff_until": "2026-07-20T07:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": [
         {
           "id": "pnu-job-recruit-recommendation:117654",
@@ -19971,8 +19971,8 @@
       "next_check_at": "2026-07-20T07:09:35+09:00",
       "backoff_until": "2026-07-20T07:09:35+09:00",
       "error_count": 2,
-      "status": "error",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "backoff",
       "error": "<urlopen error timed out>",
       "items": [
         {
@@ -21514,15 +21514,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T06:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T07:27:05+09:00",
+      "backoff_until": "2026-07-20T07:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": [
         {
           "id": "pnu-library-notices:57335",
@@ -23150,8 +23150,8 @@
       "next_check_at": "2026-07-20T07:09:35+09:00",
       "backoff_until": "2026-07-20T07:09:35+09:00",
       "error_count": 2,
-      "status": "error",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "backoff",
       "error": "source returned no notice rows despite having cached items; treating the response as maintenance or parser failure",
       "items": [
         {
@@ -25759,14 +25759,14 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T03:31:50+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T00:32:36+09:00",
-      "last_error_at": "2026-07-20T03:31:50+09:00",
-      "next_check_at": "2026-07-20T05:31:50+09:00",
-      "backoff_until": "2026-07-20T05:31:50+09:00",
-      "error_count": 2,
-      "status": "skipped",
-      "skipped_reason": "backoff",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T10:27:05+09:00",
+      "backoff_until": "2026-07-20T10:27:05+09:00",
+      "error_count": 3,
+      "status": "error",
+      "skipped_reason": null,
       "error": "fetch failed",
       "items": [
         {
@@ -26662,15 +26662,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T06:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T07:27:05+09:00",
+      "backoff_until": "2026-07-20T07:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": [
         {
           "id": "pnu-sanhak-notices:4-72",
@@ -27201,8 +27201,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": "2026-07-20T08:09:35+09:00",
       "error_count": 1,
-      "status": "error",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "backoff",
       "error": "<urlopen error timed out>",
       "items": [
         {
@@ -27417,12 +27417,12 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T03:31:50+09:00",
-      "last_error_at": "2026-07-20T05:09:35+09:00",
-      "next_check_at": "2026-07-20T06:09:35+09:00",
-      "backoff_until": "2026-07-20T06:09:35+09:00",
-      "error_count": 1,
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T08:27:05+09:00",
+      "backoff_until": "2026-07-20T08:27:05+09:00",
+      "error_count": 2,
       "status": "error",
       "skipped_reason": null,
       "error": "fetch failed",
@@ -29337,15 +29337,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T06:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T07:27:05+09:00",
+      "backoff_until": "2026-07-20T07:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": [
         {
           "id": "pnu-sedu-support-notices:1762698",
@@ -29975,15 +29975,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T06:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T07:27:05+09:00",
+      "backoff_until": "2026-07-20T07:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": [
         {
           "id": "pnu-counsel-notices:1447592",
@@ -30253,15 +30253,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T06:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T07:27:05+09:00",
+      "backoff_until": "2026-07-20T07:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": [
         {
           "id": "pnu-equality-notices:1762582",
@@ -30517,8 +30517,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": "2026-07-20T08:09:35+09:00",
       "error_count": 1,
-      "status": "error",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "backoff",
       "error": "fetch failed",
       "items": [
         {
@@ -32963,8 +32963,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -34521,8 +34521,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -37129,8 +37129,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -37348,8 +37348,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -37685,8 +37685,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -37905,8 +37905,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -37986,10 +37986,10 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T10:31:15+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
-      "last_success_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
+      "last_success_at": "2026-07-20T06:27:05+09:00",
       "last_error_at": null,
-      "next_check_at": "2026-07-20T05:39:35+09:00",
+      "next_check_at": "2026-07-20T06:57:05+09:00",
       "backoff_until": null,
       "error_count": 0,
       "status": "ok",
@@ -38003,7 +38003,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-07-10",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "d643e557da28bf083d5149408bba5b9c4a495bc133d6ef76e4588744f1f14c75",
@@ -38022,7 +38022,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-07-09",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "3b19e8c702f3f87b08da2f8a55f4736e03f624f38c2028a50b735b67920a3823",
@@ -38041,7 +38041,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-07-09",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "095520e0e40141ad222fc79deb315b8c6db4488e5f75d05efa35835afa861e7c",
@@ -38060,7 +38060,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-07-09",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "6cd724d053f818329b59a455b2bb037ba693c3593f0731692def97114965666d",
@@ -38079,7 +38079,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-07-08",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "5e36d9e7b1473f8d45c39a777fe85328b6ef9ca0073f2bc5eed3855f694f6677",
@@ -38100,7 +38100,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-07-06",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "c6d3a607b39a769a7303d9a8a05552e5b33b245d7666807785b9015dc2880669",
@@ -38120,7 +38120,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-07-01",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "a18f55186650bf977cf4388777a11aaf9147b56caf20b4d4c07c6d57ecd5fc9e",
@@ -38139,7 +38139,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-06-25",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "640083cfdee8961e2349f1d70cab8c6fd654d75d90c01d612706906f7fa32f5e",
@@ -38158,7 +38158,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-06-15",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "de4ea3c8c7644edc26d0cb8b6840a55222c150fd6d89ed0792856aad9a03d0f2",
@@ -38177,7 +38177,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-06-11",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "bbc7e69f6722b4119ecd32d5918df0951d7dfb6bb4822b61bb695039944c6544",
@@ -38196,7 +38196,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-06-01",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "fbb191b0339e3bfc790ec0e6b7f5041587e9a1a2b70bcaeaf987ecdb9a201b65",
@@ -38215,7 +38215,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-05-28",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "d1c09631387c3fccce5a8a006a14ea3562bcefc0657658964525fd1fd31e5283",
@@ -38234,7 +38234,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-05-21",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "489d9700a410449c00bb2daeee5eff6937842eda344d31bbb13e4531541e7d38",
@@ -38254,7 +38254,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-05-21",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "338548ec30bf254ef96d3539c2a4f3bbbcc20c20e4961e619855780c85f7baff",
@@ -38274,7 +38274,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-05-20",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "70a02f01d041054e0d1e4f881f082dccd8bbc7c082b669beb218d52ab3334802",
@@ -38293,7 +38293,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-05-20",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "f05670e10d8a423d8a8c35444248fbcb934ed14c623b9cb2f4b7b6bfcbf8d21a",
@@ -38312,7 +38312,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-05-13",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "f7f4dd8e0995594a5a8fb99802153bdc062f6eb9e01e6f2a74bda7a106e62f63",
@@ -38331,7 +38331,7 @@
           "_pnu": {
             "source_id": "pnu-plato-public-notices",
             "published_at": "2026-05-04",
-            "fetched_at": "2026-07-20T05:09:35+09:00",
+            "fetched_at": "2026-07-20T06:27:05+09:00",
             "snippet": null,
             "attachments": [],
             "content_hash": "3ce3c749a235a116a41e2a2c871adc2a4e8b3adb27d1d6fac6edfbab445edb0d",
@@ -38580,8 +38580,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -38930,8 +38930,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -39324,8 +39324,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -40233,8 +40233,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -40587,8 +40587,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -41095,8 +41095,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -41398,8 +41398,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -41779,8 +41779,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -42520,8 +42520,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -42611,8 +42611,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -42930,8 +42930,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -43209,8 +43209,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -45459,8 +45459,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -46954,8 +46954,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -47397,8 +47397,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -47951,8 +47951,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -48430,8 +48430,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -49332,8 +49332,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -49566,8 +49566,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -51192,8 +51192,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -51779,8 +51779,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -52177,8 +52177,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -52537,8 +52537,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -53601,8 +53601,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -53961,8 +53961,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -54263,8 +54263,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -55179,8 +55179,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -55566,8 +55566,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -56038,8 +56038,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -56379,8 +56379,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -56644,8 +56644,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -56923,8 +56923,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -57145,8 +57145,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -57367,8 +57367,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -57646,8 +57646,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -57868,8 +57868,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -58090,8 +58090,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -58484,8 +58484,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -58721,8 +58721,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -58997,8 +58997,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -59291,8 +59291,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -59585,8 +59585,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -59871,8 +59871,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -60404,8 +60404,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -60816,8 +60816,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -61456,8 +61456,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -62156,8 +62156,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -62503,8 +62503,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -63506,8 +63506,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -63969,8 +63969,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -64693,8 +64693,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -65002,8 +65002,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -65276,8 +65276,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -65841,8 +65841,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -66669,8 +66669,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -67922,8 +67922,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -68175,8 +68175,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -68753,8 +68753,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -69299,8 +69299,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -70342,8 +70342,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -70944,8 +70944,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -71268,8 +71268,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -71689,8 +71689,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -72653,8 +72653,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -72964,8 +72964,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -74363,15 +74363,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T11:34:53+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T08:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T09:27:05+09:00",
+      "backoff_until": "2026-07-20T09:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": []
     },
     "pnu-academic-archieng-grad-8425": {
@@ -74400,8 +74400,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -74622,8 +74622,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -74882,8 +74882,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -75130,8 +75130,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -75354,8 +75354,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -76101,8 +76101,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -76391,8 +76391,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -76651,8 +76651,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -77113,8 +77113,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -77904,8 +77904,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -78613,8 +78613,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -79218,8 +79218,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -79442,8 +79442,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -79740,8 +79740,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -80038,8 +80038,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -80539,8 +80539,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -81325,8 +81325,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -81715,8 +81715,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -83158,8 +83158,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -83457,8 +83457,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -85142,8 +85142,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -85364,8 +85364,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -85637,8 +85637,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -85916,8 +85916,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -86395,8 +86395,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -86857,8 +86857,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -87353,8 +87353,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -87575,8 +87575,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -87664,8 +87664,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -88811,8 +88811,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -89376,8 +89376,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -89617,8 +89617,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -90922,8 +90922,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -91201,8 +91201,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -91487,8 +91487,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -91709,8 +91709,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -91931,8 +91931,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -92058,8 +92058,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -93058,8 +93058,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -93492,8 +93492,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -93777,8 +93777,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -94132,8 +94132,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -94764,8 +94764,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -95498,8 +95498,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -96746,8 +96746,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -97009,8 +97009,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -97514,8 +97514,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -97737,8 +97737,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -98473,8 +98473,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -98714,8 +98714,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -99017,8 +99017,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -99437,8 +99437,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -100351,8 +100351,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -100915,8 +100915,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -102327,8 +102327,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -103646,8 +103646,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -104276,8 +104276,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -104567,8 +104567,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -104789,8 +104789,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -105030,8 +105030,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -105252,8 +105252,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -105475,8 +105475,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -105754,8 +105754,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -106110,8 +106110,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -106417,8 +106417,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -106734,8 +106734,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -107339,8 +107339,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -107562,8 +107562,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -108036,8 +108036,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -108260,8 +108260,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -108612,8 +108612,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -108836,8 +108836,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -109251,8 +109251,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -109521,8 +109521,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -109958,8 +109958,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -110720,8 +110720,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -110999,8 +110999,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -111242,8 +111242,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -111505,8 +111505,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -111727,8 +111727,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -112102,8 +112102,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -112384,8 +112384,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -112606,8 +112606,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -114117,8 +114117,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -114348,8 +114348,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -114579,8 +114579,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -114801,8 +114801,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -116533,8 +116533,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -117935,8 +117935,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -118183,8 +118183,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -118584,8 +118584,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -120238,8 +120238,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -121183,8 +121183,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -121253,8 +121253,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -121558,8 +121558,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -121799,8 +121799,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -122113,8 +122113,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -122708,8 +122708,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -123863,8 +123863,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -124464,8 +124464,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -124801,8 +124801,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -125023,8 +125023,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -125290,8 +125290,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -125734,8 +125734,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -126053,8 +126053,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -126275,8 +126275,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -126444,8 +126444,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -127148,8 +127148,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -127573,8 +127573,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -128006,8 +128006,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -128247,8 +128247,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -128574,8 +128574,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -128816,8 +128816,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -129365,8 +129365,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -129701,8 +129701,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -129943,8 +129943,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -130166,8 +130166,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -130426,8 +130426,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -130648,8 +130648,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -130936,15 +130936,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T13:51:13+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T08:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T09:27:05+09:00",
+      "backoff_until": "2026-07-20T09:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": []
     },
     "pnu-academic-ite-career-13815": {
@@ -130973,8 +130973,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -131255,8 +131255,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -131534,8 +131534,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -131877,8 +131877,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -132156,8 +132156,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -132378,8 +132378,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -132638,8 +132638,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -132860,8 +132860,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -133082,8 +133082,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -133364,8 +133364,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -133607,8 +133607,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -133823,15 +133823,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T13:51:13+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T08:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T09:27:05+09:00",
+      "backoff_until": "2026-07-20T09:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": []
     },
     "pnu-academic-hid-career-10666": {
@@ -133860,8 +133860,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -134345,8 +134345,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -134587,8 +134587,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -135094,8 +135094,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -135373,8 +135373,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -135595,8 +135595,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -136292,8 +136292,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -136514,8 +136514,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -136838,8 +136838,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -137444,8 +137444,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -137704,8 +137704,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -138154,8 +138154,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -138205,8 +138205,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -138471,15 +138471,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T13:51:13+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T08:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T09:27:05+09:00",
+      "backoff_until": "2026-07-20T09:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": []
     },
     "pnu-academic-phys-career-12922": {
@@ -138508,8 +138508,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -138789,8 +138789,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -139011,8 +139011,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -139367,8 +139367,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -140066,8 +140066,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -140368,8 +140368,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -140674,8 +140674,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -141373,8 +141373,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -141951,8 +141951,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -142002,8 +142002,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -142419,8 +142419,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -143117,8 +143117,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -143902,8 +143902,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -144350,8 +144350,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -144591,8 +144591,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -144924,8 +144924,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -145248,8 +145248,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -145522,8 +145522,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -145880,8 +145880,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -146102,8 +146102,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -146328,8 +146328,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -146591,8 +146591,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -146821,8 +146821,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -147054,8 +147054,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -147271,15 +147271,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T13:51:13+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T08:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T09:27:05+09:00",
+      "backoff_until": "2026-07-20T09:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": []
     },
     "pnu-academic-music-scholarship-11764": {
@@ -147308,8 +147308,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -147530,8 +147530,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -147752,8 +147752,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -148067,8 +148067,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -148355,8 +148355,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -148808,8 +148808,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -149102,8 +149102,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -149347,8 +149347,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -149493,8 +149493,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -149779,8 +149779,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -151055,8 +151055,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -151271,15 +151271,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T13:51:13+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T08:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T09:27:05+09:00",
+      "backoff_until": "2026-07-20T09:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": []
     },
     "pnu-academic-me-grad-sub01-02": {
@@ -151308,8 +151308,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -152184,8 +152184,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -152235,8 +152235,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -154190,8 +154190,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -154469,8 +154469,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -154693,8 +154693,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -154915,8 +154915,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -155137,8 +155137,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -155359,8 +155359,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -155600,8 +155600,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -155893,8 +155893,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -156115,8 +156115,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -156337,8 +156337,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -156584,15 +156584,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T13:51:13+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T08:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T09:27:05+09:00",
+      "backoff_until": "2026-07-20T09:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": []
     },
     "pnu-academic-china-event-2656": {
@@ -156615,15 +156615,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T13:51:13+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T08:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T09:27:05+09:00",
+      "backoff_until": "2026-07-20T09:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": []
     },
     "pnu-academic-philosophy-event-15171": {
@@ -156652,8 +156652,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -157069,8 +157069,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -157311,8 +157311,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -157552,8 +157552,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -157774,8 +157774,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -157990,15 +157990,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T13:51:13+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T08:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T09:27:05+09:00",
+      "backoff_until": "2026-07-20T09:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": []
     },
     "pnu-academic-chem-event-6285": {
@@ -158027,8 +158027,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -158249,8 +158249,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -158694,8 +158694,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -159309,8 +159309,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -159653,8 +159653,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -159997,8 +159997,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -160297,8 +160297,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -160538,8 +160538,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -160798,8 +160798,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -161557,8 +161557,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -161910,8 +161910,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -162911,8 +162911,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -163313,8 +163313,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -163516,8 +163516,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -163840,8 +163840,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -164041,8 +164041,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -164357,8 +164357,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -164558,8 +164558,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -164806,8 +164806,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -165052,8 +165052,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -165414,8 +165414,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -165628,15 +165628,15 @@
         ]
       },
       "baseline_completed_at": "2026-06-06T13:51:13+09:00",
-      "last_checked_at": "2026-07-20T05:09:35+09:00",
+      "last_checked_at": "2026-07-20T06:27:05+09:00",
       "last_success_at": "2026-07-20T05:09:35+09:00",
-      "last_error_at": null,
-      "next_check_at": "2026-07-20T08:09:35+09:00",
-      "backoff_until": null,
-      "error_count": 0,
-      "status": "ok",
+      "last_error_at": "2026-07-20T06:27:05+09:00",
+      "next_check_at": "2026-07-20T09:27:05+09:00",
+      "backoff_until": "2026-07-20T09:27:05+09:00",
+      "error_count": 1,
+      "status": "error",
       "skipped_reason": null,
-      "error": null,
+      "error": "<urlopen error timed out>",
       "items": []
     },
     "pnu-graduate-gsf-grad-12869": {
@@ -165663,8 +165663,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -166697,8 +166697,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -166975,8 +166975,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -167024,8 +167024,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -167283,8 +167283,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -168294,8 +168294,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
@@ -168578,8 +168578,8 @@
       "next_check_at": "2026-07-20T08:09:35+09:00",
       "backoff_until": null,
       "error_count": 0,
-      "status": "ok",
-      "skipped_reason": null,
+      "status": "skipped",
+      "skipped_reason": "poll_interval",
       "error": null,
       "items": [
         {
