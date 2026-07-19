@@ -4,12 +4,13 @@ import hashlib
 import html
 import re
 from dataclasses import dataclass
-from urllib.parse import urljoin
+from urllib.parse import urlencode, urljoin
 from urllib.request import Request, urlopen
 
 from .types import Notice, Source
 
 USER_AGENT = "PNUPublicNoticeFeed/0.1 (+https://github.com/pnu-public-notice-feed)"
+DEFAULT_MAX_CATCHUP_PAGES = 50
 
 
 @dataclass(frozen=True)
@@ -18,11 +19,32 @@ class K2WebListNotice:
     title: str
     url: str
     published_at: str | None
+    is_pinned: bool = False
 
 
-def fetch_k2web_board(source: Source, limit: int) -> list[Notice]:
+def fetch_k2web_board(
+    source: Source,
+    limit: int,
+    known_notice_ids: set[str] | None = None,
+    max_catchup_pages: int = DEFAULT_MAX_CATCHUP_PAGES,
+) -> list[Notice]:
     html_text = fetch_text(source.entry_url)
-    items = parse_k2web_list(html_text, source.entry_url)[:limit]
+    items = parse_k2web_list(html_text, source.entry_url)
+    known_ids = {
+        notice_id.rsplit(":", 1)[-1]
+        for notice_id in (known_notice_ids or set())
+    }
+    if known_ids and not _contains_known_boundary(items, known_ids):
+        items = _fetch_until_known_boundary(
+            html_text,
+            source.entry_url,
+            first_page_items=items,
+            known_ids=known_ids,
+            max_pages=max_catchup_pages,
+        )
+    items = _deduplicate_items(items)
+    if not known_ids:
+        items = items[:limit]
     return [
         Notice(
             source_id=source.id,
@@ -40,11 +62,78 @@ def fetch_k2web_board(source: Source, limit: int) -> list[Notice]:
     ]
 
 
-def fetch_text(url: str) -> str:
-    request = Request(url, headers={"User-Agent": USER_AGENT})
+def fetch_text(url: str, form: dict[str, str] | None = None) -> str:
+    data = urlencode(form).encode("utf-8") if form else None
+    request = Request(url, data=data, headers={"User-Agent": USER_AGENT})
     with urlopen(request, timeout=20) as response:
         encoding = response.headers.get_content_charset() or "utf-8"
         return response.read().decode(encoding, errors="replace")
+
+
+def _fetch_until_known_boundary(
+    first_page_html: str,
+    base_url: str,
+    *,
+    first_page_items: list[K2WebListNotice],
+    known_ids: set[str],
+    max_pages: int,
+) -> list[K2WebListNotice]:
+    action_url, layout = parse_k2web_pagination(first_page_html, base_url)
+    if not action_url:
+        raise RuntimeError("K2Web catch-up boundary is missing and pagination is unavailable")
+
+    collected = list(first_page_items)
+    for page in range(2, max(2, max_pages + 1)):
+        form = {"page": str(page)}
+        if layout:
+            form["layout"] = layout
+        page_html = fetch_text(action_url, form=form)
+        page_items = parse_k2web_list(page_html, action_url)
+        if not page_items:
+            raise RuntimeError(f"K2Web catch-up page {page} returned no notice rows")
+        collected.extend(page_items)
+        if _contains_known_boundary(page_items, known_ids):
+            return collected
+
+    raise RuntimeError(
+        f"K2Web catch-up boundary was not found within {max_pages} pages"
+    )
+
+
+def parse_k2web_pagination(html_text: str, base_url: str) -> tuple[str | None, str | None]:
+    form = re.search(
+        r"<form\b[^>]*\baction=[\"']([^\"']*artclList\.do[^\"']*)[\"'][^>]*>",
+        html_text,
+        flags=re.I | re.S,
+    )
+    if not form:
+        return None, None
+    layout = re.search(
+        r"<input\b[^>]*\bname=[\"']layout[\"'][^>]*\bvalue=[\"']([^\"']*)[\"'][^>]*>",
+        html_text,
+        flags=re.I | re.S,
+    )
+    return urljoin(base_url, html.unescape(form.group(1))), (
+        html.unescape(layout.group(1)) if layout else None
+    )
+
+
+def _contains_known_boundary(
+    items: list[K2WebListNotice],
+    known_ids: set[str],
+) -> bool:
+    return any(item.notice_id in known_ids and not item.is_pinned for item in items)
+
+
+def _deduplicate_items(items: list[K2WebListNotice]) -> list[K2WebListNotice]:
+    seen: set[str] = set()
+    result: list[K2WebListNotice] = []
+    for item in items:
+        if item.notice_id in seen:
+            continue
+        seen.add(item.notice_id)
+        result.append(item)
+    return result
 
 
 def parse_k2web_list(html_text: str, base_url: str) -> list[K2WebListNotice]:
@@ -72,6 +161,7 @@ def parse_k2web_list(html_text: str, base_url: str) -> list[K2WebListNotice]:
                 title=title,
                 url=urljoin(base_url, html.unescape(link.group(1))),
                 published_at=_date_from_row(row),
+                is_pinned=_is_pinned_row(row),
             )
         )
     return notices
@@ -88,6 +178,15 @@ def _date_from_row(row: str) -> str | None:
     return f"{match.group(1)}-{match.group(2).zfill(2)}-{match.group(3).zfill(2)}"
 
 
+def _is_pinned_row(row: str) -> bool:
+    if re.search(r"notice-title|artclNotice|icon-notice", row, re.I):
+        return True
+    first_cell = re.search(r"<td\b[^>]*>(.*?)</td>", row, flags=re.I | re.S)
+    if not first_cell:
+        return False
+    cell_text = html.unescape(re.sub(r"<[^>]+>", " ", first_cell.group(1)))
+    return bool(re.search(r"(?:^|\s)(?:공지|notice)(?:\s|$)", cell_text, re.I))
+
+
 def _content_hash(title: str, published_at: str | None, url: str) -> str:
     return hashlib.sha256(f"{title}\n{published_at or ''}\n{url}".encode("utf-8")).hexdigest()
-

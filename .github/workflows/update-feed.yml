@@ -77,3 +77,13 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+      - name: Report feed freshness
+        continue-on-error: true
+        run: python3 -m pnu_notice_feed.generator --check-feed-health
+
+      - name: Dispatch new notice wake signal
+        env:
+          WATCH_DISPATCH_REPOSITORY: ${{ vars.WATCH_DISPATCH_REPOSITORY }}
+          WATCH_DISPATCH_TOKEN: ${{ secrets.WATCH_DISPATCH_TOKEN }}
+        run: python3 scripts/dispatch_feed_update.py

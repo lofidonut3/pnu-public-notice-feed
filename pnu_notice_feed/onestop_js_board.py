@@ -17,6 +17,8 @@ def fetch_onestop_js_board(source: Source, limit: int) -> list[Notice]:
         check=False,
         capture_output=True,
         text=True,
+        encoding="utf-8",
+        errors="replace",
         timeout=45,
     )
     if result.returncode != 0:
@@ -50,4 +52,3 @@ def fetch_onestop_js_board(source: Source, limit: int) -> list[Notice]:
             )
         )
     return notices
-

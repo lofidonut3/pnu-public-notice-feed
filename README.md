@@ -60,6 +60,7 @@ For a concrete optional reference CLI/helper that keeps a local cursor, enriches
 - Events include routing metadata, duplicate metadata, topic hints, and monthly archive lookup fields. Full item metadata is available through `archive_file` and `archive_item_id`.
 - Use event `same_notice_group_id`, `canonical_item_id`, `is_canonical`, and `same_notice_source_ids` before sending notifications for multiple matching items from different sources. `index.json.same_notice_groups` provides the full same-notice manifest and fallback lookup.
 - Source polling is rate-limited by `sources.json` and cached in `cache/feed-state.json`.
+- K2Web sources recover after an outage by paging from the newest list until a previously known non-pinned notice ID is found. A missing boundary fails that source closed and preserves its last known-good items.
 - Failed sources use cached items when available and report errors in `index.json.status`.
 - `index.json.status.overall_status` can be `partial` when some sources are in error/backoff. `partial` means the feed is usable but some source freshness is degraded; inspect the relevant source's `last_success_at`, `last_error_at`, `backoff_until`, and `error_count` before relying on that source.
 - `status.skipped_reason: poll_interval` is normal rate limiting, not a source failure. Use `degraded_source_count`, `backoff_source_count`, `error_source_count`, `status_counts`, and `skipped_reason_counts` to distinguish normal skips from freshness risk.
@@ -104,10 +105,12 @@ python3 scripts/check_feed_health.py --public-dir public --state-path cache/feed
 The repository uses GitHub Actions:
 
 - `.github/workflows/test.yml` runs tests on push and pull request.
-- `.github/workflows/update-feed.yml` refreshes the feed on a schedule, checks feed health, commits generated output when it changes, and deploys `public/` to GitHub Pages.
+- `.github/workflows/update-feed.yml` refreshes the feed on a schedule, validates publish-size invariants, commits generated output when it changes, and deploys `public/` to GitHub Pages. Freshness health is reported after deployment without suppressing valid events from healthy sources.
 - Scheduled feed refresh runs every 30 minutes, subject to GitHub Actions scheduling delays.
 - External watchdogs can trigger the same refresh workflow with a `repository_dispatch` event of type `update-feed`. This is the fallback path when GitHub scheduled workflows are delayed or skipped.
-- Feed health fails when a critical source is degraded, when too many sources are degraded, or when the current generator state contains items that are missing from the durable archive.
+- After a successful deployment containing added or updated notices, the workflow can emit a `pnu-feed-updated` repository dispatch to a watch-runtime repository. Configure the repository variable `WATCH_DISPATCH_REPOSITORY` as `owner/repository` and the secret `WATCH_DISPATCH_TOKEN` as a token permitted to create a dispatch in that target repository.
+- The outbound dispatch is only a wake hint. Consumers must replay `events.json` from their own durable cursor, and should retain a periodic fallback scan so a missed or duplicated dispatch cannot lose an event.
+- Feed freshness health reports failure when a critical source is degraded, when too many sources are degraded, or when the current generator state contains items that are missing from the durable archive. This report is non-blocking for publication; structural generation errors and size-budget violations remain blocking.
 - The production workflow keeps up to 80 notices per source and retries critical source fetches once before publishing degraded status.
 
 GitHub Pages should use GitHub Actions as its source.

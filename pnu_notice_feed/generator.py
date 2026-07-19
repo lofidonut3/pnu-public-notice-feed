@@ -42,6 +42,11 @@ DEFAULT_SNIPPET_LIMIT = 500
 DEFAULT_FETCH_CONCURRENCY = 4
 DEFAULT_PER_HOST_CONCURRENCY = 1
 DEFAULT_FETCH_ATTEMPTS = 2
+MAX_SOURCE_NOTICE_COUNT = 1200
+MAX_NOTICE_TITLE_CHARS = 2000
+MAX_NOTICE_SNIPPET_CHARS = 100_000
+MAX_NOTICE_ATTACHMENT_COUNT = 200
+MAX_SOURCE_TEXT_CHARS = 5_000_000
 BYTES_PER_MIB = 1024 * 1024
 SIZE_BUDGETS = {
     "public_total": {
@@ -429,6 +434,11 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Check generated public/cache size budgets and exit.",
     )
+    parser.add_argument(
+        "--check-feed-health",
+        action="store_true",
+        help="Check generated feed freshness and source health, then exit.",
+    )
     args = parser.parse_args(argv)
     output_dir = Path(args.output_dir)
     state_path = Path(args.state)
@@ -439,6 +449,8 @@ def main(argv: list[str] | None = None) -> int:
             diagnostics = build_size_budget_diagnostics(output_dir, state_path)
             print(json.dumps(diagnostics, ensure_ascii=False, indent=2))
             assert_size_budget(diagnostics)
+            return 0
+        if args.check_feed_health:
             print_feed_health_snapshot(output_dir, state_path)
             return 0
 
@@ -790,12 +802,18 @@ def fetch_source_with_retries(
         max_attempts = 1
     for attempt in range(max_attempts):
         try:
-            return fetch_source(
+            notices = fetch_source(
                 source,
                 limit,
                 cached_items=cached_items,
                 checked_at=checked_at,
             )
+            validate_fetched_notices(
+                source,
+                notices,
+                had_cached_items=bool(cached_items),
+            )
+            return notices
         except Exception as error:  # noqa: BLE001 - retry source fetch boundaries.
             last_error = error
             if attempt < max_attempts - 1:
@@ -824,7 +842,11 @@ def fetch_source(
     if source.adapter == "websquare-js-board":
         return fetch_websquare_js_board(adapter_source, limit)
     if source.adapter == "k2web-board":
-        return fetch_k2web_board(adapter_source, limit)
+        return fetch_k2web_board(
+            adapter_source,
+            limit,
+            known_notice_ids=set((cached_items or {}).keys()),
+        )
     if source.adapter == "legacy-php-board":
         return fetch_legacy_php_board(adapter_source, limit)
     if source.adapter == "job-notice-html-board":
@@ -881,11 +903,57 @@ def merge_cached_items(
     }
     for item in fetched_items:
         merged = {**merged, item["id"]: item}
+    fetched_ids = {str(item.get("id")) for item in fetched_items if item.get("id")}
+    cached_ids = {str(item.get("id")) for item in cached_items if item.get("id")}
+    newly_observed_count = len(fetched_ids - cached_ids)
+    retention_limit = max(limit, newly_observed_count + min(limit, len(cached_ids)))
     return sorted(
         merged.values(),
         key=lambda item: (item.get("_pnu", {}).get("published_at") or "", item["id"]),
         reverse=True,
-    )[:limit]
+    )[:retention_limit]
+
+
+def validate_fetched_notices(
+    source: PublicSource,
+    notices: list[Notice],
+    *,
+    had_cached_items: bool,
+) -> None:
+    if had_cached_items and not notices:
+        raise ValueError(
+            "source returned no notice rows despite having cached items; "
+            "treating the response as maintenance or parser failure"
+        )
+    if len(notices) > MAX_SOURCE_NOTICE_COUNT:
+        raise ValueError(
+            f"source returned {len(notices)} notices, exceeding "
+            f"the per-run limit of {MAX_SOURCE_NOTICE_COUNT}"
+        )
+
+    seen_ids: set[str] = set()
+    text_chars = 0
+    for notice in notices:
+        if notice.source_id != source.id:
+            raise ValueError(f"notice source mismatch: {notice.source_id}")
+        if not notice.notice_id or notice.notice_id in seen_ids:
+            raise ValueError(f"missing or duplicate notice id: {notice.notice_id}")
+        seen_ids.add(notice.notice_id)
+        if not notice.title or len(notice.title) > MAX_NOTICE_TITLE_CHARS:
+            raise ValueError(f"invalid notice title size: {notice.notice_id}")
+        if notice.snippet and len(notice.snippet) > MAX_NOTICE_SNIPPET_CHARS:
+            raise ValueError(f"notice snippet is too large: {notice.notice_id}")
+        if len(notice.attachments) > MAX_NOTICE_ATTACHMENT_COUNT:
+            raise ValueError(f"too many notice attachments: {notice.notice_id}")
+        text_chars += len(notice.title) + len(notice.snippet or "")
+        text_chars += sum(
+            len(attachment.name) + len(attachment.url)
+            for attachment in notice.attachments
+        )
+        if text_chars > MAX_SOURCE_TEXT_CHARS:
+            raise ValueError(
+                f"source payload text exceeds {MAX_SOURCE_TEXT_CHARS} characters"
+            )
 
 
 def enrich_item_with_source_metadata(item: dict, source: PublicSource) -> dict:
@@ -2012,7 +2080,7 @@ def build_output_file_diagnostics(output_dir: Path) -> dict:
     )
     files = [
         {
-            "path": str(path.relative_to(output_dir)),
+            "path": path.relative_to(output_dir).as_posix(),
             "bytes": path.stat().st_size,
         }
         for path in paths

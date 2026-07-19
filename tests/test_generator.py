@@ -40,6 +40,7 @@ from pnu_notice_feed.generator import (
     size_budget_check,
     state_items_by_id,
     sync_static_assets,
+    validate_fetched_notices,
 )
 
 from pnu_notice_feed.types import Attachment, Notice
@@ -1155,6 +1156,21 @@ def test_check_size_budget_cli_prints_feed_health_snapshot(tmp_path, capsys):
 
     output = capsys.readouterr().out
     assert result == 0
+    assert '"overall_status": "ok"' in output
+    assert "PNU Public Notice Feed health snapshot" not in output
+
+    result = generator.main(
+        [
+            "--check-feed-health",
+            "--output-dir",
+            str(output_dir),
+            "--state",
+            str(state_path),
+        ]
+    )
+
+    output = capsys.readouterr().out
+    assert result == 0
     assert "PNU Public Notice Feed health snapshot" in output
     assert "result: ok" in output
 
@@ -1375,6 +1391,34 @@ def test_fetch_source_result_reuses_cached_items_on_source_failure():
     assert "unsupported adapter" in result.error
     assert result.status == "error"
     assert result.backoff_until == "2026-06-04T12:30:00+09:00"
+
+
+def test_validate_fetched_notices_rejects_empty_recovery_response():
+    source = _source()
+
+    try:
+        validate_fetched_notices(source, [], had_cached_items=True)
+    except ValueError as error:
+        assert "maintenance or parser failure" in str(error)
+    else:
+        raise AssertionError("expected cached source empty response to fail")
+
+
+def test_merge_cached_items_retains_all_new_catchup_items_for_archiving():
+    cached = [
+        notice_to_feed_item(_notice(_source(), "old", "2026-06-01"), "2026-06-01T00:00:00+09:00")
+    ]
+    fetched = [
+        notice_to_feed_item(
+            _notice(_source(), f"new-{index}", f"2026-07-{index + 1:02d}"),
+            "2026-07-20T00:00:00+09:00",
+        )
+        for index in range(5)
+    ]
+
+    merged = generator.merge_cached_items(cached, fetched, limit=3)
+
+    assert {item["id"] for item in fetched}.issubset({item["id"] for item in merged})
 
 
 def test_fetch_source_result_skips_when_poll_interval_has_not_elapsed():
