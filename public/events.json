@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-20T05:09:35+09:00",
+  "generated_at": "2026-07-20T07:28:31+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 6390,
+  "total_event_count": 6391,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-20T02:07:32+09:00|added|pnu-main-faculty-staff-recruitment:1509983|e90b9788d551",
-  "oldest_event_id": "2026-07-09T18:58:58+09:00|updated|pnu-academic-microbio-undergrad-10800:1447862|08aa96558687",
+  "latest_event_id": "2026-07-20T07:28:31+09:00|added|pnu-job-notices:204117|13afe07db67c",
+  "oldest_event_id": "2026-07-09T18:58:58+09:00|updated|pnu-academic-microbio-undergrad-10800:1447863|fb6254622694",
   "oldest_seen_at": "2026-07-09T18:58:58+09:00",
-  "latest_seen_at": "2026-07-20T02:07:32+09:00",
+  "latest_seen_at": "2026-07-20T07:28:31+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-09T18:58:58+09:00|updated|pnu-academic-microbio-undergrad-10800:1447862|08aa96558687",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-microbio-undergrad-10800:1447862",
-      "source_id": "pnu-academic-microbio-undergrad-10800",
-      "source_name": "부산대 미생물학과 학부공지사항",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-07-09T18:58:58+09:00",
-      "published_at": "2026-07-02",
-      "title": "[진학]학·석·박사 연계과정 안내 홈페이지 안내",
-      "url": "https://microbio.pusan.ac.kr/bbs/microbio/222/1447862/artclView.do",
-      "topics": [
-        "undergraduate",
-        "graduate"
-      ],
-      "same_notice_group_id": "same_notice:7762dfb7f89c693d",
-      "canonical_item_id": "pnu-academic-hid-general-10650:1447797",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-hid-general-10650",
-        "pnu-academic-microbio-undergrad-10800"
-      ],
-      "content_hash": "08aa96558687922bbb45244b358071f11be5ea0423f4bdf66a5afb1568844b6b",
-      "previous_content_hash": "d01306ac1c4a1a067d2ed14b1291df6af0da13fb2554d59170f0c495278184c7",
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-microbio-undergrad-10800:1447862"
-    },
     {
       "event_id": "2026-07-09T18:58:58+09:00|updated|pnu-academic-microbio-undergrad-10800:1447863|fb6254622694",
       "event_type": "updated",
@@ -34433,6 +34398,37 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-main-faculty-staff-recruitment:1509983"
+    },
+    {
+      "event_id": "2026-07-20T07:28:31+09:00|added|pnu-job-notices:204117|13afe07db67c",
+      "event_type": "added",
+      "notice_id": "pnu-job-notices:204117",
+      "source_id": "pnu-job-notices",
+      "source_name": "부산대 취업전략과 공지사항",
+      "source_category": "career_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "job_notice"
+      ],
+      "seen_at": "2026-07-20T07:28:31+09:00",
+      "published_at": "2026-07-19",
+      "title": "[한국산업인력공단] 베트남 제조경영 실무관리자 취업과정 20기 우수과정 모집 안내",
+      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204117?p=1",
+      "topics": [
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-notices:204117",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-notices"
+      ],
+      "content_hash": "13afe07db67c49e1940d309c6254946f4227c0180a366c8c8ac2eeac4a43aa35",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-job-notices:204117"
     }
   ]
 }
