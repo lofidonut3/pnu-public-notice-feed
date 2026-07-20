@@ -63,6 +63,7 @@ For a concrete optional reference CLI/helper that keeps a local cursor, enriches
 - K2Web sources recover after an outage by paging from the newest list until a previously known non-pinned notice ID is found. A missing boundary fails that source closed and preserves its last known-good items.
 - Failed sources use cached items when available and report errors in `index.json.status`.
 - `index.json.status.overall_status` can be `partial` when some sources are in error/backoff. `partial` means the feed is usable but some source freshness is degraded; inspect the relevant source's `last_success_at`, `last_error_at`, `backoff_until`, and `error_count` before relying on that source.
+- K2Web boards whose first pages contain only site-wide pinned notices use the newest cached publication date as their catch-up boundary. This prevents repeated deep pagination and avoids publishing old board history as new events.
 - `status.skipped_reason: poll_interval` is normal rate limiting, not a source failure. Use `degraded_source_count`, `backoff_source_count`, `error_source_count`, `status_counts`, and `skipped_reason_counts` to distinguish normal skips from freshness risk.
 - Long-term notice metadata is retained in monthly `archive/` files.
 - Archive files retain metadata only. Full notice text and attachment contents stay on official source URLs.
