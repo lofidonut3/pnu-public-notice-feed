@@ -846,6 +846,10 @@ def fetch_source(
             adapter_source,
             limit,
             known_notice_ids=set((cached_items or {}).keys()),
+            known_notice_dates={
+                item_id: (item.get("_pnu") or {}).get("published_at")
+                for item_id, item in (cached_items or {}).items()
+            },
         )
     if source.adapter == "legacy-php-board":
         return fetch_legacy_php_board(adapter_source, limit)

@@ -26,6 +26,7 @@ def fetch_k2web_board(
     source: Source,
     limit: int,
     known_notice_ids: set[str] | None = None,
+    known_notice_dates: dict[str, str | None] | None = None,
     max_catchup_pages: int = DEFAULT_MAX_CATCHUP_PAGES,
 ) -> list[Notice]:
     html_text = fetch_text(source.entry_url)
@@ -34,14 +35,36 @@ def fetch_k2web_board(
         notice_id.rsplit(":", 1)[-1]
         for notice_id in (known_notice_ids or set())
     }
+    known_dates = {
+        notice_id.rsplit(":", 1)[-1]: published_at
+        for notice_id, published_at in (known_notice_dates or {}).items()
+    }
     if known_ids and not _contains_known_boundary(items, known_ids):
-        items = _fetch_until_known_boundary(
-            html_text,
-            source.entry_url,
-            first_page_items=items,
-            known_ids=known_ids,
-            max_pages=max_catchup_pages,
-        )
+        pinned_ids = {item.notice_id for item in items if item.is_pinned}
+        known_dates_available = [
+            published_at
+            for notice_id, published_at in known_dates.items()
+            if notice_id in known_ids and published_at
+        ]
+        # Some boards fill early pages with site-wide pinned notices. In that
+        # case, use the newest cached date to find recent local rows without
+        # publishing the board's entire history as newly observed notices.
+        if known_ids.issubset(pinned_ids) and known_dates_available:
+            items = _fetch_recent_after_pinned_baseline(
+                html_text,
+                source.entry_url,
+                first_page_items=items,
+                cutoff_date=max(known_dates_available),
+                max_pages=max_catchup_pages,
+            )
+        else:
+            items = _fetch_until_known_boundary(
+                html_text,
+                source.entry_url,
+                first_page_items=items,
+                known_ids=known_ids,
+                max_pages=max_catchup_pages,
+            )
     items = _deduplicate_items(items)
     if not known_ids:
         items = items[:limit]
@@ -100,6 +123,49 @@ def _fetch_until_known_boundary(
     )
 
 
+def _fetch_recent_after_pinned_baseline(
+    first_page_html: str,
+    base_url: str,
+    *,
+    first_page_items: list[K2WebListNotice],
+    cutoff_date: str,
+    max_pages: int,
+) -> list[K2WebListNotice]:
+    action_url, layout = parse_k2web_pagination(first_page_html, base_url)
+    total_pages = parse_k2web_total_pages(first_page_html)
+    if not action_url or total_pages == 1:
+        return list(first_page_items)
+
+    collected = list(first_page_items)
+    final_page = min(total_pages or max_pages, max_pages)
+    for page in range(2, max(2, final_page + 1)):
+        form = {"page": str(page)}
+        if layout:
+            form["layout"] = layout
+        page_html = fetch_text(action_url, form=form)
+        page_items = parse_k2web_list(page_html, action_url)
+        if not page_items:
+            raise RuntimeError(f"K2Web catch-up page {page} returned no notice rows")
+
+        non_pinned = [item for item in page_items if not item.is_pinned]
+        collected.extend(
+            item
+            for item in non_pinned
+            if item.published_at is None or item.published_at >= cutoff_date
+        )
+        if any(
+            item.published_at is not None and item.published_at < cutoff_date
+            for item in non_pinned
+        ):
+            return collected
+
+    if total_pages is not None and total_pages <= max_pages:
+        return collected
+    raise RuntimeError(
+        f"K2Web pinned-baseline catch-up did not reach a date boundary within {max_pages} pages"
+    )
+
+
 def parse_k2web_pagination(html_text: str, base_url: str) -> tuple[str | None, str | None]:
     form = re.search(
         r"<form\b[^>]*\baction=[\"']([^\"']*artclList\.do[^\"']*)[\"'][^>]*>",
@@ -116,6 +182,15 @@ def parse_k2web_pagination(html_text: str, base_url: str) -> tuple[str | None, s
     return urljoin(base_url, html.unescape(form.group(1))), (
         html.unescape(layout.group(1)) if layout else None
     )
+
+
+def parse_k2web_total_pages(html_text: str) -> int | None:
+    match = re.search(
+        r'class=["\'][^"\']*\b_totPage\b[^"\']*["\'][^>]*>\s*(\d+)',
+        html_text,
+        flags=re.I,
+    )
+    return int(match.group(1)) if match else None
 
 
 def _contains_known_boundary(

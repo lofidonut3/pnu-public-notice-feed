@@ -1,6 +1,10 @@
 import pytest
 
-from pnu_notice_feed.k2web_board import fetch_k2web_board, parse_k2web_list
+from pnu_notice_feed.k2web_board import (
+    fetch_k2web_board,
+    parse_k2web_list,
+    parse_k2web_total_pages,
+)
 from pnu_notice_feed.types import Source
 
 
@@ -124,3 +128,91 @@ def test_fetch_k2web_board_fails_closed_when_known_boundary_is_missing(monkeypat
             known_notice_ids={"example:100"},
             max_catchup_pages=2,
         )
+
+
+def test_fetch_k2web_board_recovers_from_pinned_only_baseline(monkeypatch):
+    first_page = """
+    <form method="post" action="/bbs/example/1/artclList.do">
+      <input name="layout" value="layout-token">
+      <span class="_totPage">5</span>
+    </form>
+    <table><tr><td><span class="notice-title">Notice</span></td><td>
+      <a href="/bbs/example/1/900/artclView.do">Pinned known</a>
+    </td><td>2026.07.01</td></tr></table>
+    """
+    repeated_pinned_page = first_page
+    boundary_page = """
+    <table>
+      <tr><td>1</td><td>
+        <a href="/bbs/example/1/105/artclView.do">New item</a>
+      </td><td>2026.07.02</td></tr>
+      <tr><td>2</td><td>
+        <a href="/bbs/example/1/99/artclView.do">Old item</a>
+      </td><td>2026.06.30</td></tr>
+    </table>
+    """
+    calls = []
+
+    def fake_fetch(url, form=None):
+        calls.append((url, form))
+        if form is None:
+            return first_page
+        return repeated_pinned_page if form["page"] == "2" else boundary_page
+
+    monkeypatch.setattr("pnu_notice_feed.k2web_board.fetch_text", fake_fetch)
+    source = Source(
+        id="example",
+        name="Example",
+        adapter="k2web-board",
+        entry_url="https://example.test/example/1/subview.do",
+    )
+
+    notices = fetch_k2web_board(
+        source,
+        limit=80,
+        known_notice_ids={"example:900"},
+        known_notice_dates={"example:900": "2026-07-01"},
+        max_catchup_pages=5,
+    )
+
+    assert [notice.notice_id for notice in notices] == [
+        "example:900",
+        "example:105",
+    ]
+    assert [form for _, form in calls[1:]] == [
+        {"page": "2", "layout": "layout-token"},
+        {"page": "3", "layout": "layout-token"},
+    ]
+
+
+def test_fetch_k2web_board_accepts_single_page_pinned_baseline(monkeypatch):
+    page = """
+    <form method="post" action="/bbs/example/1/artclList.do">
+      <input name="layout" value="layout-token">
+      <span class="_totPage">1</span>
+    </form>
+    <table><tr><td><span class="notice-title">Notice</span></td><td>
+      <a href="/bbs/example/1/900/artclView.do">Pinned known</a>
+    </td><td>2026.07.01</td></tr></table>
+    """
+    monkeypatch.setattr("pnu_notice_feed.k2web_board.fetch_text", lambda *_args, **_kwargs: page)
+    source = Source(
+        id="example",
+        name="Example",
+        adapter="k2web-board",
+        entry_url="https://example.test/example/1/subview.do",
+    )
+
+    notices = fetch_k2web_board(
+        source,
+        limit=80,
+        known_notice_ids={"example:900"},
+        known_notice_dates={"example:900": "2026-07-01"},
+    )
+
+    assert [notice.notice_id for notice in notices] == ["example:900"]
+
+
+def test_parse_k2web_total_pages():
+    assert parse_k2web_total_pages('<span class="_totPage">31</span>') == 31
+    assert parse_k2web_total_pages("<div>No pagination</div>") is None
