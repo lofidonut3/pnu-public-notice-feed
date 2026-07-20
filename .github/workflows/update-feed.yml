@@ -84,6 +84,6 @@ jobs:
 
       - name: Dispatch new notice wake signal
         env:
-          WATCH_DISPATCH_REPOSITORY: ${{ vars.WATCH_DISPATCH_REPOSITORY }}
+          WATCH_DISPATCH_REPOSITORY: ${{ vars.WATCH_DISPATCH_REPOSITORY || 'lofidonut3/pnu-notice-agent-tools' }}
           WATCH_DISPATCH_TOKEN: ${{ secrets.WATCH_DISPATCH_TOKEN }}
         run: python3 scripts/dispatch_feed_update.py
