@@ -1,0 +1,56 @@
+name: Test watch repository dispatch
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      WATCH_DISPATCH_REPOSITORY: ${{ vars.WATCH_DISPATCH_REPOSITORY || 'lofidonut3/pnu-notice-agent-tools' }}
+      WATCH_DISPATCH_TOKEN: ${{ secrets.WATCH_DISPATCH_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Validate dispatch configuration
+        shell: bash
+        run: |
+          if [[ -z "$WATCH_DISPATCH_REPOSITORY" ]]; then
+            echo "::error::WATCH_DISPATCH_REPOSITORY is not configured."
+            exit 1
+          fi
+          if [[ -z "$WATCH_DISPATCH_TOKEN" ]]; then
+            echo "::error::WATCH_DISPATCH_TOKEN is not configured."
+            exit 1
+          fi
+
+      - name: Send repository dispatch smoke test
+        run: |
+          python - <<'PY'
+          import os
+
+          from scripts.dispatch_feed_update import (
+              DEFAULT_EVENTS_URL,
+              dispatch_repository_event,
+          )
+
+          repository = os.environ["WATCH_DISPATCH_REPOSITORY"]
+          dispatch_repository_event(
+              repository,
+              os.environ["WATCH_DISPATCH_TOKEN"],
+              {
+                  "events_url": DEFAULT_EVENTS_URL,
+                  "smoke_test": True,
+              },
+          )
+          print(f"Repository dispatch smoke test sent to {repository}.")
+          PY
