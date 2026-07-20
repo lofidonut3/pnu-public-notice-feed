@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-21T04:14:39+09:00",
+  "generated_at": "2026-07-21T08:33:17+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 6564,
+  "total_event_count": 6565,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-21T00:17:47+09:00|updated|pnu-international-student-notices:1451649|523fcd5fffb6",
-  "oldest_event_id": "2026-07-13T12:44:20+09:00|added|pnu-academic-bce-general-5008:1451653|5ed77cd6d4a9",
+  "latest_event_id": "2026-07-21T08:33:17+09:00|updated|pnu-academic-me-undergrad-sub01-01:5088|30da58fb18f3",
+  "oldest_event_id": "2026-07-13T12:44:20+09:00|added|pnu-academic-bce-general-5008:1451654|ae660ea371a1",
   "oldest_seen_at": "2026-07-13T12:44:20+09:00",
-  "latest_seen_at": "2026-07-21T00:17:47+09:00",
+  "latest_seen_at": "2026-07-21T08:33:17+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-13T12:44:20+09:00|added|pnu-academic-bce-general-5008:1451653|5ed77cd6d4a9",
-      "event_type": "added",
-      "notice_id": "pnu-academic-bce-general-5008:1451653",
-      "source_id": "pnu-academic-bce-general-5008",
-      "source_name": "부산대 의생명융합공학부 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-07-13T12:44:20+09:00",
-      "published_at": "2026-07-13",
-      "title": "2026년 K-뉴딜 아카데미 프로그램 \"Oracle AI Startup Bootc 새글",
-      "url": "https://bce.pusan.ac.kr/bbs/bce/220/1451653/artclView.do",
-      "topics": [],
-      "same_notice_group_id": "same_notice:72aa78d365b36870",
-      "canonical_item_id": "pnu-academic-bce-general-5008:1451653",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-bce-general-5008",
-        "pnu-academic-cdfs-general-1556",
-        "pnu-academic-china-general-2652",
-        "pnu-academic-history-general-6500",
-        "pnu-academic-history-grad-6510"
-      ],
-      "content_hash": "5ed77cd6d4a9e72f81f14bb4c26e79d9389a2a8a5331a6e8e1e66b153f7a7c52",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-bce-general-5008:1451653"
-    },
     {
       "event_id": "2026-07-13T12:44:20+09:00|added|pnu-academic-bce-general-5008:1451654|ae660ea371a1",
       "event_type": "added",
@@ -34278,6 +34243,40 @@
       "previous_content_hash": "31490315189604e9316cecc0a2a345ef5bd63368449e3897ca3bd220a7a736dc",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-international-student-notices:1451649"
+    },
+    {
+      "event_id": "2026-07-21T08:33:17+09:00|updated|pnu-academic-me-undergrad-sub01-01:5088|30da58fb18f3",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-me-undergrad-sub01-01:5088",
+      "source_id": "pnu-academic-me-undergrad-sub01-01",
+      "source_name": "부산대 기계공학부 학부공지",
+      "source_category": "academic_unit_undergraduate_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "undergraduate"
+      ],
+      "seen_at": "2026-07-21T08:33:17+09:00",
+      "published_at": "2026-07-20",
+      "title": "[수정공지]2026년 제품개발설계 지도교수 TOP-DOWN 산학과제 및 기업체 산학과제 팀...",
+      "url": "https://me.pusan.ac.kr/new/sub05/sub01_01.php?db=hakbunotice&seq=5088&page=1&perPage=10&page_mode=view",
+      "topics": [
+        "undergraduate",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-me-undergrad-sub01-01:5088",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-me-undergrad-sub01-01"
+      ],
+      "content_hash": "30da58fb18f367ee92c49c2a94f672bb557e7ed9ea1ca881bd3cdf95c5c867fb",
+      "previous_content_hash": "99ace7de583040be3aac49be054385ee5eed1c08bcad11dc51f77f84be7c3ab6",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-academic-me-undergrad-sub01-01:5088"
     }
   ]
 }
