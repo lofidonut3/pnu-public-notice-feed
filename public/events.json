@@ -1,81 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-23T06:18:14+09:00",
+  "generated_at": "2026-07-23T07:35:56+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 6877,
+  "total_event_count": 6879,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-23T01:03:45+09:00|updated|pnu-graduate-gspa-grad-10899:1444247|64e2df8a42ff",
-  "oldest_event_id": "2026-07-14T17:21:41+09:00|added|pnu-main-notice:1509901|9cd92c0ee0c9",
+  "latest_event_id": "2026-07-23T07:35:56+09:00|added|pnu-dorm-busan-notices:5304|29829edfe187",
+  "oldest_event_id": "2026-07-14T17:21:41+09:00|added|pnu-onestop-notices:2116|1b1c73048b97",
   "oldest_seen_at": "2026-07-14T17:21:41+09:00",
-  "latest_seen_at": "2026-07-23T01:03:45+09:00",
+  "latest_seen_at": "2026-07-23T07:35:56+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-14T17:21:41+09:00|added|pnu-main-notice:1509901|9cd92c0ee0c9",
-      "event_type": "added",
-      "notice_id": "pnu-main-notice:1509901",
-      "source_id": "pnu-main-notice",
-      "source_name": "부산대 대학공지",
-      "source_category": "university_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "main_notice"
-      ],
-      "seen_at": "2026-07-14T17:21:41+09:00",
-      "published_at": "2026-07-14",
-      "title": "[참가자 모집] 2026 동남권 대학 연합 에듀톤 모집 안내",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1509901",
-      "topics": [
-        "academic"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-notice:1509901",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-notice"
-      ],
-      "content_hash": "9cd92c0ee0c9d9736a107299b0ead35dbeb1b36d6564356f3c8657b62656f127",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-main-notice:1509901"
-    },
-    {
-      "event_id": "2026-07-14T17:21:41+09:00|added|pnu-onestop-notices:2115|401971721f11",
-      "event_type": "added",
-      "notice_id": "pnu-onestop-notices:2115",
-      "source_id": "pnu-onestop-notices",
-      "source_name": "부산대 학지시 공지",
-      "source_category": "academic_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "onestop",
-        "academic"
-      ],
-      "seen_at": "2026-07-14T17:21:41+09:00",
-      "published_at": "2026-07-14",
-      "title": "재단법인 충남평생교육진흥원 재능키움 장학사업(2차) 장학생 모집 안내",
-      "url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000386&mode=DETAIL&seq=2115",
-      "topics": [
-        "academic",
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-onestop-notices:2115",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-onestop-notices"
-      ],
-      "content_hash": "401971721f11eefb672d45d47be9f6a15a079c43956abc617003903ce8473278",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-onestop-notices:2115"
-    },
     {
       "event_id": "2026-07-14T17:21:41+09:00|added|pnu-onestop-notices:2116|1b1c73048b97",
       "event_type": "added",
@@ -34296,6 +34234,68 @@
       "previous_content_hash": "838871e5c8cfc10f9238ed0de2fced0640a2e9c3d8b8f766027a9aacd39bd4e9",
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-graduate-gspa-grad-10899:1444247"
+    },
+    {
+      "event_id": "2026-07-23T07:35:56+09:00|added|pnu-dorm-busan-notices:5303|d0cfd4278003",
+      "event_type": "added",
+      "notice_id": "pnu-dorm-busan-notices:5303",
+      "source_id": "pnu-dorm-busan-notices",
+      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
+      "source_category": "dormitory_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "dormitory",
+        "busan_campus"
+      ],
+      "seen_at": "2026-07-23T07:35:56+09:00",
+      "published_at": "2026-07-23",
+      "title": "2026년 2분기 웅비관 성과평과 결과 알림",
+      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5303&typeSeqNo=1&cateSeq=2",
+      "topics": [
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-dorm-busan-notices:5303",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-dorm-busan-notices"
+      ],
+      "content_hash": "d0cfd427800334c504722470ab5a578dab229444e5ad6a67d97bf0356530490a",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-dorm-busan-notices:5303"
+    },
+    {
+      "event_id": "2026-07-23T07:35:56+09:00|added|pnu-dorm-busan-notices:5304|29829edfe187",
+      "event_type": "added",
+      "notice_id": "pnu-dorm-busan-notices:5304",
+      "source_id": "pnu-dorm-busan-notices",
+      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
+      "source_category": "dormitory_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "dormitory",
+        "busan_campus"
+      ],
+      "seen_at": "2026-07-23T07:35:56+09:00",
+      "published_at": "2026-07-23",
+      "title": "2026년 2분기 자유관 성과평과 결과 알림",
+      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5304&typeSeqNo=1&cateSeq=2",
+      "topics": [
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-dorm-busan-notices:5304",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-dorm-busan-notices"
+      ],
+      "content_hash": "29829edfe1876942321ac254aa0897801eb2d92d23c38ec23cb8fe8aa30a8389",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-dorm-busan-notices:5304"
     }
   ]
 }
