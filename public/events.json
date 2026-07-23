@@ -1,50 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-23T22:07:47+09:00",
+  "generated_at": "2026-07-24T00:33:31+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 7020,
+  "total_event_count": 7021,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-23T22:07:47+09:00|added|pnu-main-faculty-staff-recruitment:1510088|98f1bf3fd99c",
-  "oldest_event_id": "2026-07-15T18:17:03+09:00|added|pnu-academic-bce-general-5008:1451896|905da70a6bfc",
+  "latest_event_id": "2026-07-24T00:33:31+09:00|updated|pnu-international-student-notices:1452219|0c2ff56e3b44",
+  "oldest_event_id": "2026-07-15T18:17:03+09:00|added|pnu-academic-bee-general-13472:1451916|b413b5e59bb5",
   "oldest_seen_at": "2026-07-15T18:17:03+09:00",
-  "latest_seen_at": "2026-07-23T22:07:47+09:00",
+  "latest_seen_at": "2026-07-24T00:33:31+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-15T18:17:03+09:00|added|pnu-academic-bce-general-5008:1451896|905da70a6bfc",
-      "event_type": "added",
-      "notice_id": "pnu-academic-bce-general-5008:1451896",
-      "source_id": "pnu-academic-bce-general-5008",
-      "source_name": "부산대 의생명융합공학부 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-07-15T18:17:03+09:00",
-      "published_at": "2026-07-15",
-      "title": "2026학년도 2학기 교류 수학 안내 [계명대, 서강대, 한양대(에너지), 영남대] 새글",
-      "url": "https://bce.pusan.ac.kr/bbs/bce/220/1451896/artclView.do",
-      "topics": [],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-bce-general-5008:1451896",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-bce-general-5008"
-      ],
-      "content_hash": "905da70a6bfc30afb546a7bbb6502c3a66c53148c552b868ad12d35305d4ccac",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-bce-general-5008:1451896"
-    },
     {
       "event_id": "2026-07-15T18:17:03+09:00|added|pnu-academic-bee-general-13472:1451916|b413b5e59bb5",
       "event_type": "added",
@@ -34266,6 +34235,38 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-main-faculty-staff-recruitment:1510088"
+    },
+    {
+      "event_id": "2026-07-24T00:33:31+09:00|updated|pnu-international-student-notices:1452219|0c2ff56e3b44",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1452219",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-07-24T00:33:31+09:00",
+      "published_at": "2026-07-21",
+      "title": "[기숙사] 2026학년도 2학기 대학생활원 추가 신청 안내 / Notice for Additional applicat 새글",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1452219/artclView.do",
+      "topics": [
+        "international",
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1452219",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "0c2ff56e3b440448977895156e926effb74a96a523d25baf252c4345838a566d",
+      "previous_content_hash": "bc55c84d4792a783d9e52177006f2dd8f28f2afa841820bd0050a8fa1a7c2e07",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-international-student-notices:1452219"
     }
   ]
 }
