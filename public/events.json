@@ -1,52 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-28T03:57:52+09:00",
+  "generated_at": "2026-07-28T05:39:34+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 7370,
+  "total_event_count": 7371,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-28T03:57:52+09:00|updated|pnu-graduate-gsis-grad-11587:1452704|716f383491c4",
-  "oldest_event_id": "2026-07-19T22:53:42+09:00|added|pnu-job-recruit-general:117665|5bbef1913c21",
+  "latest_event_id": "2026-07-28T05:39:34+09:00|updated|pnu-main-notice:1510141|0833f7467a80",
+  "oldest_event_id": "2026-07-19T22:53:42+09:00|added|pnu-job-recruit-general:117666|c6533cdf9768",
   "oldest_seen_at": "2026-07-19T22:53:42+09:00",
-  "latest_seen_at": "2026-07-28T03:57:52+09:00",
+  "latest_seen_at": "2026-07-28T05:39:34+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-19T22:53:42+09:00|added|pnu-job-recruit-general:117665|5bbef1913c21",
-      "event_type": "added",
-      "notice_id": "pnu-job-recruit-general:117665",
-      "source_id": "pnu-job-recruit-general",
-      "source_name": "부산대 취업전략과 일반채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "recruitment",
-        "general_recruitment"
-      ],
-      "seen_at": "2026-07-19T22:53:42+09:00",
-      "published_at": null,
-      "title": "[린데코리아] 제조운영부문 3분기 계약직 채용 안내",
-      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117665",
-      "topics": [
-        "recruitment",
-        "career"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-recruit-general:117665",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-recruit-general"
-      ],
-      "content_hash": "5bbef1913c21a5368878b74fb09d73e919eb65cadc10d921db2494d94b5d31ae",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-job-recruit-general:117665"
-    },
     {
       "event_id": "2026-07-19T22:53:42+09:00|added|pnu-job-recruit-general:117666|c6533cdf9768",
       "event_type": "added",
@@ -34127,6 +34094,37 @@
       "previous_content_hash": "5ea6512a1f758c3d2e9649b1d364fc5d777187ac6993f9e818bb363527e31d21",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-graduate-gsis-grad-11587:1452704"
+    },
+    {
+      "event_id": "2026-07-28T05:39:34+09:00|updated|pnu-main-notice:1510141|0833f7467a80",
+      "event_type": "updated",
+      "notice_id": "pnu-main-notice:1510141",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-07-28T05:39:34+09:00",
+      "published_at": "2026-07-27",
+      "title": "[앵커] (재공지) 2026 반도체 기술세미나 3차 참가자 모집",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1510141",
+      "topics": [
+        "academic",
+        "event"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1510141",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "0833f7467a801f6d9ffe44af5a495f92365f208c073f5b13be34d6ae9b8ae864",
+      "previous_content_hash": "b11496b3be8247ea79b854043846b32385fb075a6939ce0337fbbc3ae421388a",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-notice:1510141"
     }
   ]
 }
