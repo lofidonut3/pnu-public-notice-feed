@@ -1,52 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-27T23:54:05+09:00",
+  "generated_at": "2026-07-28T02:04:25+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 7368,
+  "total_event_count": 7369,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-27T20:33:57+09:00|updated|pnu-main-notice:1510117|6592a31d4f05",
-  "oldest_event_id": "2026-07-19T22:53:42+09:00|added|pnu-job-recruit-general:117663|bb97162b1d96",
+  "latest_event_id": "2026-07-28T02:04:25+09:00|updated|pnu-main-faculty-staff-recruitment:1510111|c338307ac850",
+  "oldest_event_id": "2026-07-19T22:53:42+09:00|added|pnu-job-recruit-general:117664|5f36953edd73",
   "oldest_seen_at": "2026-07-19T22:53:42+09:00",
-  "latest_seen_at": "2026-07-27T20:33:57+09:00",
+  "latest_seen_at": "2026-07-28T02:04:25+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-19T22:53:42+09:00|added|pnu-job-recruit-general:117663|bb97162b1d96",
-      "event_type": "added",
-      "notice_id": "pnu-job-recruit-general:117663",
-      "source_id": "pnu-job-recruit-general",
-      "source_name": "부산대 취업전략과 일반채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "recruitment",
-        "general_recruitment"
-      ],
-      "seen_at": "2026-07-19T22:53:42+09:00",
-      "published_at": null,
-      "title": "[한국핀테크지원센터] AI Campus 금융핀테크 AI 융합가 양성과정 교육생 모집 안내",
-      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117663",
-      "topics": [
-        "recruitment",
-        "career"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-recruit-general:117663",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-recruit-general"
-      ],
-      "content_hash": "bb97162b1d96f799561538c3d14e635f7c8f593451b0f1f37e56433b4867d324",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-job-recruit-general:117663"
-    },
     {
       "event_id": "2026-07-19T22:53:42+09:00|added|pnu-job-recruit-general:117664|5f36953edd73",
       "event_type": "added",
@@ -34130,6 +34097,39 @@
       "previous_content_hash": "d0250c47b4daa2dfebbd15c43d1c6dc6e68a5c78c369f413a076c55b6f453e37",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-main-notice:1510117"
+    },
+    {
+      "event_id": "2026-07-28T02:04:25+09:00|updated|pnu-main-faculty-staff-recruitment:1510111|c338307ac850",
+      "event_type": "updated",
+      "notice_id": "pnu-main-faculty-staff-recruitment:1510111",
+      "source_id": "pnu-main-faculty-staff-recruitment",
+      "source_name": "부산대 교수초빙/직원채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "recruitment",
+        "faculty",
+        "staff"
+      ],
+      "seen_at": "2026-07-28T02:04:25+09:00",
+      "published_at": "2026-07-24",
+      "title": "부산대학교 대학회계계약직원 신규채용 공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1510111",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1510111",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-faculty-staff-recruitment"
+      ],
+      "content_hash": "c338307ac8507751d743e7dfd9c310bce2385772e5ee9d8bc2c10c54b4637d4a",
+      "previous_content_hash": "a9cb6c1c5cd3626c4313c644a7bd1bdf5d05dfaadbef83f26723db143052659d",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-faculty-staff-recruitment:1510111"
     }
   ]
 }
