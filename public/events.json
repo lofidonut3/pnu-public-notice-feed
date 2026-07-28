@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-29T01:19:33+09:00",
+  "generated_at": "2026-07-29T02:58:19+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 7582,
+  "total_event_count": 7583,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-29T01:19:33+09:00|updated|pnu-sedu-support-notices:1762664|6bbb9f6bb430",
-  "oldest_event_id": "2026-07-21T12:31:45+09:00|added|pnu-academic-pnuenglish-grad-8312:1452156|00229b3e1db5",
+  "latest_event_id": "2026-07-29T02:58:19+09:00|updated|pnu-academic-russia-undergrad-2316:1452609|85d21e66e648",
+  "oldest_event_id": "2026-07-21T12:31:45+09:00|added|pnu-academic-pnuenglish-undergrad-8177:1452157|15b58aeb0be5",
   "oldest_seen_at": "2026-07-21T12:31:45+09:00",
-  "latest_seen_at": "2026-07-29T01:19:33+09:00",
+  "latest_seen_at": "2026-07-29T02:58:19+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-21T12:31:45+09:00|added|pnu-academic-pnuenglish-grad-8312:1452156|00229b3e1db5",
-      "event_type": "added",
-      "notice_id": "pnu-academic-pnuenglish-grad-8312:1452156",
-      "source_id": "pnu-academic-pnuenglish-grad-8312",
-      "source_name": "부산대 영어영문학과 대학원공지사항",
-      "source_category": "academic_unit_graduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "grad"
-      ],
-      "seen_at": "2026-07-21T12:31:45+09:00",
-      "published_at": "2026-07-21",
-      "title": "26년 8월 학과 학위수여식 행사 미시행 알림 새글",
-      "url": "https://pnuenglish.pusan.ac.kr/bbs/pnuenglish/952/1452156/artclView.do",
-      "topics": [
-        "graduate",
-        "event"
-      ],
-      "same_notice_group_id": "same_notice:3cf89f0ee5470228",
-      "canonical_item_id": "pnu-academic-pnuenglish-grad-8312:1452156",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-pnuenglish-grad-8312",
-        "pnu-academic-pnuenglish-undergrad-8177"
-      ],
-      "content_hash": "00229b3e1db5f3c7b38cb0f32453b072d890d20631659950e9d925ce18b44e88",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-pnuenglish-grad-8312:1452156"
-    },
     {
       "event_id": "2026-07-21T12:31:45+09:00|added|pnu-academic-pnuenglish-undergrad-8177:1452157|15b58aeb0be5",
       "event_type": "added",
@@ -22719,7 +22684,8 @@
       "title": "2026학년도 2학기 국가거점대학교 학사교류 안내",
       "url": "https://russia.pusan.ac.kr/bbs/russia/326/1452609/artclView.do",
       "topics": [
-        "undergraduate"
+        "undergraduate",
+        "international"
       ],
       "same_notice_group_id": null,
       "canonical_item_id": "pnu-academic-russia-undergrad-2316:1452609",
@@ -34803,6 +34769,40 @@
       "previous_content_hash": "49ab4f0416d7ec9aaa3ffbd16b32c5df34aa73112424fe548bb2e0b492030b7c",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-sedu-support-notices:1762664"
+    },
+    {
+      "event_id": "2026-07-29T02:58:19+09:00|updated|pnu-academic-russia-undergrad-2316:1452609|85d21e66e648",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-russia-undergrad-2316:1452609",
+      "source_id": "pnu-academic-russia-undergrad-2316",
+      "source_name": "부산대 노어노문학과 학부 공지사항",
+      "source_category": "academic_unit_undergraduate_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "undergrad"
+      ],
+      "seen_at": "2026-07-29T02:58:19+09:00",
+      "published_at": "2026-07-27",
+      "title": "[학점교류·파견] 2026학년도 2학기 국가거점대학교 학사교류 안내 새글",
+      "url": "https://russia.pusan.ac.kr/bbs/russia/326/1452609/artclView.do",
+      "topics": [
+        "undergraduate",
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-russia-undergrad-2316:1452609",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-russia-undergrad-2316"
+      ],
+      "content_hash": "85d21e66e648f1325171ffc953fdcc330d22027526385107d632001cdd005a13",
+      "previous_content_hash": "4b77493917d43953590fccbeeccc194ddca6e36f2fd94386b48930f9693cc0ab",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-academic-russia-undergrad-2316:1452609"
     }
   ]
 }
