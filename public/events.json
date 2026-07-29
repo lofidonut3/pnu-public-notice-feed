@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-29T18:43:54+09:00",
+  "generated_at": "2026-07-29T21:08:19+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 7741,
+  "total_event_count": 7742,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-29T18:43:54+09:00|updated|pnu-main-faculty-staff-recruitment:1510164|c3d3630a4acc",
-  "oldest_event_id": "2026-07-22T12:30:51+09:00|added|pnu-academic-hid-career-10666:1452292|782dca9f39f2",
+  "latest_event_id": "2026-07-29T21:08:19+09:00|updated|pnu-international-student-notices:1452870|fd0f2dd439c5",
+  "oldest_event_id": "2026-07-22T12:30:51+09:00|added|pnu-academic-hid-general-10650:1452291|bcaab1103c54",
   "oldest_seen_at": "2026-07-22T12:30:51+09:00",
-  "latest_seen_at": "2026-07-29T18:43:54+09:00",
+  "latest_seen_at": "2026-07-29T21:08:19+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-22T12:30:51+09:00|added|pnu-academic-hid-career-10666:1452292|782dca9f39f2",
-      "event_type": "added",
-      "notice_id": "pnu-academic-hid-career-10666:1452292",
-      "source_id": "pnu-academic-hid-career-10666",
-      "source_name": "부산대 실내환경디자인학과 취업·인턴·공모전",
-      "source_category": "academic_unit_career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "career"
-      ],
-      "seen_at": "2026-07-22T12:30:51+09:00",
-      "published_at": "2026-07-22",
-      "title": "[현대리바트] 추천채용 안내(~7/24) 새글",
-      "url": "https://hid.pusan.ac.kr/bbs/hid/1268/1452292/artclView.do",
-      "topics": [
-        "career",
-        "recruitment"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-hid-career-10666:1452292",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-hid-career-10666"
-      ],
-      "content_hash": "782dca9f39f26cbed1ed19dd256545d3de1a76eb02949f161b184178740f8cef",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-hid-career-10666:1452292"
-    },
     {
       "event_id": "2026-07-22T12:30:51+09:00|added|pnu-academic-hid-general-10650:1452291|bcaab1103c54",
       "event_type": "added",
@@ -34741,6 +34707,38 @@
       "previous_content_hash": "9f2d24ca1ddca11b57b0fb4d7740aa0cddddd7bd5eae8f68f7eceb26aa6f6ea0",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-main-faculty-staff-recruitment:1510164"
+    },
+    {
+      "event_id": "2026-07-29T21:08:19+09:00|updated|pnu-international-student-notices:1452870|fd0f2dd439c5",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1452870",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-07-29T21:08:19+09:00",
+      "published_at": "2026-07-28",
+      "title": "'26-2 재학생 등록금 납부 안내 Fall 2026 Tuition Payment Notice",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1452870/artclView.do",
+      "topics": [
+        "international",
+        "tuition"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1452870",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "fd0f2dd439c56c835c507d4fa365780e7e0ef6419d761a3ca0f1ee67ef118ee8",
+      "previous_content_hash": "d64d6a0c7d08be25cc9d16db7d09512da8d1866f2033abe034563f451b692ba4",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-international-student-notices:1452870"
     }
   ]
 }
