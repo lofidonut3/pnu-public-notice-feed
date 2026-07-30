@@ -1,52 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-30T18:35:02+09:00",
+  "generated_at": "2026-07-30T20:57:02+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 7859,
+  "total_event_count": 7860,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-30T18:35:02+09:00|updated|pnu-job-notices:204145|768d51e61f42",
-  "oldest_event_id": "2026-07-22T20:54:48+09:00|updated|pnu-academic-cse-general-14221:1451921|ec5758d8f094",
+  "latest_event_id": "2026-07-30T20:57:02+09:00|added|pnu-main-faculty-staff-recruitment:1510222|df7d9a189d31",
+  "oldest_event_id": "2026-07-22T20:54:48+09:00|updated|pnu-academic-eehome-undergrad-3028:1451913|0dff621693e4",
   "oldest_seen_at": "2026-07-22T20:54:48+09:00",
-  "latest_seen_at": "2026-07-30T18:35:02+09:00",
+  "latest_seen_at": "2026-07-30T20:57:02+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-22T20:54:48+09:00|updated|pnu-academic-cse-general-14221:1451921|ec5758d8f094",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-cse-general-14221:1451921",
-      "source_id": "pnu-academic-cse-general-14221",
-      "source_name": "부산대 정보컴퓨터공학부 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-07-22T20:54:48+09:00",
-      "published_at": "2026-07-15",
-      "title": "2026 Summer 반도체 설계캠프 모집 안내",
-      "url": "https://cse.pusan.ac.kr/bbs/cse/2055/1451921/artclView.do",
-      "topics": [
-        "event"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-cse-general-14221:1451921",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-cse-general-14221"
-      ],
-      "content_hash": "ec5758d8f094d7ff3c9582c6a06e19f82635e61a8b2e77fa515190de496c4c83",
-      "previous_content_hash": "fa263598b0ec691ecaa70c434bccc58d33c6654fbeead0ca2d4e1430c002fb34",
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-cse-general-14221:1451921"
-    },
     {
       "event_id": "2026-07-22T20:54:48+09:00|updated|pnu-academic-eehome-undergrad-3028:1451913|0dff621693e4",
       "event_type": "updated",
@@ -34732,6 +34699,40 @@
       "previous_content_hash": "f1c86951fe8e497ab5db5a97006d0196138317937d73f220af0de2ce583cd0d0",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-job-notices:204145"
+    },
+    {
+      "event_id": "2026-07-30T20:57:02+09:00|added|pnu-main-faculty-staff-recruitment:1510222|df7d9a189d31",
+      "event_type": "added",
+      "notice_id": "pnu-main-faculty-staff-recruitment:1510222",
+      "source_id": "pnu-main-faculty-staff-recruitment",
+      "source_name": "부산대 교수초빙/직원채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "recruitment",
+        "faculty",
+        "staff"
+      ],
+      "seen_at": "2026-07-30T20:57:02+09:00",
+      "published_at": "2026-07-30",
+      "title": "부산대학교 대학원혁신실 사무원 공개채용 공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1510222",
+      "topics": [
+        "recruitment",
+        "career",
+        "graduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1510222",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-faculty-staff-recruitment"
+      ],
+      "content_hash": "df7d9a189d315292156b9b0bd662539d9c6026322a171072e312b3dd5df23803",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-faculty-staff-recruitment:1510222"
     }
   ]
 }
