@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-31T02:57:44+09:00",
+  "generated_at": "2026-07-31T04:44:54+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 7866,
+  "total_event_count": 7867,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-31T02:57:44+09:00|updated|pnu-academic-china-general-2652:1447500|a94a3b5b64dd",
-  "oldest_event_id": "2026-07-22T20:54:48+09:00|updated|pnu-academic-microbio-undergrad-10800:1451927|92943c7c006c",
+  "latest_event_id": "2026-07-31T04:44:54+09:00|updated|pnu-main-notice:1510210|d90c3cc6d0d4",
+  "oldest_event_id": "2026-07-22T20:54:48+09:00|updated|pnu-academic-microbio-undergrad-10800:1451928|40485b182c39",
   "oldest_seen_at": "2026-07-22T20:54:48+09:00",
-  "latest_seen_at": "2026-07-31T02:57:44+09:00",
+  "latest_seen_at": "2026-07-31T04:44:54+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-22T20:54:48+09:00|updated|pnu-academic-microbio-undergrad-10800:1451927|92943c7c006c",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-microbio-undergrad-10800:1451927",
-      "source_id": "pnu-academic-microbio-undergrad-10800",
-      "source_name": "부산대 미생물학과 학부공지사항",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-07-22T20:54:48+09:00",
-      "published_at": "2026-07-15",
-      "title": "[수강신청2026학년도 2학기 수강신청 대비 영어 기초학력 진단평가 실시 안내",
-      "url": "https://microbio.pusan.ac.kr/bbs/microbio/222/1451927/artclView.do",
-      "topics": [
-        "undergraduate",
-        "course"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-microbio-undergrad-10800:1451927",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-microbio-undergrad-10800"
-      ],
-      "content_hash": "92943c7c006c565d2646d74f44a0ce1bb87f6d99c3363a90b19b973e89045067",
-      "previous_content_hash": "f02313abb8fc9d79d71036a02a33fe767704e5a1c330f3a5b8726e95d0f1e388",
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-microbio-undergrad-10800:1451927"
-    },
     {
       "event_id": "2026-07-22T20:54:48+09:00|updated|pnu-academic-microbio-undergrad-10800:1451928|40485b182c39",
       "event_type": "updated",
@@ -34746,6 +34712,37 @@
       "previous_content_hash": "64767e09ed8e5bde1bae4b576444e0e72b9705c17975bf30d7999f96780e1f3f",
       "archive_file": "./archive/2026-06.json",
       "archive_item_id": "pnu-academic-china-general-2652:1447500"
+    },
+    {
+      "event_id": "2026-07-31T04:44:54+09:00|updated|pnu-main-notice:1510210|d90c3cc6d0d4",
+      "event_type": "updated",
+      "notice_id": "pnu-main-notice:1510210",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-07-31T04:44:54+09:00",
+      "published_at": "2026-07-30",
+      "title": "[지역사회기여센터] 2026학년도 2학기 연구조교 모집",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1510210",
+      "topics": [
+        "academic",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1510210",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "d90c3cc6d0d4d29cc12650d1f51ed070a495f81dc031ab15148d8ad005ab317d",
+      "previous_content_hash": "a000a1b1f5b7eef036e8dee73ade7cb7ebbf818d206d412cfa2a5c2f6433e4d7",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-main-notice:1510210"
     }
   ]
 }
