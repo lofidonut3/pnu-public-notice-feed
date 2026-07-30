@@ -1,60 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-30T04:35:40+09:00",
+  "generated_at": "2026-07-30T09:05:32+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 7748,
+  "total_event_count": 7749,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-30T01:27:02+09:00|updated|pnu-international-student-notices:1452551|b9cd115aab6b",
-  "oldest_event_id": "2026-07-22T12:30:51+09:00|added|pnu-academic-naoe-undergrad-14346:1452307|3e7dae0e40a3",
+  "latest_event_id": "2026-07-30T09:05:32+09:00|updated|pnu-academic-pnutrade-undergrad-2560:1452361|71eb16a646ce",
+  "oldest_event_id": "2026-07-22T12:30:51+09:00|added|pnu-academic-ocean-career-12799:1452260|fa4059b0e32c",
   "oldest_seen_at": "2026-07-22T12:30:51+09:00",
-  "latest_seen_at": "2026-07-30T01:27:02+09:00",
+  "latest_seen_at": "2026-07-30T09:05:32+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-22T12:30:51+09:00|added|pnu-academic-naoe-undergrad-14346:1452307|3e7dae0e40a3",
-      "event_type": "added",
-      "notice_id": "pnu-academic-naoe-undergrad-14346:1452307",
-      "source_id": "pnu-academic-naoe-undergrad-14346",
-      "source_name": "부산대 조선해양공학과 학부공지사항",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-07-22T12:30:51+09:00",
-      "published_at": "2026-07-22",
-      "title": "2026학년도 2학기 재학생 등록금 납부 안내",
-      "url": "https://naoe.pusan.ac.kr/bbs/naoe/1878/1452307/artclView.do",
-      "topics": [
-        "undergraduate",
-        "tuition"
-      ],
-      "same_notice_group_id": "same_notice:ca0d75180785835a",
-      "canonical_item_id": "pnu-academic-am-general-4498:1452317",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-am-general-4498",
-        "pnu-academic-fu-general-4474",
-        "pnu-academic-it-general-4402",
-        "pnu-academic-mo-general-4426",
-        "pnu-academic-naoe-career-14348",
-        "pnu-academic-naoe-general-14359",
-        "pnu-academic-naoe-grad-14354",
-        "pnu-academic-naoe-undergrad-14346"
-      ],
-      "content_hash": "3e7dae0e40a3a0dee39f49162d6e191265ee34c03cab9847133b109567b54c65",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-naoe-undergrad-14346:1452307"
-    },
     {
       "event_id": "2026-07-22T12:30:51+09:00|added|pnu-academic-ocean-career-12799:1452260|fa4059b0e32c",
       "event_type": "added",
@@ -34724,6 +34683,42 @@
       "previous_content_hash": "3ebe92e69ab476ccc05793e9d19e985bf41512a5200f5df76827e409365c9ded",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-international-student-notices:1452551"
+    },
+    {
+      "event_id": "2026-07-30T09:05:32+09:00|updated|pnu-academic-pnutrade-undergrad-2560:1452361|71eb16a646ce",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-pnutrade-undergrad-2560:1452361",
+      "source_id": "pnu-academic-pnutrade-undergrad-2560",
+      "source_name": "부산대 무역학부 학부 공지사항",
+      "source_category": "academic_unit_undergraduate_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "undergrad"
+      ],
+      "seen_at": "2026-07-30T09:05:32+09:00",
+      "published_at": "2026-07-23",
+      "title": "2026학년도 2학기 재학생 등록금 납부 안내",
+      "url": "https://pnutrade.pusan.ac.kr/bbs/pnutrade/210/1452361/artclView.do",
+      "topics": [
+        "undergraduate",
+        "tuition"
+      ],
+      "same_notice_group_id": "same_notice:9f85f33caa726dc2",
+      "canonical_item_id": "pnu-main-notice:1510073",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-pnutrade-undergrad-2560",
+        "pnu-main-notice",
+        "pnu-onestop-notices"
+      ],
+      "content_hash": "71eb16a646ce08c6a1739c4a5edfa1c4b9effb7bef8cc1ed500669573bb143aa",
+      "previous_content_hash": "5f3c8261612e7d5403afafc46e1410ce1c8ad196819eff8117611d12e1377ac5",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-academic-pnutrade-undergrad-2560:1452361"
     }
   ]
 }
