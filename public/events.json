@@ -1,59 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-07-31T21:29:53+09:00",
+  "generated_at": "2026-08-01T00:05:12+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 8067,
+  "total_event_count": 8068,
   "event_limit": 1000,
-  "latest_event_id": "2026-07-31T21:29:53+09:00|updated|pnu-graduate-law-grad-10741:1452555|d201adcf5a4e",
-  "oldest_event_id": "2026-07-24T12:55:26+09:00|added|pnu-academic-phys-undergrad-12920:1452444|9a02e74cefe5",
+  "latest_event_id": "2026-08-01T00:05:12+09:00|added|pnu-job-recruit-general:117517|d284bcb859a0",
+  "oldest_event_id": "2026-07-24T12:55:26+09:00|added|pnu-academic-plarts-general-13690:1452491|11ce54fee318",
   "oldest_seen_at": "2026-07-24T12:55:26+09:00",
-  "latest_seen_at": "2026-07-31T21:29:53+09:00",
+  "latest_seen_at": "2026-08-01T00:05:12+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-24T12:55:26+09:00|added|pnu-academic-phys-undergrad-12920:1452444|9a02e74cefe5",
-      "event_type": "added",
-      "notice_id": "pnu-academic-phys-undergrad-12920:1452444",
-      "source_id": "pnu-academic-phys-undergrad-12920",
-      "source_name": "부산대 물리학과 학부공지",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-07-24T12:55:26+09:00",
-      "published_at": "2026-07-24",
-      "title": "2026학년도 2학기 국내외 현장실습학기제 실습기관, 학생 모집 및 수강신청 안내 새글",
-      "url": "https://phys.pusan.ac.kr/bbs/phys/1618/1452444/artclView.do",
-      "topics": [
-        "undergraduate",
-        "career",
-        "course"
-      ],
-      "same_notice_group_id": "same_notice:b25f78ccb774eb13",
-      "canonical_item_id": "pnu-academic-hanmun-undergrad-6062:1452489",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-hanmun-undergrad-6062",
-        "pnu-academic-hid-general-10648",
-        "pnu-academic-history-general-6500",
-        "pnu-academic-math-undergrad-11218",
-        "pnu-academic-phys-undergrad-12920",
-        "pnu-academic-pnutrade-undergrad-2560"
-      ],
-      "content_hash": "9a02e74cefe5c995b4dbed2c6cd6b28513bc5d452a83b5c754235b1596bf1683",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-phys-undergrad-12920:1452444"
-    },
     {
       "event_id": "2026-07-24T12:55:26+09:00|added|pnu-academic-plarts-general-13690:1452491|11ce54fee318",
       "event_type": "added",
@@ -34787,6 +34747,39 @@
       "previous_content_hash": "16405d304cab2896ddb286addb7977957b34764adf63d2e82ac2d4cbd75ce641",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-graduate-law-grad-10741:1452555"
+    },
+    {
+      "event_id": "2026-08-01T00:05:12+09:00|added|pnu-job-recruit-general:117517|d284bcb859a0",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:117517",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-08-01T00:05:12+09:00",
+      "published_at": null,
+      "title": "히트펌프 재생에너지 주니어 PM 채용",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117517",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:117517",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "d284bcb859a0b1b07c3e7dbe4b82b4e4d93286feef7825b2ba404b9f5aa75f55",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-08.json",
+      "archive_item_id": "pnu-job-recruit-general:117517"
     }
   ]
 }
