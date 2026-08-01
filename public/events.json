@@ -1,69 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-08-01T13:57:43+09:00",
+  "generated_at": "2026-08-01T16:34:31+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 8074,
+  "total_event_count": 8075,
   "event_limit": 1000,
-  "latest_event_id": "2026-08-01T13:57:43+09:00|updated|pnu-academic-polsci-undergrad-7498:1452572|12f424734f11",
-  "oldest_event_id": "2026-07-24T12:55:26+09:00|added|pnu-academic-pnutrade-grad-2561:1452455|5f2bff6a2826",
+  "latest_event_id": "2026-08-01T16:34:31+09:00|updated|pnu-job-recruit-recommendation:117680|285f1cf0231c",
+  "oldest_event_id": "2026-07-24T12:55:26+09:00|added|pnu-academic-pnutrade-undergrad-2560:1452449|833fce6e4db3",
   "oldest_seen_at": "2026-07-24T12:55:26+09:00",
-  "latest_seen_at": "2026-08-01T13:57:43+09:00",
+  "latest_seen_at": "2026-08-01T16:34:31+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-24T12:55:26+09:00|added|pnu-academic-pnutrade-grad-2561:1452455|5f2bff6a2826",
-      "event_type": "added",
-      "notice_id": "pnu-academic-pnutrade-grad-2561:1452455",
-      "source_id": "pnu-academic-pnutrade-grad-2561",
-      "source_name": "부산대 무역학부 대학원 공지사항",
-      "source_category": "academic_unit_graduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "grad"
-      ],
-      "seen_at": "2026-07-24T12:55:26+09:00",
-      "published_at": "2026-07-24",
-      "title": "2026학년도 2학기 대학원 수료후연구생 신청 및 등록 계획 알림 새글",
-      "url": "https://pnutrade.pusan.ac.kr/bbs/pnutrade/549/1452455/artclView.do",
-      "topics": [
-        "graduate",
-        "research",
-        "tuition"
-      ],
-      "same_notice_group_id": "same_notice:bb9eb798f732c900",
-      "canonical_item_id": "pnu-academic-aerospace-general-1455:1452478",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-aerospace-general-1455",
-        "pnu-academic-archaeology-grad-3498",
-        "pnu-academic-bce-general-5012",
-        "pnu-academic-bkorea-grad-3347",
-        "pnu-academic-convention-grad-2927",
-        "pnu-academic-cse-general-14227",
-        "pnu-academic-design-general-5370",
-        "pnu-academic-hanmun-grad-6063",
-        "pnu-academic-hid-general-10648",
-        "pnu-academic-history-grad-6510",
-        "pnu-academic-japan-grad-8797",
-        "pnu-academic-math-grad-11222",
-        "pnu-academic-me-grad-sub01-02",
-        "pnu-academic-mse-grad-50822",
-        "pnu-academic-music-general-11763",
-        "pnu-academic-pnutrade-grad-2561"
-      ],
-      "content_hash": "5f2bff6a2826be9808597af708590f702d6f4e2fa0d2c5cf9793ac101ef6bf7c",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-pnutrade-grad-2561:1452455"
-    },
     {
       "event_id": "2026-07-24T12:55:26+09:00|added|pnu-academic-pnutrade-undergrad-2560:1452449|833fce6e4db3",
       "event_type": "added",
@@ -34777,6 +34727,39 @@
       "previous_content_hash": "6859ac73b400040b3b0f381062ee68bb8b3f34062653604d01c05ccad0cb2cd6",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-academic-polsci-undergrad-7498:1452572"
+    },
+    {
+      "event_id": "2026-08-01T16:34:31+09:00|updated|pnu-job-recruit-recommendation:117680|285f1cf0231c",
+      "event_type": "updated",
+      "notice_id": "pnu-job-recruit-recommendation:117680",
+      "source_id": "pnu-job-recruit-recommendation",
+      "source_name": "부산대 취업전략과 추천채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "recommended_recruitment"
+      ],
+      "seen_at": "2026-08-01T16:34:31+09:00",
+      "published_at": null,
+      "title": "[주식회사 코르트] 추천채용 안내",
+      "url": "https://job.pusan.ac.kr/ko/recruit/Recommendation_intro/view/117680",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-recommendation:117680",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-recommendation"
+      ],
+      "content_hash": "285f1cf0231cc3d287151e07ab9282f8e7b187d3cab3fd33250bf993e12338f1",
+      "previous_content_hash": "839e2075aae5bcbd7a0981efa388744eeb2e7d4a72a6d0ac7d14c4f895705f7f",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-job-recruit-recommendation:117680"
     }
   ]
 }
