@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-08-02T23:40:49+09:00",
+  "generated_at": "2026-08-03T04:21:42+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 8087,
+  "total_event_count": 8088,
   "event_limit": 1000,
-  "latest_event_id": "2026-08-02T20:02:32+09:00|updated|pnu-academic-pnutrade-career-3559:1452576|3de8b90c2430",
-  "oldest_event_id": "2026-07-24T12:55:26+09:00|added|pnu-main-faculty-staff-recruitment:1510102|855a4d08ced1",
+  "latest_event_id": "2026-08-03T04:21:42+09:00|updated|pnu-academic-history-general-6500:1453237|320eff8ac515",
+  "oldest_event_id": "2026-07-24T12:55:26+09:00|added|pnu-onestop-notices:2122|04332d4c0590",
   "oldest_seen_at": "2026-07-24T12:55:26+09:00",
-  "latest_seen_at": "2026-08-02T20:02:32+09:00",
+  "latest_seen_at": "2026-08-03T04:21:42+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-24T12:55:26+09:00|added|pnu-main-faculty-staff-recruitment:1510102|855a4d08ced1",
-      "event_type": "added",
-      "notice_id": "pnu-main-faculty-staff-recruitment:1510102",
-      "source_id": "pnu-main-faculty-staff-recruitment",
-      "source_name": "부산대 교수초빙/직원채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "recruitment",
-        "faculty",
-        "staff"
-      ],
-      "seen_at": "2026-07-24T12:55:26+09:00",
-      "published_at": "2026-07-24",
-      "title": "부산대학교 교육혁신본부 전임연구원 공개채용 최종합격자 공고",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1510102",
-      "topics": [
-        "recruitment",
-        "career",
-        "research"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1510102",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-faculty-staff-recruitment"
-      ],
-      "content_hash": "855a4d08ced1d6df87e256ce5dc5fedf546a6a109f3e0160dc7e3f02833f7624",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-main-faculty-staff-recruitment:1510102"
-    },
     {
       "event_id": "2026-07-24T12:55:26+09:00|added|pnu-onestop-notices:2122|04332d4c0590",
       "event_type": "added",
@@ -34756,6 +34722,40 @@
       "previous_content_hash": "53afffd8b55319695be3d52cd39862336d556e08567593e8b8414db76bd50f46",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-academic-pnutrade-career-3559:1452576"
+    },
+    {
+      "event_id": "2026-08-03T04:21:42+09:00|updated|pnu-academic-history-general-6500:1453237|320eff8ac515",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-history-general-6500:1453237",
+      "source_id": "pnu-academic-history-general-6500",
+      "source_name": "부산대 사학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-08-03T04:21:42+09:00",
+      "published_at": "2026-07-31",
+      "title": "졸업(예정)자 개인정보 수집·이용 동의 안내",
+      "url": "https://history.pusan.ac.kr/bbs/history/174/1453237/artclView.do",
+      "topics": [
+        "graduation"
+      ],
+      "same_notice_group_id": "same_notice:1391a5a325c2b4b3",
+      "canonical_item_id": "pnu-academic-history-general-6500:1453237",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-history-general-6500",
+        "pnu-academic-history-grad-6510"
+      ],
+      "content_hash": "320eff8ac515b049ffe9145bab6cc4dc66718906ba7247c2b24effe88320c1f9",
+      "previous_content_hash": "63de26bfcb8d108dfd623f285524045b747435dddbe70efce12f5aa089011f77",
+      "archive_file": "./archive/2026-07.json",
+      "archive_item_id": "pnu-academic-history-general-6500:1453237"
     }
   ]
 }
