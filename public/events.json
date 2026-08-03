@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-08-04T07:13:21+09:00",
+  "generated_at": "2026-08-04T08:39:43+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 8357,
+  "total_event_count": 8358,
   "event_limit": 1000,
-  "latest_event_id": "2026-08-04T00:07:46+09:00|updated|pnu-international-office-notices:1452707|4f913cbefd95",
-  "oldest_event_id": "2026-07-27T20:33:57+09:00|added|pnu-onestop-notices:2125|dae302586c3f",
+  "latest_event_id": "2026-08-04T08:39:43+09:00|added|pnu-main-notice:1510316|268614bb50e4",
+  "oldest_event_id": "2026-07-27T20:33:57+09:00|added|pnu-onestop-notices:2126|65c6744deb02",
   "oldest_seen_at": "2026-07-27T20:33:57+09:00",
-  "latest_seen_at": "2026-08-04T00:07:46+09:00",
+  "latest_seen_at": "2026-08-04T08:39:43+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-27T20:33:57+09:00|added|pnu-onestop-notices:2125|dae302586c3f",
-      "event_type": "added",
-      "notice_id": "pnu-onestop-notices:2125",
-      "source_id": "pnu-onestop-notices",
-      "source_name": "부산대 학지시 공지",
-      "source_category": "academic_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "onestop",
-        "academic"
-      ],
-      "seen_at": "2026-07-27T20:33:57+09:00",
-      "published_at": "2026-07-27",
-      "title": "2026학년도 2학기 대학원과정 희망과목담기 및 수강신청 안내",
-      "url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000386&mode=DETAIL&seq=2125",
-      "topics": [
-        "academic",
-        "course",
-        "graduate"
-      ],
-      "same_notice_group_id": "same_notice:91156047a5f243fc",
-      "canonical_item_id": "pnu-main-notice:1510148",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-main-notice",
-        "pnu-onestop-notices"
-      ],
-      "content_hash": "dae302586c3f32670e24fbc7eed7cf095cd3a3dbb40a7c4041e9e27cbd1773c2",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-onestop-notices:2125"
-    },
     {
       "event_id": "2026-07-27T20:33:57+09:00|added|pnu-onestop-notices:2126|65c6744deb02",
       "event_type": "added",
@@ -35153,6 +35119,37 @@
       "previous_content_hash": "d89f35ccc4eb053dcc90c9edf1d4d099a147c601512d84b87d2e5e19b324696d",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-international-office-notices:1452707"
+    },
+    {
+      "event_id": "2026-08-04T08:39:43+09:00|added|pnu-main-notice:1510316|268614bb50e4",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1510316",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-08-04T08:39:43+09:00",
+      "published_at": "2026-08-04",
+      "title": "[한국민족문화연구소] 연구조교 모집",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1510316",
+      "topics": [
+        "academic",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1510316",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "268614bb50e4314176e6a9df20ad218ca8123907d4c0a869b8af27da5fe78a51",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-08.json",
+      "archive_item_id": "pnu-main-notice:1510316"
     }
   ]
 }
