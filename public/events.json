@@ -1,63 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-08-04T23:33:41+09:00",
+  "generated_at": "2026-08-05T03:45:06+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 8544,
+  "total_event_count": 8545,
   "event_limit": 1000,
-  "latest_event_id": "2026-08-04T23:33:41+09:00|updated|pnu-academic-philosophy-event-15171:1452876|54ccdb28ad19",
-  "oldest_event_id": "2026-07-28T18:19:06+09:00|updated|pnu-academic-chem-general-6291:1452209|d8403ecb7f8d",
+  "latest_event_id": "2026-08-05T03:45:06+09:00|updated|pnu-academic-mse-grad-50822:1763216|6ab54bf6d6e4",
+  "oldest_event_id": "2026-07-28T18:19:06+09:00|updated|pnu-academic-cse-general-14221:1452239|8b7c8c1e5137",
   "oldest_seen_at": "2026-07-28T18:19:06+09:00",
-  "latest_seen_at": "2026-08-04T23:33:41+09:00",
+  "latest_seen_at": "2026-08-05T03:45:06+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-28T18:19:06+09:00|updated|pnu-academic-chem-general-6291:1452209|d8403ecb7f8d",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-chem-general-6291:1452209",
-      "source_id": "pnu-academic-chem-general-6291",
-      "source_name": "부산대 화학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-07-28T18:19:06+09:00",
-      "published_at": "2026-07-21",
-      "title": "[화학] 2026학년도 2학기 재학생 등록금 납부계획 알림",
-      "url": "https://chem.pusan.ac.kr/bbs/chem/164/1452209/artclView.do",
-      "topics": [
-        "tuition"
-      ],
-      "same_notice_group_id": "same_notice:490edc9eb3054d15",
-      "canonical_item_id": "pnu-graduate-geit-grad-12832:1452205",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-biz-grad-8949",
-        "pnu-academic-biz-undergrad-8941",
-        "pnu-academic-chem-general-6291",
-        "pnu-academic-designtech-undergrad-15921",
-        "pnu-academic-history-general-6500",
-        "pnu-academic-history-grad-6510",
-        "pnu-academic-math-grad-11222",
-        "pnu-academic-math-undergrad-11218",
-        "pnu-academic-pharmacy-undergrad-5754",
-        "pnu-academic-russia-undergrad-2316",
-        "pnu-graduate-geit-grad-12832",
-        "pnu-graduate-gspa-grad-10899"
-      ],
-      "content_hash": "d8403ecb7f8d63cf5290ff9ea883ff2584a7906ac7389d90c937ff4936277b29",
-      "previous_content_hash": "885dedf5883f0d3c6be14b65dbdb4f86ffd56118fe841c4eee877aca36e6388c",
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-chem-general-6291:1452209"
-    },
     {
       "event_id": "2026-07-28T18:19:06+09:00|updated|pnu-academic-cse-general-14221:1452239|8b7c8c1e5137",
       "event_type": "updated",
@@ -35096,6 +35052,42 @@
       "previous_content_hash": "99aba544d8684a28bb213de9db8330d05c74abaea47df4ffd86dac15ca197769",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-academic-philosophy-event-15171:1452876"
+    },
+    {
+      "event_id": "2026-08-05T03:45:06+09:00|updated|pnu-academic-mse-grad-50822:1763216|6ab54bf6d6e4",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-mse-grad-50822:1763216",
+      "source_id": "pnu-academic-mse-grad-50822",
+      "source_name": "부산대 재료공학부 대학원공지",
+      "source_category": "academic_unit_graduate_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "grad"
+      ],
+      "seen_at": "2026-08-05T03:45:06+09:00",
+      "published_at": "2026-08-03",
+      "title": "[일반공지] 2026학년도 2학기 재료공학부 장학 조교(장비오퍼레이터)/연구 조교(재료공학실험운영) 모 새글",
+      "url": "https://mse.pusan.ac.kr/bbs/mse/12265/1763216/artclView.do",
+      "topics": [
+        "graduate",
+        "scholarship",
+        "undergraduate",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-mse-grad-50822:1763216",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-mse-grad-50822"
+      ],
+      "content_hash": "6ab54bf6d6e4dfce1ff05ee203e7c148719150e68c891682889f0a9f4d4a28ad",
+      "previous_content_hash": "a1294cf0ca3522b08105e040394434507d29ca1d44d6770591e6f8661d1275ef",
+      "archive_file": "./archive/2026-08.json",
+      "archive_item_id": "pnu-academic-mse-grad-50822:1763216"
     }
   ]
 }
