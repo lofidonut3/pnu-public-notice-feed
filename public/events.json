@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-08-06T19:12:12+09:00",
+  "generated_at": "2026-08-06T21:28:02+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 8948,
+  "total_event_count": 8949,
   "event_limit": 1000,
-  "latest_event_id": "2026-08-06T19:12:12+09:00|updated|pnu-graduate-gsis-grad-11587:1453099|426f1c2213bd",
-  "oldest_event_id": "2026-07-31T13:03:10+09:00|updated|pnu-academic-ocean-general-12798:1452418|708993ad8a19",
+  "latest_event_id": "2026-08-06T21:28:02+09:00|added|pnu-main-faculty-staff-recruitment:1510370|ea4c366a3bdb",
+  "oldest_event_id": "2026-07-31T13:03:10+09:00|updated|pnu-academic-plarts-general-13690:1452491|7ea905f1f7eb",
   "oldest_seen_at": "2026-07-31T13:03:10+09:00",
-  "latest_seen_at": "2026-08-06T19:12:12+09:00",
+  "latest_seen_at": "2026-08-06T21:28:02+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-07-31T13:03:10+09:00|updated|pnu-academic-ocean-general-12798:1452418|708993ad8a19",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-ocean-general-12798:1452418",
-      "source_id": "pnu-academic-ocean-general-12798",
-      "source_name": "부산대 해양학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-07-31T13:03:10+09:00",
-      "published_at": "2026-07-24",
-      "title": "[글로컬대학 30] 2026년 연구와 교육을 위한 디지털인문학 여름 워크숍 개최 및 참가 신청 안내",
-      "url": "https://ocean.pusan.ac.kr/bbs/ocean/2001/1452418/artclView.do",
-      "topics": [
-        "event",
-        "research"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-ocean-general-12798:1452418",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-ocean-general-12798"
-      ],
-      "content_hash": "708993ad8a19719d0fe0f98bfa226a251c2e4cba6e35a89d131ccfd33c0af25b",
-      "previous_content_hash": "3e131d638c52202e5a0878f954db2b5ed55b0231f0905a821dc3a9d64a8ea5f0",
-      "archive_file": "./archive/2026-07.json",
-      "archive_item_id": "pnu-academic-ocean-general-12798:1452418"
-    },
     {
       "event_id": "2026-07-31T13:03:10+09:00|updated|pnu-academic-plarts-general-13690:1452491|7ea905f1f7eb",
       "event_type": "updated",
@@ -35688,6 +35654,40 @@
       "previous_content_hash": "e3586cf00d11716998fe1c224851daa59e979e4bec4002d4df670a076f10da09",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-graduate-gsis-grad-11587:1453099"
+    },
+    {
+      "event_id": "2026-08-06T21:28:02+09:00|added|pnu-main-faculty-staff-recruitment:1510370|ea4c366a3bdb",
+      "event_type": "added",
+      "notice_id": "pnu-main-faculty-staff-recruitment:1510370",
+      "source_id": "pnu-main-faculty-staff-recruitment",
+      "source_name": "부산대 교수초빙/직원채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "recruitment",
+        "faculty",
+        "staff"
+      ],
+      "seen_at": "2026-08-06T21:28:02+09:00",
+      "published_at": "2026-08-06",
+      "title": "부산대학교 교육학과 BK21 교육의 사회적 책임 연구단 행정직원 공개 채용",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1510370",
+      "topics": [
+        "recruitment",
+        "career",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1510370",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-faculty-staff-recruitment"
+      ],
+      "content_hash": "ea4c366a3bdb49200832b0bd51c8cb4b883efe9f09bf7652330f5f2e15a57757",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-08.json",
+      "archive_item_id": "pnu-main-faculty-staff-recruitment:1510370"
     }
   ]
 }
