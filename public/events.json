@@ -1,69 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-09-06T05:39:17+09:00",
+  "generated_at": "2026-09-06T09:47:38+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 11954,
+  "total_event_count": 11955,
   "event_limit": 1000,
-  "latest_event_id": "2026-09-06T03:36:07+09:00|updated|pnu-sedu-support-notices:1762930|c4fb957e5115",
-  "oldest_event_id": "2026-09-06T03:36:07+09:00|added|pnu-academic-pnutrade-undergrad-2560:1456529|d1b1107ddab5",
+  "latest_event_id": "2026-09-06T09:47:38+09:00|updated|pnu-equality-notices:1764109|4542ba2d829a",
+  "oldest_event_id": "2026-09-06T03:36:07+09:00|added|pnu-academic-pnutrade-undergrad-2560:1457446|1a529ee4c0d2",
   "oldest_seen_at": "2026-09-06T03:36:07+09:00",
-  "latest_seen_at": "2026-09-06T03:36:07+09:00",
+  "latest_seen_at": "2026-09-06T09:47:38+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-09-06T03:36:07+09:00|added|pnu-academic-pnutrade-undergrad-2560:1456529|d1b1107ddab5",
-      "event_type": "added",
-      "notice_id": "pnu-academic-pnutrade-undergrad-2560:1456529",
-      "source_id": "pnu-academic-pnutrade-undergrad-2560",
-      "source_name": "부산대 무역학부 학부 공지사항",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-09-06T03:36:07+09:00",
-      "published_at": "2026-08-24",
-      "title": "2026학년도 2학기 추가 휴ㆍ복학 신청 기간 안내",
-      "url": "https://pnutrade.pusan.ac.kr/bbs/pnutrade/210/1456529/artclView.do",
-      "topics": [
-        "undergraduate",
-        "academic_records"
-      ],
-      "same_notice_group_id": "same_notice:3e2764dc4f372b2d",
-      "canonical_item_id": "pnu-academic-humanities-general-11352:1456556",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-am-general-4498",
-        "pnu-academic-biology-undergrad-5536",
-        "pnu-academic-cdfs-general-1556",
-        "pnu-academic-designtech-undergrad-15921",
-        "pnu-academic-fu-general-4474",
-        "pnu-academic-hanmun-undergrad-6062",
-        "pnu-academic-history-general-6500",
-        "pnu-academic-history-grad-6510",
-        "pnu-academic-humanities-general-11352",
-        "pnu-academic-it-general-4402",
-        "pnu-academic-math-undergrad-11218",
-        "pnu-academic-mo-general-4426",
-        "pnu-academic-mse-grad-50822",
-        "pnu-academic-pharmacy-undergrad-5754",
-        "pnu-academic-pnutrade-undergrad-2560",
-        "pnu-academic-russia-undergrad-2316",
-        "pnu-academic-ste-general-9557"
-      ],
-      "content_hash": "d1b1107ddab5e1d4be1272c16cd437cc4b7fc1bcb2fd3a8daacf8747b4ff7193",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-08.json",
-      "archive_item_id": "pnu-academic-pnutrade-undergrad-2560:1456529"
-    },
     {
       "event_id": "2026-09-06T03:36:07+09:00|added|pnu-academic-pnutrade-undergrad-2560:1457446|1a529ee4c0d2",
       "event_type": "added",
@@ -34887,6 +34837,39 @@
       "previous_content_hash": "e529d5fbc375b976da4a1ea3a5d946e49581e307c70086b45fff92e0c5721ad4",
       "archive_file": "./archive/2026-07.json",
       "archive_item_id": "pnu-sedu-support-notices:1762930"
+    },
+    {
+      "event_id": "2026-09-06T09:47:38+09:00|updated|pnu-equality-notices:1764109|4542ba2d829a",
+      "event_type": "updated",
+      "notice_id": "pnu-equality-notices:1764109",
+      "source_id": "pnu-equality-notices",
+      "source_name": "부산대 인권센터 공지사항",
+      "source_category": "student_support_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "human_rights",
+        "equality",
+        "student_support"
+      ],
+      "seen_at": "2026-09-06T09:47:38+09:00",
+      "published_at": "2026-08-30",
+      "title": "2026년 부산광역시 인권공모전",
+      "url": "https://equality.pusan.ac.kr/bbs/equality/9693/1764109/artclView.do",
+      "topics": [
+        "student_support",
+        "contest"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-equality-notices:1764109",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-equality-notices"
+      ],
+      "content_hash": "4542ba2d829a2a195002d7a1f02f91cabac65ccfd610477fe35262d07fe27b73",
+      "previous_content_hash": "d26cf07bcdb46847bfbb070522f5fdf30a6bc43143af8ef2274e94c9e0bbabdc",
+      "archive_file": "./archive/2026-08.json",
+      "archive_item_id": "pnu-equality-notices:1764109"
     }
   ]
 }
