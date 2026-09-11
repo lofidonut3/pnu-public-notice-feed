@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-09-12T05:52:04+09:00",
+  "generated_at": "2026-09-12T08:09:52+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 13385,
+  "total_event_count": 13386,
   "event_limit": 1000,
-  "latest_event_id": "2026-09-12T02:42:18+09:00|updated|pnu-main-notice:1510885|e152b80acf6e",
-  "oldest_event_id": "2026-09-08T15:28:25+09:00|added|pnu-main-faculty-staff-recruitment:1510934|231fe740fc35",
+  "latest_event_id": "2026-09-12T08:09:52+09:00|updated|pnu-main-notice:1510868|bdaa4765220c",
+  "oldest_event_id": "2026-09-08T15:28:25+09:00|added|pnu-main-faculty-staff-recruitment:1510936|8de576a9c602",
   "oldest_seen_at": "2026-09-08T15:28:25+09:00",
-  "latest_seen_at": "2026-09-12T02:42:18+09:00",
+  "latest_seen_at": "2026-09-12T08:09:52+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-09-08T15:28:25+09:00|added|pnu-main-faculty-staff-recruitment:1510934|231fe740fc35",
-      "event_type": "added",
-      "notice_id": "pnu-main-faculty-staff-recruitment:1510934",
-      "source_id": "pnu-main-faculty-staff-recruitment",
-      "source_name": "부산대 교수초빙/직원채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "recruitment",
-        "faculty",
-        "staff"
-      ],
-      "seen_at": "2026-09-08T15:28:25+09:00",
-      "published_at": "2026-09-08",
-      "title": "부산대학교 블록체인 플랫폼 연구센터 사무원 채용 공고",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1510934",
-      "topics": [
-        "recruitment",
-        "career",
-        "research"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1510934",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-faculty-staff-recruitment"
-      ],
-      "content_hash": "231fe740fc3587ce16df5265d91f59c600c2cdc8144cb0131dc674626e3779ec",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-main-faculty-staff-recruitment:1510934"
-    },
     {
       "event_id": "2026-09-08T15:28:25+09:00|added|pnu-main-faculty-staff-recruitment:1510936|8de576a9c602",
       "event_type": "added",
@@ -34844,6 +34810,38 @@
       "previous_content_hash": "133d1bf4c7b78121233d3211bd6917ff75b51f7db54405bed3f1ec3008af55c0",
       "archive_file": "./archive/2026-09.json",
       "archive_item_id": "pnu-main-notice:1510885"
+    },
+    {
+      "event_id": "2026-09-12T08:09:52+09:00|updated|pnu-main-notice:1510868|bdaa4765220c",
+      "event_type": "updated",
+      "notice_id": "pnu-main-notice:1510868",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-09-12T08:09:52+09:00",
+      "published_at": "2026-09-03",
+      "title": "[현장실습지원센터] 2027년 국외현장실습학기제(호주) 참여희망학생 모집 안내 (~9/29) - 일정변경 재공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1510868",
+      "topics": [
+        "academic",
+        "career"
+      ],
+      "same_notice_group_id": "same_notice:894a583276443459",
+      "canonical_item_id": "pnu-main-notice:1510868",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-notices",
+        "pnu-main-notice"
+      ],
+      "content_hash": "bdaa4765220c9ea5a81a3ca0c6ab731fdf4825d4c7a9a95e092e55e8dfc21480",
+      "previous_content_hash": "2e498a3c63caebfc741e629f5cf9d7641fc8cb24af842267482921102d999ab5",
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-main-notice:1510868"
     }
   ]
 }
