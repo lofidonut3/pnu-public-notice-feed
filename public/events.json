@@ -1,149 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-09-11T22:44:42+09:00",
+  "generated_at": "2026-09-12T02:42:18+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 13381,
+  "total_event_count": 13385,
   "event_limit": 1000,
-  "latest_event_id": "2026-09-11T22:44:42+09:00|updated|pnu-academic-cdfs-general-1556:1459314|a8cdc45ddafd",
-  "oldest_event_id": "2026-09-08T15:28:25+09:00|added|pnu-job-notices:204293|6e8081068797",
+  "latest_event_id": "2026-09-12T02:42:18+09:00|updated|pnu-main-notice:1510885|e152b80acf6e",
+  "oldest_event_id": "2026-09-08T15:28:25+09:00|added|pnu-main-faculty-staff-recruitment:1510934|231fe740fc35",
   "oldest_seen_at": "2026-09-08T15:28:25+09:00",
-  "latest_seen_at": "2026-09-11T22:44:42+09:00",
+  "latest_seen_at": "2026-09-12T02:42:18+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-09-08T15:28:25+09:00|added|pnu-job-notices:204293|6e8081068797",
-      "event_type": "added",
-      "notice_id": "pnu-job-notices:204293",
-      "source_id": "pnu-job-notices",
-      "source_name": "부산대 취업전략과 공지사항",
-      "source_category": "career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "job_notice"
-      ],
-      "seen_at": "2026-09-08T15:28:25+09:00",
-      "published_at": "2026-09-08",
-      "title": "[코멘토] 현대해상과 함께하는 ‘로컬 AI 메이커스랩’ 2차수 학생 홍보",
-      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204293?p=1",
-      "topics": [
-        "career"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-notices:204293",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-notices"
-      ],
-      "content_hash": "6e80810687977bf688cc4627fed4159163618bfe243772d3b89808978a973e7a",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-job-notices:204293"
-    },
-    {
-      "event_id": "2026-09-08T15:28:25+09:00|added|pnu-job-recruit-general:117878|28245f88b474",
-      "event_type": "added",
-      "notice_id": "pnu-job-recruit-general:117878",
-      "source_id": "pnu-job-recruit-general",
-      "source_name": "부산대 취업전략과 일반채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "recruitment",
-        "general_recruitment"
-      ],
-      "seen_at": "2026-09-08T15:28:25+09:00",
-      "published_at": null,
-      "title": "[한화엔진] 2026년 하반기 신입사원 모집",
-      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117878",
-      "topics": [
-        "recruitment",
-        "career",
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-recruit-general:117878",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-recruit-general"
-      ],
-      "content_hash": "28245f88b474f9033dcd0823942bbdf9990e5791420e254f91b0d72ce109d09a",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-job-recruit-general:117878"
-    },
-    {
-      "event_id": "2026-09-08T15:28:25+09:00|added|pnu-library-notices:57783|7a48e7858790",
-      "event_type": "added",
-      "notice_id": "pnu-library-notices:57783",
-      "source_id": "pnu-library-notices",
-      "source_name": "부산대 도서관 공지사항",
-      "source_category": "library_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "library"
-      ],
-      "seen_at": "2026-09-08T15:28:25+09:00",
-      "published_at": "2026-09-08",
-      "title": "교보 스콜라 서버 점검 안내(9/13)",
-      "url": "https://lib.pusan.ac.kr/guide/notice/57783",
-      "topics": [
-        "library"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-library-notices:57783",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-library-notices"
-      ],
-      "content_hash": "7a48e7858790e82cbd06762108f833bfa57a7b0bd1c358ca95d4e87006f4b48d",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-library-notices:57783"
-    },
-    {
-      "event_id": "2026-09-08T15:28:25+09:00|added|pnu-main-faculty-staff-recruitment:1510929|a2385813afda",
-      "event_type": "added",
-      "notice_id": "pnu-main-faculty-staff-recruitment:1510929",
-      "source_id": "pnu-main-faculty-staff-recruitment",
-      "source_name": "부산대 교수초빙/직원채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "recruitment",
-        "faculty",
-        "staff"
-      ],
-      "seen_at": "2026-09-08T15:28:25+09:00",
-      "published_at": "2026-09-08",
-      "title": "부산대학교 간호통합시뮬레이션센터 연구보조원 채용 공고",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1510929",
-      "topics": [
-        "recruitment",
-        "career",
-        "research"
-      ],
-      "same_notice_group_id": "same_notice:f8a5b9f8850b8ff1",
-      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1510929",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-nursing-career-10429",
-        "pnu-main-faculty-staff-recruitment"
-      ],
-      "content_hash": "a2385813afdac22404b86071b6ad0dca005aaecaddc82c335a13f59581f02fa0",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-main-faculty-staff-recruitment:1510929"
-    },
     {
       "event_id": "2026-09-08T15:28:25+09:00|added|pnu-main-faculty-staff-recruitment:1510934|231fe740fc35",
       "event_type": "added",
@@ -34847,6 +34717,133 @@
       "previous_content_hash": "204fc7d9dd4f27544708c27d21ab53edf8229b5c79b011aa113b6ca7df616835",
       "archive_file": "./archive/2026-09.json",
       "archive_item_id": "pnu-academic-cdfs-general-1556:1459314"
+    },
+    {
+      "event_id": "2026-09-12T02:42:18+09:00|updated|pnu-graduate-gspa-grad-10899:1456612|b2bf842ccb2b",
+      "event_type": "updated",
+      "notice_id": "pnu-graduate-gspa-grad-10899:1456612",
+      "source_id": "pnu-graduate-gspa-grad-10899",
+      "source_name": "부산대 행정대학원 공지사항 1",
+      "source_category": "graduate_school_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "graduate_school",
+        "graduate"
+      ],
+      "seen_at": "2026-09-12T02:42:18+09:00",
+      "published_at": "2026-08-24",
+      "title": "[학사] 2026학년도 2학기 학위논문제출 자격시험(종합시험) 시행계획 공고",
+      "url": "https://gspa.pusan.ac.kr/bbs/gspa/1338/1456612/artclView.do",
+      "topics": [
+        "graduate",
+        "course",
+        "graduation"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-graduate-gspa-grad-10899:1456612",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-graduate-gspa-grad-10899"
+      ],
+      "content_hash": "b2bf842ccb2b08b94fd1b21f8ddc841ae7dd8abba7987d7875127b1f8e577eaf",
+      "previous_content_hash": "df93118510b65656c80fa2d26aa0c55e76ae88a1ec3d25f41ad20fb8aca3837c",
+      "archive_file": "./archive/2026-08.json",
+      "archive_item_id": "pnu-graduate-gspa-grad-10899:1456612"
+    },
+    {
+      "event_id": "2026-09-12T02:42:18+09:00|updated|pnu-graduate-law-grad-10741:1462282|4c33017990ce",
+      "event_type": "updated",
+      "notice_id": "pnu-graduate-law-grad-10741:1462282",
+      "source_id": "pnu-graduate-law-grad-10741",
+      "source_name": "부산대 법학전문대학원 공지사항",
+      "source_category": "graduate_school_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "graduate_school",
+        "graduate"
+      ],
+      "seen_at": "2026-09-12T02:42:18+09:00",
+      "published_at": "2026-09-11",
+      "title": "2026년도 제 3차 변호사시험 모의시험 서울대학교 시험장 응시 신청 안내(신청 마감) 새글",
+      "url": "https://law.pusan.ac.kr/bbs/law/482/1462282/artclView.do",
+      "topics": [
+        "graduate",
+        "course"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-graduate-law-grad-10741:1462282",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-graduate-law-grad-10741"
+      ],
+      "content_hash": "4c33017990ce180721f62989fdebc2854a3355140c1335578a4b9e603d05f151",
+      "previous_content_hash": "e2aaed73a7f73a60ef875ed92755b80736dff55f880c182f57135b0c97f8daf3",
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-graduate-law-grad-10741:1462282"
+    },
+    {
+      "event_id": "2026-09-12T02:42:18+09:00|updated|pnu-international-student-notices:1459334|5a4ea9340d38",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1459334",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-09-12T02:42:18+09:00",
+      "published_at": "2026-09-06",
+      "title": "[비자] 2026학년도 2학기 외국인등록 단체 지문등록 알림 Schedule of Group fingerprint f 새글",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1459334/artclView.do",
+      "topics": [
+        "international",
+        "tuition"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1459334",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "5a4ea9340d388936970d6a675856355fb9e71d5541f54da4964d1f652365881b",
+      "previous_content_hash": "43e5ed5de0aa29f3c256e5baecfab826f3617036dddca277b0c44fb40ef573c8",
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-international-student-notices:1459334"
+    },
+    {
+      "event_id": "2026-09-12T02:42:18+09:00|updated|pnu-main-notice:1510885|e152b80acf6e",
+      "event_type": "updated",
+      "notice_id": "pnu-main-notice:1510885",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-09-12T02:42:18+09:00",
+      "published_at": "2026-09-04",
+      "title": "[박물관] 개교80주년 특별전시 운영요원 모집(변경)",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1510885",
+      "topics": [
+        "academic"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1510885",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "e152b80acf6e7cd631adb05f5671d2a8ba92ff90b680e600f10d19dbb0e670b4",
+      "previous_content_hash": "133d1bf4c7b78121233d3211bd6917ff75b51f7db54405bed3f1ec3008af55c0",
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-main-notice:1510885"
     }
   ]
 }
