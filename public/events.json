@@ -1,57 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-09-13T23:53:16+09:00",
+  "generated_at": "2026-09-14T03:03:34+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 13402,
+  "total_event_count": 13403,
   "event_limit": 1000,
-  "latest_event_id": "2026-09-13T19:32:57+09:00|updated|pnu-international-student-notices:1459334|409f5b0eb0eb",
-  "oldest_event_id": "2026-09-08T15:28:25+09:00|updated|pnu-academic-ee-general-5204:1458488|3f9359b8837a",
+  "latest_event_id": "2026-09-14T03:03:34+09:00|updated|pnu-academic-chem-general-6291:1459915|59b200796ae1",
+  "oldest_event_id": "2026-09-08T15:28:25+09:00|updated|pnu-academic-energy-career-5111:1458501|55f68074005a",
   "oldest_seen_at": "2026-09-08T15:28:25+09:00",
-  "latest_seen_at": "2026-09-13T19:32:57+09:00",
+  "latest_seen_at": "2026-09-14T03:03:34+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-09-08T15:28:25+09:00|updated|pnu-academic-ee-general-5204:1458488|3f9359b8837a",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-ee-general-5204:1458488",
-      "source_id": "pnu-academic-ee-general-5204",
-      "source_name": "부산대 전자공학전공 학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-09-08T15:28:25+09:00",
-      "published_at": "2026-09-01",
-      "title": "[장학] 2026년도 2학기 고졸 후학습자 장학사업(희망사다리 II유형) 신규 장학생 신청 안내",
-      "url": "https://ee.pusan.ac.kr/bbs/ee/1542/1458488/artclView.do",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": "same_notice:0c7a248efc6b8d6c",
-      "canonical_item_id": "pnu-academic-biz-scholarship-8961:1458375",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-biz-scholarship-8961",
-        "pnu-academic-ee-general-5204",
-        "pnu-academic-history-general-6500",
-        "pnu-academic-math-undergrad-11218",
-        "pnu-academic-pnuenv-general-5930",
-        "pnu-academic-uni-scholarship-8190"
-      ],
-      "content_hash": "3f9359b8837a45f3f8df71f07c3c81fc59183a676f5be0ba302e8c25126ff3f9",
-      "previous_content_hash": "0d91e7c9a271928bdbc8decd0e54f83b057241df982253113c2d2530bbff20de",
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-ee-general-5204:1458488"
-    },
     {
       "event_id": "2026-09-08T15:28:25+09:00|updated|pnu-academic-energy-career-5111:1458501|55f68074005a",
       "event_type": "updated",
@@ -34800,6 +34762,40 @@
       "previous_content_hash": "5a4ea9340d388936970d6a675856355fb9e71d5541f54da4964d1f652365881b",
       "archive_file": "./archive/2026-09.json",
       "archive_item_id": "pnu-international-student-notices:1459334"
+    },
+    {
+      "event_id": "2026-09-14T03:03:34+09:00|updated|pnu-academic-chem-general-6291:1459915|59b200796ae1",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-chem-general-6291:1459915",
+      "source_id": "pnu-academic-chem-general-6291",
+      "source_name": "부산대 화학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-09-14T03:03:34+09:00",
+      "published_at": "2026-09-09",
+      "title": "[대학원] 2026년 후기 자연계대학원 전문연구요원 편입대상자 선발 공고 새글",
+      "url": "https://chem.pusan.ac.kr/bbs/chem/164/1459915/artclView.do",
+      "topics": [
+        "graduate",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-chem-general-6291:1459915",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-chem-general-6291"
+      ],
+      "content_hash": "59b200796ae1aa4c5420dbbd32b21056e9fb21730824431de066fcc494dee330",
+      "previous_content_hash": "26c7d1477e43b610318c5c34a72a85814d2b886c7fa107c38bf190ac4ce5be56",
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-academic-chem-general-6291:1459915"
     }
   ]
 }
