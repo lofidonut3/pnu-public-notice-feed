@@ -1,52 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-09-15T04:48:36+09:00",
+  "generated_at": "2026-09-15T08:03:32+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 13674,
+  "total_event_count": 13675,
   "event_limit": 1000,
-  "latest_event_id": "2026-09-15T04:48:36+09:00|updated|pnu-academic-russia-undergrad-2316:1461538|003049fe2bc4",
-  "oldest_event_id": "2026-09-09T15:34:26+09:00|added|pnu-equality-notices:1764523|ced9b165cf35",
+  "latest_event_id": "2026-09-15T08:03:32+09:00|updated|pnu-main-notice:1511038|83fc378f5cbe",
+  "oldest_event_id": "2026-09-09T15:34:26+09:00|added|pnu-graduate-kmed-grad-11930:1459959|574448bad7ce",
   "oldest_seen_at": "2026-09-09T15:34:26+09:00",
-  "latest_seen_at": "2026-09-15T04:48:36+09:00",
+  "latest_seen_at": "2026-09-15T08:03:32+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-09-09T15:34:26+09:00|added|pnu-equality-notices:1764523|ced9b165cf35",
-      "event_type": "added",
-      "notice_id": "pnu-equality-notices:1764523",
-      "source_id": "pnu-equality-notices",
-      "source_name": "부산대 인권센터 공지사항",
-      "source_category": "student_support_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "human_rights",
-        "equality",
-        "student_support"
-      ],
-      "seen_at": "2026-09-09T15:34:26+09:00",
-      "published_at": "2026-09-09",
-      "title": "[성평등가족부] 「교제폭력 · 스토킹 레드플래그 10」 숏폼 영상 안내 새글",
-      "url": "https://equality.pusan.ac.kr/bbs/equality/9693/1764523/artclView.do",
-      "topics": [
-        "student_support"
-      ],
-      "same_notice_group_id": "same_notice:1f3cfabbb437ea56",
-      "canonical_item_id": "pnu-main-notice:1510952",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-equality-notices",
-        "pnu-main-notice"
-      ],
-      "content_hash": "ced9b165cf35846172cb70f4bf7e5a69a57f8f0e8022a34e8add2c8d4c96fedb",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-equality-notices:1764523"
-    },
     {
       "event_id": "2026-09-09T15:34:26+09:00|added|pnu-graduate-kmed-grad-11930:1459959|574448bad7ce",
       "event_type": "added",
@@ -34757,6 +34724,36 @@
       "previous_content_hash": "409c3a5d330ad0d821d3a5785f0e86ded5f4d38fa5b3f7e5423c0a773e87c23c",
       "archive_file": "./archive/2026-09.json",
       "archive_item_id": "pnu-academic-russia-undergrad-2316:1461538"
+    },
+    {
+      "event_id": "2026-09-15T08:03:32+09:00|updated|pnu-main-notice:1511038|83fc378f5cbe",
+      "event_type": "updated",
+      "notice_id": "pnu-main-notice:1511038",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-09-15T08:03:32+09:00",
+      "published_at": "2026-09-14",
+      "title": "「2026 글로벌 AX-PBL 현장실증 공학교육」프로그램 참가자 모집(~9/30)",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1511038",
+      "topics": [
+        "academic"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1511038",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "83fc378f5cbec467dd0d0750ab678bce9c5cbd0477071d4cee063168db787a05",
+      "previous_content_hash": "7bb65e54a54dff557e181273036e6174c9968412f5f14630939e28e1dbe65dad",
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-main-notice:1511038"
     }
   ]
 }
