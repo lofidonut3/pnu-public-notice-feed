@@ -1,151 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-09-15T08:03:32+09:00",
+  "generated_at": "2026-09-15T10:48:47+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 13675,
+  "total_event_count": 13679,
   "event_limit": 1000,
-  "latest_event_id": "2026-09-15T08:03:32+09:00|updated|pnu-main-notice:1511038|83fc378f5cbe",
-  "oldest_event_id": "2026-09-09T15:34:26+09:00|added|pnu-graduate-kmed-grad-11930:1459959|574448bad7ce",
+  "latest_event_id": "2026-09-15T10:48:47+09:00|updated|pnu-dorm-miryang-notices:2450|44374f676793",
+  "oldest_event_id": "2026-09-09T15:34:26+09:00|added|pnu-job-recruit-general:117915|0bf5a95cb61c",
   "oldest_seen_at": "2026-09-09T15:34:26+09:00",
-  "latest_seen_at": "2026-09-15T08:03:32+09:00",
+  "latest_seen_at": "2026-09-15T10:48:47+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-09-09T15:34:26+09:00|added|pnu-graduate-kmed-grad-11930:1459959|574448bad7ce",
-      "event_type": "added",
-      "notice_id": "pnu-graduate-kmed-grad-11930:1459959",
-      "source_id": "pnu-graduate-kmed-grad-11930",
-      "source_name": "부산대 한의학전문대학원 공지사항",
-      "source_category": "graduate_school_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "graduate_school",
-        "graduate"
-      ],
-      "seen_at": "2026-09-09T15:34:26+09:00",
-      "published_at": "2026-09-09",
-      "title": "2026학년도 한의학연구과정 교수 연구주제 공지 새글",
-      "url": "https://kmed.pusan.ac.kr/bbs/kmed/1514/1459959/artclView.do",
-      "topics": [
-        "graduate",
-        "research"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-graduate-kmed-grad-11930:1459959",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-graduate-kmed-grad-11930"
-      ],
-      "content_hash": "574448bad7ceba01ef41bb3b20e7096998bca103ba810293decc100cb3a0cbb9",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-graduate-kmed-grad-11930:1459959"
-    },
-    {
-      "event_id": "2026-09-09T15:34:26+09:00|added|pnu-graduate-law-grad-10741:1459974|21b4e9968429",
-      "event_type": "added",
-      "notice_id": "pnu-graduate-law-grad-10741:1459974",
-      "source_id": "pnu-graduate-law-grad-10741",
-      "source_name": "부산대 법학전문대학원 공지사항",
-      "source_category": "graduate_school_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "graduate_school",
-        "graduate"
-      ],
-      "seen_at": "2026-09-09T15:34:26+09:00",
-      "published_at": "2026-09-09",
-      "title": "[대한상사중재원] 제16회 국제중재전문가과정 개설 안내(~9/28 월) 새글",
-      "url": "https://law.pusan.ac.kr/bbs/law/482/1459974/artclView.do",
-      "topics": [
-        "graduate",
-        "international"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-graduate-law-grad-10741:1459974",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-graduate-law-grad-10741"
-      ],
-      "content_hash": "21b4e9968429937a8f51672b835de08f9366e3f9884432f8a8324400b71559d7",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-graduate-law-grad-10741:1459974"
-    },
-    {
-      "event_id": "2026-09-09T15:34:26+09:00|added|pnu-job-notices:204309|c30ce634dd96",
-      "event_type": "added",
-      "notice_id": "pnu-job-notices:204309",
-      "source_id": "pnu-job-notices",
-      "source_name": "부산대 취업전략과 공지사항",
-      "source_category": "career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "job_notice"
-      ],
-      "seen_at": "2026-09-09T15:34:26+09:00",
-      "published_at": "2026-09-09",
-      "title": "[학생성공개발원] IBK기업은행 채용설명회 및 상담회 안내",
-      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204309?p=1",
-      "topics": [
-        "career",
-        "recruitment",
-        "event",
-        "student_support"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-notices:204309",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-notices"
-      ],
-      "content_hash": "c30ce634dd96bfed7653518a7b06ad8bfe4cdba549a79a916c3bfcc0b8138606",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-job-notices:204309"
-    },
-    {
-      "event_id": "2026-09-09T15:34:26+09:00|added|pnu-job-recruit-general:117914|b34e5755c2ca",
-      "event_type": "added",
-      "notice_id": "pnu-job-recruit-general:117914",
-      "source_id": "pnu-job-recruit-general",
-      "source_name": "부산대 취업전략과 일반채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "recruitment",
-        "general_recruitment"
-      ],
-      "seen_at": "2026-09-09T15:34:26+09:00",
-      "published_at": null,
-      "title": "삼성웰스토리 2026년 하반기 3급 신입사원 채용",
-      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/117914",
-      "topics": [
-        "recruitment",
-        "career",
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-recruit-general:117914",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-recruit-general"
-      ],
-      "content_hash": "b34e5755c2ca82ba189cb8619f35d53b3f09acc06911deda1f6e38d7e19eae47",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-job-recruit-general:117914"
-    },
     {
       "event_id": "2026-09-09T15:34:26+09:00|added|pnu-job-recruit-general:117915|0bf5a95cb61c",
       "event_type": "added",
@@ -34754,6 +34622,132 @@
       "previous_content_hash": "7bb65e54a54dff557e181273036e6174c9968412f5f14630939e28e1dbe65dad",
       "archive_file": "./archive/2026-09.json",
       "archive_item_id": "pnu-main-notice:1511038"
+    },
+    {
+      "event_id": "2026-09-15T10:48:47+09:00|added|pnu-international-student-notices:1462728|075401e0d11e",
+      "event_type": "added",
+      "notice_id": "pnu-international-student-notices:1462728",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-09-15T10:48:47+09:00",
+      "published_at": "2026-09-15",
+      "title": "[학사] 2026-2학기 대학원과정 2차(최종) 폐강교과목 통보 및 수강정정/ (Graduate) 2nd(Final) 새글",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1462728/artclView.do",
+      "topics": [
+        "international",
+        "course",
+        "graduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1462728",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "075401e0d11e43c176624cda42b40674fce33b8a196dce98f83e16d5b2b299c2",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-international-student-notices:1462728"
+    },
+    {
+      "event_id": "2026-09-15T10:48:47+09:00|added|pnu-main-notice:1511045|4f3d6225932f",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1511045",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-09-15T10:48:47+09:00",
+      "published_at": "2026-09-15",
+      "title": "[효원상담원] 마음튼튼 2학기 시작을 도와줄 심리기술 훈련 5차(신청기한 9월 17일 18시까지로 변경되었습니다~!!)",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1511045",
+      "topics": [
+        "academic",
+        "student_support"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1511045",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "4f3d6225932f1602910e8028503c7b984c5422b5318fa59c3c88238f65b7d78e",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-main-notice:1511045"
+    },
+    {
+      "event_id": "2026-09-15T10:48:47+09:00|added|pnu-main-notice:1511046|7fdca8ff7559",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1511046",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-09-15T10:48:47+09:00",
+      "published_at": "2026-09-15",
+      "title": "2026학년도 2학기 대학생활원(부산) 학기 중 추가모집 공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1511046",
+      "topics": [
+        "academic",
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1511046",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "7fdca8ff755912830b8fc89b6fb761b54c7b960dc3868ee0732cdce2bfe9aeed",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-main-notice:1511046"
+    },
+    {
+      "event_id": "2026-09-15T10:48:47+09:00|updated|pnu-dorm-miryang-notices:2450|44374f676793",
+      "event_type": "updated",
+      "notice_id": "pnu-dorm-miryang-notices:2450",
+      "source_id": "pnu-dorm-miryang-notices",
+      "source_name": "부산대 대학생활원 밀양캠퍼스 공지사항",
+      "source_category": "dormitory_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "dormitory",
+        "miryang_campus"
+      ],
+      "seen_at": "2026-09-15T10:48:47+09:00",
+      "published_at": "2026-08-25",
+      "title": "2026학년도 2학기 대학생활원생 상시 추가모집 공고(인원확정, 9/15기준)",
+      "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2450&typeSeqNo=5&cateSeq=1",
+      "topics": [
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-dorm-miryang-notices:2450",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-dorm-miryang-notices"
+      ],
+      "content_hash": "44374f67679350213f9e2ad96ab46d26a444b17d1fe26504121fbb80e867a6e8",
+      "previous_content_hash": "5dbff18479c0d2e16098e48f0246d7b78d396e2f0666f60cf32f6cfad1d73af2",
+      "archive_file": "./archive/2026-08.json",
+      "archive_item_id": "pnu-dorm-miryang-notices:2450"
     }
   ]
 }
