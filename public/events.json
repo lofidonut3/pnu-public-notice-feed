@@ -1,122 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-09-16T02:44:24+09:00",
+  "generated_at": "2026-09-16T06:11:02+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 14011,
+  "total_event_count": 14014,
   "event_limit": 1000,
-  "latest_event_id": "2026-09-16T02:44:24+09:00|updated|pnu-academic-history-general-6500:1462641|39e529874e6f",
-  "oldest_event_id": "2026-09-10T20:06:30+09:00|updated|pnu-academic-designtech-undergrad-15921:1458974|d5a83ac0a917",
+  "latest_event_id": "2026-09-16T06:11:02+09:00|added|pnu-academic-comm-general-12538:1462879|0b36097d418b",
+  "oldest_event_id": "2026-09-10T20:06:30+09:00|updated|pnu-academic-ee-general-5204:1458923|3f07e1de3b9b",
   "oldest_seen_at": "2026-09-10T20:06:30+09:00",
-  "latest_seen_at": "2026-09-16T02:44:24+09:00",
+  "latest_seen_at": "2026-09-16T06:11:02+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-09-10T20:06:30+09:00|updated|pnu-academic-designtech-undergrad-15921:1458974|d5a83ac0a917",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-designtech-undergrad-15921:1458974",
-      "source_id": "pnu-academic-designtech-undergrad-15921",
-      "source_name": "부산대 디자인테크놀로지전공 학부공지",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-09-10T20:06:30+09:00",
-      "published_at": "2026-09-03",
-      "title": "[비교과] 「2026 비교과 마일리지 장학금」안내 및 홍보 요청",
-      "url": "https://inter.pusan.ac.kr/bbs/designtech/2216/1458974/artclView.do",
-      "topics": [
-        "undergraduate",
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-designtech-undergrad-15921:1458974",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-designtech-undergrad-15921"
-      ],
-      "content_hash": "d5a83ac0a91756bae29c8c41713331ee6ce65cad9e13d7321850ab90bafaac72",
-      "previous_content_hash": "acd00f37cff3922e66093122238b921af13034f4a2e2d4ba8f64ce8271cae1ea",
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-designtech-undergrad-15921:1458974"
-    },
-    {
-      "event_id": "2026-09-10T20:06:30+09:00|updated|pnu-academic-ee-career-5185:1458920|881fae2f14fa",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-ee-career-5185:1458920",
-      "source_id": "pnu-academic-ee-career-5185",
-      "source_name": "부산대 전자공학전공 취업공지",
-      "source_category": "academic_unit_career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "career"
-      ],
-      "seen_at": "2026-09-10T20:06:30+09:00",
-      "published_at": "2026-09-03",
-      "title": "[포스코] 채용설명회-9월 7일",
-      "url": "https://ee.pusan.ac.kr/bbs/ee/591/1458920/artclView.do",
-      "topics": [
-        "career",
-        "recruitment",
-        "event"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-ee-career-5185:1458920",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-ee-career-5185"
-      ],
-      "content_hash": "881fae2f14fabd3a92740802177391796708ba9f86feccf5001e4d393eafeb33",
-      "previous_content_hash": "2e5713b6556b12bf6b4f9eb698e831f5642ee44665be4c0d9c26686be8e8f52f",
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-ee-career-5185:1458920"
-    },
-    {
-      "event_id": "2026-09-10T20:06:30+09:00|updated|pnu-academic-ee-general-5204:1458918|25c5a9b176f8",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-ee-general-5204:1458918",
-      "source_id": "pnu-academic-ee-general-5204",
-      "source_name": "부산대 전자공학전공 학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-09-10T20:06:30+09:00",
-      "published_at": "2026-09-03",
-      "title": "[장학, 채용] (주)톱텍 채용연계형 장학생 선발-4학년 2학기 재학생 대상(장학금 천만원)",
-      "url": "https://ee.pusan.ac.kr/bbs/ee/1542/1458918/artclView.do",
-      "topics": [
-        "scholarship",
-        "recruitment"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-ee-general-5204:1458918",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-ee-general-5204"
-      ],
-      "content_hash": "25c5a9b176f81d3ddaf670fd625ac0c496450361589102d9eaf0904d55704010",
-      "previous_content_hash": "eb3e0742ccc233c8554bb6e88c2264ac85a5bbf3c2a453113daf43532d66ca24",
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-ee-general-5204:1458918"
-    },
     {
       "event_id": "2026-09-10T20:06:30+09:00|updated|pnu-academic-ee-general-5204:1458923|3f07e1de3b9b",
       "event_type": "updated",
@@ -34999,6 +34896,107 @@
       "previous_content_hash": "220b8908bfb8587dd571aa593e56c65ad8052cd7fb4a43045bcb0e4b5eec0656",
       "archive_file": "./archive/2026-09.json",
       "archive_item_id": "pnu-academic-history-general-6500:1462641"
+    },
+    {
+      "event_id": "2026-09-16T06:11:02+09:00|added|pnu-academic-comm-general-12531:1462878|d9404b3c746b",
+      "event_type": "added",
+      "notice_id": "pnu-academic-comm-general-12531:1462878",
+      "source_id": "pnu-academic-comm-general-12531",
+      "source_name": "부산대 미디어커뮤니케이션학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-09-16T06:11:02+09:00",
+      "published_at": "2026-09-16",
+      "title": "2026학년도 2학기 학부 수강취소(W) 새글",
+      "url": "https://comm.pusan.ac.kr/bbs/comm/1632/1462878/artclView.do",
+      "topics": [
+        "course",
+        "undergraduate"
+      ],
+      "same_notice_group_id": "same_notice:8a0cdf643f805a4f",
+      "canonical_item_id": "pnu-academic-comm-general-12531:1462878",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-comm-general-12531",
+        "pnu-academic-comm-general-12538"
+      ],
+      "content_hash": "d9404b3c746b14d1ce386ff0fe83a3a6ad4bb1c952bbd6a571c2c19707af6b3a",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-academic-comm-general-12531:1462878"
+    },
+    {
+      "event_id": "2026-09-16T06:11:02+09:00|added|pnu-academic-comm-general-12531:1462880|47ff95dff67b",
+      "event_type": "added",
+      "notice_id": "pnu-academic-comm-general-12531:1462880",
+      "source_id": "pnu-academic-comm-general-12531",
+      "source_name": "부산대 미디어커뮤니케이션학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-09-16T06:11:02+09:00",
+      "published_at": "2026-09-16",
+      "title": "2026학년도 2학기 외국인 학생 안내책자(국문_영문) 배부 새글",
+      "url": "https://comm.pusan.ac.kr/bbs/comm/1632/1462880/artclView.do",
+      "topics": [],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-comm-general-12531:1462880",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-comm-general-12531"
+      ],
+      "content_hash": "47ff95dff67b3c1dc4214b05392cf5e112cbea42df3783df2e700a9f79da59a9",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-academic-comm-general-12531:1462880"
+    },
+    {
+      "event_id": "2026-09-16T06:11:02+09:00|added|pnu-academic-comm-general-12538:1462879|0b36097d418b",
+      "event_type": "added",
+      "notice_id": "pnu-academic-comm-general-12538:1462879",
+      "source_id": "pnu-academic-comm-general-12538",
+      "source_name": "부산대 미디어커뮤니케이션학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-09-16T06:11:02+09:00",
+      "published_at": "2026-09-16",
+      "title": "2026학년도 2학기 학부 수강취소(W) 새글",
+      "url": "https://comm.pusan.ac.kr/bbs/comm/1390/1462879/artclView.do",
+      "topics": [
+        "course",
+        "undergraduate"
+      ],
+      "same_notice_group_id": "same_notice:8a0cdf643f805a4f",
+      "canonical_item_id": "pnu-academic-comm-general-12531:1462878",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-comm-general-12531",
+        "pnu-academic-comm-general-12538"
+      ],
+      "content_hash": "0b36097d418b6293b01c4519f24f7e27871ea6f3691654f3d20f68ebbd5943e7",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-academic-comm-general-12538:1462879"
     }
   ]
 }
