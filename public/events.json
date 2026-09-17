@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-09-18T05:09:12+09:00",
+  "generated_at": "2026-09-18T08:00:56+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 14446,
+  "total_event_count": 14447,
   "event_limit": 1000,
-  "latest_event_id": "2026-09-18T05:09:12+09:00|updated|pnu-main-faculty-staff-recruitment:1511123|3ff82111496e",
-  "oldest_event_id": "2026-09-14T10:30:29+09:00|added|pnu-academic-nanomecha-career-10851:1462486|fc204f658f5a",
+  "latest_event_id": "2026-09-18T08:00:56+09:00|added|pnu-onestop-notices:2179|7a0a36b41714",
+  "oldest_event_id": "2026-09-14T10:30:29+09:00|added|pnu-academic-ocean-general-12787:1462461|9baa5d43c010",
   "oldest_seen_at": "2026-09-14T10:30:29+09:00",
-  "latest_seen_at": "2026-09-18T05:09:12+09:00",
+  "latest_seen_at": "2026-09-18T08:00:56+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-09-14T10:30:29+09:00|added|pnu-academic-nanomecha-career-10851:1462486|fc204f658f5a",
-      "event_type": "added",
-      "notice_id": "pnu-academic-nanomecha-career-10851:1462486",
-      "source_id": "pnu-academic-nanomecha-career-10851",
-      "source_name": "부산대 나노메카트로닉스공학과/나노소자첨단제조전공 취업정보",
-      "source_category": "academic_unit_career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "career"
-      ],
-      "seen_at": "2026-09-14T10:30:29+09:00",
-      "published_at": "2026-09-14",
-      "title": "HD현대건설기계 채용설명회 새글",
-      "url": "https://nanomecha.pusan.ac.kr/bbs/nanomecha/1327/1462486/artclView.do",
-      "topics": [
-        "career",
-        "recruitment",
-        "event"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-nanomecha-career-10851:1462486",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-nanomecha-career-10851"
-      ],
-      "content_hash": "fc204f658f5a684040d39217a51504a76c94764db94f76c4f7ded26198fc116a",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-nanomecha-career-10851:1462486"
-    },
     {
       "event_id": "2026-09-14T10:30:29+09:00|added|pnu-academic-ocean-general-12787:1462461|9baa5d43c010",
       "event_type": "added",
@@ -34931,6 +34896,37 @@
       "previous_content_hash": "aaaa3da422cee1e4b8364101a87e79864ae12ad9734208e0bd9938a5399c1847",
       "archive_file": "./archive/2026-09.json",
       "archive_item_id": "pnu-main-faculty-staff-recruitment:1511123"
+    },
+    {
+      "event_id": "2026-09-18T08:00:56+09:00|added|pnu-onestop-notices:2179|7a0a36b41714",
+      "event_type": "added",
+      "notice_id": "pnu-onestop-notices:2179",
+      "source_id": "pnu-onestop-notices",
+      "source_name": "부산대 학지시 공지",
+      "source_category": "academic_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "onestop",
+        "academic"
+      ],
+      "seen_at": "2026-09-18T08:00:56+09:00",
+      "published_at": "2026-09-18",
+      "title": "추석연휴 정보화교육관 휴관 안내",
+      "url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000386&mode=DETAIL&seq=2179",
+      "topics": [
+        "academic"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-onestop-notices:2179",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-onestop-notices"
+      ],
+      "content_hash": "7a0a36b417142087ade8ba46a3a39004e5f88222868245556b82a7252b4bd34d",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-onestop-notices:2179"
     }
   ]
 }
