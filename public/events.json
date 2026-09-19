@@ -1,120 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-09-19T09:06:57+09:00",
+  "generated_at": "2026-09-19T13:56:02+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 14631,
+  "total_event_count": 14634,
   "event_limit": 1000,
-  "latest_event_id": "2026-09-19T09:06:57+09:00|added|pnu-main-notice:1511166|716a0c246e32",
-  "oldest_event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-bce-general-5008:1462614|88aff12433f6",
+  "latest_event_id": "2026-09-19T13:56:02+09:00|updated|pnu-academic-comm-general-12538:1462423|59612778af8c",
+  "oldest_event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-history-general-6500:1462625|9f0a61b461dc",
   "oldest_seen_at": "2026-09-14T23:57:36+09:00",
-  "latest_seen_at": "2026-09-19T09:06:57+09:00",
+  "latest_seen_at": "2026-09-19T13:56:02+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-bce-general-5008:1462614|88aff12433f6",
-      "event_type": "added",
-      "notice_id": "pnu-academic-bce-general-5008:1462614",
-      "source_id": "pnu-academic-bce-general-5008",
-      "source_name": "부산대 의생명융합공학부 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-09-14T23:57:36+09:00",
-      "published_at": "2026-09-14",
-      "title": "[국립대육성 3-1-5] 2026학년도 학생포트폴리오 온라인 세미나 개최 새글",
-      "url": "https://bce.pusan.ac.kr/bbs/bce/220/1462614/artclView.do",
-      "topics": [
-        "event"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-bce-general-5008:1462614",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-bce-general-5008"
-      ],
-      "content_hash": "88aff12433f63906de4c8866c9b75262ca421a5b907bbcc4a6073d153de3400b",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-bce-general-5008:1462614"
-    },
-    {
-      "event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-ed-event-2958:1462627|0c7c48fce428",
-      "event_type": "added",
-      "notice_id": "pnu-academic-ed-event-2958:1462627",
-      "source_id": "pnu-academic-ed-event-2958",
-      "source_name": "부산대 교육학과 행사안내",
-      "source_category": "academic_unit_event_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "event"
-      ],
-      "seen_at": "2026-09-14T23:57:36+09:00",
-      "published_at": "2026-09-14",
-      "title": "2026년 제1회 인문⋅사회⋅수리 블렌딩 인사이트 토크: 부산, 로컬의 맛이 브랜드가 되다 새글",
-      "url": "https://ed.pusan.ac.kr/bbs/ed/283/1462627/artclView.do",
-      "topics": [
-        "event"
-      ],
-      "same_notice_group_id": "same_notice:f6bd65b01c3f8bc4",
-      "canonical_item_id": "pnu-glocal-notices:1764652",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-ed-event-2958",
-        "pnu-glocal-notices"
-      ],
-      "content_hash": "0c7c48fce428251fbb59bfd552b70731cd5fd9c49e1ac17ab835764b9f8b0b78",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-ed-event-2958:1462627"
-    },
-    {
-      "event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-history-general-6500:1462616|67ca69f7c7f4",
-      "event_type": "added",
-      "notice_id": "pnu-academic-history-general-6500:1462616",
-      "source_id": "pnu-academic-history-general-6500",
-      "source_name": "부산대 사학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-09-14T23:57:36+09:00",
-      "published_at": "2026-09-14",
-      "title": "[기타] 부산대학교 전기차 충전구역 및 전용주차면 이용 준수 안내 새글",
-      "url": "https://history.pusan.ac.kr/bbs/history/174/1462616/artclView.do",
-      "topics": [
-        "campus_service"
-      ],
-      "same_notice_group_id": "same_notice:0f72466d5cc54b68",
-      "canonical_item_id": "pnu-academic-history-general-6500:1462616",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-history-general-6500",
-        "pnu-academic-history-grad-6510"
-      ],
-      "content_hash": "67ca69f7c7f4304b7a4b76c4ed68c0a04c4be33fc87849abc0de80ad6eab7497",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-history-general-6500:1462616"
-    },
     {
       "event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-history-general-6500:1462625|9f0a61b461dc",
       "event_type": "added",
@@ -34981,6 +34880,106 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-09.json",
       "archive_item_id": "pnu-main-notice:1511166"
+    },
+    {
+      "event_id": "2026-09-19T13:56:02+09:00|added|pnu-graduate-gsis-grad-11587:1463576|6f606e010975",
+      "event_type": "added",
+      "notice_id": "pnu-graduate-gsis-grad-11587:1463576",
+      "source_id": "pnu-graduate-gsis-grad-11587",
+      "source_name": "부산대 국제전문대학원 공지사항",
+      "source_category": "graduate_school_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "graduate_school",
+        "graduate"
+      ],
+      "seen_at": "2026-09-19T13:56:02+09:00",
+      "published_at": "2026-09-19",
+      "title": "[2026-2] 수강취소(W) Course Withdrawal 새글",
+      "url": "https://gsis.pusan.ac.kr/bbs/gsis/232/1463576/artclView.do",
+      "topics": [
+        "graduate",
+        "course"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-graduate-gsis-grad-11587:1463576",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-graduate-gsis-grad-11587"
+      ],
+      "content_hash": "6f606e010975df282ed7af17ae9e348e6f002344c1f88eb83bd430d7926155e6",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-graduate-gsis-grad-11587:1463576"
+    },
+    {
+      "event_id": "2026-09-19T13:56:02+09:00|updated|pnu-academic-comm-general-12531:1462422|e2e439ff29b7",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-comm-general-12531:1462422",
+      "source_id": "pnu-academic-comm-general-12531",
+      "source_name": "부산대 미디어커뮤니케이션학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-09-19T13:56:02+09:00",
+      "published_at": "2026-09-12",
+      "title": "[효원상담원] 2026학년도 2학기 찾아가는 심리검사 운영 및 신청 안내",
+      "url": "https://comm.pusan.ac.kr/bbs/comm/1632/1462422/artclView.do",
+      "topics": [
+        "student_support"
+      ],
+      "same_notice_group_id": "same_notice:97a63a78c03dfd41",
+      "canonical_item_id": "pnu-academic-comm-general-12531:1462422",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-comm-general-12531",
+        "pnu-academic-comm-general-12538"
+      ],
+      "content_hash": "e2e439ff29b7959dcb6aece7858371067ac35744025c41714daeb2a2bcb8bcb9",
+      "previous_content_hash": "51cf1b27bcb67af5e35afae86f48c5658eff94b09b341faaa9fa1286f8ae9ac0",
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-academic-comm-general-12531:1462422"
+    },
+    {
+      "event_id": "2026-09-19T13:56:02+09:00|updated|pnu-academic-comm-general-12538:1462423|59612778af8c",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-comm-general-12538:1462423",
+      "source_id": "pnu-academic-comm-general-12538",
+      "source_name": "부산대 미디어커뮤니케이션학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-09-19T13:56:02+09:00",
+      "published_at": "2026-09-12",
+      "title": "[효원상담원] 2026학년도 2학기 찾아가는 심리검사 운영 및 신청 안내",
+      "url": "https://comm.pusan.ac.kr/bbs/comm/1390/1462423/artclView.do",
+      "topics": [
+        "student_support"
+      ],
+      "same_notice_group_id": "same_notice:97a63a78c03dfd41",
+      "canonical_item_id": "pnu-academic-comm-general-12531:1462422",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-comm-general-12531",
+        "pnu-academic-comm-general-12538"
+      ],
+      "content_hash": "59612778af8cfe833fd060b8c9a7729e5035471a1b33ea02adbbd6878b9f5e52",
+      "previous_content_hash": "10f7775f746998db038dcbdc49114a849084aeb4017aff29516c6992917fc341",
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-academic-comm-general-12538:1462423"
     }
   ]
 }
