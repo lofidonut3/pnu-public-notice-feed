@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-09-20T23:19:43+09:00",
+  "generated_at": "2026-09-21T02:37:25+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 14642,
+  "total_event_count": 14643,
   "event_limit": 1000,
-  "latest_event_id": "2026-09-20T19:02:05+09:00|added|pnu-job-recruit-general:118015|47957175fd32",
-  "oldest_event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-mse-career-38587:1764642|6fa730cdd209",
+  "latest_event_id": "2026-09-21T02:37:25+09:00|updated|pnu-international-student-notices:1462851|cb6539f82452",
+  "oldest_event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-mse-career-38587:1764644|1816bd036bcd",
   "oldest_seen_at": "2026-09-14T23:57:36+09:00",
-  "latest_seen_at": "2026-09-20T19:02:05+09:00",
+  "latest_seen_at": "2026-09-21T02:37:25+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-mse-career-38587:1764642|6fa730cdd209",
-      "event_type": "added",
-      "notice_id": "pnu-academic-mse-career-38587:1764642",
-      "source_id": "pnu-academic-mse-career-38587",
-      "source_name": "부산대 재료공학부 취업공지",
-      "source_category": "academic_unit_career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "career"
-      ],
-      "seen_at": "2026-09-14T23:57:36+09:00",
-      "published_at": "2026-09-14",
-      "title": "한국전력공사 채용설명회(9/15) 새글",
-      "url": "https://mse.pusan.ac.kr/bbs/mse/8974/1764642/artclView.do",
-      "topics": [
-        "career",
-        "recruitment",
-        "event"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-mse-career-38587:1764642",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-mse-career-38587"
-      ],
-      "content_hash": "6fa730cdd209fcad83e3405bcfb8b6705f8b2f7b1ea9f7bf205933773c53a3c0",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-mse-career-38587:1764642"
-    },
     {
       "event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-mse-career-38587:1764644|1816bd036bcd",
       "event_type": "added",
@@ -34982,6 +34947,39 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-09.json",
       "archive_item_id": "pnu-job-recruit-general:118015"
+    },
+    {
+      "event_id": "2026-09-21T02:37:25+09:00|updated|pnu-international-student-notices:1462851|cb6539f82452",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1462851",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-09-21T02:37:25+09:00",
+      "published_at": "2026-09-15",
+      "title": "[교내활동] [BK21]「대학원생 K-커리어 패스: 진로 설계 및 취업 역량 강화」프로그램 참가자 모집 새글",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1462851/artclView.do",
+      "topics": [
+        "international",
+        "career",
+        "graduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1462851",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "cb6539f8245288fadc551e4a6a8633054f2ca4054dfab5b9c11cb2e24fe2cfcb",
+      "previous_content_hash": "ba7de2b364ecf85d215ad2bf10bd2ccefb2ef074f19aa6c93459161ffa1b5b5b",
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-international-student-notices:1462851"
     }
   ]
 }
