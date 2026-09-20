@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-09-20T06:40:28+09:00",
+  "generated_at": "2026-09-20T14:18:24+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 14634,
+  "total_event_count": 14635,
   "event_limit": 1000,
-  "latest_event_id": "2026-09-19T13:56:02+09:00|updated|pnu-academic-comm-general-12538:1462423|59612778af8c",
-  "oldest_event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-history-general-6500:1462625|9f0a61b461dc",
+  "latest_event_id": "2026-09-20T14:18:24+09:00|added|pnu-academic-me-undergrad-sub01-01:5162|f4bda27af541",
+  "oldest_event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-history-grad-6510:1462617|3f97ce5a3689",
   "oldest_seen_at": "2026-09-14T23:57:36+09:00",
-  "latest_seen_at": "2026-09-19T13:56:02+09:00",
+  "latest_seen_at": "2026-09-20T14:18:24+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-history-general-6500:1462625|9f0a61b461dc",
-      "event_type": "added",
-      "notice_id": "pnu-academic-history-general-6500:1462625",
-      "source_id": "pnu-academic-history-general-6500",
-      "source_name": "부산대 사학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-09-14T23:57:36+09:00",
-      "published_at": "2026-09-14",
-      "title": "[학교행사] [글로컬대학30] 2026년 제1회 인문.사회.수리 블렌딩 인사이트 토크 운영 안내 새글",
-      "url": "https://history.pusan.ac.kr/bbs/history/174/1462625/artclView.do",
-      "topics": [
-        "event"
-      ],
-      "same_notice_group_id": "same_notice:a49c3d38fc3d31d4",
-      "canonical_item_id": "pnu-academic-history-general-6500:1462625",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-history-general-6500",
-        "pnu-academic-history-grad-6510"
-      ],
-      "content_hash": "9f0a61b461dc696b9402d8cac98a10f44ea620a56895829c5555982eafe02365",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-history-general-6500:1462625"
-    },
     {
       "event_id": "2026-09-14T23:57:36+09:00|added|pnu-academic-history-grad-6510:1462617|3f97ce5a3689",
       "event_type": "added",
@@ -34980,6 +34946,42 @@
       "previous_content_hash": "10f7775f746998db038dcbdc49114a849084aeb4017aff29516c6992917fc341",
       "archive_file": "./archive/2026-09.json",
       "archive_item_id": "pnu-academic-comm-general-12538:1462423"
+    },
+    {
+      "event_id": "2026-09-20T14:18:24+09:00|added|pnu-academic-me-undergrad-sub01-01:5162|f4bda27af541",
+      "event_type": "added",
+      "notice_id": "pnu-academic-me-undergrad-sub01-01:5162",
+      "source_id": "pnu-academic-me-undergrad-sub01-01",
+      "source_name": "부산대 기계공학부 학부공지",
+      "source_category": "academic_unit_undergraduate_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "undergraduate"
+      ],
+      "seen_at": "2026-09-20T14:18:24+09:00",
+      "published_at": "2026-09-20",
+      "title": "[BK21 대학원혁신] 2026학년도 이공 우수인재 성장경로 지원 시범사업 장학생 공모 안...",
+      "url": "https://me.pusan.ac.kr/new/sub05/sub01_01.php?db=hakbunotice&seq=5162&page=1&perPage=10&page_mode=view",
+      "topics": [
+        "undergraduate",
+        "scholarship",
+        "contest",
+        "graduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-me-undergrad-sub01-01:5162",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-me-undergrad-sub01-01"
+      ],
+      "content_hash": "f4bda27af54196f81a495a21c08127de87dad4eb50be0d5db677d15b9f08d7ff",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-09.json",
+      "archive_item_id": "pnu-academic-me-undergrad-sub01-01:5162"
     }
   ]
 }
