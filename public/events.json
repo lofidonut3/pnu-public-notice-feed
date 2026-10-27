@@ -1,52 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-10-27T19:53:23+09:00",
+  "generated_at": "2026-10-28T01:23:09+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 18260,
+  "total_event_count": 18261,
   "event_limit": 1000,
-  "latest_event_id": "2026-10-27T19:53:23+09:00|updated|pnu-international-student-notices:1467584|df75dff076d8",
-  "oldest_event_id": "2026-10-26T10:25:21+09:00|added|pnu-graduate-dent-grad-3456:1466308|e78351fef179",
+  "latest_event_id": "2026-10-28T01:23:09+09:00|added|pnu-academic-history-general-6500:1468489|c93a79d5033a",
+  "oldest_event_id": "2026-10-26T10:25:21+09:00|added|pnu-graduate-dent-grad-3456:1466722|a77513054adc",
   "oldest_seen_at": "2026-10-26T10:25:21+09:00",
-  "latest_seen_at": "2026-10-27T19:53:23+09:00",
+  "latest_seen_at": "2026-10-28T01:23:09+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-10-26T10:25:21+09:00|added|pnu-graduate-dent-grad-3456:1466308|e78351fef179",
-      "event_type": "added",
-      "notice_id": "pnu-graduate-dent-grad-3456:1466308",
-      "source_id": "pnu-graduate-dent-grad-3456",
-      "source_name": "부산대 치의학전문대학원 공지",
-      "source_category": "graduate_school_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "graduate_school",
-        "graduate"
-      ],
-      "seen_at": "2026-10-26T10:25:21+09:00",
-      "published_at": "2026-10-12",
-      "title": "[글로컬] 2026년 지산학 연계 학생 체감형 AI+X 맞춤 교육 안내",
-      "url": "https://dent.pusan.ac.kr/bbs/newdent/616/1466308/artclView.do",
-      "topics": [
-        "graduate",
-        "research"
-      ],
-      "same_notice_group_id": "same_notice:e8b88d9bef389451",
-      "canonical_item_id": "pnu-graduate-dent-grad-3456:1466308",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-nanomecha-general-10848",
-        "pnu-graduate-dent-grad-3456"
-      ],
-      "content_hash": "e78351fef179db3cf3f8f97c455418a197c097e31e03da9e6b7c371d7ae1dac4",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-10.json",
-      "archive_item_id": "pnu-graduate-dent-grad-3456:1466308"
-    },
     {
       "event_id": "2026-10-26T10:25:21+09:00|added|pnu-graduate-dent-grad-3456:1466722|a77513054adc",
       "event_type": "added",
@@ -31171,11 +31138,12 @@
       "topics": [
         "course"
       ],
-      "same_notice_group_id": null,
+      "same_notice_group_id": "same_notice:dbe22fe231ff713e",
       "canonical_item_id": "pnu-academic-bce-general-5008:1468477",
       "is_canonical": true,
       "same_notice_source_ids": [
-        "pnu-academic-bce-general-5008"
+        "pnu-academic-bce-general-5008",
+        "pnu-academic-history-general-6500"
       ],
       "content_hash": "1b7962f0d81fd2049043618ee8deebe8df1dada029e9612ce856205fae120966",
       "previous_content_hash": null,
@@ -33604,6 +33572,41 @@
       "previous_content_hash": "c33211deb5267b17d73304a205b4672a314571ea7280ba407126e48b7e5bc247",
       "archive_file": "./archive/2026-10.json",
       "archive_item_id": "pnu-international-student-notices:1467584"
+    },
+    {
+      "event_id": "2026-10-28T01:23:09+09:00|added|pnu-academic-history-general-6500:1468489|c93a79d5033a",
+      "event_type": "added",
+      "notice_id": "pnu-academic-history-general-6500:1468489",
+      "source_id": "pnu-academic-history-general-6500",
+      "source_name": "부산대 사학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-10-28T01:23:09+09:00",
+      "published_at": "2026-10-27",
+      "title": "[교류/교환/파견/어학연수] 2026학년도 겨울계절수업 교류 수학 안내 [한양대(에너지신산업), 서울시립대(혁신융합), 새글",
+      "url": "https://history.pusan.ac.kr/bbs/history/174/1468489/artclView.do",
+      "topics": [
+        "course",
+        "international"
+      ],
+      "same_notice_group_id": "same_notice:dbe22fe231ff713e",
+      "canonical_item_id": "pnu-academic-bce-general-5008:1468477",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-bce-general-5008",
+        "pnu-academic-history-general-6500"
+      ],
+      "content_hash": "c93a79d5033a2d8aeafcf35702cc1cc3855ea33a3af88906042c72c53b1ca6f3",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-10.json",
+      "archive_item_id": "pnu-academic-history-general-6500:1468489"
     }
   ]
 }
