@@ -1,52 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-10-29T04:02:45+09:00",
+  "generated_at": "2026-10-29T08:27:24+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 18457,
+  "total_event_count": 18458,
   "event_limit": 1000,
-  "latest_event_id": "2026-10-29T04:02:45+09:00|updated|pnu-academic-ste-general-9557:1467779|c3299a42bbf6",
-  "oldest_event_id": "2026-10-26T10:25:21+09:00|added|pnu-main-notice:1511351|d1d9f9e0b5f3",
+  "latest_event_id": "2026-10-29T08:27:24+09:00|added|pnu-equality-notices:1765601|31f1bd2cd26a",
+  "oldest_event_id": "2026-10-26T10:25:21+09:00|added|pnu-main-notice:1511533|a670a9cf4805",
   "oldest_seen_at": "2026-10-26T10:25:21+09:00",
-  "latest_seen_at": "2026-10-29T04:02:45+09:00",
+  "latest_seen_at": "2026-10-29T08:27:24+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-10-26T10:25:21+09:00|added|pnu-main-notice:1511351|d1d9f9e0b5f3",
-      "event_type": "added",
-      "notice_id": "pnu-main-notice:1511351",
-      "source_id": "pnu-main-notice",
-      "source_name": "부산대 대학공지",
-      "source_category": "university_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "main_notice"
-      ],
-      "seen_at": "2026-10-26T10:25:21+09:00",
-      "published_at": "2026-10-01",
-      "title": "[학생과] 2026학년도 동계 해외도전과 체험 파견팀 모집",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1511351",
-      "topics": [
-        "academic",
-        "international",
-        "academic_records"
-      ],
-      "same_notice_group_id": "same_notice:55e6850ef76b82f5",
-      "canonical_item_id": "pnu-main-notice:1511351",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-liberal-general-8696",
-        "pnu-main-notice"
-      ],
-      "content_hash": "d1d9f9e0b5f32547c31f941ad5579335d76de0e6c7a9582d72a7d2e11c718a38",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-10.json",
-      "archive_item_id": "pnu-main-notice:1511351"
-    },
     {
       "event_id": "2026-10-26T10:25:21+09:00|added|pnu-main-notice:1511533|a670a9cf4805",
       "event_type": "added",
@@ -33877,6 +33844,38 @@
       "previous_content_hash": "42b733e45fc73dc7a241fef8ac3b095c832265237f057dff009b75247ddaa7bf",
       "archive_file": "./archive/2026-10.json",
       "archive_item_id": "pnu-academic-ste-general-9557:1467779"
+    },
+    {
+      "event_id": "2026-10-29T08:27:24+09:00|added|pnu-equality-notices:1765601|31f1bd2cd26a",
+      "event_type": "added",
+      "notice_id": "pnu-equality-notices:1765601",
+      "source_id": "pnu-equality-notices",
+      "source_name": "부산대 인권센터 공지사항",
+      "source_category": "student_support_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "human_rights",
+        "equality",
+        "student_support"
+      ],
+      "seen_at": "2026-10-29T08:27:24+09:00",
+      "published_at": "2026-10-29",
+      "title": "[부산여성가족과 평생교육진흥원] <골목길 망토의 비밀, 진짜 히어로를 찾아라!> 새글",
+      "url": "https://equality.pusan.ac.kr/bbs/equality/9693/1765601/artclView.do",
+      "topics": [
+        "student_support"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-equality-notices:1765601",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-equality-notices"
+      ],
+      "content_hash": "31f1bd2cd26a5ee00a03aa3709843f56c5ce82f12505fb30f11a54fbcce83c8d",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-10.json",
+      "archive_item_id": "pnu-equality-notices:1765601"
     }
   ]
 }
