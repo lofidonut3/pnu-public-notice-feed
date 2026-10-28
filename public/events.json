@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-10-28T22:26:39+09:00",
+  "generated_at": "2026-10-29T04:02:45+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 18456,
+  "total_event_count": 18457,
   "event_limit": 1000,
-  "latest_event_id": "2026-10-28T22:26:39+09:00|updated|pnu-main-notice:1511804|c77c96988aa2",
-  "oldest_event_id": "2026-10-26T10:25:21+09:00|added|pnu-main-faculty-staff-recruitment:1511732|9307c376decf",
+  "latest_event_id": "2026-10-29T04:02:45+09:00|updated|pnu-academic-ste-general-9557:1467779|c3299a42bbf6",
+  "oldest_event_id": "2026-10-26T10:25:21+09:00|added|pnu-main-notice:1511351|d1d9f9e0b5f3",
   "oldest_seen_at": "2026-10-26T10:25:21+09:00",
-  "latest_seen_at": "2026-10-28T22:26:39+09:00",
+  "latest_seen_at": "2026-10-29T04:02:45+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-10-26T10:25:21+09:00|added|pnu-main-faculty-staff-recruitment:1511732|9307c376decf",
-      "event_type": "added",
-      "notice_id": "pnu-main-faculty-staff-recruitment:1511732",
-      "source_id": "pnu-main-faculty-staff-recruitment",
-      "source_name": "부산대 교수초빙/직원채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "recruitment",
-        "faculty",
-        "staff"
-      ],
-      "seen_at": "2026-10-26T10:25:21+09:00",
-      "published_at": "2026-10-23",
-      "title": "부산대학교 미래시민교육원 성인 진로.직업 상담사 추가 채용 서류전형 결과 안내",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1511732",
-      "topics": [
-        "recruitment",
-        "career",
-        "student_support"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1511732",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-faculty-staff-recruitment"
-      ],
-      "content_hash": "9307c376decf93a6e564eff6a15d1e641a6b8c8fa26055f7590cae222049fa5c",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-10.json",
-      "archive_item_id": "pnu-main-faculty-staff-recruitment:1511732"
-    },
     {
       "event_id": "2026-10-26T10:25:21+09:00|added|pnu-main-notice:1511351|d1d9f9e0b5f3",
       "event_type": "added",
@@ -33878,6 +33844,39 @@
       "previous_content_hash": "3076ed5993ba6faab73d8e86bd3c7fc6b17a3a9f9d22db7e090bc95d97edb928",
       "archive_file": "./archive/2026-10.json",
       "archive_item_id": "pnu-main-notice:1511804"
+    },
+    {
+      "event_id": "2026-10-29T04:02:45+09:00|updated|pnu-academic-ste-general-9557:1467779|c3299a42bbf6",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-ste-general-9557:1467779",
+      "source_id": "pnu-academic-ste-general-9557",
+      "source_name": "부산대 첨단융합학부 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-10-29T04:02:45+09:00",
+      "published_at": "2026-10-22",
+      "title": "[첨단융합학부] 토크콘서트 「가을밤의 공명」안내 새글",
+      "url": "https://ste.pusan.ac.kr/bbs/ste/1168/1467779/artclView.do",
+      "topics": [
+        "undergraduate"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-ste-general-9557:1467779",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-ste-general-9557"
+      ],
+      "content_hash": "c3299a42bbf668cbb979dc77c0a36aad1c318179a4d38b75c705469c1964300b",
+      "previous_content_hash": "42b733e45fc73dc7a241fef8ac3b095c832265237f057dff009b75247ddaa7bf",
+      "archive_file": "./archive/2026-10.json",
+      "archive_item_id": "pnu-academic-ste-general-9557:1467779"
     }
   ]
 }
