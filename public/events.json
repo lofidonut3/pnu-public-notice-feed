@@ -1,51 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-10-31T20:08:10+09:00",
+  "generated_at": "2026-11-01T01:16:24+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 18792,
+  "total_event_count": 18793,
   "event_limit": 1000,
-  "latest_event_id": "2026-10-31T14:26:10+09:00|added|pnu-academic-polsci-grad-7499:1470629|e3570ada8645",
-  "oldest_event_id": "2026-10-26T10:25:21+09:00|updated|pnu-dorm-busan-notices:5333|700a28108cdd",
+  "latest_event_id": "2026-11-01T01:16:24+09:00|updated|pnu-academic-aerospace-career-1450:1466584|5044b3d5c75c",
+  "oldest_event_id": "2026-10-26T10:25:21+09:00|updated|pnu-dorm-miryang-notices:2450|b4322358d36c",
   "oldest_seen_at": "2026-10-26T10:25:21+09:00",
-  "latest_seen_at": "2026-10-31T14:26:10+09:00",
+  "latest_seen_at": "2026-11-01T01:16:24+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-10-26T10:25:21+09:00|updated|pnu-dorm-busan-notices:5333|700a28108cdd",
-      "event_type": "updated",
-      "notice_id": "pnu-dorm-busan-notices:5333",
-      "source_id": "pnu-dorm-busan-notices",
-      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
-      "source_category": "dormitory_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "dormitory",
-        "busan_campus"
-      ],
-      "seen_at": "2026-10-26T10:25:21+09:00",
-      "published_at": "2026-09-04",
-      "title": "2026학년도 2학기 온라인 OT 수강 안내 Notice for 2026 - 2nd semester Dorm Online-OT",
-      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5333&typeSeqNo=1&cateSeq=3",
-      "topics": [
-        "dormitory",
-        "course"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-dorm-busan-notices:5333",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-dorm-busan-notices"
-      ],
-      "content_hash": "700a28108cdd47e6196fc193ceb246d3cac6136145a9eaef893fbf5dfaf4674f",
-      "previous_content_hash": "fe841a87e6cb355fe6cabcfed29a310ef611a327ae9daf7891d2afdbc8d3cfba",
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-dorm-busan-notices:5333"
-    },
     {
       "event_id": "2026-10-26T10:25:21+09:00|updated|pnu-dorm-miryang-notices:2450|b4322358d36c",
       "event_type": "updated",
@@ -34166,6 +34134,43 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-10.json",
       "archive_item_id": "pnu-academic-polsci-grad-7499:1470629"
+    },
+    {
+      "event_id": "2026-11-01T01:16:24+09:00|updated|pnu-academic-aerospace-career-1450:1466584|5044b3d5c75c",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-aerospace-career-1450:1466584",
+      "source_id": "pnu-academic-aerospace-career-1450",
+      "source_name": "부산대 항공우주공학과 채용 및 진학정보",
+      "source_category": "academic_unit_career_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "career"
+      ],
+      "seen_at": "2026-11-01T01:16:24+09:00",
+      "published_at": "2026-10-13",
+      "title": "[채용공고] [대학원] [워커린스페이스] 위성시스템 / 우주로봇 부문 연구개발(정규직) 채용 공고",
+      "url": "https://aerospace.pusan.ac.kr/bbs/aerospace/238/1466584/artclView.do",
+      "topics": [
+        "career",
+        "recruitment",
+        "graduate",
+        "research",
+        "campus_service"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-aerospace-career-1450:1466584",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-aerospace-career-1450"
+      ],
+      "content_hash": "5044b3d5c75c31b0c0dbbf713af808e78a4f7da84e157e7a6571277971a3eba7",
+      "previous_content_hash": "2c8c33ad609260e1acd47221bb0eda7cbe8f96737c04861fc8e5ff783cbab24a",
+      "archive_file": "./archive/2026-10.json",
+      "archive_item_id": "pnu-academic-aerospace-career-1450:1466584"
     }
   ]
 }
