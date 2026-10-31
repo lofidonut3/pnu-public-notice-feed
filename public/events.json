@@ -1,57 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-10-31T08:59:34+09:00",
+  "generated_at": "2026-10-31T14:26:10+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 18791,
+  "total_event_count": 18792,
   "event_limit": 1000,
-  "latest_event_id": "2026-10-31T00:16:02+09:00|updated|pnu-academic-ste-general-9557:1468008|c26f06db2978",
-  "oldest_event_id": "2026-10-26T10:25:21+09:00|updated|pnu-academic-uni-scholarship-8190:1463686|763a24b79186",
+  "latest_event_id": "2026-10-31T14:26:10+09:00|added|pnu-academic-polsci-grad-7499:1470629|e3570ada8645",
+  "oldest_event_id": "2026-10-26T10:25:21+09:00|updated|pnu-dorm-busan-notices:5333|700a28108cdd",
   "oldest_seen_at": "2026-10-26T10:25:21+09:00",
-  "latest_seen_at": "2026-10-31T00:16:02+09:00",
+  "latest_seen_at": "2026-10-31T14:26:10+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-10-26T10:25:21+09:00|updated|pnu-academic-uni-scholarship-8190:1463686|763a24b79186",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-uni-scholarship-8190:1463686",
-      "source_id": "pnu-academic-uni-scholarship-8190",
-      "source_name": "부산대 학부대학 장학",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-10-26T10:25:21+09:00",
-      "published_at": "2026-09-21",
-      "title": "[BK21 대학원혁신] 2026학년도 이공 우수인재 성장경로 지원 시범사업 장학생 공모 안",
-      "url": "https://uni.pusan.ac.kr/bbs/uni/927/1463686/artclView.do",
-      "topics": [
-        "scholarship",
-        "contest",
-        "graduate"
-      ],
-      "same_notice_group_id": "same_notice:4614cbe9ed7884d6",
-      "canonical_item_id": "pnu-academic-aerospace-general-1455:1463630",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-aerospace-general-1455",
-        "pnu-academic-archi-undergrad-6175",
-        "pnu-academic-semi-general-2869",
-        "pnu-academic-uni-scholarship-8190"
-      ],
-      "content_hash": "763a24b79186e8d07f5a8fbe553b38f207df278119c8c9a87cd88dea1cf8c9e8",
-      "previous_content_hash": "1644167a0668605eab185667187283066ceaf15223efad48623ff73fa2000890",
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-uni-scholarship-8190:1463686"
-    },
     {
       "event_id": "2026-10-26T10:25:21+09:00|updated|pnu-dorm-busan-notices:5333|700a28108cdd",
       "event_type": "updated",
@@ -34168,6 +34130,42 @@
       "previous_content_hash": "7b38df068242cb5625c3397919d9c09011b5c9f17705e36cb42f04421b215922",
       "archive_file": "./archive/2026-10.json",
       "archive_item_id": "pnu-academic-ste-general-9557:1468008"
+    },
+    {
+      "event_id": "2026-10-31T14:26:10+09:00|added|pnu-academic-polsci-grad-7499:1470629|e3570ada8645",
+      "event_type": "added",
+      "notice_id": "pnu-academic-polsci-grad-7499:1470629",
+      "source_id": "pnu-academic-polsci-grad-7499",
+      "source_name": "부산대 정치외교학과 대학원 공지사항",
+      "source_category": "academic_unit_graduate_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "grad"
+      ],
+      "seen_at": "2026-10-31T14:26:10+09:00",
+      "published_at": "2026-10-31",
+      "title": "[논문 및 패널 공모] 2026 한국정치학회 연례학술회의 Call for Papers 안내 새글",
+      "url": "https://polsci.pusan.ac.kr/bbs/polsci/1080/1470629/artclView.do",
+      "topics": [
+        "graduate",
+        "contest",
+        "graduation",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-polsci-grad-7499:1470629",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-polsci-grad-7499"
+      ],
+      "content_hash": "e3570ada8645283871c5405b485058427ce91ded7b2109297ea23ab49fdced7f",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-10.json",
+      "archive_item_id": "pnu-academic-polsci-grad-7499:1470629"
     }
   ]
 }
