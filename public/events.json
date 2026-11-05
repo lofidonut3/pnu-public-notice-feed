@@ -1,50 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-06T01:42:25+09:00",
+  "generated_at": "2026-11-06T07:38:01+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 19617,
+  "total_event_count": 19618,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-06T01:42:25+09:00|updated|pnu-international-student-notices:1468899|f288f3ce67b9",
-  "oldest_event_id": "2026-10-30T01:50:16+09:00|added|pnu-international-student-notices:1468899|9b21e6cb0eed",
+  "latest_event_id": "2026-11-06T07:38:01+09:00|updated|pnu-equality-notices:1765664|7decfb55a21b",
+  "oldest_event_id": "2026-10-30T01:50:16+09:00|added|pnu-onestop-notices:2215|3f62c0b6ffd9",
   "oldest_seen_at": "2026-10-30T01:50:16+09:00",
-  "latest_seen_at": "2026-11-06T01:42:25+09:00",
+  "latest_seen_at": "2026-11-06T07:38:01+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-10-30T01:50:16+09:00|added|pnu-international-student-notices:1468899|9b21e6cb0eed",
-      "event_type": "added",
-      "notice_id": "pnu-international-student-notices:1468899",
-      "source_id": "pnu-international-student-notices",
-      "source_name": "부산대 국제처 외국인학생 공지사항",
-      "source_category": "international_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "international",
-        "international_students"
-      ],
-      "seen_at": "2026-10-30T01:50:16+09:00",
-      "published_at": "2026-10-29",
-      "title": "[교내활동] 2026-2학기 외국인 학생 대상 문화체험(3차) 참가자 모집/ (Fall 2026) 3rd Korean C 새글",
-      "url": "https://international.pusan.ac.kr/bbs/international/2081/1468899/artclView.do",
-      "topics": [
-        "international"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-international-student-notices:1468899",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-international-student-notices"
-      ],
-      "content_hash": "9b21e6cb0eed12af749df78e802915e5793bf6d852e3e1fb19a26ede987efaeb",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-10.json",
-      "archive_item_id": "pnu-international-student-notices:1468899"
-    },
     {
       "event_id": "2026-10-30T01:50:16+09:00|added|pnu-onestop-notices:2215|3f62c0b6ffd9",
       "event_type": "added",
@@ -34643,6 +34612,40 @@
       "previous_content_hash": "9b21e6cb0eed12af749df78e802915e5793bf6d852e3e1fb19a26ede987efaeb",
       "archive_file": "./archive/2026-10.json",
       "archive_item_id": "pnu-international-student-notices:1468899"
+    },
+    {
+      "event_id": "2026-11-06T07:38:01+09:00|updated|pnu-equality-notices:1765664|7decfb55a21b",
+      "event_type": "updated",
+      "notice_id": "pnu-equality-notices:1765664",
+      "source_id": "pnu-equality-notices",
+      "source_name": "부산대 인권센터 공지사항",
+      "source_category": "student_support_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "human_rights",
+        "equality",
+        "student_support"
+      ],
+      "seen_at": "2026-11-06T07:38:01+09:00",
+      "published_at": "2026-10-30",
+      "title": "[부산광역시 인권센터] 2026년 2차 부산시민 인권특강",
+      "url": "https://equality.pusan.ac.kr/bbs/equality/9693/1765664/artclView.do",
+      "topics": [
+        "student_support",
+        "event"
+      ],
+      "same_notice_group_id": "same_notice:34dee34cfc23f3c6",
+      "canonical_item_id": "pnu-main-notice:1511844",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-equality-notices",
+        "pnu-main-notice"
+      ],
+      "content_hash": "7decfb55a21b218d34f1ab826df1f32695ae4eef25539e09e892fdf10f3ed7bc",
+      "previous_content_hash": "fcec7dcd7dd7e159cd038ad61869cd2bc4456cdc54e4b7ab406811f450231271",
+      "archive_file": "./archive/2026-10.json",
+      "archive_item_id": "pnu-equality-notices:1765664"
     }
   ]
 }
