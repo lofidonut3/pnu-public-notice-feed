@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-09T03:59:42+09:00",
+  "generated_at": "2026-11-09T07:48:19+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 19830,
+  "total_event_count": 19831,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-09T03:59:42+09:00|updated|pnu-academic-aerospace-career-1450:1468287|b747cdb3d2ec",
-  "oldest_event_id": "2026-11-02T11:18:00+09:00|updated|pnu-academic-biz-undergrad-8941:1468059|a1548552e329",
+  "latest_event_id": "2026-11-09T07:48:19+09:00|added|pnu-job-notices:204567|2673410c2c3b",
+  "oldest_event_id": "2026-11-02T11:18:00+09:00|updated|pnu-academic-ed-event-2958:1468041|6a67138eb88e",
   "oldest_seen_at": "2026-11-02T11:18:00+09:00",
-  "latest_seen_at": "2026-11-09T03:59:42+09:00",
+  "latest_seen_at": "2026-11-09T07:48:19+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-02T11:18:00+09:00|updated|pnu-academic-biz-undergrad-8941:1468059|a1548552e329",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-biz-undergrad-8941:1468059",
-      "source_id": "pnu-academic-biz-undergrad-8941",
-      "source_name": "부산대 경영대학 학부 공지사항",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "college_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-11-02T11:18:00+09:00",
-      "published_at": "2026-10-26",
-      "title": "[학생과] 2026학년도 전공역량 강화와 지역인재 양성을 위한 동계 전공봉사단 모집 안내",
-      "url": "https://biz.pusan.ac.kr/bbs/biz/1091/1468059/artclView.do",
-      "topics": [
-        "undergraduate"
-      ],
-      "same_notice_group_id": "same_notice:8206cf1c754a4435",
-      "canonical_item_id": "pnu-academic-biz-undergrad-8941:1468059",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-biz-undergrad-8941",
-        "pnu-academic-hid-general-10650"
-      ],
-      "content_hash": "a1548552e3297ecd35694445e582c99c8caf11aa44633b6237565ddb9783a13c",
-      "previous_content_hash": "3869bf7355b36e2361300534e90cbadcbf947e16d6bcc7a52dfeb2460ce77a03",
-      "archive_file": "./archive/2026-10.json",
-      "archive_item_id": "pnu-academic-biz-undergrad-8941:1468059"
-    },
     {
       "event_id": "2026-11-02T11:18:00+09:00|updated|pnu-academic-ed-event-2958:1468041|6a67138eb88e",
       "event_type": "updated",
@@ -34615,6 +34581,37 @@
       "previous_content_hash": "d6c8b02df8123c4e74691630e5af8172a6887ba12dab3bf99cff4a6027f8edc8",
       "archive_file": "./archive/2026-10.json",
       "archive_item_id": "pnu-academic-aerospace-career-1450:1468287"
+    },
+    {
+      "event_id": "2026-11-09T07:48:19+09:00|added|pnu-job-notices:204567|2673410c2c3b",
+      "event_type": "added",
+      "notice_id": "pnu-job-notices:204567",
+      "source_id": "pnu-job-notices",
+      "source_name": "부산대 취업전략과 공지사항",
+      "source_category": "career_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "job_notice"
+      ],
+      "seen_at": "2026-11-09T07:48:19+09:00",
+      "published_at": "2026-11-06",
+      "title": "[현대오토에버] 모빌리티 SW스쿨 5기 클래스메이트 모집",
+      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204567?p=1",
+      "topics": [
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-notices:204567",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-notices"
+      ],
+      "content_hash": "2673410c2c3be593a9753c52b0f77474072b9ad0c14b17e60dc9ac07f9c035b6",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-job-notices:204567"
     }
   ]
 }
