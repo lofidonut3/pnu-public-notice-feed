@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-08T15:35:10+09:00",
+  "generated_at": "2026-11-08T23:12:38+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 19827,
+  "total_event_count": 19828,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-08T15:35:10+09:00|updated|pnu-graduate-general-grad-14856:1466164|ac0851edc12f",
-  "oldest_event_id": "2026-11-02T11:18:00+09:00|updated|pnu-academic-biz-scholarship-8960:1468047|d251977c2604",
+  "latest_event_id": "2026-11-08T23:12:38+09:00|updated|pnu-international-student-notices:1468899|ad7a707ed8c2",
+  "oldest_event_id": "2026-11-02T11:18:00+09:00|updated|pnu-academic-biz-scholarship-8960:1468050|436d04ade9f0",
   "oldest_seen_at": "2026-11-02T11:18:00+09:00",
-  "latest_seen_at": "2026-11-08T15:35:10+09:00",
+  "latest_seen_at": "2026-11-08T23:12:38+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-02T11:18:00+09:00|updated|pnu-academic-biz-scholarship-8960:1468047|d251977c2604",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-biz-scholarship-8960:1468047",
-      "source_id": "pnu-academic-biz-scholarship-8960",
-      "source_name": "부산대 경영대학/경영학과 취업/장학",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-02T11:18:00+09:00",
-      "published_at": "2026-10-26",
-      "title": "[KB손해보험] 2026년 하반기 4급 신입사원 공개채용 안내(~11/1)",
-      "url": "https://biz.pusan.ac.kr/bbs/biz/1093/1468047/artclView.do",
-      "topics": [
-        "scholarship",
-        "recruitment",
-        "dormitory"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-biz-scholarship-8960:1468047",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-biz-scholarship-8960"
-      ],
-      "content_hash": "d251977c2604b138488da8e546cb058ca9baa330fe24b46fb46d4b36f9e828c9",
-      "previous_content_hash": "6909172051a19f25bb7b631cc8a22f6faf02138daf7216b3d879b285f2a6f47b",
-      "archive_file": "./archive/2026-10.json",
-      "archive_item_id": "pnu-academic-biz-scholarship-8960:1468047"
-    },
     {
       "event_id": "2026-11-02T11:18:00+09:00|updated|pnu-academic-biz-scholarship-8960:1468050|436d04ade9f0",
       "event_type": "updated",
@@ -34621,6 +34586,37 @@
       "previous_content_hash": "092cceb0463af1644deea2bc7c9d537a8d94e3e3cc597a024850fb729edb09f9",
       "archive_file": "./archive/2026-10.json",
       "archive_item_id": "pnu-graduate-general-grad-14856:1466164"
+    },
+    {
+      "event_id": "2026-11-08T23:12:38+09:00|updated|pnu-international-student-notices:1468899|ad7a707ed8c2",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1468899",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-08T23:12:38+09:00",
+      "published_at": "2026-10-29",
+      "title": "[교내활동] (마감/Closed) 2026-2학기 외국인 학생 대상 문화체험(3차) 참가자 모집/ (Fall 2026)",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1468899/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1468899",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "ad7a707ed8c2f234a20a73b7798daf06d2ba0a6b42649860898e78b42e283e75",
+      "previous_content_hash": "f288f3ce67b95fc07fbbdc8447816e0a3ce98105398c6595ffd9c5f293b47d3f",
+      "archive_file": "./archive/2026-10.json",
+      "archive_item_id": "pnu-international-student-notices:1468899"
     }
   ]
 }
