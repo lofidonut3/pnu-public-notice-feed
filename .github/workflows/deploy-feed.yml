@@ -44,4 +44,3 @@ jobs:
           python-version: "3.12"
       - name: Verify deployed freshness and contracts
         run: python3 scripts/check_feed_health.py --base-url "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
-
