@@ -1101,7 +1101,17 @@ def test_size_budget_check_warns_before_failure():
     assert size_budget_check("x", 20, 10, 20, "bytes")["status"] == "fail"
 
 
-def test_check_size_budget_cli_prints_feed_health_snapshot(tmp_path, capsys):
+def test_check_size_budget_cli_prints_feed_health_snapshot(tmp_path, capsys, monkeypatch):
+    # The original fixture tests output routing, not wall-clock freshness.
+    # Freeze the health clock at the fixture's timestamp; stale behavior has a
+    # separate regression test using a deliberately old timestamp.
+    from datetime import timezone
+    from scripts import check_feed_health as health
+    class FixtureClock(datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return datetime(2026, 6, 6, 3, tzinfo=timezone.utc)
+    monkeypatch.setattr(health, 'datetime', FixtureClock)
     output_dir = tmp_path / "public"
     output_dir.mkdir()
     state_path = tmp_path / "feed-state.json"
@@ -1119,7 +1129,7 @@ def test_check_size_budget_cli_prints_feed_health_snapshot(tmp_path, capsys):
                 "backoff_source_count": 0,
                 "error_source_count": 0,
                 "degraded_source_count": 0,
-                "sources": [{"id": "source-a", "status": "ok"}],
+                "sources": [{"id": "source-a", "status": "ok", "last_success_at": "2026-06-06T12:00:00+09:00"}],
             },
             "event_stream": {"event_count": 1},
             "latest": {"item_count": 1},

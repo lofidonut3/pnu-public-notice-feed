@@ -1,4 +1,6 @@
 import json
+from dataclasses import replace
+from datetime import datetime, timezone
 
 from scripts.check_feed_health import (
     HealthReport,
@@ -240,8 +242,27 @@ def _thresholds(
         max_state_mib=50,
         min_event_count=1,
         fail_on_truncated_events=False,
+        # Historical fixtures isolate count checks; freshness tests set limits.
+        max_feed_age_minutes=None,
+        max_source_age_minutes=None,
     )
 
 
 def _write_json(path, value):
     path.write_text(json.dumps(value), encoding="utf-8")
+
+
+def test_health_rejects_stale_feed_even_when_counts_are_healthy():
+    report = build_report(_index(), _events(), _latest(), _sizes(),
+        replace(_thresholds(), max_feed_age_minutes=120),
+        now=datetime(2026, 11, 9, tzinfo=timezone.utc))
+    assert any('feed is stale' in issue for issue in report.issues)
+
+
+def test_health_rejects_missing_source_timestamp_but_reports_disabled_as_historical():
+    index = _index()
+    index['status']['sources'] += [{'id':'retired', 'enabled':False, 'status':'disabled'}]
+    index['status']['source_count'] = 2
+    report = build_report(index, _events(), _latest(), _sizes(),
+        replace(_thresholds(), max_source_age_minutes=120))
+    assert report.issues == ['source source-a has missing or invalid timestamp']

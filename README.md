@@ -68,6 +68,10 @@ For a concrete optional reference CLI/helper that keeps a local cursor, enriches
 - Long-term notice metadata is retained in monthly `archive/` files.
 - Archive files retain metadata only. Full notice text and attachment contents stay on official source URLs.
 - Schema changes are tracked with `_pnu.schema_version` and `_pnu.feed_version`.
+- Source importance, freshness budgets, and suspension reasons are explicit in `sources.json` and published source status. `status: disabled` means historical metadata is retained while that source is not polled or included in the latest-discovery feed. It must not be interpreted as a fresh successful source.
+- Publication dates come from publication-date cells, never dates embedded in titles. Verified historical corrections retain canonical notice IDs, event IDs, and first observation times; notices move to the correct publication month and event archive references follow them.
+- The library's November 9, 2026 site migration changed upstream identifiers. Unique title/date matches and recorded upstream aliases preserve existing canonical IDs while official URLs change. Ambiguous or removed legacy records explicitly publish `content_access.availability`; do not fetch them as if they were available articles. A `replacement_url` is a current related record, not a promise that the original historical body is unchanged.
+- Selected scholarship, international and department boards check body fingerprints for the three newest visible notices at most once every 12 hours. Only the fingerprint is retained. Other K2Web records detect list metadata changes; this does not promise detection of every body/attachment change. Initial body fingerprints form a quiet baseline rather than a false update event.
 
 ## Generate Locally
 
@@ -101,16 +105,36 @@ Check the generated feed health snapshot:
 python3 scripts/check_feed_health.py --public-dir public --state-path cache/feed-state.json
 ```
 
+The health CLI fails when the feed is older than 120 minutes, an active source exceeds its configured freshness budget, or a selected detail fingerprint check fails. A disabled source is reported as historical, with its reason. To inspect stored schemas, exact archive checksums and event references independently of the generator:
+
+```bash
+python3 scripts/verify_feed.py
+```
+
+Metadata repair is dry-run by default. The versioned evidence file contains only official metadata and provenance URLs:
+
+```bash
+python3 scripts/repair_feed_metadata.py --corrections verification/metadata-corrections-2026-11-09.json
+# After reviewing the summary and retaining a snapshot:
+python3 scripts/repair_feed_metadata.py --corrections verification/metadata-corrections-2026-11-09.json --apply
+python3 -m pnu_notice_feed.generator --pretty --limit 80 --rebuild-outputs
+```
+
+Use `--force-source SOURCE_ID` for a bounded recovery of one registered source. `--force-refresh` explicitly bypasses polling/backoff once for all enabled sources.
+
 ## Publishing
 
 The repository uses GitHub Actions:
 
 - `.github/workflows/test.yml` runs tests on push and pull request.
-- `.github/workflows/update-feed.yml` refreshes the feed on a schedule, validates publish-size invariants, commits generated output when it changes, and deploys `public/` to GitHub Pages. Freshness health is reported after deployment without suppressing valid events from healthy sources.
-- Scheduled feed refresh runs every 30 minutes, subject to GitHub Actions scheduling delays.
+- `.github/workflows/update-feed.yml` collects without a deployment environment, runs regressions and structural verification, commits generated output, and uploads an immutable artifact. Collection has its own concurrency group and a 15-minute runtime limit.
+- `.github/workflows/deploy-feed.yml` consumes the successful collection artifact in a separate workflow. Only deployment uses the `github-pages` environment, so deployment protection waits cannot hold the collection lock. Deployed freshness is checked before the separate notification job runs.
+- `.github/workflows/check-feed-health.yml` checks the deployed feed independently of collection/deployment concurrency. It can request one collection wake-up, avoids duplicating an active run, and stops automatic wake-ups after three failed collection runs. A wake-up is not reported as a verified recovery.
+- Collection is scheduled at minutes 7 and 37; monitoring at 17 and 47. GitHub scheduling remains best effort and does not guarantee a 30-minute delivery SLA. An external monitor may use the same health CLI and dispatch hook.
 - External watchdogs can trigger the same refresh workflow with a `repository_dispatch` event of type `update-feed`. This is the fallback path when GitHub scheduled workflows are delayed or skipped.
 - After a successful deployment containing added or updated notices, the workflow can emit a `pnu-feed-updated` repository dispatch to the watch-runtime repository. The target defaults to `lofidonut3/pnu-notice-agent-tools`; set the optional repository variable `WATCH_DISPATCH_REPOSITORY` only to override it. Configure `WATCH_DISPATCH_TOKEN` as a secret permitted to create a dispatch in the target repository.
 - The outbound dispatch is only a wake hint. Consumers must replay `events.json` from their own durable cursor, and should retain a periodic fallback scan so a missed or duplicated dispatch cannot lose an event.
+- Notification authentication failures are reported by the notification job and do not undo a successful deployment. Permanent HTTP 4xx authentication/configuration errors fail immediately rather than retrying the same invalid credential.
 - Feed freshness health reports failure when a critical source is degraded, when too many sources are degraded, or when the current generator state contains items that are missing from the durable archive. This report is non-blocking for publication; structural generation errors and size-budget violations remain blocking.
 - The production workflow keeps up to 80 notices per source and retries critical source fetches once before publishing degraded status.
 

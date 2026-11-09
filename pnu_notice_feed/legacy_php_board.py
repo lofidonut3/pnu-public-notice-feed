@@ -9,6 +9,7 @@ from urllib.parse import urlencode, urljoin, urlparse
 from urllib.request import Request, urlopen
 
 from .types import Notice, Source
+from .html_dates import publication_date
 
 USER_AGENT = "PNUPublicNoticeFeed/0.1 (+https://github.com/pnu-public-notice-feed)"
 LEGACY_TLS_HOST_ALLOWLIST = {"me.pusan.ac.kr"}
@@ -137,10 +138,7 @@ def _detail_url(base_url: str, notice_id: str, db: str | None) -> str:
 
 
 def _date_from_row(row: str) -> str | None:
-    match = re.search(r"(20\d{2})[./-](\d{1,2})[./-](\d{1,2})", row)
-    if not match:
-        return None
-    return f"{match.group(1)}-{match.group(2).zfill(2)}-{match.group(3).zfill(2)}"
+    return publication_date(row)
 
 
 def _content_hash(title: str, published_at: str | None, url: str) -> str:

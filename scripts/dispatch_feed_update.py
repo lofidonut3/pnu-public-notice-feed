@@ -50,6 +50,8 @@ def dispatch_repository_event(
         ensure_ascii=False,
     ).encode("utf-8")
     last_error: Exception | None = None
+    if not 1 <= attempts <= 5:
+        raise ValueError("dispatch attempts must be between 1 and 5")
     for attempt in range(attempts):
         request = Request(
             url,
@@ -68,7 +70,13 @@ def dispatch_repository_event(
                 if response.status != 204:
                     raise RuntimeError(f"unexpected dispatch status: {response.status}")
             return
-        except (HTTPError, URLError, RuntimeError) as error:
+        except HTTPError as error:
+            if 400 <= error.code < 500 and error.code not in {408, 429}:
+                raise RuntimeError(f"repository dispatch rejected: HTTP {error.code}; check target access and dispatch authentication") from None
+            last_error = error
+            if attempt < attempts - 1:
+                time.sleep(2**attempt)
+        except (URLError, RuntimeError) as error:
             last_error = error
             if attempt < attempts - 1:
                 time.sleep(2**attempt)

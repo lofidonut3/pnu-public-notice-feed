@@ -25,6 +25,8 @@ from .cms_static_board import fetch_cms_static_board
 from .duplicates import build_duplicates
 from .job_board import fetch_job_notice_board, fetch_job_recruit_board
 from .k2web_board import fetch_k2web_board
+from .detail_fingerprint import body_fingerprint, is_detail_baseline_only
+from .io_utils import write_utf8_if_changed
 from .legacy_php_board import fetch_legacy_php_board
 from .library_pyxis_board import fetch_library_pyxis_board
 from .onestop_js_board import fetch_onestop_js_board
@@ -97,11 +99,10 @@ CRITICAL_SOURCE_IDS = {
     "pnu-dorm-busan-notices",
     "pnu-dorm-yangsan-notices",
     "pnu-dorm-miryang-notices",
-    "pnu-international-notices",
     "pnu-international-student-notices",
     "pnu-job-notices",
-    "pnu-job-recommend",
-    "pnu-job-internship",
+    "pnu-job-recruit-recommendation",
+    "pnu-job-recruit-internship",
     "pnu-job-recruit-general",
 }
 DISCLAIMER = (
@@ -309,6 +310,13 @@ class PublicSource:
     bbs_type_seq: str | None = None
     mainbbs_tab_index: str | None = None
     notes: str | None = None
+    critical: bool | None = None
+    enabled: bool = True
+    disabled_reason: str | None = None
+    max_staleness_minutes: int = 1440
+    detail_check_limit: int = 0
+    detail_check_ttl_hours: int = 12
+    baseline_notice_ids: tuple[str, ...] = ()
 
     @classmethod
     def from_json(cls, data: dict) -> "PublicSource":
@@ -336,6 +344,13 @@ class PublicSource:
                 else None
             ),
             notes=str(data["notes"]) if data.get("notes") else None,
+            critical=bool(data["critical"]) if "critical" in data else None,
+            enabled=bool(data.get("enabled", True)),
+            disabled_reason=data.get("disabled_reason"),
+            max_staleness_minutes=int(data.get("max_staleness_minutes", 1440)),
+            detail_check_limit=int(data.get("detail_check_limit", 0)),
+            detail_check_ttl_hours=int(data.get("detail_check_ttl_hours", 12)),
+            baseline_notice_ids=tuple(str(value) for value in data.get("baseline_notice_ids", [])),
         )
 
     def to_adapter_source(self) -> Source:
@@ -439,6 +454,9 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Check generated feed freshness and source health, then exit.",
     )
+    parser.add_argument("--rebuild-outputs", action="store_true", help="Rebuild metadata and archive manifests even when no new events were observed.")
+    parser.add_argument("--force-refresh", action="store_true", help="Explicitly bypass polling/backoff for one bounded refresh.")
+    parser.add_argument("--force-source", action="append", default=[], help="Bypass polling/backoff for this registered source only; repeat as needed.")
     args = parser.parse_args(argv)
     output_dir = Path(args.output_dir)
     state_path = Path(args.state)
@@ -463,9 +481,11 @@ def main(argv: list[str] | None = None) -> int:
             fetch_concurrency=args.fetch_concurrency,
             per_host_concurrency=args.per_host_concurrency,
             fetch_attempts=args.fetch_attempts,
+            force_refresh=args.force_refresh,
+            force_source_ids=args.force_source,
         )
         sync_static_assets(output_dir, sources_path, args.public_base_url)
-        if generated["all_sources_skipped"] and outputs_exist(
+        if not args.rebuild_outputs and generated["all_sources_skipped"] and outputs_exist(
             output_dir,
             state_path,
         ) and outputs_match_public_base_url(
@@ -482,7 +502,7 @@ def main(argv: list[str] | None = None) -> int:
             output_dir,
         ):
             return 0
-        if should_write_public_outputs(
+        if args.rebuild_outputs or should_write_public_outputs(
             output_dir=output_dir,
             state_path=state_path,
             generated=generated,
@@ -530,16 +550,25 @@ def generate_outputs(
     fetch_concurrency: int = DEFAULT_FETCH_CONCURRENCY,
     per_host_concurrency: int = DEFAULT_PER_HOST_CONCURRENCY,
     fetch_attempts: int = DEFAULT_FETCH_ATTEMPTS,
+    force_refresh: bool = False,
+    force_source_ids: list[str] | None = None,
 ) -> dict[str, dict]:
     generation_started_at = time.perf_counter()
     generated_at = iso_now(now)
     sources = load_sources(sources_path)
     state = load_state(state_path)
+    poll_state = state
+    forced = set(force_source_ids or [])
+    unknown = forced - {source.id for source in sources}
+    if unknown:
+        raise ValueError(f"unknown forced source IDs: {', '.join(sorted(unknown))}")
+    if force_refresh or forced:
+        poll_state = {**state, "sources": {sid: ({**entry, "last_checked_at": None, "backoff_until": None} if force_refresh or sid in forced else entry) for sid, entry in state.get("sources", {}).items()}}
     results = fetch_source_results(
         sources,
         limit,
         generated_at,
-        state,
+        poll_state,
         fetch_concurrency=fetch_concurrency,
         per_host_concurrency=per_host_concurrency,
         fetch_attempts=fetch_attempts,
@@ -591,6 +620,15 @@ def load_sources(path: Path) -> list[PublicSource]:
 
 
 def validate_sources(sources: list[PublicSource]) -> None:
+    for source in sources:
+        if not source.enabled and not source.disabled_reason:
+            raise ValueError(f"disabled source needs a reason: {source.id}")
+        if source.max_staleness_minutes < source.poll_interval_minutes:
+            raise ValueError(f"source freshness budget is shorter than polling: {source.id}")
+        if not 0 <= source.detail_check_limit <= 10 or source.detail_check_ttl_hours < 1:
+            raise ValueError(f"invalid detail-check budget: {source.id}")
+        if any(not iid.startswith(source.id + ":") for iid in source.baseline_notice_ids):
+            raise ValueError(f"baseline notice ID belongs to another source: {source.id}")
     ids = [source.id for source in sources]
     duplicate_ids = sorted({source_id for source_id in ids if ids.count(source_id) > 1})
     if duplicate_ids:
@@ -707,6 +745,19 @@ def fetch_source_result(
 ) -> SourceResult:
     started_at = time.perf_counter()
     source_state = get_source_state(state, source.id)
+    if not source.enabled:
+        return source_result_with_duration(
+            SourceResult(
+                source=source,
+                checked_at=source_state.get("last_checked_at") or checked_at,
+                items=list(cached_items_by_id(source_state, source).values()),
+                last_success_at=source_state.get("last_success_at"),
+                status="disabled",
+                skipped_reason="disabled",
+                error=source.disabled_reason,
+            ),
+            started_at,
+        )
     skip_reason, next_check_at = source_skip_reason(source, source_state, checked_at)
     if skip_reason:
         cached_items = list(cached_items_by_id(source_state, source).values())
@@ -765,6 +816,36 @@ def fetch_source_result(
         )
         for notice in notices
     ]
+    if source.adapter == "library-pyxis-board":
+        # The library changed numeric IDs to opaque IDs on 2026-11-09.
+        # Match only unique title/date pairs within this source. Preserve the
+        # consumer-facing identity while replacing the official detail URL.
+        candidates: dict[tuple, list[dict]] = {}
+        aliases: dict[str, str] = {}
+        for cached in cached_items.values():
+            if cached.get("_pnu", {}).get("content_access", {}).get("availability") in {"superseded", "unavailable_after_source_migration"}:
+                continue
+            upstream_id = cached.get("_pnu", {}).get("upstream_notice_id")
+            if upstream_id:
+                aliases[upstream_id] = cached["id"]
+            key = (cached.get("title"), cached.get("_pnu", {}).get("published_at"))
+            candidates.setdefault(key, []).append(cached)
+        for item in fetched_items:
+            key = (item.get("title"), item.get("_pnu", {}).get("published_at"))
+            matches = candidates.get(key, [])
+            if item["id"] in aliases:
+                item["_pnu"]["upstream_notice_id"] = item["id"]
+                item["id"] = aliases[item["id"]]
+            elif item["id"] not in cached_items and len(matches) == 1:
+                item["_pnu"]["upstream_notice_id"] = item["id"]
+                item["id"] = matches[0]["id"]
+            elif item["id"] in cached_items:
+                previous = cached_items[item["id"]].get("_pnu", {}).get("upstream_notice_id")
+                if previous:
+                    item["_pnu"]["upstream_notice_id"] = previous
+    for item in fetched_items:
+        if item["id"] in source.baseline_notice_ids:
+            item["_pnu"]["migration_baseline"] = True
     merged_items = merge_cached_items(
         [
             enrich_item_with_source_metadata(item, source)
@@ -842,7 +923,7 @@ def fetch_source(
     if source.adapter == "websquare-js-board":
         return fetch_websquare_js_board(adapter_source, limit)
     if source.adapter == "k2web-board":
-        return fetch_k2web_board(
+        notices = fetch_k2web_board(
             adapter_source,
             limit,
             known_notice_ids=set((cached_items or {}).keys()),
@@ -851,6 +932,7 @@ def fetch_source(
                 for item_id, item in (cached_items or {}).items()
             },
         )
+        return check_k2web_details(source, notices, cached_items or {}, checked_at)
     if source.adapter == "legacy-php-board":
         return fetch_legacy_php_board(adapter_source, limit)
     if source.adapter == "job-notice-html-board":
@@ -864,6 +946,33 @@ def fetch_source(
     if source.adapter == "plato-ubboard":
         return fetch_plato_ubboard(adapter_source, limit)
     raise ValueError(f"unsupported adapter: {source.adapter}")
+
+
+def check_k2web_details(source, notices, cached_items, checked_at):
+    from .k2web_board import fetch_text
+    import hashlib
+    if not source.detail_check_limit:
+        return notices
+    current = parse_iso(checked_at or iso_now())
+    selected = {notice.notice_id for notice in sorted(notices, key=lambda n: n.published_at or "", reverse=True)[:source.detail_check_limit]}
+    enriched = []
+    for index, notice in enumerate(notices):
+        old = cached_items.get(notice.notice_id, {}).get("_pnu", {})
+        fingerprint = old.get("detail_content_hash")
+        checked = old.get("detail_checked_at")
+        error = None
+        due = not checked or current-parse_iso(checked) >= timedelta(hours=source.detail_check_ttl_hours)
+        if notice.notice_id in selected and due:
+            try:
+                fingerprint = body_fingerprint(fetch_text(notice.url))
+                checked = current.isoformat(timespec="seconds")
+            except Exception as failure:
+                error = type(failure).__name__
+        content_hash = notice.content_hash
+        if fingerprint:
+            content_hash = hashlib.sha256(f"{content_hash}\n{fingerprint}".encode()).hexdigest()
+        enriched.append(replace(notice, content_hash=content_hash, detail_content_hash=fingerprint, detail_checked_at=checked, detail_check_error=error))
+    return enriched
 
 
 def load_state(path: Path) -> dict:
@@ -1144,6 +1253,10 @@ def compact_state_item(item: dict) -> dict:
     }
     optional_keys = [
         "detail_checked_at",
+        "upstream_notice_id",
+        "detail_content_hash",
+        "detail_check_error",
+        "migration_baseline",
     ]
     for key in optional_keys:
         if pnu.get(key) is not None:
@@ -1283,7 +1396,9 @@ def collect_result_items(results: list[SourceResult]) -> list[dict]:
     return [
         normalize_feed_item(item)
         for result in results
+        if result.source.enabled
         for item in result.items
+        if item.get("_pnu", {}).get("content_access", {}).get("availability") not in {"superseded", "unavailable_after_source_migration"}
     ]
 
 
@@ -1306,6 +1421,7 @@ def build_status(results: list[SourceResult], generated_at: str) -> dict:
         "generated_at": generated_at,
         "overall_status": "ok" if failed_count == 0 else "partial",
         "source_count": len(results),
+        "disabled_source_count": status_counts.get("disabled", 0),
         "ok_source_count": status_counts.get("ok", 0),
         "skipped_source_count": status_counts.get("skipped", 0),
         "poll_interval_skipped_source_count": skipped_reason_counts.get(
@@ -1328,7 +1444,7 @@ def source_is_degraded(result: SourceResult) -> bool:
 
 
 def source_is_critical(source: PublicSource) -> bool:
-    return source.id in CRITICAL_SOURCE_IDS
+    return source.critical if source.critical is not None else source.id in CRITICAL_SOURCE_IDS
 
 
 def source_result_status_counts(results: list[SourceResult]) -> dict[str, int]:
@@ -1532,6 +1648,10 @@ def notice_to_feed_item(
     }
     if notice.detail_checked_at:
         pnu = {**pnu, "detail_checked_at": notice.detail_checked_at}
+    if notice.detail_content_hash:
+        pnu["detail_content_hash"] = notice.detail_content_hash
+    if notice.detail_check_error:
+        pnu["detail_check_error"] = notice.detail_check_error
     return {
         "id": notice.notice_id,
         "url": notice.url,
@@ -1587,6 +1707,12 @@ def source_to_status_json(result: SourceResult) -> dict:
         "public_only": result.source.public_only,
         "access_policy": result.source.access_policy,
         "critical": source_is_critical(result.source),
+        "enabled": result.source.enabled,
+        "disabled_reason": result.source.disabled_reason,
+        "max_staleness_minutes": result.source.max_staleness_minutes,
+        "detail_check_limit": result.source.detail_check_limit,
+        "detail_check_ttl_hours": result.source.detail_check_ttl_hours,
+        "detail_check_error_count": sum(bool(item.get("_pnu", {}).get("detail_check_error")) for item in result.items),
         "status": result.status,
         "last_checked_at": result.checked_at,
         "last_success_at": result.last_success_at,
@@ -1657,6 +1783,7 @@ def build_public_index(
         "status": {
             "overall_status": status.get("overall_status"),
             "source_count": status.get("source_count"),
+            "disabled_source_count": status.get("disabled_source_count", 0),
             "ok_source_count": status.get("ok_source_count"),
             "skipped_source_count": status.get("skipped_source_count"),
             "poll_interval_skipped_source_count": status.get(
@@ -2065,9 +2192,7 @@ def build_sitemap_xml(public_base_url: str) -> str:
 
 
 def write_text_if_changed(path: Path, content: str) -> None:
-    if path.exists() and path.read_text(encoding="utf-8") == content:
-        return
-    path.write_text(content, encoding="utf-8")
+    write_utf8_if_changed(path,content)
 
 
 def read_json_if_exists(path: Path) -> dict | None:
@@ -2243,6 +2368,8 @@ def print_feed_health_snapshot(output_dir: Path, state_path: Path) -> None:
             max_state_mib=50,
             min_event_count=1,
             fail_on_truncated_events=False,
+            max_feed_age_minutes=120,
+            max_source_age_minutes=1440,
         ),
     )
     print()
@@ -2264,6 +2391,7 @@ def build_run_diff(previous_state: dict | None, current_state: dict) -> dict:
         for item_id in set(current_items) & set(previous_items)
         if item_content_hash(current_items[item_id])
         != item_content_hash(previous_items[item_id])
+        and not is_detail_baseline_only(previous_items[item_id], current_items[item_id])
     )
 
     return {

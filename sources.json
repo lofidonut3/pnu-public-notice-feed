@@ -2,6 +2,8 @@
   "schema_version": "0.1",
   "sources": [
     {
+      "critical": true,
+      "max_staleness_minutes": 120,
       "id": "pnu-main-notice",
       "name": "부산대 대학공지",
       "official_url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=list",
@@ -14,6 +16,8 @@
       "notes": "Official public university notice board."
     },
     {
+      "critical": true,
+      "max_staleness_minutes": 120,
       "id": "pnu-onestop-notices",
       "name": "부산대 학지시 공지",
       "official_url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000386",
@@ -27,6 +31,8 @@
       "notes": "Official public student support system notice page."
     },
     {
+      "critical": true,
+      "max_staleness_minutes": 120,
       "id": "pnu-onestop-scholarship",
       "name": "부산대 장학공지",
       "official_url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000062",
@@ -40,6 +46,8 @@
       "notes": "Official public student support system scholarship notice page."
     },
     {
+      "critical": true,
+      "max_staleness_minutes": 120,
       "id": "pnu-dorm-busan-notices",
       "name": "부산대 대학생활원 부산캠퍼스 공지사항",
       "official_url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642",
@@ -53,6 +61,8 @@
       "notes": "Official public dormitory notice page for PNU Busan campus."
     },
     {
+      "critical": true,
+      "max_staleness_minutes": 120,
       "id": "pnu-dorm-yangsan-notices",
       "name": "부산대 대학생활원 양산캠퍼스 공지사항",
       "official_url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602",
@@ -66,6 +76,8 @@
       "notes": "Official public dormitory notice page for PNU Yangsan campus."
     },
     {
+      "critical": true,
+      "max_staleness_minutes": 120,
       "id": "pnu-dorm-miryang-notices",
       "name": "부산대 대학생활원 밀양캠퍼스 공지사항",
       "official_url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634",
@@ -79,6 +91,10 @@
       "notes": "Official public dormitory notice page for PNU Miryang campus."
     },
     {
+      "critical": true,
+      "max_staleness_minutes": 120,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-international-student-notices",
       "name": "부산대 국제처 외국인학생 공지사항",
       "official_url": "https://international.pusan.ac.kr/international/15224/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaW50ZXJuYXRpb25hbCUyRjIwODElMkZhcnRjbExpc3QuZG8lM0Y%3D",
@@ -91,6 +107,8 @@
       "notes": "Official public notices for international students from PNU International."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-international-office-notices",
       "name": "부산대 국제처 공지사항",
       "official_url": "https://international.pusan.ac.kr/international/15225/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaW50ZXJuYXRpb25hbCUyRjIwODAlMkZhcnRjbExpc3QuZG8lM0Y%3D",
@@ -103,6 +121,8 @@
       "notes": "Official public notices from PNU International."
     },
     {
+      "critical": true,
+      "max_staleness_minutes": 120,
       "id": "pnu-job-notices",
       "name": "부산대 취업전략과 공지사항",
       "official_url": "https://job.pusan.ac.kr/ko/notice",
@@ -115,6 +135,8 @@
       "notes": "Official public notice page from PNU Career Development Office."
     },
     {
+      "critical": true,
+      "max_staleness_minutes": 120,
       "id": "pnu-job-recruit-general",
       "name": "부산대 취업전략과 일반채용",
       "official_url": "https://job.pusan.ac.kr/ko/recruit/board",
@@ -127,30 +149,37 @@
       "notes": "Official public general recruitment listings from PNU Career Development Office."
     },
     {
+      "critical": true,
+      "max_staleness_minutes": 120,
       "id": "pnu-job-recruit-recommendation",
       "name": "부산대 취업전략과 추천채용",
-      "official_url": "https://job.pusan.ac.kr/ko/recruit/Recommendation_intro",
+      "official_url": "https://job.pusan.ac.kr/",
       "adapter": "job-recruit-html-board",
       "category": "recruitment_notice",
       "poll_interval_minutes": 60,
       "public_only": true,
       "access_policy": "public_official_url_only",
       "tags": ["pnu", "official", "career", "recruitment", "recommended_recruitment"],
-      "notes": "Official public recommended recruitment listings from PNU Career Development Office."
+      "notes": "Public homepage recruitment cards. Old list route returns HTTP 404; homepage coverage is limited to displayed cards, not a complete recruitment archive."
     },
     {
+      "critical": true,
+      "max_staleness_minutes": 120,
       "id": "pnu-job-recruit-internship",
       "name": "부산대 취업전략과 인턴십/교육연수생",
-      "official_url": "https://job.pusan.ac.kr/ko/recruit/Intern",
+      "official_url": "https://job.pusan.ac.kr/",
       "adapter": "job-recruit-html-board",
       "category": "recruitment_notice",
       "poll_interval_minutes": 60,
       "public_only": true,
       "access_policy": "public_official_url_only",
       "tags": ["pnu", "official", "career", "recruitment", "internship"],
-      "notes": "Official public internship and trainee listings from PNU Career Development Office."
+      "notes": "Public homepage recruitment cards. Old list route returns HTTP 404; homepage coverage is limited to displayed cards, not a complete recruitment archive."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "baseline_notice_ids": ["pnu-library-notices:pwaaj6w0h4tzmn0a"],
       "id": "pnu-library-notices",
       "name": "부산대 도서관 공지사항",
       "official_url": "https://lib.pusan.ac.kr/guide/notice",
@@ -164,6 +193,8 @@
       "notes": "Official public notice board from PNU Library."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-main-faculty-staff-recruitment",
       "name": "부산대 교수초빙/직원채용",
       "official_url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103",
@@ -176,6 +207,8 @@
       "notes": "Official public faculty and staff recruitment board from PNU main site."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-ppes-employment",
       "name": "부산대 교원채용 Employment 공지사항",
       "official_url": "https://ppes.pusan.ac.kr/page?menuCD=000000000000011",
@@ -189,6 +222,8 @@
       "notes": "Official public employment notices from the PNU faculty recruitment site."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-sanhak-notices",
       "name": "부산대 산학협력단 공지사항",
       "official_url": "https://sanhak.pusan.ac.kr/sanhak/board/4",
@@ -201,6 +236,8 @@
       "notes": "Official public notices from PNU Industry-University Cooperation Foundation."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-parking-notices",
       "name": "부산대 정기주차관리시스템 공지사항",
       "official_url": "https://pnuparking.pusan.ac.kr/pnuparking/10255/subview.do",
@@ -213,6 +250,8 @@
       "notes": "Official public notices from the PNU parking management site."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-health-notices",
       "name": "부산대 보건진료소 공지사항",
       "official_url": "https://health.pusan.ac.kr/page?menuCD=000000000000002",
@@ -226,6 +265,8 @@
       "notes": "Official public notices from PNU Health Service Center."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-sedu-support-notices",
       "name": "부산대 장애학생지원센터 공지사항",
       "official_url": "https://sedu-support.pusan.ac.kr/sedu-support/38963/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGc2VkdS1zdXBwb3J0JTJGODIyNiUyRmFydGNsTGlzdC5kbyUzRg%3D%3D",
@@ -238,6 +279,8 @@
       "notes": "Official public notices from PNU Support Center for Students with Disabilities."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-counsel-notices",
       "name": "부산대 효원상담원 공지사항",
       "official_url": "https://pnucounsel.pusan.ac.kr/pnucounsel/10213/subview.do",
@@ -250,6 +293,8 @@
       "notes": "Official public notices from PNU Hyowon Counseling Center."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-equality-notices",
       "name": "부산대 인권센터 공지사항",
       "official_url": "https://equality.pusan.ac.kr/equality/41365/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGZXF1YWxpdHklMkY5NjkzJTJGYXJ0Y2xMaXN0LmRvJTNG",
@@ -262,6 +307,8 @@
       "notes": "Official public notices from PNU Human Rights Center."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-lei-korean-course-notices",
       "name": "부산대 언어교육원 한국어과정 공지사항",
       "official_url": "https://lei.pusan.ac.kr/page?menuCD=000000000000226",
@@ -277,6 +324,8 @@
       "notes": "Official public Korean course notices from PNU Language Education Institute."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-lei-foreign-language-notices",
       "name": "부산대 언어교육원 외국어과정 공지사항",
       "official_url": "https://lei.pusan.ac.kr/page?menuCD=000000000000226",
@@ -292,6 +341,8 @@
       "notes": "Official public foreign language course notices from PNU Language Education Institute."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-sce-notices",
       "name": "부산대 미래시민교육원 공지사항",
       "official_url": "https://sce.pusan.ac.kr/page?menuCD=000000000000561",
@@ -305,6 +356,8 @@
       "notes": "Official public notices from PNU School of Continuing Education."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-pnui-notices",
       "name": "부산대 대학혁신지원사업 공지사항",
       "official_url": "https://pnui.pusan.ac.kr/pnui/50212/subview.do",
@@ -317,6 +370,8 @@
       "notes": "Official public notices from PNU University Innovation Support Project."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-glocal-notices",
       "name": "부산대 글로컬대학 공지사항",
       "official_url": "https://glocal.pusan.ac.kr/glocal/74059/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGZ2xvY2FsJTJGMTg0NTAlMkZhcnRjbExpc3QuZG8lM0Y%3D",
@@ -329,6 +384,8 @@
       "notes": "Official public notices from PNU Glocal University 30 site."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-museum-notices",
       "name": "부산대 박물관 공지사항",
       "official_url": "https://pnumuseum.pusan.ac.kr/pnumuseum/54321/subview.do",
@@ -341,6 +398,8 @@
       "notes": "Official public notices from PNU Museum."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-archives-notices",
       "name": "부산대 기록관 공지사항",
       "official_url": "https://archives.pusan.ac.kr/archives/board/6",
@@ -353,6 +412,10 @@
       "notes": "Official public notices from PNU Archives."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "enabled": false,
+      "disabled_reason": "Retired 2026-11-09: registered public board returns HTTP 404. Cached records are historical; no replacement public board has been verified.",
       "id": "pnu-plato-public-notices",
       "name": "부산대 PLATO 공개 공지사항",
       "official_url": "https://plato.pusan.ac.kr/mod/ubboard/view.php?id=1",
@@ -365,6 +428,8 @@
       "notes": "Public PLATO notice board available without PNU login."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-archaeology-general-3499",
       "name": "부산대 고고학과 실습 공지사항",
       "official_url": "https://archaeology.pusan.ac.kr/archaeology/3499/subview.do",
@@ -377,6 +442,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-archaeology-grad-3498",
       "name": "부산대 고고학과 대학원 공지사항",
       "official_url": "https://archaeology.pusan.ac.kr/archaeology/3498/subview.do",
@@ -389,6 +456,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-archaeology-undergrad-3497",
       "name": "부산대 고고학과 학부 공지사항",
       "official_url": "https://archaeology.pusan.ac.kr/archaeology/3497/subview.do",
@@ -401,6 +470,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-bkorea-grad-3347",
       "name": "부산대 국어국문학과 대학원공지사항",
       "official_url": "https://bkorea.pusan.ac.kr/bkorea/3347/subview.do",
@@ -413,6 +484,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-bkorea-undergrad-3346",
       "name": "부산대 국어국문학과 학부공지사항",
       "official_url": "https://bkorea.pusan.ac.kr/bkorea/3346/subview.do",
@@ -425,6 +498,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-russia-general-3001",
       "name": "부산대 노어노문학과 교직 공지사항",
       "official_url": "https://russia.pusan.ac.kr/russia/3001/subview.do",
@@ -437,6 +512,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-russia-grad-3000",
       "name": "부산대 노어노문학과 대학원 공지사항",
       "official_url": "https://russia.pusan.ac.kr/russia/3000/subview.do",
@@ -449,6 +526,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-russia-undergrad-2316",
       "name": "부산대 노어노문학과 학부 공지사항",
       "official_url": "https://russia.pusan.ac.kr/russia/2316/subview.do",
@@ -461,6 +540,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-german-grad-15824",
       "name": "부산대 독어독문학과 대학원 공지사항",
       "official_url": "https://german.pusan.ac.kr/german/15824/subview.do",
@@ -473,6 +554,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-german-undergrad-3600",
       "name": "부산대 독어독문학과 학부 공지사항",
       "official_url": "https://german.pusan.ac.kr/german/3600/subview.do",
@@ -485,6 +568,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-french-general-5580",
       "name": "부산대 불어불문학과 공지사항",
       "official_url": "https://french.pusan.ac.kr/french/5580/subview.do",
@@ -497,6 +582,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-history-general-6500",
       "name": "부산대 사학과 공지사항",
       "official_url": "https://history.pusan.ac.kr/history/6500/subview.do",
@@ -509,6 +596,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-linguistics-general-8764",
       "name": "부산대 언어정보학과 공지사항",
       "official_url": "https://linguistics.pusan.ac.kr/linguistics/8764/subview.do",
@@ -521,6 +610,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnuenglish-grad-8312",
       "name": "부산대 영어영문학과 대학원공지사항",
       "official_url": "https://pnuenglish.pusan.ac.kr/pnuenglish/8312/subview.do",
@@ -533,6 +624,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnuenglish-undergrad-8177",
       "name": "부산대 영어영문학과 학부공지사항",
       "official_url": "https://pnuenglish.pusan.ac.kr/pnuenglish/8177/subview.do",
@@ -545,6 +638,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-humanities-general-11352",
       "name": "부산대 인문대학 공지사항",
       "official_url": "https://humanities.pusan.ac.kr/humanities/11352/subview.do",
@@ -557,6 +652,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-japan-grad-8797",
       "name": "부산대 일어일문학과 대학원 공지사항",
       "official_url": "https://japan.pusan.ac.kr/japan/8797/subview.do",
@@ -569,6 +666,10 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-japan-scholarship-8798",
       "name": "부산대 일어일문학과 장학 공지사항",
       "official_url": "https://japan.pusan.ac.kr/japan/8798/subview.do",
@@ -581,6 +682,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-japan-undergrad-8796",
       "name": "부산대 일어일문학과 학부 공지사항",
       "official_url": "https://japan.pusan.ac.kr/japan/8796/subview.do",
@@ -593,6 +696,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-china-general-2652",
       "name": "부산대 중어중문학과 공지사항",
       "official_url": "https://china.pusan.ac.kr/china/2652/subview.do",
@@ -605,6 +710,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-philosophy-grad-11294",
       "name": "부산대 철학과 대학원 공지사항",
       "official_url": "https://philosophy.pusan.ac.kr/philosophy/11294/subview.do",
@@ -617,6 +724,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-philosophy-grad-11297",
       "name": "부산대 철학과 대학원생 학생회 공지",
       "official_url": "https://philosophy.pusan.ac.kr/philosophy/11297/subview.do",
@@ -629,6 +738,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-philosophy-undergrad-11291",
       "name": "부산대 철학과 학부 공지사항",
       "official_url": "https://philosophy.pusan.ac.kr/philosophy/11291/subview.do",
@@ -641,6 +752,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-philosophy-undergrad-11296",
       "name": "부산대 철학과 학부생 학생회 공지",
       "official_url": "https://philosophy.pusan.ac.kr/philosophy/11296/subview.do",
@@ -653,6 +766,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-hanmun-grad-6063",
       "name": "부산대 한문학과 대학원공지",
       "official_url": "https://hanmun.pusan.ac.kr/hanmun/6063/subview.do",
@@ -665,6 +780,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-hanmun-undergrad-6062",
       "name": "부산대 한문학과 학부공지",
       "official_url": "https://hanmun.pusan.ac.kr/hanmun/6062/subview.do",
@@ -677,6 +794,8 @@
       "notes": "Official public 인문대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-lais-grad-9202",
       "name": "부산대 문헌정보학과 대학원 공지사항",
       "official_url": "https://lais.pusan.ac.kr/lais/9202/subview.do",
@@ -689,6 +808,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-lais-undergrad-9201",
       "name": "부산대 문헌정보학과 학부 공지사항",
       "official_url": "https://lais.pusan.ac.kr/lais/9201/subview.do",
@@ -701,6 +822,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-comm-general-12531",
       "name": "부산대 미디어커뮤니케이션학과 공지사항",
       "official_url": "https://comm.pusan.ac.kr/comm/12531/subview.do",
@@ -713,6 +836,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-comm-general-12538",
       "name": "부산대 미디어커뮤니케이션학과 공지사항",
       "official_url": "https://comm.pusan.ac.kr/comm/12538/subview.do",
@@ -725,6 +850,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-socio-general-7572",
       "name": "부산대 사회과학대학 공지사항",
       "official_url": "https://ss.pusan.ac.kr/socio/7572/subview.do",
@@ -737,6 +864,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-swf-class-13751",
       "name": "부산대 사회복지학과 수업공지",
       "official_url": "https://swf.pusan.ac.kr/swf/13751/subview.do",
@@ -749,6 +878,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-swf-general-13748",
       "name": "부산대 사회복지학과 실습공지",
       "official_url": "https://swf.pusan.ac.kr/swf/13748/subview.do",
@@ -761,6 +892,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-swf-general-13623",
       "name": "부산대 사회복지학과 학과공지",
       "official_url": "https://swf.pusan.ac.kr/swf/13623/subview.do",
@@ -773,6 +906,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-swf-graduation-13752",
       "name": "부산대 사회복지학과 졸업공지",
       "official_url": "https://swf.pusan.ac.kr/swf/13752/subview.do",
@@ -785,6 +920,10 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-swf-scholarship-13750",
       "name": "부산대 사회복지학과 장학공지",
       "official_url": "https://swf.pusan.ac.kr/swf/13750/subview.do",
@@ -797,6 +936,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-soc-general-9355",
       "name": "부산대 사회학과 공지사항",
       "official_url": "https://soc.pusan.ac.kr/soc/9355/subview.do",
@@ -809,6 +950,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-psy-general-2370",
       "name": "부산대 심리학과 공지&자료게시판",
       "official_url": "https://psy.pusan.ac.kr/psy/2370/subview.do",
@@ -821,6 +964,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-psy-general-2366",
       "name": "부산대 심리학과 공지사항",
       "official_url": "https://psy.pusan.ac.kr/psy/2366/subview.do",
@@ -833,6 +978,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-psy-grad-2364",
       "name": "부산대 심리학과 대학원공지사항",
       "official_url": "https://psy.pusan.ac.kr/psy/2364/subview.do",
@@ -845,6 +992,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-psy-undergrad-2362",
       "name": "부산대 심리학과 학부공지사항",
       "official_url": "https://psy.pusan.ac.kr/psy/2362/subview.do",
@@ -857,6 +1006,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-polsci-grad-7499",
       "name": "부산대 정치외교학과 대학원 공지사항",
       "official_url": "https://polsci.pusan.ac.kr/polsci/7499/subview.do",
@@ -869,6 +1020,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-polsci-undergrad-7498",
       "name": "부산대 정치외교학과 학부 공지사항",
       "official_url": "https://polsci.pusan.ac.kr/polsci/7498/subview.do",
@@ -881,6 +1034,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pub-adm-grad-13893",
       "name": "부산대 행정학과 대학원공지사항",
       "official_url": "https://pub-adm.pusan.ac.kr/pub-adm/13893/subview.do",
@@ -893,6 +1048,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pub-adm-undergrad-13892",
       "name": "부산대 행정학과 학부공지사항",
       "official_url": "https://pub-adm.pusan.ac.kr/pub-adm/13892/subview.do",
@@ -905,6 +1062,8 @@
       "notes": "Official public 사회과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-atmos-general-4950",
       "name": "부산대 대기환경과학과 학과공지사항",
       "official_url": "https://atmos.pusan.ac.kr/atmos/4950/subview.do",
@@ -917,6 +1076,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-phys-grad-12921",
       "name": "부산대 물리학과 대학원공지",
       "official_url": "https://phys.pusan.ac.kr/phys/12921/subview.do",
@@ -929,6 +1090,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-phys-undergrad-12920",
       "name": "부산대 물리학과 학부공지",
       "official_url": "https://phys.pusan.ac.kr/phys/12920/subview.do",
@@ -941,6 +1104,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-microbio-grad-10801",
       "name": "부산대 미생물학과 대학원공지사항",
       "official_url": "https://microbio.pusan.ac.kr/microbio/10801/subview.do",
@@ -953,6 +1118,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-microbio-undergrad-10800",
       "name": "부산대 미생물학과 학부공지사항",
       "official_url": "https://microbio.pusan.ac.kr/microbio/10800/subview.do",
@@ -965,6 +1132,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-biology-general-5540",
       "name": "부산대 생명과학과 연구실공지사항",
       "official_url": "https://biology.pusan.ac.kr/biology/5540/subview.do",
@@ -977,6 +1146,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-biology-grad-5539",
       "name": "부산대 생명과학과 대학원공지사항",
       "official_url": "https://biology.pusan.ac.kr/biology/5539/subview.do",
@@ -989,6 +1160,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-biology-undergrad-5536",
       "name": "부산대 생명과학과 학부공지사항",
       "official_url": "https://biology.pusan.ac.kr/biology/5536/subview.do",
@@ -1001,6 +1174,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-math-grad-11222",
       "name": "부산대 수학과 대학원공지",
       "official_url": "https://math.pusan.ac.kr/math/11222/subview.do",
@@ -1013,6 +1188,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-math-undergrad-11218",
       "name": "부산대 수학과 학부공지",
       "official_url": "https://math.pusan.ac.kr/math/11218/subview.do",
@@ -1025,6 +1202,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-natural-general-14107",
       "name": "부산대 자연과학대학 공지사항",
       "official_url": "https://natural.pusan.ac.kr/natural/14107/subview.do",
@@ -1037,6 +1216,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-geology-general-3212",
       "name": "부산대 지질환경과학과 공지사항",
       "official_url": "https://geology.pusan.ac.kr/geology/3212/subview.do",
@@ -1049,6 +1230,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-stat-career-4807",
       "name": "부산대 통계학과 취업공지사항",
       "official_url": "https://stat.pusan.ac.kr/stat/4807/subview.do",
@@ -1061,6 +1244,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-stat-general-4227",
       "name": "부산대 통계학과 학과공지사항",
       "official_url": "https://stat.pusan.ac.kr/stat/4227/subview.do",
@@ -1073,6 +1258,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ocean-career-12799",
       "name": "부산대 해양학과 취업/진로 공지사항",
       "official_url": "https://ocean.pusan.ac.kr/ocean/12799/subview.do",
@@ -1085,6 +1272,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ocean-general-12793",
       "name": "부산대 해양학과 공지사항",
       "official_url": "https://ocean.pusan.ac.kr/ocean/12793/subview.do",
@@ -1097,6 +1286,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ocean-general-12798",
       "name": "부산대 해양학과 공지사항",
       "official_url": "https://ocean.pusan.ac.kr/ocean/12798/subview.do",
@@ -1109,6 +1300,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ocean-general-12787",
       "name": "부산대 해양학과 학사 공지사항",
       "official_url": "https://ocean.pusan.ac.kr/ocean/12787/subview.do",
@@ -1121,6 +1314,10 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-ocean-scholarship-12797",
       "name": "부산대 해양학과 장학 공지사항",
       "official_url": "https://ocean.pusan.ac.kr/ocean/12797/subview.do",
@@ -1133,6 +1330,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-chem-general-6291",
       "name": "부산대 화학과 공지사항",
       "official_url": "https://chem.pusan.ac.kr/chem/6291/subview.do",
@@ -1145,6 +1344,8 @@
       "notes": "Official public 자연과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-archieng-general-8432",
       "name": "부산대 건축공학과 공지사항",
       "official_url": "https://archieng.pusan.ac.kr/archieng/8432/subview.do",
@@ -1157,6 +1358,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-archieng-grad-8425",
       "name": "부산대 건축공학과 대학원 공지사항",
       "official_url": "https://archieng.pusan.ac.kr/archieng/8425/subview.do",
@@ -1169,6 +1372,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-archieng-undergrad-8424",
       "name": "부산대 건축공학과 학부 공지사항",
       "official_url": "https://archieng.pusan.ac.kr/archieng/8424/subview.do",
@@ -1181,6 +1386,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-archi-grad-6176",
       "name": "부산대 건축학과 대학원 공지사항",
       "official_url": "https://archi.pusan.ac.kr/archi/6176/subview.do",
@@ -1193,6 +1400,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-archi-undergrad-6175",
       "name": "부산대 건축학과 학부 공지사항",
       "official_url": "https://archi.pusan.ac.kr/archi/6175/subview.do",
@@ -1205,6 +1414,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-polymer-general-3892",
       "name": "부산대 고분자공학과 공지사항",
       "official_url": "https://polymer.pusan.ac.kr/polymer/3892/subview.do",
@@ -1217,6 +1428,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-eng-general-4664",
       "name": "부산대 공과대학 공지사항",
       "official_url": "https://eng.pusan.ac.kr/eng/4664/subview.do",
@@ -1229,6 +1442,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-urban-general-4184",
       "name": "부산대 도시공학과 공지사항",
       "official_url": "https://urban.pusan.ac.kr/urban/4184/subview.do",
@@ -1241,6 +1456,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-fu-general-4474",
       "name": "부산대 미래도시건축환경융합전공 공지사항",
       "official_url": "https://fu.pusan.ac.kr/fu/4474/subview.do",
@@ -1253,6 +1470,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-semi-general-2869",
       "name": "부산대 반도체공학전공 공지사항",
       "official_url": "https://semi.pusan.ac.kr/semi/2869/subview.do",
@@ -1265,6 +1484,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-civil-general-10880",
       "name": "부산대 사회기반시스템공학과 공지사항",
       "official_url": "https://civil.pusan.ac.kr/civil/10880/subview.do",
@@ -1277,6 +1498,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ie-general-5850",
       "name": "부산대 산업공학과 공지사항",
       "official_url": "https://ie.pusan.ac.kr/ie/5850/subview.do",
@@ -1289,6 +1512,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ie-general-5854",
       "name": "부산대 산업공학과 공지사항",
       "official_url": "https://ie.pusan.ac.kr/ie/5854/subview.do",
@@ -1301,6 +1526,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-omse-general-9153",
       "name": "부산대 유기소재시스템공학과 공지사항",
       "official_url": "https://omse.pusan.ac.kr/omse/9153/subview.do",
@@ -1313,6 +1540,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-omse-grad-9147",
       "name": "부산대 유기소재시스템공학과 대학원 학사공지",
       "official_url": "https://omse.pusan.ac.kr/omse/9147/subview.do",
@@ -1325,6 +1554,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-mse-grad-50822",
       "name": "부산대 재료공학부 대학원공지",
       "official_url": "https://mse.pusan.ac.kr/mse/50822/subview.do",
@@ -1337,6 +1568,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-mse-undergrad-38585",
       "name": "부산대 재료공학부 학부공지",
       "official_url": "https://mse.pusan.ac.kr/mse/38585/subview.do",
@@ -1349,6 +1582,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-eehome-grad-3029",
       "name": "부산대 전기공학전공 대학원공지",
       "official_url": "https://eec.pusan.ac.kr/eehome/3029/subview.do",
@@ -1361,6 +1596,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-eehome-undergrad-3028",
       "name": "부산대 전기공학전공 학부공지",
       "official_url": "https://eec.pusan.ac.kr/eehome/3028/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGZWVob21lJTJGMTAyJTJGYXJ0Y2xMaXN0LmRvJTNG",
@@ -1373,6 +1610,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ee-career-5185",
       "name": "부산대 전자공학전공 취업공지",
       "official_url": "https://ee.pusan.ac.kr/ee/5185/subview.do",
@@ -1385,6 +1624,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ee-general-5204",
       "name": "부산대 전자공학전공 학과 공지사항",
       "official_url": "https://ee.pusan.ac.kr/ee/5204/subview.do",
@@ -1397,6 +1638,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-naoe-general-14359",
       "name": "부산대 조선해양공학과 공지사항",
       "official_url": "https://naoe.pusan.ac.kr/naoe/14359/subview.do",
@@ -1409,6 +1652,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-naoe-grad-14354",
       "name": "부산대 조선해양공학과 대학원공지사항",
       "official_url": "https://naoe.pusan.ac.kr/naoe/14354/subview.do",
@@ -1421,6 +1666,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-naoe-undergrad-14346",
       "name": "부산대 조선해양공학과 학부공지사항",
       "official_url": "https://naoe.pusan.ac.kr/naoe/14346/subview.do",
@@ -1433,6 +1680,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-it-general-4402",
       "name": "부산대 첨단IT자율전공 공지사항",
       "official_url": "https://it.pusan.ac.kr/it/4402/subview.do",
@@ -1445,6 +1694,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-mo-general-4426",
       "name": "부산대 첨단모빌리티자율전공 공지사항",
       "official_url": "https://mo.pusan.ac.kr/mo/4426/subview.do",
@@ -1457,6 +1708,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-am-general-4498",
       "name": "부산대 첨단소재자율전공 공지사항",
       "official_url": "https://am.pusan.ac.kr/am/4498/subview.do",
@@ -1469,6 +1722,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-aerospace-general-1456",
       "name": "부산대 항공우주공학과 FLT&SIM공지",
       "official_url": "https://aerospace.pusan.ac.kr/aerospace/1456/subview.do",
@@ -1481,6 +1736,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-aerospace-general-1454",
       "name": "부산대 항공우주공학과 입학관련 공지사항",
       "official_url": "https://aerospace.pusan.ac.kr/aerospace/1454/subview.do",
@@ -1493,6 +1750,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-aerospace-general-1455",
       "name": "부산대 항공우주공학과 학과공지",
       "official_url": "https://aerospace.pusan.ac.kr/aerospace/1455/subview.do",
@@ -1505,6 +1764,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnuenv-general-5930",
       "name": "부산대 환경공학과 공지사항",
       "official_url": "https://pnuenv.pusan.ac.kr/pnuenv/5930/subview.do",
@@ -1517,6 +1778,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnuenv-grad-5933",
       "name": "부산대 환경공학과 환경대학원공지",
       "official_url": "https://pnuenv.pusan.ac.kr/pnuenv/5933/subview.do",
@@ -1529,6 +1792,8 @@
       "notes": "Official public 공과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ed-general-2957",
       "name": "부산대 교육학과 전체공지사항",
       "official_url": "https://ed.pusan.ac.kr/ed/2957/subview.do",
@@ -1541,6 +1806,8 @@
       "notes": "Official public 사범대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-edu-general-7837",
       "name": "부산대 사범대학 공지사항",
       "official_url": "https://edu.pusan.ac.kr/edu/7837/subview.do",
@@ -1553,6 +1820,8 @@
       "notes": "Official public 사범대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-edu-general-7853",
       "name": "부산대 사범대학 공지사항",
       "official_url": "https://edu.pusan.ac.kr/edu/7853/subview.do",
@@ -1565,6 +1834,8 @@
       "notes": "Official public 사범대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-econtr-general-7740",
       "name": "부산대 경제통상대학 공지사항",
       "official_url": "https://econtr.pusan.ac.kr/econtr/7740/subview.do",
@@ -1577,6 +1848,8 @@
       "notes": "Official public 경제통상대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnuecon-career-4873",
       "name": "부산대 경제학부 취업공지사항",
       "official_url": "https://pnuecon.pusan.ac.kr/pnuecon/4873/subview.do",
@@ -1589,6 +1862,8 @@
       "notes": "Official public 경제통상대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnuecon-grad-4879",
       "name": "부산대 경제학부 대학원공지사항",
       "official_url": "https://pnuecon.pusan.ac.kr/pnuecon/4879/subview.do",
@@ -1601,6 +1876,8 @@
       "notes": "Official public 경제통상대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnuecon-undergrad-4872",
       "name": "부산대 경제학부 학부공지사항",
       "official_url": "https://pnuecon.pusan.ac.kr/pnuecon/4872/subview.do",
@@ -1613,6 +1890,8 @@
       "notes": "Official public 경제통상대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ppm-general-9468",
       "name": "부산대 공공정책학부 공지사항",
       "official_url": "https://ppm.pusan.ac.kr/ppm/9468/subview.do",
@@ -1625,6 +1904,8 @@
       "notes": "Official public 경제통상대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-convention-general-2097",
       "name": "부산대 관광컨벤션학과 학과공지사항",
       "official_url": "https://convention.pusan.ac.kr/convention/2097/subview.do",
@@ -1637,6 +1918,8 @@
       "notes": "Official public 경제통상대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-convention-grad-2927",
       "name": "부산대 관광컨벤션학과 대학원공지사항",
       "official_url": "https://convention.pusan.ac.kr/convention/2927/subview.do",
@@ -1649,6 +1932,8 @@
       "notes": "Official public 경제통상대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnutrade-grad-2561",
       "name": "부산대 무역학부 대학원 공지사항",
       "official_url": "https://pnutrade.pusan.ac.kr/pnutrade/2561/subview.do",
@@ -1661,6 +1946,8 @@
       "notes": "Official public 경제통상대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnutrade-undergrad-2560",
       "name": "부산대 무역학부 학부 공지사항",
       "official_url": "https://pnutrade.pusan.ac.kr/pnutrade/2560/subview.do",
@@ -1673,6 +1960,8 @@
       "notes": "Official public 경제통상대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-biz-grad-8949",
       "name": "부산대 경영대학 대학원 공지사항",
       "official_url": "https://biz.pusan.ac.kr/biz/8949/subview.do",
@@ -1685,6 +1974,8 @@
       "notes": "Official public 경영대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-biz-undergrad-8941",
       "name": "부산대 경영대학 학부 공지사항",
       "official_url": "https://biz.pusan.ac.kr/biz/8941/subview.do",
@@ -1697,6 +1988,8 @@
       "notes": "Official public 경영대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pharmacy-grad-5755",
       "name": "부산대 약학대학 대학원 공지사항",
       "official_url": "https://pharmacy.pusan.ac.kr/pharmacy/5755/subview.do",
@@ -1709,6 +2002,8 @@
       "notes": "Official public 약학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pharmacy-undergrad-5754",
       "name": "부산대 약학대학 학부공지사항",
       "official_url": "https://pharmacy.pusan.ac.kr/pharmacy/5754/subview.do",
@@ -1721,6 +2016,8 @@
       "notes": "Official public 약학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-che-general-7652",
       "name": "부산대 생활과학대학 공지사항",
       "official_url": "https://che.pusan.ac.kr/che/7652/subview.do",
@@ -1733,6 +2030,8 @@
       "notes": "Official public 생활과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-sportscience-general-3107",
       "name": "부산대 스포츠과학과 공지사항",
       "official_url": "https://sportscience.pusan.ac.kr/sportscience/3107/subview.do",
@@ -1745,6 +2044,8 @@
       "notes": "Official public 생활과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-fsn-career-5710",
       "name": "부산대 식품영양학과 취업공지사항",
       "official_url": "https://fsn.pusan.ac.kr/fsn/5710/subview.do",
@@ -1757,6 +2058,8 @@
       "notes": "Official public 생활과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-fsn-general-5715",
       "name": "부산대 식품영양학과 공지사항",
       "official_url": "https://fsn.pusan.ac.kr/fsn/5715/subview.do",
@@ -1769,6 +2072,8 @@
       "notes": "Official public 생활과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-hid-general-10647",
       "name": "부산대 실내환경디자인학과 공지사항",
       "official_url": "https://hid.pusan.ac.kr/hid/10647/subview.do",
@@ -1781,6 +2086,8 @@
       "notes": "Official public 생활과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-hid-general-10650",
       "name": "부산대 실내환경디자인학과 기타공지",
       "official_url": "https://hid.pusan.ac.kr/hid/10650/subview.do",
@@ -1793,6 +2100,8 @@
       "notes": "Official public 생활과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-hid-general-10648",
       "name": "부산대 실내환경디자인학과 필독공지",
       "official_url": "https://hid.pusan.ac.kr/hid/10648/subview.do",
@@ -1805,6 +2114,8 @@
       "notes": "Official public 생활과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-cdfs-general-1556",
       "name": "부산대 아동가족학과 공지사항",
       "official_url": "https://cdfs.pusan.ac.kr/cdfs/1556/subview.do",
@@ -1817,6 +2128,8 @@
       "notes": "Official public 생활과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-fashion-general-8612",
       "name": "부산대 의류학과 공지사항",
       "official_url": "https://fashion.pusan.ac.kr/fashion/8612/subview.do",
@@ -1829,6 +2142,8 @@
       "notes": "Official public 생활과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-fashion-general-8618",
       "name": "부산대 의류학과 공지사항",
       "official_url": "https://fashion.pusan.ac.kr/fashion/8618/subview.do",
@@ -1841,6 +2156,8 @@
       "notes": "Official public 생활과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-design-general-5370",
       "name": "부산대 디자인학과 공지사항",
       "official_url": "https://design.pusan.ac.kr/design/5370/subview.do",
@@ -1853,6 +2170,8 @@
       "notes": "Official public 예술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-dance-general-12636",
       "name": "부산대 무용학과 공지사항",
       "official_url": "https://dance.pusan.ac.kr/dance/12636/subview.do",
@@ -1865,6 +2184,8 @@
       "notes": "Official public 예술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnuart-general-13595",
       "name": "부산대 미술학과 공지사항",
       "official_url": "https://pnuart.pusan.ac.kr/pnuart/13595/subview.do",
@@ -1877,6 +2198,8 @@
       "notes": "Official public 예술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnuart-general-13910",
       "name": "부산대 미술학과 공지사항",
       "official_url": "https://pnuart.pusan.ac.kr/pnuart/13910/subview.do",
@@ -1889,6 +2212,8 @@
       "notes": "Official public 예술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-art-general-1518",
       "name": "부산대 예술대학 공지사항",
       "official_url": "https://art.pusan.ac.kr/art/1518/subview.do",
@@ -1901,6 +2226,8 @@
       "notes": "Official public 예술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-artimage-general-8081",
       "name": "부산대 예술문화영상학과 공지사항",
       "official_url": "https://artimage.pusan.ac.kr/artimage/8081/subview.do",
@@ -1913,6 +2240,8 @@
       "notes": "Official public 예술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-music-general-11763",
       "name": "부산대 음악학과 공지사항",
       "official_url": "https://music.pusan.ac.kr/music/11763/subview.do",
@@ -1925,6 +2254,8 @@
       "notes": "Official public 예술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-plarts-general-13690",
       "name": "부산대 조형학과 공지사항",
       "official_url": "https://plarts.pusan.ac.kr/plarts/13690/subview.do",
@@ -1937,6 +2268,8 @@
       "notes": "Official public 예술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-gukak-general-10687",
       "name": "부산대 한국음악학과 공지사항",
       "official_url": "https://gukak.pusan.ac.kr/gukak/10687/subview.do",
@@ -1949,6 +2282,8 @@
       "notes": "Official public 예술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ome-general-9051",
       "name": "부산대 광메카트로닉스공학과 공지사항",
       "official_url": "https://ome.pusan.ac.kr/ome/9051/subview.do",
@@ -1961,6 +2296,8 @@
       "notes": "Official public 나노과학기술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-nano-general-14200",
       "name": "부산대 나노과학기술대학 공지사항",
       "official_url": "https://nano.pusan.ac.kr/nano/14200/subview.do",
@@ -1973,6 +2310,8 @@
       "notes": "Official public 나노과학기술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-nanomecha-general-10848",
       "name": "부산대 나노메카트로닉스공학과 공지사항",
       "official_url": "https://nanomecha.pusan.ac.kr/nanomecha/10848/subview.do",
@@ -1985,6 +2324,8 @@
       "notes": "Official public 나노과학기술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-nanomecha-grad-10843",
       "name": "부산대 나노메카트로닉스공학과 대학원 공지",
       "official_url": "https://nanomecha.pusan.ac.kr/nanomecha/10843/subview.do",
@@ -1997,6 +2338,8 @@
       "notes": "Official public 나노과학기술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-energy-general-5109",
       "name": "부산대 나노에너지공학과 공지사항",
       "official_url": "https://energy.pusan.ac.kr/energy/5109/subview.do",
@@ -2009,6 +2352,8 @@
       "notes": "Official public 나노과학기술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-energy-grad-5102",
       "name": "부산대 나노에너지공학과 대학원 공지",
       "official_url": "https://energy.pusan.ac.kr/energy/5102/subview.do",
@@ -2021,6 +2366,8 @@
       "notes": "Official public 나노과학기술대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ite-general-13812",
       "name": "부산대 IT응용공학과 공지사항",
       "official_url": "https://ite.pusan.ac.kr/ite/13812/subview.do",
@@ -2033,6 +2380,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-animal-general-3252",
       "name": "부산대 동물생명자원과학과 공지사항",
       "official_url": "https://animal.pusan.ac.kr/animal/3252/subview.do",
@@ -2045,6 +2394,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-bime-general-8508",
       "name": "부산대 바이오산업기계공학과 공지사항",
       "official_url": "https://bime.pusan.ac.kr/bime/8508/subview.do",
@@ -2057,6 +2408,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-bee-general-13472",
       "name": "부산대 바이오환경에너지학과 공지사항",
       "official_url": "https://bee.pusan.ac.kr/bee/13472/subview.do",
@@ -2069,6 +2422,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-nrls-general-10326",
       "name": "부산대 생명자원과학대학 공지사항",
       "official_url": "https://nrls.pusan.ac.kr/nrls/10326/subview.do",
@@ -2081,6 +2436,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnu-lseb-general-4157",
       "name": "부산대 생명환경화학과 공지사항",
       "official_url": "https://pnu-lseb.pusan.ac.kr/pnu-lseb/4157/subview.do",
@@ -2093,6 +2450,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnu-lseb-general-5505",
       "name": "부산대 생명환경화학과 공지사항",
       "official_url": "https://pnu-lseb.pusan.ac.kr/pnu-lseb/5505/subview.do",
@@ -2105,6 +2464,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-plant-general-7376",
       "name": "부산대 식물생명과학과 공지사항",
       "official_url": "https://plant.pusan.ac.kr/plant/7376/subview.do",
@@ -2117,6 +2478,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-fst-general-10298",
       "name": "부산대 식품공학과 공지사항",
       "official_url": "https://fst.pusan.ac.kr/fst/10298/subview.do",
@@ -2129,6 +2492,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-agecon-general-13100",
       "name": "부산대 식품자원경제학과 공지사항",
       "official_url": "https://agecon.pusan.ac.kr/agecon/13100/subview.do",
@@ -2141,6 +2506,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-his-general-397",
       "name": "부산대 원예생명과학과 공지사항",
       "official_url": "https://his.pusan.ac.kr/his/397/subview.do",
@@ -2153,6 +2520,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-medicine-general-14551",
       "name": "부산대 의과대학 행정실 공지",
       "official_url": "https://medicine.pusan.ac.kr/medicine/14551/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGbWVkaWNpbmUlMkYxOTU0JTJGYXJ0Y2xMaXN0LmRvJTNG",
@@ -2165,6 +2534,10 @@
       "notes": "Official public 의과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "enabled": false,
+      "disabled_reason": "Suspended 2026-11-09: official notice page denies anonymous access. Cached records are historical.",
       "id": "pnu-academic-medicine-undergrad-14487",
       "name": "부산대 의과대학 의예과 공지사항",
       "official_url": "https://medicine.pusan.ac.kr/medicine/14487/subview.do",
@@ -2177,6 +2550,8 @@
       "notes": "Official public 의과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-medicine-undergrad-14492",
       "name": "부산대 의과대학 의학과 공지사항",
       "official_url": "https://medicine.pusan.ac.kr/medicine/14492/subview.do",
@@ -2189,6 +2564,10 @@
       "notes": "Official public 의과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "enabled": false,
+      "disabled_reason": "Suspended 2026-11-09: official notice page denies anonymous access. Cached records are historical.",
       "id": "pnu-academic-medicine-grad-14500",
       "name": "부산대 의과대학 의학과 일반대학원 공지사항",
       "official_url": "https://medicine.pusan.ac.kr/medicine/14500/subview.do",
@@ -2201,6 +2580,8 @@
       "notes": "Official public 의과대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-bce-general-5008",
       "name": "부산대 의생명융합공학부 공지사항",
       "official_url": "https://bce.pusan.ac.kr/bce/5008/subview.do",
@@ -2213,6 +2594,8 @@
       "notes": "Official public 정보의생명공학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-bce-general-5012",
       "name": "부산대 의생명융합공학부 공지사항",
       "official_url": "https://bce.pusan.ac.kr/bce/5012/subview.do",
@@ -2225,6 +2608,8 @@
       "notes": "Official public 정보의생명공학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-designtech-grad-15922",
       "name": "부산대 디자인테크놀로지전공 대학원공지",
       "official_url": "https://inter.pusan.ac.kr/designtech/15922/subview.do",
@@ -2237,6 +2622,8 @@
       "notes": "Official public 정보의생명공학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-designtech-undergrad-15921",
       "name": "부산대 디자인테크놀로지전공 학부공지",
       "official_url": "https://inter.pusan.ac.kr/designtech/15921/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGZGVzaWdudGVjaCUyRjIyMTYlMkZhcnRjbExpc3QuZG8lM0Y%3D",
@@ -2249,6 +2636,10 @@
       "notes": "Official public 정보의생명공학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-cse-general-14221",
       "name": "부산대 정보컴퓨터공학부 공지사항",
       "official_url": "https://cse.pusan.ac.kr/cse/14221/subview.do",
@@ -2261,6 +2652,10 @@
       "notes": "Official public 정보의생명공학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-cse-general-14227",
       "name": "부산대 정보컴퓨터공학부 공지사항",
       "official_url": "https://cse.pusan.ac.kr/cse/14227/subview.do",
@@ -2273,6 +2668,8 @@
       "notes": "Official public 정보의생명공학대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-greenbio-grad-14977",
       "name": "부산대 그린바이오과학전공 대학원공지",
       "official_url": "https://green-bio.pusan.ac.kr/greenbio/14977/subview.do",
@@ -2285,6 +2682,8 @@
       "notes": "Official public 학부대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-greenbio-undergrad-14976",
       "name": "부산대 그린바이오과학전공 학부공지",
       "official_url": "https://green-bio.pusan.ac.kr/greenbio/14976/subview.do",
@@ -2297,6 +2696,8 @@
       "notes": "Official public 학부대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-global-general-10517",
       "name": "부산대 글로벌자유전공학부 공지사항",
       "official_url": "https://global.pusan.ac.kr/global/10517/subview.do",
@@ -2309,6 +2710,8 @@
       "notes": "Official public 학부대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-brse-general-14763",
       "name": "부산대 생명자원시스템공학전공 공지사항",
       "official_url": "https://brse.pusan.ac.kr/brse/14763/subview.do",
@@ -2321,6 +2724,8 @@
       "notes": "Official public 학부대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-liberal-general-8696",
       "name": "부산대 자유전공학부 공지사항",
       "official_url": "https://liberal.pusan.ac.kr/liberal/8696/subview.do",
@@ -2333,6 +2738,8 @@
       "notes": "Official public 학부대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ste-general-9557",
       "name": "부산대 첨단융합학부 공지사항",
       "official_url": "https://ste.pusan.ac.kr/ste/9557/subview.do",
@@ -2345,6 +2752,8 @@
       "notes": "Official public 학부대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-uni-general-7597",
       "name": "부산대 학부대학 공지사항",
       "official_url": "https://uni.pusan.ac.kr/uni/7597/subview.do",
@@ -2357,6 +2766,8 @@
       "notes": "Official public 학부대학 academic-unit notice board. Selected from the local college/department notice discovery map."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-nursing-career-10429",
       "name": "부산대 간호대학/간호학과 채용공고",
       "official_url": "https://nursing.pusan.ac.kr/nursing/10429/subview.do",
@@ -2369,6 +2780,8 @@
       "notes": "Official public 간호대학 academic-unit 채용공고 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-convention-career-2928",
       "name": "부산대 관광컨벤션학과 채용공고",
       "official_url": "https://convention.pusan.ac.kr/convention/2928/subview.do",
@@ -2381,6 +2794,8 @@
       "notes": "Official public 경제통상대학 academic-unit 채용공고 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnutrade-career-3559",
       "name": "부산대 무역학부 추천채용",
       "official_url": "https://pnutrade.pusan.ac.kr/pnutrade/3559/subview.do",
@@ -2393,6 +2808,8 @@
       "notes": "Official public 경제통상대학 academic-unit 추천채용 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-archieng-career-8426",
       "name": "부산대 건축공학과 취업 및 공모전",
       "official_url": "https://archieng.pusan.ac.kr/archieng/8426/subview.do",
@@ -2405,6 +2822,8 @@
       "notes": "Official public 공과대학 academic-unit 취업 및 공모전 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-polymer-career-5490",
       "name": "부산대 고분자공학과 취업",
       "official_url": "https://polymer.pusan.ac.kr/polymer/5490/subview.do",
@@ -2417,6 +2836,8 @@
       "notes": "Official public 공과대학 academic-unit 취업 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-urban-career-4852",
       "name": "부산대 도시공학과 취업게시판",
       "official_url": "https://urban.pusan.ac.kr/urban/4852/subview.do",
@@ -2429,6 +2850,8 @@
       "notes": "Official public 공과대학 academic-unit 취업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-semi-career-2857",
       "name": "부산대 반도체공학전공 취업정보",
       "official_url": "https://semi.pusan.ac.kr/semi/2857/subview.do",
@@ -2441,6 +2864,8 @@
       "notes": "Official public 공과대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ie-career-5853",
       "name": "부산대 산업공학과 취업정보",
       "official_url": "https://ie.pusan.ac.kr/ie/5853/subview.do",
@@ -2453,6 +2878,8 @@
       "notes": "Official public 공과대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-omse-career-9154",
       "name": "부산대 유기소재시스템공학과 취업게시판",
       "official_url": "https://omse.pusan.ac.kr/omse/9154/subview.do",
@@ -2465,6 +2892,8 @@
       "notes": "Official public 공과대학 academic-unit 취업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-mse-career-38587",
       "name": "부산대 재료공학부 취업공지",
       "official_url": "https://mse.pusan.ac.kr/mse/38587/subview.do",
@@ -2477,6 +2906,8 @@
       "notes": "Official public 공과대학 academic-unit 취업공지 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-naoe-career-14348",
       "name": "부산대 조선해양공학과 취업게시판",
       "official_url": "https://naoe.pusan.ac.kr/naoe/14348/subview.do",
@@ -2489,6 +2920,8 @@
       "notes": "Official public 공과대학 academic-unit 취업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-aerospace-career-1450",
       "name": "부산대 항공우주공학과 채용 및 진학정보",
       "official_url": "https://aerospace.pusan.ac.kr/aerospace/1450/subview.do",
@@ -2501,6 +2934,8 @@
       "notes": "Official public 공과대학 academic-unit 채용 및 진학정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnuenv-career-5932",
       "name": "부산대 환경공학과 취업정보",
       "official_url": "https://pnuenv.pusan.ac.kr/pnuenv/5932/subview.do",
@@ -2513,6 +2948,8 @@
       "notes": "Official public 공과대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ome-career-9053",
       "name": "부산대 광메카트로닉스공학과/광메카트로닉스공학전공 취업정보",
       "official_url": "https://ome.pusan.ac.kr/ome/9053/subview.do",
@@ -2525,6 +2962,8 @@
       "notes": "Official public 나노과학기술대학 / 학부대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-nanomecha-career-10851",
       "name": "부산대 나노메카트로닉스공학과/나노소자첨단제조전공 취업정보",
       "official_url": "https://nanomecha.pusan.ac.kr/nanomecha/10851/subview.do",
@@ -2537,6 +2976,8 @@
       "notes": "Official public 나노과학기술대학 / 학부대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-energy-career-5111",
       "name": "부산대 나노에너지공학과/미래에너지전공 취업정보 게시판",
       "official_url": "https://energy.pusan.ac.kr/energy/5111/subview.do",
@@ -2549,6 +2990,8 @@
       "notes": "Official public 나노과학기술대학 / 학부대학 academic-unit 취업정보 게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ed-career-2962",
       "name": "부산대 교육학과 취업정보",
       "official_url": "https://ed.pusan.ac.kr/ed/2962/subview.do",
@@ -2561,6 +3004,8 @@
       "notes": "Official public 사범대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-lais-career-9205",
       "name": "부산대 문헌정보학과 취업공고",
       "official_url": "https://lais.pusan.ac.kr/lais/9205/subview.do",
@@ -2573,6 +3018,8 @@
       "notes": "Official public 사회과학대학 academic-unit 취업공고 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-comm-career-12533",
       "name": "부산대 미디어커뮤니케이션학과 채용 및 공모전",
       "official_url": "https://comm.pusan.ac.kr/comm/12533/subview.do",
@@ -2585,6 +3032,8 @@
       "notes": "Official public 사회과학대학 academic-unit 채용 및 공모전 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-psy-career-3173",
       "name": "부산대 심리학과 취업및학술정보",
       "official_url": "https://psy.pusan.ac.kr/psy/3173/subview.do",
@@ -2597,6 +3046,8 @@
       "notes": "Official public 사회과학대학 academic-unit 취업및학술정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pub-adm-career-13896",
       "name": "부산대 행정학과 취업정보게시판",
       "official_url": "https://pub-adm.pusan.ac.kr/pub-adm/13896/subview.do",
@@ -2609,6 +3060,8 @@
       "notes": "Official public 사회과학대학 academic-unit 취업정보게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ite-career-13815",
       "name": "부산대 IT응용공학과 취업정보",
       "official_url": "https://ite.pusan.ac.kr/ite/13815/subview.do",
@@ -2621,6 +3074,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-animal-career-3250",
       "name": "부산대 동물생명자원과학과 취업게시판",
       "official_url": "https://animal.pusan.ac.kr/animal/3250/subview.do",
@@ -2633,6 +3088,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit 취업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-bime-career-8509",
       "name": "부산대 바이오산업기계공학과 취업알림",
       "official_url": "https://bime.pusan.ac.kr/bime/8509/subview.do",
@@ -2645,6 +3102,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit 취업알림 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-bm-career-13188",
       "name": "부산대 바이오소재과학과 취업정보",
       "official_url": "https://bm.pusan.ac.kr/bm/13188/subview.do",
@@ -2657,6 +3116,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-bee-career-13507",
       "name": "부산대 바이오환경에너지학과 취업정보",
       "official_url": "https://bee.pusan.ac.kr/bee/13507/subview.do",
@@ -2669,6 +3130,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnu-lseb-career-5520",
       "name": "부산대 생명환경화학과 취업정보",
       "official_url": "https://pnu-lseb.pusan.ac.kr/pnu-lseb/5520/subview.do",
@@ -2681,6 +3144,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-plant-career-8295",
       "name": "부산대 식물생명과학과 취업정보",
       "official_url": "https://plant.pusan.ac.kr/plant/8295/subview.do",
@@ -2693,6 +3158,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-fst-career-10300",
       "name": "부산대 식품공학과 취업게시판",
       "official_url": "https://fst.pusan.ac.kr/fst/10300/subview.do",
@@ -2705,6 +3172,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit 취업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-agecon-career-13117",
       "name": "부산대 식품자원경제학과 취업게시판",
       "official_url": "https://agecon.pusan.ac.kr/agecon/13117/subview.do",
@@ -2717,6 +3186,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit 취업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-sportscience-career-1310",
       "name": "부산대 스포츠과학과 취업게시판",
       "official_url": "https://sportscience.pusan.ac.kr/sportscience/1310/subview.do",
@@ -2729,6 +3200,8 @@
       "notes": "Official public 생활과학대학 academic-unit 취업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-fsn-career-5713",
       "name": "부산대 식품영양학과 선배들의 생생한 취업 수기",
       "official_url": "https://fsn.pusan.ac.kr/fsn/5713/subview.do",
@@ -2741,6 +3214,8 @@
       "notes": "Official public 생활과학대학 academic-unit 선배들의 생생한 취업 수기 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-fsn-career-5727",
       "name": "부산대 식품영양학과 취업한 선배들의 발자취",
       "official_url": "https://fsn.pusan.ac.kr/fsn/5727/subview.do",
@@ -2753,6 +3228,8 @@
       "notes": "Official public 생활과학대학 academic-unit 취업한 선배들의 발자취 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-hid-career-10666",
       "name": "부산대 실내환경디자인학과 취업·인턴·공모전",
       "official_url": "https://hid.pusan.ac.kr/hid/10666/subview.do",
@@ -2765,6 +3242,8 @@
       "notes": "Official public 생활과학대학 academic-unit 취업·인턴·공모전 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-cdfs-career-1558",
       "name": "부산대 아동가족학과 취업게시판",
       "official_url": "https://cdfs.pusan.ac.kr/cdfs/1558/subview.do",
@@ -2777,6 +3256,8 @@
       "notes": "Official public 생활과학대학 academic-unit 취업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-fashion-career-8619",
       "name": "부산대 의류학과 취업게시판",
       "official_url": "https://fashion.pusan.ac.kr/fashion/8619/subview.do",
@@ -2789,6 +3270,8 @@
       "notes": "Official public 생활과학대학 academic-unit 취업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pharmacy-career-5750",
       "name": "부산대 약학대학/약학전공/제약학전공 취업정보게시판",
       "official_url": "https://pharmacy.pusan.ac.kr/pharmacy/5750/subview.do",
@@ -2801,6 +3284,8 @@
       "notes": "Official public 약학대학 academic-unit 취업정보게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-bkorea-career-3350",
       "name": "부산대 국어국문학과 취업게시판",
       "official_url": "https://bkorea.pusan.ac.kr/bkorea/3350/subview.do",
@@ -2813,6 +3298,8 @@
       "notes": "Official public 인문대학 academic-unit 취업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-russia-career-3002",
       "name": "부산대 노어노문학과 취업정보",
       "official_url": "https://russia.pusan.ac.kr/russia/3002/subview.do",
@@ -2825,6 +3312,8 @@
       "notes": "Official public 인문대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-german-career-3603",
       "name": "부산대 독어독문학과 취업정보",
       "official_url": "https://german.pusan.ac.kr/german/3603/subview.do",
@@ -2837,6 +3326,8 @@
       "notes": "Official public 인문대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-linguistics-career-8765",
       "name": "부산대 언어정보학과 취업정보",
       "official_url": "https://linguistics.pusan.ac.kr/linguistics/8765/subview.do",
@@ -2849,6 +3340,8 @@
       "notes": "Official public 인문대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnuenglish-career-8313",
       "name": "부산대 영어영문학과 취업정보, 대외활동",
       "official_url": "https://pnuenglish.pusan.ac.kr/pnuenglish/8313/subview.do",
@@ -2861,6 +3354,8 @@
       "notes": "Official public 인문대학 academic-unit 취업정보, 대외활동 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-humanities-career-11354",
       "name": "부산대 인문대학 취업정보",
       "official_url": "https://humanities.pusan.ac.kr/humanities/11354/subview.do",
@@ -2873,6 +3368,8 @@
       "notes": "Official public 인문대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-japan-career-8799",
       "name": "부산대 일어일문학과 취업 공지사항",
       "official_url": "https://japan.pusan.ac.kr/japan/8799/subview.do",
@@ -2885,6 +3382,8 @@
       "notes": "Official public 인문대학 academic-unit 취업 공지사항 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-china-career-3088",
       "name": "부산대 중어중문학과 취업공지사항",
       "official_url": "https://china.pusan.ac.kr/china/3088/subview.do",
@@ -2897,6 +3396,8 @@
       "notes": "Official public 인문대학 academic-unit 취업공지사항 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-hanmun-career-6084",
       "name": "부산대 한문학과 취업정보",
       "official_url": "https://hanmun.pusan.ac.kr/hanmun/6084/subview.do",
@@ -2909,6 +3410,8 @@
       "notes": "Official public 인문대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-atmos-career-14788",
       "name": "부산대 대기환경과학과 취업정보",
       "official_url": "https://atmos.pusan.ac.kr/atmos/14788/subview.do",
@@ -2921,6 +3424,8 @@
       "notes": "Official public 자연과학대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-phys-career-12922",
       "name": "부산대 물리학과 채용공고",
       "official_url": "https://phys.pusan.ac.kr/phys/12922/subview.do",
@@ -2933,6 +3438,8 @@
       "notes": "Official public 자연과학대학 academic-unit 채용공고 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-microbio-career-10802",
       "name": "부산대 미생물학과 취업정보",
       "official_url": "https://microbio.pusan.ac.kr/microbio/10802/subview.do",
@@ -2945,6 +3452,8 @@
       "notes": "Official public 자연과학대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-biology-career-5547",
       "name": "부산대 생명과학과 취업게시판",
       "official_url": "https://biology.pusan.ac.kr/biology/5547/subview.do",
@@ -2957,6 +3466,8 @@
       "notes": "Official public 자연과학대학 academic-unit 취업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-math-career-11232",
       "name": "부산대 수학과 취업관련",
       "official_url": "https://math.pusan.ac.kr/math/11232/subview.do",
@@ -2969,6 +3480,8 @@
       "notes": "Official public 자연과학대학 academic-unit 취업관련 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-geology-career-3225",
       "name": "부산대 지질환경과학과 취업정보",
       "official_url": "https://geology.pusan.ac.kr/geology/3225/subview.do",
@@ -2981,6 +3494,8 @@
       "notes": "Official public 자연과학대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-chem-career-6292",
       "name": "부산대 화학과 취업",
       "official_url": "https://chem.pusan.ac.kr/chem/6292/subview.do",
@@ -2993,6 +3508,8 @@
       "notes": "Official public 자연과학대학 academic-unit 취업 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-bce-career-5017",
       "name": "부산대 의생명융합공학부 채용게시판",
       "official_url": "https://bce.pusan.ac.kr/bce/5017/subview.do",
@@ -3005,6 +3522,8 @@
       "notes": "Official public 정보의생명공학대학 academic-unit 채용게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-cse-career-14234",
       "name": "부산대 정보컴퓨터공학부 채용게시판",
       "official_url": "https://cse.pusan.ac.kr/cse/14234/subview.do",
@@ -3017,6 +3536,8 @@
       "notes": "Official public 정보의생명공학대학 academic-unit 채용게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-greenbio-career-14978",
       "name": "부산대 그린바이오과학전공 취업",
       "official_url": "https://green-bio.pusan.ac.kr/greenbio/14978/subview.do",
@@ -3029,6 +3550,8 @@
       "notes": "Official public 학부대학 academic-unit 취업 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ste-career-9559",
       "name": "부산대 첨단융합학부 취업정보",
       "official_url": "https://ste.pusan.ac.kr/ste/9559/subview.do",
@@ -3041,6 +3564,8 @@
       "notes": "Official public 학부대학 academic-unit 취업정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-uni-career-8191",
       "name": "부산대 학부대학 취업",
       "official_url": "https://uni.pusan.ac.kr/uni/8191/subview.do",
@@ -3053,6 +3578,10 @@
       "notes": "Official public 학부대학 academic-unit 취업 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-biz-scholarship-8960",
       "name": "부산대 경영대학/경영학과 취업/장학",
       "official_url": "https://biz.pusan.ac.kr/biz/8960/subview.do",
@@ -3065,6 +3594,10 @@
       "notes": "Official public 경영대학 academic-unit 취업/장학 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-biz-scholarship-8961",
       "name": "부산대 경영대학/경영학과 장학",
       "official_url": "https://biz.pusan.ac.kr/biz/8961/subview.do",
@@ -3077,6 +3610,10 @@
       "notes": "Official public 경영대학 academic-unit 장학 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-convention-scholarship-2929",
       "name": "부산대 관광컨벤션학과 장학안내",
       "official_url": "https://convention.pusan.ac.kr/convention/2929/subview.do",
@@ -3089,6 +3626,10 @@
       "notes": "Official public 경제통상대학 academic-unit 장학안내 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-polymer-scholarship-5488",
       "name": "부산대 고분자공학과 장학",
       "official_url": "https://polymer.pusan.ac.kr/polymer/5488/subview.do",
@@ -3101,6 +3642,8 @@
       "notes": "Official public 공과대학 academic-unit 장학 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-me-scholarship-sub01-05",
       "name": "부산대 기계공학부 장학공지",
       "official_url": "https://me.pusan.ac.kr/new/sub05/sub01_05.php",
@@ -3113,6 +3656,10 @@
       "notes": "Official public 공과대학 academic-unit 장학공지 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-aerospace-scholarship-1449",
       "name": "부산대 항공우주공학과 장학금 안내",
       "official_url": "https://aerospace.pusan.ac.kr/aerospace/1449/subview.do",
@@ -3125,6 +3672,10 @@
       "notes": "Official public 공과대학 academic-unit 장학금 안내 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-chemeng-scholarship-6433",
       "name": "부산대 화공생명공학과 취업 및 장학",
       "official_url": "https://chemeng.pusan.ac.kr/chemeng/6433/subview.do",
@@ -3137,6 +3688,10 @@
       "notes": "Official public 공과대학 academic-unit 취업 및 장학 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-chemeng-scholarship-6440",
       "name": "부산대 화공생명공학과 장학회 게시판",
       "official_url": "https://chemeng.pusan.ac.kr/chemeng/6440/subview.do",
@@ -3149,6 +3704,10 @@
       "notes": "Official public 공과대학 academic-unit 장학회 게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-nano-scholarship-14201",
       "name": "부산대 나노과학기술대학 장학정보",
       "official_url": "https://nano.pusan.ac.kr/nano/14201/subview.do",
@@ -3161,6 +3720,10 @@
       "notes": "Official public 나노과학기술대학 academic-unit 장학정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-ome-scholarship-9052",
       "name": "부산대 광메카트로닉스공학과/광메카트로닉스공학전공 장학정보",
       "official_url": "https://ome.pusan.ac.kr/ome/9052/subview.do",
@@ -3173,6 +3736,10 @@
       "notes": "Official public 나노과학기술대학 / 학부대학 academic-unit 장학정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-nanomecha-scholarship-10850",
       "name": "부산대 나노메카트로닉스공학과/나노소자첨단제조전공 장학정보",
       "official_url": "https://nanomecha.pusan.ac.kr/nanomecha/10850/subview.do",
@@ -3185,6 +3752,10 @@
       "notes": "Official public 나노과학기술대학 / 학부대학 academic-unit 장학정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-energy-scholarship-5110",
       "name": "부산대 나노에너지공학과/미래에너지전공 장학정보 게시판",
       "official_url": "https://energy.pusan.ac.kr/energy/5110/subview.do",
@@ -3197,6 +3768,10 @@
       "notes": "Official public 나노과학기술대학 / 학부대학 academic-unit 장학정보 게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-comm-scholarship-12534",
       "name": "부산대 미디어커뮤니케이션학과 장학",
       "official_url": "https://comm.pusan.ac.kr/comm/12534/subview.do",
@@ -3209,6 +3784,10 @@
       "notes": "Official public 사회과학대학 academic-unit 장학 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-pnuart-scholarship-13906",
       "name": "부산대 미술학과 장학금",
       "official_url": "https://pnuart.pusan.ac.kr/pnuart/13906/subview.do",
@@ -3221,6 +3800,10 @@
       "notes": "Official public 예술대학 academic-unit 장학금 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-music-scholarship-11764",
       "name": "부산대 음악학과 장학금 수여 명단",
       "official_url": "https://music.pusan.ac.kr/music/11764/subview.do",
@@ -3233,6 +3816,10 @@
       "notes": "Official public 예술대학 academic-unit 장학금 수여 명단 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-china-scholarship-3084",
       "name": "부산대 중어중문학과 장학",
       "official_url": "https://china.pusan.ac.kr/china/3084/subview.do",
@@ -3245,6 +3832,10 @@
       "notes": "Official public 인문대학 academic-unit 장학 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-ste-scholarship-9558",
       "name": "부산대 첨단융합학부 장학정보",
       "official_url": "https://ste.pusan.ac.kr/ste/9558/subview.do",
@@ -3257,6 +3848,10 @@
       "notes": "Official public 학부대학 academic-unit 장학정보 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
+      "detail_check_limit": 3,
+      "detail_check_ttl_hours": 12,
       "id": "pnu-academic-uni-scholarship-8190",
       "name": "부산대 학부대학 장학",
       "official_url": "https://uni.pusan.ac.kr/uni/8190/subview.do",
@@ -3269,6 +3864,8 @@
       "notes": "Official public 학부대학 academic-unit 장학 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-mse-class-50824",
       "name": "부산대 재료공학부 수업",
       "official_url": "https://mse.pusan.ac.kr/mse/50824/subview.do",
@@ -3281,6 +3878,8 @@
       "notes": "Official public 공과대학 academic-unit 수업 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-psy-class-3174",
       "name": "부산대 심리학과 수업게시판",
       "official_url": "https://psy.pusan.ac.kr/psy/3174/subview.do",
@@ -3293,6 +3892,8 @@
       "notes": "Official public 사회과학대학 academic-unit 수업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-cse-class-14233",
       "name": "부산대 정보컴퓨터공학부 수업게시판",
       "official_url": "https://cse.pusan.ac.kr/cse/14233/subview.do",
@@ -3305,6 +3906,8 @@
       "notes": "Official public 정보의생명공학대학 academic-unit 수업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnu-lseb-graduation-5521",
       "name": "부산대 생명환경화학과 졸업자 취업현황",
       "official_url": "https://pnu-lseb.pusan.ac.kr/pnu-lseb/5521/subview.do",
@@ -3317,6 +3920,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit 졸업자 취업현황 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pnutrade-undergrad-3558",
       "name": "부산대 무역학부 무역학부 소식",
       "official_url": "https://pnutrade.pusan.ac.kr/pnutrade/3558/subview.do",
@@ -3329,6 +3934,8 @@
       "notes": "Official public 경제통상대학 academic-unit 무역학부 소식 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-me-undergrad-sub01-01",
       "name": "부산대 기계공학부 학부공지",
       "official_url": "https://me.pusan.ac.kr/new/sub05/sub01_01.php",
@@ -3341,6 +3948,8 @@
       "notes": "Official public 공과대학 academic-unit 학부공지 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pub-adm-undergrad-13894",
       "name": "부산대 행정학과 학부수업게시판",
       "official_url": "https://pub-adm.pusan.ac.kr/pub-adm/13894/subview.do",
@@ -3353,6 +3962,8 @@
       "notes": "Official public 사회과학대학 academic-unit 학부수업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-bce-undergrad-5018",
       "name": "부산대 의생명융합공학부 학부소식",
       "official_url": "https://bce.pusan.ac.kr/bce/5018/subview.do",
@@ -3365,6 +3976,8 @@
       "notes": "Official public 정보의생명공학대학 academic-unit 학부소식 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-me-grad-sub01-02",
       "name": "부산대 기계공학부 대학원공지",
       "official_url": "https://me.pusan.ac.kr/new/sub05/sub01_02.php",
@@ -3377,6 +3990,8 @@
       "notes": "Official public 공과대학 academic-unit 대학원공지 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pub-adm-grad-13895",
       "name": "부산대 행정학과 대학원수업게시판",
       "official_url": "https://pub-adm.pusan.ac.kr/pub-adm/13895/subview.do",
@@ -3389,6 +4004,8 @@
       "notes": "Official public 사회과학대학 academic-unit 대학원수업게시판 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-history-grad-6510",
       "name": "부산대 사학과 대학원소식",
       "official_url": "https://history.pusan.ac.kr/history/6510/subview.do",
@@ -3401,6 +4018,8 @@
       "notes": "Official public 인문대학 academic-unit 대학원소식 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ie-event-5851",
       "name": "부산대 산업공학과 학과세미나",
       "official_url": "https://ie.pusan.ac.kr/ie/5851/subview.do",
@@ -3413,6 +4032,8 @@
       "notes": "Official public 공과대학 academic-unit 학과세미나 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ie-event-5856",
       "name": "부산대 산업공학과 주요행사",
       "official_url": "https://ie.pusan.ac.kr/ie/5856/subview.do",
@@ -3425,6 +4046,8 @@
       "notes": "Official public 공과대학 academic-unit 주요행사 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-omse-event-9146",
       "name": "부산대 유기소재시스템공학과 유기소재세미나",
       "official_url": "https://omse.pusan.ac.kr/omse/9146/subview.do",
@@ -3437,6 +4060,8 @@
       "notes": "Official public 공과대학 academic-unit 유기소재세미나 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-mse-event-38588",
       "name": "부산대 재료공학부 행사 및 세미나 공지",
       "official_url": "https://mse.pusan.ac.kr/mse/38588/subview.do",
@@ -3449,6 +4074,8 @@
       "notes": "Official public 공과대학 academic-unit 행사 및 세미나 공지 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-chemeng-event-6434",
       "name": "부산대 화공생명공학과 CBE 세미나",
       "official_url": "https://chemeng.pusan.ac.kr/chemeng/6434/subview.do",
@@ -3461,6 +4088,8 @@
       "notes": "Official public 공과대학 academic-unit CBE 세미나 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-ed-event-2958",
       "name": "부산대 교육학과 행사안내",
       "official_url": "https://ed.pusan.ac.kr/ed/2958/subview.do",
@@ -3473,6 +4102,8 @@
       "notes": "Official public 사범대학 academic-unit 행사안내 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-lais-event-9203",
       "name": "부산대 문헌정보학과 행사 안내",
       "official_url": "https://lais.pusan.ac.kr/lais/9203/subview.do",
@@ -3485,6 +4116,8 @@
       "notes": "Official public 사회과학대학 academic-unit 행사 안내 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-soc-event-12429",
       "name": "부산대 사회학과 상시행사",
       "official_url": "https://soc.pusan.ac.kr/soc/12429/subview.do",
@@ -3497,6 +4130,8 @@
       "notes": "Official public 사회과학대학 academic-unit 상시행사 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-la-event-5884",
       "name": "부산대 조경학과 학과소식 및 행사",
       "official_url": "https://la.pusan.ac.kr/la/5884/subview.do",
@@ -3509,6 +4144,8 @@
       "notes": "Official public 생명자원과학대학 academic-unit 학과소식 및 행사 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-pharmacy-event-5756",
       "name": "부산대 약학대학/약학전공/제약학전공 학술행사안내",
       "official_url": "https://pharmacy.pusan.ac.kr/pharmacy/5756/subview.do",
@@ -3521,6 +4158,8 @@
       "notes": "Official public 약학대학 academic-unit 학술행사안내 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-dance-event-12637",
       "name": "부산대 무용학과 학과행사",
       "official_url": "https://dance.pusan.ac.kr/dance/12637/subview.do",
@@ -3533,6 +4172,8 @@
       "notes": "Official public 예술대학 academic-unit 학과행사 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-bkorea-event-3357",
       "name": "부산대 국어국문학과 학과행사",
       "official_url": "https://bkorea.pusan.ac.kr/bkorea/3357/subview.do",
@@ -3545,6 +4186,8 @@
       "notes": "Official public 인문대학 academic-unit 학과행사 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-linguistics-event-8762",
       "name": "부산대 언어정보학과 학과행사",
       "official_url": "https://linguistics.pusan.ac.kr/linguistics/8762/subview.do",
@@ -3557,6 +4200,8 @@
       "notes": "Official public 인문대학 academic-unit 학과행사 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-china-event-2656",
       "name": "부산대 중어중문학과 학과행사",
       "official_url": "https://china.pusan.ac.kr/china/2656/subview.do",
@@ -3569,6 +4214,8 @@
       "notes": "Official public 인문대학 academic-unit 학과행사 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-philosophy-event-15171",
       "name": "부산대 철학과 철학과 학술행사 안내",
       "official_url": "https://philosophy.pusan.ac.kr/philosophy/15171/subview.do",
@@ -3581,6 +4228,8 @@
       "notes": "Official public 인문대학 academic-unit 철학과 학술행사 안내 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-phys-event-12919",
       "name": "부산대 물리학과 세미나",
       "official_url": "https://phys.pusan.ac.kr/phys/12919/subview.do",
@@ -3593,6 +4242,8 @@
       "notes": "Official public 자연과학대학 academic-unit 세미나 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-microbio-event-10803",
       "name": "부산대 미생물학과 초청세미나",
       "official_url": "https://microbio.pusan.ac.kr/microbio/10803/subview.do",
@@ -3605,6 +4256,8 @@
       "notes": "Official public 자연과학대학 academic-unit 초청세미나 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-molbiology-event-6782",
       "name": "부산대 분자생물학과 세미나 안내",
       "official_url": "https://molbiology.pusan.ac.kr/molbiology/6782/subview.do",
@@ -3617,6 +4270,8 @@
       "notes": "Official public 자연과학대학 academic-unit 세미나 안내 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-biology-event-5546",
       "name": "부산대 생명과학과 세미나",
       "official_url": "https://biology.pusan.ac.kr/biology/5546/subview.do",
@@ -3629,6 +4284,8 @@
       "notes": "Official public 자연과학대학 academic-unit 세미나 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-natural-event-14121",
       "name": "부산대 자연과학대학 교류／초청／방문행사",
       "official_url": "https://natural.pusan.ac.kr/natural/14121/subview.do",
@@ -3641,6 +4298,8 @@
       "notes": "Official public 자연과학대학 academic-unit 교류／초청／방문행사 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-chem-event-6285",
       "name": "부산대 화학과 초청 세미나",
       "official_url": "https://chem.pusan.ac.kr/chem/6285/subview.do",
@@ -3653,6 +4312,8 @@
       "notes": "Official public 자연과학대학 academic-unit 초청 세미나 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-cse-event-14236",
       "name": "부산대 정보컴퓨터공학부 기타행사안내",
       "official_url": "https://cse.pusan.ac.kr/cse/14236/subview.do",
@@ -3665,6 +4326,8 @@
       "notes": "Official public 정보의생명공학대학 academic-unit 기타행사안내 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-academic-greenbio-event-14979",
       "name": "부산대 그린바이오과학전공 행사 및 세미나",
       "official_url": "https://green-bio.pusan.ac.kr/greenbio/14979/subview.do",
@@ -3677,6 +4340,8 @@
       "notes": "Official public 학부대학 academic-unit 행사 및 세미나 board. Selected from the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-gsis-grad-11587",
       "name": "부산대 국제전문대학원 공지사항",
       "official_url": "https://gsis.pusan.ac.kr/gsis/11587/subview.do",
@@ -3689,6 +4354,8 @@
       "notes": "Official public 국제전문대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-gsis-career-11588",
       "name": "부산대 국제전문대학원 행사 및 채용",
       "official_url": "https://gsis.pusan.ac.kr/gsis/11588/subview.do",
@@ -3701,6 +4368,8 @@
       "notes": "Official public 국제전문대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-gsis-admissions-11579",
       "name": "부산대 국제전문대학원 입학공지",
       "official_url": "https://gsis.pusan.ac.kr/gsis/11579/subview.do",
@@ -3713,6 +4382,8 @@
       "notes": "Official public 국제전문대학원 board. Selected from the local actionable source backlog. Status in backlog: defer_admissions_family."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-kmed-grad-11930",
       "name": "부산대 한의학전문대학원 공지사항",
       "official_url": "https://kmed.pusan.ac.kr/kmed/11930/subview.do",
@@ -3725,6 +4396,8 @@
       "notes": "Official public 한의학전문대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-kmed-event-11932",
       "name": "부산대 한의학전문대학원 학술세미나",
       "official_url": "https://kmed.pusan.ac.kr/kmed/11932/subview.do",
@@ -3737,6 +4410,8 @@
       "notes": "Official public 한의학전문대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-kmed-career-11933",
       "name": "부산대 한의학전문대학원 취업정보",
       "official_url": "https://kmed.pusan.ac.kr/kmed/11933/subview.do",
@@ -3749,6 +4424,8 @@
       "notes": "Official public 한의학전문대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-law-grad-10741",
       "name": "부산대 법학전문대학원 공지사항",
       "official_url": "https://law.pusan.ac.kr/law/10741/subview.do",
@@ -3761,6 +4438,8 @@
       "notes": "Official public 법학전문대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-law-career-10745",
       "name": "부산대 법학전문대학원 취업공고",
       "official_url": "https://law.pusan.ac.kr/law/10745/subview.do",
@@ -3773,6 +4452,8 @@
       "notes": "Official public 법학전문대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-ds-grad-7710",
       "name": "부산대 데이터사이언스전문대학원 공지사항",
       "official_url": "https://ds.pusan.ac.kr/ds/7710/subview.do",
@@ -3785,6 +4466,8 @@
       "notes": "Official public 데이터사이언스전문대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-cobman-grad-7677",
       "name": "부산대 경영대학원 공지사항 1",
       "official_url": "https://cobman.pusan.ac.kr/cobman/7677/subview.do",
@@ -3797,6 +4480,8 @@
       "notes": "Official public 경영대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-cobman-grad-7682",
       "name": "부산대 경영대학원 공지사항 2",
       "official_url": "https://cobman.pusan.ac.kr/cobman/7682/subview.do",
@@ -3809,6 +4494,8 @@
       "notes": "Official public 경영대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-geit-grad-12832",
       "name": "부산대 경제통상대학원 공지사항",
       "official_url": "https://geit.pusan.ac.kr/geit/12832/subview.do",
@@ -3821,6 +4508,8 @@
       "notes": "Official public 경제통상대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-geit-admissions-12826",
       "name": "부산대 경제통상대학원 입학공지",
       "official_url": "https://geit.pusan.ac.kr/geit/12826/subview.do",
@@ -3833,6 +4522,8 @@
       "notes": "Official public 경제통상대학원 board. Selected from the local actionable source backlog. Status in backlog: defer_admissions_family."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-gspa-grad-10899",
       "name": "부산대 행정대학원 공지사항 1",
       "official_url": "https://gspa.pusan.ac.kr/gspa/10899/subview.do",
@@ -3845,6 +4536,8 @@
       "notes": "Official public 행정대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-gspa-grad-10906",
       "name": "부산대 행정대학원 공지사항 2",
       "official_url": "https://gspa.pusan.ac.kr/gspa/10906/subview.do",
@@ -3857,6 +4550,8 @@
       "notes": "Official public 행정대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-indu-grad-12739",
       "name": "부산대 산업대학원 공지사항",
       "official_url": "https://indu.pusan.ac.kr/indu/12739/subview.do",
@@ -3869,6 +4564,8 @@
       "notes": "Official public 산업대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-pegr-grad-10928",
       "name": "부산대 환경대학원 공지사항",
       "official_url": "https://pegr.pusan.ac.kr/pegr/10928/subview.do",
@@ -3881,6 +4578,8 @@
       "notes": "Official public 환경대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-technoent-grad-8364",
       "name": "부산대 기술창업대학원 학과공지사항",
       "official_url": "https://technoent.pusan.ac.kr/technoent/8364/subview.do",
@@ -3893,6 +4592,8 @@
       "notes": "Official public 기술창업대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-technoent-grad-8362",
       "name": "부산대 기술창업대학원 원우회공지",
       "official_url": "https://technoent.pusan.ac.kr/technoent/8362/subview.do",
@@ -3905,6 +4606,8 @@
       "notes": "Official public 기술창업대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-gsf-event-12868",
       "name": "부산대 금융대학원 특강·세미나",
       "official_url": "https://gsf.pusan.ac.kr/gsf/12868/subview.do",
@@ -3917,6 +4620,8 @@
       "notes": "Official public 금융대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-gsf-grad-12869",
       "name": "부산대 금융대학원 공지사항",
       "official_url": "https://gsf.pusan.ac.kr/gsf/12869/subview.do",
@@ -3929,6 +4634,8 @@
       "notes": "Official public 금융대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-biomedical-grad-4898",
       "name": "부산대 융합의생명과학대학원 공통 공지사항",
       "official_url": "https://biomedical.pusan.ac.kr/biomedical/4898/subview.do",
@@ -3941,6 +4648,8 @@
       "notes": "Official public 융합의생명과학대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-biomedical-grad-4899",
       "name": "부산대 융합의생명과학대학원 보건학과 공지사항",
       "official_url": "https://biomedical.pusan.ac.kr/biomedical/4899/subview.do",
@@ -3953,6 +4662,8 @@
       "notes": "Official public 융합의생명과학대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-biomedical-grad-4900",
       "name": "부산대 융합의생명과학대학원 임상바이오융합과 공지사항",
       "official_url": "https://biomedical.pusan.ac.kr/biomedical/4900/subview.do",
@@ -3965,6 +4676,8 @@
       "notes": "Official public 융합의생명과학대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-biomedical-grad-4901",
       "name": "부산대 융합의생명과학대학원 임상유전상담학과 공지사항",
       "official_url": "https://biomedical.pusan.ac.kr/biomedical/4901/subview.do",
@@ -3977,6 +4690,8 @@
       "notes": "Official public 융합의생명과학대학원 board. Selected from the local actionable source backlog. Status in backlog: public_notice_candidate."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-general-grad-14856",
       "name": "부산대 일반대학원 공지",
       "official_url": "https://graduate.pusan.ac.kr/graduate/14856/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGZ3JhZHVhdGUlMkYyMTE2JTJGYXJ0Y2xMaXN0LmRvJTNG",
@@ -3989,6 +4704,8 @@
       "notes": "Official public graduate school notice board. User-confirmed URL added to the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-dent-grad-3456",
       "name": "부산대 치의학전문대학원 공지",
       "official_url": "https://dent.pusan.ac.kr/newdent/3456/subview.do",
@@ -4001,6 +4718,8 @@
       "notes": "Official public graduate school notice board. User-confirmed URL added to the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-gsedu-grad-12989",
       "name": "부산대 교육대학원 공지",
       "official_url": "https://gsedu.pusan.ac.kr/gsedu/12989/subview.do",
@@ -4013,6 +4732,8 @@
       "notes": "Official public graduate school notice board. User-confirmed URL added to the local actionable source backlog."
     },
     {
+      "critical": false,
+      "max_staleness_minutes": 1440,
       "id": "pnu-graduate-gsns-grad-6765",
       "name": "부산대 간호과학대학원 공지",
       "official_url": "https://gsns.pusan.ac.kr/APN/6765/subview.do",

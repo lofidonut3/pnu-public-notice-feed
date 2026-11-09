@@ -8,6 +8,7 @@ from urllib.parse import parse_qs, urljoin, urlparse
 from urllib.request import Request, urlopen
 
 from .types import Notice, Source
+from .html_dates import publication_date
 
 USER_AGENT = "PNUPublicNoticeFeed/0.1 (+https://github.com/pnu-public-notice-feed)"
 
@@ -100,10 +101,7 @@ def normalize_text(value: str) -> str:
 
 
 def _date_from_text(value: str) -> str | None:
-    match = re.search(r"(20\d{2})[./-](\d{1,2})[./-](\d{1,2})", value)
-    if not match:
-        return None
-    return f"{match.group(1)}-{match.group(2).zfill(2)}-{match.group(3).zfill(2)}"
+    return publication_date(value)
 
 
 def _to_notices(source: Source, items: list[HtmlListNotice]) -> list[Notice]:
