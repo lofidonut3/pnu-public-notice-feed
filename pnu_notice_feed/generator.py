@@ -2055,6 +2055,16 @@ def source_status_signature(source: dict) -> dict:
         "error_type": source.get("error_type"),
         "error_count": source.get("error_count"),
         "skipped_reason": skipped_reason,
+        # A successful real poll is a freshness heartbeat even if no notice
+        # changed. Poll-interval skips retain the previous success timestamp.
+        "last_success_at": source.get("last_success_at"),
+        "enabled": source.get("enabled"),
+        "critical": source.get("critical"),
+        "max_staleness_minutes": source.get("max_staleness_minutes"),
+        "detail_check_limit": source.get("detail_check_limit"),
+        "detail_check_ttl_hours": source.get("detail_check_ttl_hours"),
+        "detail_check_error_count": source.get("detail_check_error_count"),
+        "noncritical_fetch_attempts": source.get("noncritical_fetch_attempts"),
     }
 
 

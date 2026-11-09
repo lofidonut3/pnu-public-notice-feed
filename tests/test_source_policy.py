@@ -50,3 +50,11 @@ def test_registered_transient_source_has_one_bounded_retry_without_relaxing_vali
     result=fetch_source_result(source,80,'2026-11-09T17:40:00+09:00',fetch_attempts=2)
     assert result.status=='ok'
     assert len(attempts)==2
+
+
+def test_successful_poll_refreshes_public_health_even_without_new_notices():
+    old={'id':'source','status':'ok','last_success_at':'2026-11-09T17:00:00+09:00'}
+    checked={**old,'last_success_at':'2026-11-09T17:30:00+09:00'}
+    skipped={**old,'status':'skipped','skipped_reason':'poll_interval'}
+    assert generator.source_status_signature(old)!=generator.source_status_signature(checked)
+    assert generator.source_status_signature(old)==generator.source_status_signature(skipped)
