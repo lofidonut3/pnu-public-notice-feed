@@ -37,3 +37,5 @@ class Notice:
     tags: list[str]
     content_hash: str
     detail_checked_at: str | None = None
+    detail_content_hash: str | None = None
+    detail_check_error: str | None = None

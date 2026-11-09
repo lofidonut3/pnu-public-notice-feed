@@ -2,6 +2,27 @@ from pnu_notice_feed.archive import build_archive_documents, build_recent_events
 from pnu_notice_feed.generator import CONTENT_TEXT_NOTICE
 
 
+def test_body_fingerprint_baseline_is_quiet_but_later_body_edit_emits_update():
+    docs,index=build_archive_documents(_feed([_item('1','list-hash')]))
+    baseline=_item('1','list-plus-body')
+    baseline['_pnu']['detail_content_hash']='body-v1'
+    next_docs,next_index=build_archive_documents(_feed([baseline]),existing_archive_docs=docs,previous_index=index)
+    assert next_index['event_count']==1
+    changed=_item('1','list-plus-changed-body')
+    changed['_pnu']['detail_content_hash']='body-v2'
+    final_docs,final_index=build_archive_documents(_feed([changed]),existing_archive_docs=next_docs,previous_index=next_index)
+    assert final_index['event_count']==2
+    assert final_docs['2026-06']['events'][-1]['event_type']=='updated'
+
+
+def test_verified_replatform_baseline_does_not_replay_old_notice_as_new():
+    item=_item('1','migration-hash')
+    item['_pnu']['migration_baseline']=True
+    docs,index=build_archive_documents(_feed([item]))
+    assert index['event_count']==0
+    assert docs['2026-06']['items'][0]['_archive']['baseline_imported_at']
+
+
 def test_archive_documents_create_added_event_for_new_notice():
     archive_docs, index = build_archive_documents(
         _feed([_item("1", "hash-1")]),

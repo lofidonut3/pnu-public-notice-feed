@@ -1,4 +1,7 @@
 from scripts.dispatch_feed_update import build_dispatch_payload
+from urllib.error import HTTPError
+import pytest
+from scripts import dispatch_feed_update as dispatch
 
 
 def test_build_dispatch_payload_uses_cursor_as_wake_hint():
@@ -41,3 +44,16 @@ def test_build_dispatch_payload_skips_metadata_only_run():
             }
         }
     ) is None
+
+
+def test_permanent_auth_failure_is_not_retried_or_leaked(monkeypatch):
+    calls=[]
+    def reject(request,timeout):
+        calls.append(request.full_url)
+        raise HTTPError(request.full_url,401,'Unauthorized',{},None)
+    monkeypatch.setattr(dispatch,'urlopen',reject)
+    monkeypatch.setattr(dispatch.time,'sleep',lambda _: (_ for _ in ()).throw(AssertionError('permanent auth error retried')))
+    with pytest.raises(RuntimeError,match='HTTP 401') as failure:
+        dispatch.dispatch_repository_event('owner/repo','synthetic-test-secret',{})
+    assert len(calls)==1
+    assert 'synthetic-test-secret' not in str(failure.value)

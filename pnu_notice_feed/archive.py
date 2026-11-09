@@ -6,6 +6,8 @@ import json
 import shutil
 from pathlib import Path
 from typing import Any
+from .detail_fingerprint import is_detail_baseline_only
+from .io_utils import write_utf8_if_changed
 
 ARCHIVE_VERSION = "0.4"
 EVENT_STREAM_VERSION = "0.4"
@@ -71,6 +73,7 @@ def build_archive_documents(
         existing = archived_items.get(item_id)
 
         if existing is None:
+            is_migration_baseline = bool(item.get("_pnu", {}).get("migration_baseline"))
             item_month = archive_month_for_item(item, seen_at)
             archived_item = archive_item(
                 item,
@@ -78,14 +81,14 @@ def build_archive_documents(
                 first_seen_at=seen_at,
                 last_seen_at=seen_at,
                 last_changed_at=seen_at,
-                baseline_imported_at=seen_at if is_baseline_item else None,
+                baseline_imported_at=seen_at if is_baseline_item or is_migration_baseline else None,
             )
             archive_docs = upsert_archive_item(archive_docs, item_month, archived_item)
             touched_months = {
                 *touched_months,
                 item_month,
             }
-            if not is_baseline_item:
+            if not is_baseline_item and not is_migration_baseline:
                 archive_docs = add_event(
                     archive_docs,
                     event_type="added",
@@ -102,7 +105,7 @@ def build_archive_documents(
 
         existing_month, existing_item = existing
         previous_hash = item_content_hash(existing_item)
-        if previous_hash == current_hash:
+        if previous_hash == current_hash or is_detail_baseline_only(existing_item, item):
             existing_archive = existing_item.get("_archive", {})
             archived_item = archive_item(
                 item,
@@ -912,11 +915,7 @@ def cleanup_legacy_archive_outputs(archive_dir: Path) -> None:
 
 
 def write_json_if_changed(path: Path, value: dict, pretty: bool) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    content = json_text(value, pretty)
-    if path.exists() and path.read_text(encoding="utf-8") == content:
-        return
-    path.write_text(content, encoding="utf-8")
+    write_utf8_if_changed(path,json_text(value,pretty))
 
 
 def json_text(value: dict, pretty: bool) -> str:

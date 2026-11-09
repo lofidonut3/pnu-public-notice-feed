@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import dataclass
+from datetime import datetime, timezone
 import json
 from pathlib import Path
 import sys
@@ -44,6 +45,8 @@ class Thresholds:
     max_state_mib: float | None
     min_event_count: int
     fail_on_truncated_events: bool
+    max_feed_age_minutes: int | None = 120
+    max_source_age_minutes: int | None = 1440
 
 
 @dataclass(frozen=True)
@@ -64,6 +67,8 @@ def main(argv: list[str] | None = None) -> int:
         max_state_mib=args.max_state_mib,
         min_event_count=args.min_event_count,
         fail_on_truncated_events=args.fail_on_truncated_events,
+        max_feed_age_minutes=args.max_feed_age_minutes,
+        max_source_age_minutes=args.max_source_age_minutes,
     )
     try:
         report = check_feed_health(
@@ -159,6 +164,8 @@ def parse_args(argv: list[str] | None) -> argparse.Namespace:
         action="store_true",
         help="Fail if events.json is truncated. By default this is only a warning.",
     )
+    parser.add_argument("--max-feed-age-minutes", type=int, default=120)
+    parser.add_argument("--max-source-age-minutes", type=int, default=1440)
     return parser.parse_args(argv)
 
 
@@ -168,6 +175,7 @@ def check_feed_health(
     base_url: str | None,
     timeout_seconds: int,
     thresholds: Thresholds,
+    now: datetime | None = None,
 ) -> HealthReport:
     index = load_json("index.json", public_dir, base_url, timeout_seconds)
     events = load_json("events.json", public_dir, base_url, timeout_seconds)
@@ -180,7 +188,7 @@ def check_feed_health(
         events=events,
         latest=latest,
     )
-    return build_report(index.data, events.data, latest.data, sizes, thresholds)
+    return build_report(index.data, events.data, latest.data, sizes, thresholds, now=now)
 
 
 def load_json(
@@ -245,6 +253,7 @@ def build_report(
     latest: dict[str, Any],
     sizes: SizeSummary,
     thresholds: Thresholds,
+    now: datetime | None = None,
 ) -> HealthReport:
     warnings: list[str] = []
     issues: list[str] = []
@@ -256,6 +265,32 @@ def build_report(
     overall_status = string_value(status, "overall_status")
     source_count = int_value(status, "source_count")
     sources = list_value(status, "sources")
+    checked_at = now or datetime.now(timezone.utc)
+
+    def check_age(label: str, value: Any, limit: int) -> None:
+        try:
+            stamp = datetime.fromisoformat(str(value))
+            if stamp.tzinfo is None:
+                raise ValueError("timestamp needs timezone")
+            age = (checked_at - stamp).total_seconds() / 60
+        except (ValueError, TypeError):
+            issues.append(f"{label} has missing or invalid timestamp")
+            return
+        if age < -5:
+            issues.append(f"{label} timestamp is in the future")
+        elif age > limit:
+            issues.append(f"{label} is stale ({age:.0f} minutes; limit {limit})")
+
+    if thresholds.max_feed_age_minutes is not None:
+        check_age("feed", index.get("generated_at"), thresholds.max_feed_age_minutes)
+    if thresholds.max_source_age_minutes is not None:
+        for source in sources:
+            if source.get("enabled") is False or source.get("status") == "disabled":
+                continue
+            if source.get("detail_check_error_count", 0):
+                issues.append(f"source {source.get('id')} has failed detail fingerprint checks")
+            limit = int(source.get("max_staleness_minutes") or thresholds.max_source_age_minutes)
+            check_age(f"source {source.get('id')}", source.get("last_success_at"), limit)
     degraded_count = int_value(
         status,
         "degraded_source_count",

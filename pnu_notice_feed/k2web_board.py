@@ -8,6 +8,7 @@ from urllib.parse import urlencode, urljoin
 from urllib.request import Request, urlopen
 
 from .types import Notice, Source
+from .html_dates import publication_date
 
 USER_AGENT = "PNUPublicNoticeFeed/0.1 (+https://github.com/pnu-public-notice-feed)"
 DEFAULT_MAX_CATCHUP_PAGES = 50
@@ -243,14 +244,12 @@ def parse_k2web_list(html_text: str, base_url: str) -> list[K2WebListNotice]:
 
 
 def normalize_text(value: str) -> str:
-    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", value))).strip()
+    text = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", value))).strip()
+    return re.sub(r"\s+새글\s*$", "", text).strip()
 
 
 def _date_from_row(row: str) -> str | None:
-    match = re.search(r"(20\d{2})[./-](\d{1,2})[./-](\d{1,2})", row)
-    if not match:
-        return None
-    return f"{match.group(1)}-{match.group(2).zfill(2)}-{match.group(3).zfill(2)}"
+    return publication_date(row)
 
 
 def _is_pinned_row(row: str) -> bool:
