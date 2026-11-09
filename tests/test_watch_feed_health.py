@@ -1,11 +1,45 @@
 import io
 import json
+import pytest
 from datetime import datetime,timezone
+from urllib.error import HTTPError
 from scripts import watch_feed_health as watchdog
 
 
 class Response(io.BytesIO):
     status=204
+
+
+@pytest.mark.parametrize('code,readback_recovers', [(404,True),(404,False),(403,False)])
+def test_new_run_readback_is_bounded_and_never_repeats_dispatch(monkeypatch,code,readback_recovers):
+    calls=[]
+    reads=0
+    sleeps=[]
+    def request(req,timeout):
+        nonlocal reads
+        calls.append(req)
+        if '/actions/runs/123' in req.full_url:
+            reads+=1
+            if reads==1 or not readback_recovers:
+                raise HTTPError(req.full_url,code,'synthetic read-back failure',{},None)
+            payload={'id':123,'event':'workflow_dispatch','head_branch':'main'}
+        elif req.get_method()=='POST':
+            payload={'workflow_run_id':123}
+        else:
+            payload={'workflow_runs':[]}
+        response=Response(json.dumps(payload).encode())
+        response.status=200
+        return response
+    monkeypatch.setattr(watchdog,'urlopen',request)
+    monkeypatch.setattr(watchdog.time,'sleep',sleeps.append)
+    if readback_recovers:
+        assert '(123)' in watchdog.wake_collection('owner/repo','test-credential')
+    else:
+        with pytest.raises(HTTPError):
+            watchdog.wake_collection('owner/repo','test-credential')
+    assert sum(call.get_method()=='POST' for call in calls)==1
+    assert reads==(2 if code==404 else 1)
+    assert sleeps==([1] if code==404 else [])
 
 
 def test_current_api_dispatch_response_is_read_back_before_success(monkeypatch):
