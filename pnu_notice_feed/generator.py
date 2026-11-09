@@ -12,6 +12,7 @@ from datetime import datetime, timedelta
 from email.utils import format_datetime
 from pathlib import Path
 from urllib.parse import urlparse
+from urllib.error import HTTPError
 from xml.etree import ElementTree
 from zoneinfo import ZoneInfo
 
@@ -317,6 +318,7 @@ class PublicSource:
     detail_check_limit: int = 0
     detail_check_ttl_hours: int = 12
     baseline_notice_ids: tuple[str, ...] = ()
+    fetch_attempts: int = 1
 
     @classmethod
     def from_json(cls, data: dict) -> "PublicSource":
@@ -351,6 +353,7 @@ class PublicSource:
             detail_check_limit=int(data.get("detail_check_limit", 0)),
             detail_check_ttl_hours=int(data.get("detail_check_ttl_hours", 12)),
             baseline_notice_ids=tuple(str(value) for value in data.get("baseline_notice_ids", [])),
+            fetch_attempts=int(data.get("fetch_attempts", 1)),
         )
 
     def to_adapter_source(self) -> Source:
@@ -629,6 +632,8 @@ def validate_sources(sources: list[PublicSource]) -> None:
             raise ValueError(f"invalid detail-check budget: {source.id}")
         if any(not iid.startswith(source.id + ":") for iid in source.baseline_notice_ids):
             raise ValueError(f"baseline notice ID belongs to another source: {source.id}")
+        if not 1 <= source.fetch_attempts <= 3:
+            raise ValueError(f"invalid source fetch-attempt budget: {source.id}")
     ids = [source.id for source in sources]
     duplicate_ids = sorted({source_id for source_id in ids if ids.count(source_id) > 1})
     if duplicate_ids:
@@ -880,7 +885,7 @@ def fetch_source_with_retries(
     last_error: Exception | None = None
     max_attempts = positive_int(fetch_attempts, "fetch_attempts")
     if not source_is_critical(source):
-        max_attempts = 1
+        max_attempts = min(max_attempts, source.fetch_attempts)
     for attempt in range(max_attempts):
         try:
             notices = fetch_source(
@@ -897,6 +902,8 @@ def fetch_source_with_retries(
             return notices
         except Exception as error:  # noqa: BLE001 - retry source fetch boundaries.
             last_error = error
+            if isinstance(error, HTTPError) and 400 <= error.code < 500 and error.code not in {408, 429}:
+                break
             if attempt < max_attempts - 1:
                 time.sleep(min(2 ** attempt, 5))
     if last_error:
@@ -1713,6 +1720,7 @@ def source_to_status_json(result: SourceResult) -> dict:
         "detail_check_limit": result.source.detail_check_limit,
         "detail_check_ttl_hours": result.source.detail_check_ttl_hours,
         "detail_check_error_count": sum(bool(item.get("_pnu", {}).get("detail_check_error")) for item in result.items),
+        "noncritical_fetch_attempts": result.source.fetch_attempts,
         "status": result.status,
         "last_checked_at": result.checked_at,
         "last_success_at": result.last_success_at,
@@ -2047,6 +2055,16 @@ def source_status_signature(source: dict) -> dict:
         "error_type": source.get("error_type"),
         "error_count": source.get("error_count"),
         "skipped_reason": skipped_reason,
+        # A successful real poll is a freshness heartbeat even if no notice
+        # changed. Poll-interval skips retain the previous success timestamp.
+        "last_success_at": source.get("last_success_at"),
+        "enabled": source.get("enabled"),
+        "critical": source.get("critical"),
+        "max_staleness_minutes": source.get("max_staleness_minutes"),
+        "detail_check_limit": source.get("detail_check_limit"),
+        "detail_check_ttl_hours": source.get("detail_check_ttl_hours"),
+        "detail_check_error_count": source.get("detail_check_error_count"),
+        "noncritical_fetch_attempts": source.get("noncritical_fetch_attempts"),
     }
 
 

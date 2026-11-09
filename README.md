@@ -69,6 +69,7 @@ For a concrete optional reference CLI/helper that keeps a local cursor, enriches
 - Archive files retain metadata only. Full notice text and attachment contents stay on official source URLs.
 - Schema changes are tracked with `_pnu.schema_version` and `_pnu.feed_version`.
 - Source importance, freshness budgets, and suspension reasons are explicit in `sources.json` and published source status. `status: disabled` means historical metadata is retained while that source is not polled or included in the latest-discovery feed. It must not be interpreted as a fresh successful source.
+- Successful real polls refresh published health timestamps even when no notices change. Ordinary poll-interval skips retain the previous successful observation, so a quiet board is distinguishable from a stalled collector.
 - Publication dates come from publication-date cells, never dates embedded in titles. Verified historical corrections retain canonical notice IDs, event IDs, and first observation times; notices move to the correct publication month and event archive references follow them.
 - The library's November 9, 2026 site migration changed upstream identifiers. Unique title/date matches and recorded upstream aliases preserve existing canonical IDs while official URLs change. Ambiguous or removed legacy records explicitly publish `content_access.availability`; do not fetch them as if they were available articles. A `replacement_url` is a current related record, not a promise that the original historical body is unchanged.
 - Selected scholarship, international and department boards check body fingerprints for the three newest visible notices at most once every 12 hours. Only the fingerprint is retained. Other K2Web records detect list metadata changes; this does not promise detection of every body/attachment change. Initial body fingerprints form a quiet baseline rather than a false update event.
@@ -137,6 +138,7 @@ The repository uses GitHub Actions:
 - Notification authentication failures are reported by the notification job and do not undo a successful deployment. Permanent HTTP 4xx authentication/configuration errors fail immediately rather than retrying the same invalid credential.
 - Feed freshness health reports failure when a critical source is degraded, when too many sources are degraded, or when the current generator state contains items that are missing from the durable archive. This report is non-blocking for publication; structural generation errors and size-budget violations remain blocking.
 - The production workflow keeps up to 80 notices per source and retries critical source fetches once before publishing degraded status.
+- Noncritical sources keep a single attempt unless their registry explicitly opts into a bounded retry. Glocal and museum boards allow two attempts because transient template responses were observed. Permanent HTTP 4xx errors fail immediately. Active noncritical freshness budgets allow three polling cycles, with a minimum of two hours; critical sources use two hours.
 
 GitHub Pages should use GitHub Actions as its source.
 

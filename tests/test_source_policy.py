@@ -35,3 +35,26 @@ def test_library_replatform_preserves_canonical_id_and_replaces_broken_url(monke
     assert item['id']==old['id']
     assert item['url']==new.url
     assert compact_state_item(item)['_pnu']['upstream_notice_id']==new.notice_id
+
+
+def test_registered_transient_source_has_one_bounded_retry_without_relaxing_validation(monkeypatch):
+    source=next(s for s in load_sources(Path(__file__).parents[1]/'sources.json') if s.id=='pnu-museum-notices')
+    attempts=[]
+    def fetch(*a,**k):
+        attempts.append(1)
+        if len(attempts)==1:
+            raise RuntimeError('K2Web catch-up boundary is missing and pagination is unavailable')
+        return [Notice(source.id,source.name,source.id+':1765472','전시 안내','https://pnumuseum.pusan.ac.kr/notice','2026-10-23',None,[],[],'hash')]
+    monkeypatch.setattr(generator,'fetch_source',fetch)
+    monkeypatch.setattr(generator.time,'sleep',lambda _:None)
+    result=fetch_source_result(source,80,'2026-11-09T17:40:00+09:00',fetch_attempts=2)
+    assert result.status=='ok'
+    assert len(attempts)==2
+
+
+def test_successful_poll_refreshes_public_health_even_without_new_notices():
+    old={'id':'source','status':'ok','last_success_at':'2026-11-09T17:00:00+09:00'}
+    checked={**old,'last_success_at':'2026-11-09T17:30:00+09:00'}
+    skipped={**old,'status':'skipped','skipped_reason':'poll_interval'}
+    assert generator.source_status_signature(old)!=generator.source_status_signature(checked)
+    assert generator.source_status_signature(old)==generator.source_status_signature(skipped)
