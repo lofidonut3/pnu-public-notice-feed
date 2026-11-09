@@ -137,6 +137,7 @@ The repository uses GitHub Actions:
 - Notification authentication failures are reported by the notification job and do not undo a successful deployment. Permanent HTTP 4xx authentication/configuration errors fail immediately rather than retrying the same invalid credential.
 - Feed freshness health reports failure when a critical source is degraded, when too many sources are degraded, or when the current generator state contains items that are missing from the durable archive. This report is non-blocking for publication; structural generation errors and size-budget violations remain blocking.
 - The production workflow keeps up to 80 notices per source and retries critical source fetches once before publishing degraded status.
+- Noncritical sources keep a single attempt unless their registry explicitly opts into a bounded retry. Glocal and museum boards allow two attempts because transient template responses were observed. Permanent HTTP 4xx errors fail immediately. Active noncritical freshness budgets allow three polling cycles, with a minimum of two hours; critical sources use two hours.
 
 GitHub Pages should use GitHub Actions as its source.
 
