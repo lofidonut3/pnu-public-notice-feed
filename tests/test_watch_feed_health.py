@@ -8,6 +8,20 @@ class Response(io.BytesIO):
     status=204
 
 
+def test_current_api_dispatch_response_is_read_back_before_success(monkeypatch):
+    calls=[]
+    replies=[{'workflow_runs':[]},{'workflow_run_id':123},{'id':123,'event':'workflow_dispatch','head_branch':'main'}]
+    def request(req,timeout):
+        calls.append(req)
+        result=Response(json.dumps(replies.pop(0)).encode())
+        result.status=200
+        return result
+    monkeypatch.setattr(watchdog,'urlopen',request)
+    assert '(123)' in watchdog.wake_collection('owner/repo','test-credential')
+    assert calls[-1].full_url.endswith('/actions/runs/123')
+    assert calls[1].headers['X-github-api-version']=='2026-03-10'
+
+
 def test_watchdog_dispatches_one_bounded_wake_and_does_not_claim_recovery(monkeypatch):
     calls=[]
     def request(req,timeout):

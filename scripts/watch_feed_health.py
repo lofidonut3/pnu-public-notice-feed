@@ -13,7 +13,7 @@ else:
 
 def wake_collection(repository: str, token: str, *, now: datetime | None = None) -> str:
     """Do not start duplicate runs or repeatedly retry authentication failures."""
-    headers = {'Accept':'application/vnd.github+json', 'Authorization':f'Bearer {token}', 'User-Agent':'PNU-feed-watchdog/1.0'}
+    headers = {'Accept':'application/vnd.github+json', 'Authorization':f'Bearer {token}', 'User-Agent':'PNU-feed-watchdog/1.0', 'X-GitHub-Api-Version':'2026-03-10'}
     base = f'https://api.github.com/repos/{repository}/actions/workflows/update-feed.yml'
     with urlopen(Request(base+'/runs?per_page=5', headers=headers), timeout=20) as response:
         runs = json.load(response)['workflow_runs']
@@ -26,9 +26,22 @@ def wake_collection(repository: str, token: str, *, now: datetime | None = None)
         return 'Automatic wake-up budget exhausted after three failed collection runs; operator action is required.'
     request = Request(base+'/dispatches', data=json.dumps({'ref':'main'}).encode(), method='POST', headers={**headers,'Content-Type':'application/json'})
     with urlopen(request, timeout=20) as response:
-        if response.status != 204:
+        if response.status == 200:
+            created = json.load(response)
+            run_id = created.get('workflow_run_id')
+            if not isinstance(run_id,int) or isinstance(run_id,bool) or run_id < 1:
+                raise RuntimeError('Collection wake-up did not return a valid run ID')
+        elif response.status == 204:
+            run_id = None
+        else:
             raise RuntimeError(f'Unexpected collection wake-up status: {response.status}')
-    return 'Requested one collection run. Freshness must still be verified by the next monitor.'
+    if run_id is not None:
+        url=f'https://api.github.com/repos/{repository}/actions/runs/{run_id}'
+        with urlopen(Request(url,headers=headers),timeout=20) as response:
+            observed=json.load(response)
+        if observed.get('id') != run_id or observed.get('event') != 'workflow_dispatch' or observed.get('head_branch') != 'main':
+            raise RuntimeError('Collection wake-up read-back did not match the requested workflow')
+    return f'Requested one collection run{f" ({run_id})" if run_id else ""}. Freshness must still be verified by the next monitor.'
 
 
 def main(argv=None):
