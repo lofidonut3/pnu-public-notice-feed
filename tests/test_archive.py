@@ -1,4 +1,6 @@
-from pnu_notice_feed.archive import build_archive_documents, build_recent_events_document
+import json
+
+from pnu_notice_feed.archive import build_archive_documents, build_recent_events_document, write_archive_outputs
 from pnu_notice_feed.generator import CONTENT_TEXT_NOTICE
 
 
@@ -71,6 +73,23 @@ def test_archive_documents_do_not_append_event_when_hash_is_unchanged():
 
     assert next_archive_docs == archive_docs
     assert next_index == index
+
+
+def test_quiet_poll_updates_health_heartbeat_without_changing_archive_or_events(tmp_path):
+    index, events = write_archive_outputs(tmp_path, _feed([_item("1", "hash-1")]), True)
+    (tmp_path / "index.json").write_text(json.dumps({"archives": index}), encoding="utf-8")
+    original_archive = (tmp_path / "archive/2026-06.json").read_bytes()
+    checked_at = "2026-06-03T18:00:00+09:00"
+    next_index, next_events = write_archive_outputs(
+        tmp_path, _feed([_item("1", "hash-1")], generated_at=checked_at), True
+    )
+    assert (tmp_path / "archive/2026-06.json").read_bytes() == original_archive
+    assert next_index == index
+    assert next_events["events"] == events["events"]
+    assert next_events["latest_event_id"] == events["latest_event_id"]
+    assert next_events["generated_at"] == events["generated_at"]
+    assert next_events["checked_at"] == checked_at
+    assert next_events["checked_at"] != events["checked_at"]
 
 
 def test_archive_documents_append_updated_event_when_hash_changes():
