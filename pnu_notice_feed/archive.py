@@ -27,6 +27,9 @@ def write_archive_outputs(output_dir: Path, feed: dict, pretty: bool) -> tuple[d
         pretty=pretty,
     )
     recent_events = build_recent_events_document(next_archive_docs, archive_index)
+    # Archive modification time deliberately stays stable when no notice changes.
+    # Consumers still need the publisher's successful polling heartbeat.
+    recent_events["checked_at"] = feed.get("_pnu", {}).get("generated_at")
 
     cleanup_legacy_archive_outputs(archive_dir)
     for month, doc in next_archive_docs.items():

@@ -30,6 +30,10 @@
     "generated_at": {
       "type": ["string", "null"]
     },
+    "checked_at": {
+      "type": ["string", "null"],
+      "description": "Publisher polling heartbeat; may advance without notice or archive changes. Prefer this field for freshness, falling back to generated_at for older feeds."
+    },
     "timezone": {
       "type": "string"
     },
