@@ -44,29 +44,3 @@ jobs:
           python-version: "3.12"
       - name: Verify deployed freshness and contracts
         run: python3 scripts/check_feed_health.py --base-url "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
-
-  notify:
-    needs: deploy
-    runs-on: ubuntu-latest
-    timeout-minutes: 3
-    permissions:
-      contents: read
-      actions: read
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{ github.event.workflow_run.head_sha }}
-      - uses: actions/download-artifact@v5
-        with:
-          name: feed-output
-          path: public
-          run-id: ${{ github.event.workflow_run.id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-      - name: Dispatch new notice wake signal
-        env:
-          WATCH_DISPATCH_REPOSITORY: ${{ vars.WATCH_DISPATCH_REPOSITORY || 'lofidonut3/pnu-notice-agent-tools' }}
-          WATCH_DISPATCH_TOKEN: ${{ secrets.WATCH_DISPATCH_TOKEN }}
-        run: python3 scripts/dispatch_feed_update.py
