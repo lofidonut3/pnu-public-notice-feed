@@ -41,7 +41,8 @@ def main(argv=None):
     print('\n'.join(report.lines))
     for issue in report.issues:
         print(f'ERROR: {issue}', file=sys.stderr)
-    if report.issues:
+    exercise_recovery = os.environ.get('PNU_WATCHDOG_EXERCISE_RECOVERY') == '1'
+    if report.issues or exercise_recovery:
         token = os.environ.get('GITHUB_TOKEN')
         repository = os.environ.get('GITHUB_REPOSITORY')
         if token and repository:
@@ -50,7 +51,11 @@ def main(argv=None):
             except Exception as error:
                 # No response bodies, credentials or request headers in logs.
                 print(f'Collection wake-up failed: {type(error).__name__}',file=sys.stderr)
-        return 1
+                return 2
+        elif exercise_recovery:
+            print('Recovery exercise requires the repository-scoped Actions credential.',file=sys.stderr)
+            return 2
+        return 1 if report.issues else 0
     return 0
 
 

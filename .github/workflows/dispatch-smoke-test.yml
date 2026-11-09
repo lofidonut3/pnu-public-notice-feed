@@ -51,6 +51,7 @@ jobs:
                   "events_url": DEFAULT_EVENTS_URL,
                   "smoke_test": True,
               },
+              event_type="pnu-feed-auth-check",
           )
           print(f"Repository dispatch smoke test sent to {repository}.")
           PY

@@ -41,3 +41,13 @@ def test_watchdog_stops_automatic_wakes_after_three_failed_runs(monkeypatch):
     result=watchdog.wake_collection('owner/repo','test-credential')
     assert len(calls)==1
     assert 'budget exhausted' in result
+
+
+def test_controlled_recovery_exercise_does_not_claim_success_when_dispatch_fails(monkeypatch):
+    from scripts.check_feed_health import HealthReport
+    monkeypatch.setattr(watchdog,'check_feed_health',lambda *a:HealthReport(['healthy'],[],[]))
+    monkeypatch.setenv('PNU_WATCHDOG_EXERCISE_RECOVERY','1')
+    monkeypatch.setenv('GITHUB_REPOSITORY','owner/repo')
+    monkeypatch.setenv('GITHUB_TOKEN','test-credential')
+    monkeypatch.setattr(watchdog,'wake_collection',lambda *a: (_ for _ in ()).throw(RuntimeError('synthetic failure')))
+    assert watchdog.main([])==2
