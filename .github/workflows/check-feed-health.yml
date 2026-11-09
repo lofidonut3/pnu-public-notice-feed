@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "17,47 * * * *"
   workflow_dispatch:
+    inputs:
+      exercise_recovery:
+        description: Request one bounded collection wake-up even when healthy
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -24,4 +29,5 @@ jobs:
       - name: Check deployed freshness and wake collection if unhealthy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PNU_WATCHDOG_EXERCISE_RECOVERY: ${{ github.event_name == 'workflow_dispatch' && inputs.exercise_recovery && '1' || '0' }}
         run: python3 scripts/watch_feed_health.py --base-url "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
