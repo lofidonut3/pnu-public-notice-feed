@@ -3,7 +3,9 @@ from __future__ import annotations
 import json
 import os
 import sys
+import time
 from datetime import datetime, timezone
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 if __package__:
     from .check_feed_health import parse_args, Thresholds, HealthReport, check_feed_health
@@ -37,8 +39,18 @@ def wake_collection(repository: str, token: str, *, now: datetime | None = None)
             raise RuntimeError(f'Unexpected collection wake-up status: {response.status}')
     if run_id is not None:
         url=f'https://api.github.com/repos/{repository}/actions/runs/{run_id}'
-        with urlopen(Request(url,headers=headers),timeout=20) as response:
-            observed=json.load(response)
+        for attempt in range(2):
+            try:
+                with urlopen(Request(url,headers=headers),timeout=20) as response:
+                    observed=json.load(response)
+                break
+            except HTTPError as error:
+                # A newly accepted run may not yet be visible. Retry only this
+                # read once; never repeat the dispatch or mask access failures.
+                if error.code != 404 or attempt:
+                    raise
+                error.close()
+                time.sleep(1)
         if observed.get('id') != run_id or observed.get('event') != 'workflow_dispatch' or observed.get('head_branch') != 'main':
             raise RuntimeError('Collection wake-up read-back did not match the requested workflow')
     return f'Requested one collection run{f" ({run_id})" if run_id else ""}. Freshness must still be verified by the next monitor.'
@@ -63,7 +75,8 @@ def main(argv=None):
                 print(wake_collection(repository,token))
             except Exception as error:
                 # No response bodies, credentials or request headers in logs.
-                print(f'Collection wake-up failed: {type(error).__name__}',file=sys.stderr)
+                detail = f'HTTP {error.code}' if isinstance(error, HTTPError) else type(error).__name__
+                print(f'Collection wake-up failed: {detail}',file=sys.stderr)
                 return 2
         elif exercise_recovery:
             print('Recovery exercise requires the repository-scoped Actions credential.',file=sys.stderr)
