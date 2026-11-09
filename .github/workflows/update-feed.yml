@@ -80,3 +80,14 @@ jobs:
       - name: Report feed freshness
         continue-on-error: true
         run: python3 -m pnu_notice_feed.generator --check-feed-health
+
+  deploy:
+    needs: collect
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy-feed.yml
+    with:
+      collection_run_id: ${{ github.run_id }}

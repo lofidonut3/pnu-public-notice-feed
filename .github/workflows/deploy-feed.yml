@@ -1,10 +1,12 @@
 name: Deploy public notice feed
 
 on:
-  workflow_run:
-    workflows: [Update public notice feed]
-    types: [completed]
-    branches: [main]
+  workflow_call:
+    inputs:
+      collection_run_id:
+        description: Successful caller run containing the validated feed artifact
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -14,7 +16,6 @@ permissions:
 
 jobs:
   deploy:
-    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_repository.full_name == github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
@@ -26,12 +27,12 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.sha }}
       - uses: actions/download-artifact@v5
         with:
           name: feed-output
           path: public
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ inputs.collection_run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
