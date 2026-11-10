@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-10T12:02:24+09:00",
+  "generated_at": "2026-11-10T13:17:21+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 20099,
+  "total_event_count": 20100,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-10T12:02:24+09:00|added|pnu-main-faculty-staff-recruitment:1512098|5b3055e4a65a",
-  "oldest_event_id": "2026-11-03T19:42:18+09:00|updated|pnu-academic-cse-career-14234:1468469|9a55744f4b00",
+  "latest_event_id": "2026-11-10T13:17:21+09:00|added|pnu-library-notices:blqqipnt66gf77qp|c2dc97dcadcc",
+  "oldest_event_id": "2026-11-03T19:42:18+09:00|updated|pnu-academic-cse-event-14236:1468472|e6a9fa5eeb0a",
   "oldest_seen_at": "2026-11-03T19:42:18+09:00",
-  "latest_seen_at": "2026-11-10T12:02:24+09:00",
+  "latest_seen_at": "2026-11-10T13:17:21+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-03T19:42:18+09:00|updated|pnu-academic-cse-career-14234:1468469|9a55744f4b00",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-cse-career-14234:1468469",
-      "source_id": "pnu-academic-cse-career-14234",
-      "source_name": "부산대 정보컴퓨터공학부 채용게시판",
-      "source_category": "academic_unit_career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "career"
-      ],
-      "seen_at": "2026-11-03T19:42:18+09:00",
-      "published_at": "2026-10-27",
-      "title": "[채용] 피에스케이(주) 채용설명회 개최 안내(반도체,SW/11.9.)",
-      "url": "https://cse.pusan.ac.kr/bbs/cse/2060/1468469/artclView.do",
-      "topics": [
-        "career",
-        "recruitment",
-        "event"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-cse-career-14234:1468469",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-cse-career-14234"
-      ],
-      "content_hash": "9a55744f4b009662ea159882f39d1622844741eda82ce7feff3237d43c825dae",
-      "previous_content_hash": "2c55e85457dbe1387264387d69ca9c17fa2976a273ad9107ba3ad67b7b201322",
-      "archive_file": "./archive/2026-10.json",
-      "archive_item_id": "pnu-academic-cse-career-14234:1468469"
-    },
     {
       "event_id": "2026-11-03T19:42:18+09:00|updated|pnu-academic-cse-event-14236:1468472|e6a9fa5eeb0a",
       "event_type": "updated",
@@ -34581,7 +34546,37 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-main-faculty-staff-recruitment:1512098"
+    },
+    {
+      "event_id": "2026-11-10T13:17:21+09:00|added|pnu-library-notices:blqqipnt66gf77qp|c2dc97dcadcc",
+      "event_type": "added",
+      "notice_id": "pnu-library-notices:blqqipnt66gf77qp",
+      "source_id": "pnu-library-notices",
+      "source_name": "부산대 도서관 공지사항",
+      "source_category": "library_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "library"
+      ],
+      "seen_at": "2026-11-10T13:17:21+09:00",
+      "published_at": "2026-11-10",
+      "title": "[부산캠퍼스] 2026학년도 11월 도서관 정보활용교육  안내",
+      "url": "https://lib.pusan.ac.kr/guide/notice/blqqipnt66gf77qp",
+      "topics": [
+        "library"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-library-notices:blqqipnt66gf77qp",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-library-notices"
+      ],
+      "content_hash": "c2dc97dcadcc4701bbafd0c2b23fa33ec052a4eda0b61586ea76e5a83fa90706",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-library-notices:blqqipnt66gf77qp"
     }
   ],
-  "checked_at": "2026-11-10T12:47:25+09:00"
+  "checked_at": "2026-11-10T13:17:21+09:00"
 }
