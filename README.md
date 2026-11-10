@@ -18,6 +18,8 @@ https://lofidonut3.github.io/pnu-public-notice-feed/
 
 Available endpoints:
 
+- [`agent.json`](https://lofidonut3.github.io/pnu-public-notice-feed/agent.json): lightweight entry point with the polling heartbeat, latest event cursor, and topic links
+- `topics/{topic}.json`: up to 20 deduplicated notice previews from the active source snapshot for one topic
 - [`index.json`](https://lofidonut3.github.io/pnu-public-notice-feed/index.json): manifest with endpoint URLs, sources, source status, archive manifest, same-notice groups, and diagnostics
 - [`events.json`](https://lofidonut3.github.io/pnu-public-notice-feed/events.json): primary recent event stream for cursor-based agent checks
 - [`latest.json`](https://lofidonut3.github.io/pnu-public-notice-feed/latest.json): JSON Feed 1.1 compatible latest-discovery notice metadata, currently limited to the latest 150 items globally
@@ -48,6 +50,21 @@ No project-specific client library is required. Any HTTP/JSON client can read `e
 
 For AI agents reading this repository directly, start with [`llms.txt`](./llms.txt), then use the published [`events.json`](https://lofidonut3.github.io/pnu-public-notice-feed/events.json) cursor stream and [`index.json`](https://lofidonut3.github.io/pnu-public-notice-feed/index.json) manifest.
 
+### Agent quickstart
+
+1. Read [`agent.json`](https://lofidonut3.github.io/pnu-public-notice-feed/agent.json) first. Resolve links relative to the document that contains them.
+2. For a quick topic lookup, follow the corresponding topic link. Topic files cover the current active-source snapshot. They report whether the result was truncated and are not historical search results.
+3. For ongoing monitoring, persist both `seen_at` and `event_id` after processing succeeds. Read events after the exact saved ID. If the recent window no longer contains that ID, recover through the monthly archives, including events that share its timestamp. Deduplicate replays by event ID. An older timestamp-only cursor must replay its boundary timestamp inclusively.
+4. Check `index.json.status` for source freshness. Follow the official URL for details such as application deadlines or eligibility. Archived notice metadata describes the latest recorded item and may differ from an earlier event.
+
+The [stdlib-only reader](./examples/read_feed.py) shows discovery, a bounded topic lookup and exact-cursor recovery. It prints the proposed next cursor without saving it.
+
+```bash
+python3 examples/read_feed.py
+python3 examples/read_feed.py --topic scholarship --limit 5
+python3 examples/read_feed.py --event-id "$last_event_id" --seen-at "$last_seen_at" --limit 5
+```
+
 ## Example Consumer
 
 For a concrete optional reference CLI/helper that keeps a local cursor, enriches events from archive metadata, and collapses same-notice duplicate groups, see [`pnu-notice-agent-tools`](https://github.com/lofidonut3/pnu-notice-agent-tools).
@@ -56,7 +73,7 @@ For a concrete optional reference CLI/helper that keeps a local cursor, enriches
 
 - Source refresh status is published in `index.json.status`.
 - Recent durable notice events are published in `events.json` for cursor-based agent checks.
-- Agents should store a local `latest_event_id` or `seen_at` cursor, then process newer events from `events.json`. If the cursor is older than the `events.json` window, use `index.json.archives` and monthly archive files.
+- Agents should store both event ID and observation time and advance only through successfully processed events. The event stream is ordered by `(seen_at, event_id)`. Recover from monthly archives when the saved ID is missing from the truncated window.
 - Events include routing metadata, duplicate metadata, topic hints, and monthly archive lookup fields. Full item metadata is available through `archive_file` and `archive_item_id`.
 - Use event `same_notice_group_id`, `canonical_item_id`, `is_canonical`, and `same_notice_source_ids` before sending notifications for multiple matching items from different sources. `index.json.same_notice_groups` provides the full same-notice manifest and fallback lookup.
 - Source polling is rate-limited by `sources.json` and cached in `cache/feed-state.json`.
