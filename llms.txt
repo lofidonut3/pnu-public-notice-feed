@@ -16,6 +16,8 @@ Published feed: https://lofidonut3.github.io/pnu-public-notice-feed/
 - [RSS](./public/rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
 - [Archive](./public/archive/YYYY-MM.json): monthly durable archive with notice metadata and observed events.
 - [OpenAPI manifest](./openapi.json): static endpoint manifest.
+- [Search API contract](./search-api.json): REST queries for archived notice metadata and recent changes.
+- [MCP server](https://xokvgxwdymctvdlidqpf.supabase.co/functions/v1/pnu-public-search/mcp): public read-only Streamable HTTP tools.
 - [Crawler hints](./public/sitemap.xml): sitemap and robots files for endpoint discovery.
 
 ## Machine-readable contracts
@@ -35,6 +37,15 @@ Published feed: https://lofidonut3.github.io/pnu-public-notice-feed/
 - Durable catch-up endpoint: `public/archive/YYYY-MM.json`.
 - Latest discovery endpoint: `public/latest.json`.
 - Compatibility endpoint: `public/rss.xml`.
+
+## Search API and MCP
+
+- [REST API base URL](https://xokvgxwdymctvdlidqpf.supabase.co/functions/v1/pnu-public-search). REST supports cross-origin browser requests. REST and MCP both require no credentials. Connect to MCP with a native or server-side Streamable HTTP client.
+- Use `GET /search` or `search_notices` for keywords, topic, and publication dates in the published archive. Each keyword must occur in the title, short preview, or source name. Search coverage begins with the archive. Follow the official `url` for the full notice and attachments.
+- The default 90-day window includes undated notices first observed in that window. Their `published_at` remains `null`. Supplying `published_from` or `published_to` limits results to dated notices.
+- Use `next_cursor` as `cursor` with unchanged search filters, leaving initially omitted date parameters absent. Restart without the cursor on `search_cursor_changed`. Narrow the dates on `range_too_large`. Page size defaults to 10 and can be set from 1 to 20.
+- Use `GET /notice` or `get_notice` with `notice_id` and `archive_month`. Get those values from a search item's `id` and `archive_month`, or from an event's `archive_item_id` and the month in `archive_file`.
+- Use `GET /changes` or `list_changes` to read recent events. Save both `event_id` and `seen_at` after successful processing. Continue after the exact last processed ID with `after_event_id`. On `archive_required`, preserve that cursor and follow `index.json` to the monthly archives.
 
 ## Usage rules for agents
 

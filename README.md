@@ -27,6 +27,8 @@ Available endpoints:
 - `archive/YYYY-MM.json`: monthly durable archive containing notice metadata and observed events
 - [`schema/*.schema.json`](https://lofidonut3.github.io/pnu-public-notice-feed/schema/index.schema.json): JSON Schemas
 - [`openapi.json`](https://lofidonut3.github.io/pnu-public-notice-feed/openapi.json): static endpoint manifest
+- [`search-api.json`](https://lofidonut3.github.io/pnu-public-notice-feed/search-api.json): REST contract for archived notice search, lookup, and recent changes
+- [MCP server](https://xokvgxwdymctvdlidqpf.supabase.co/functions/v1/pnu-public-search/mcp): public read-only Streamable HTTP for AI clients
 - [`llms.txt`](https://lofidonut3.github.io/pnu-public-notice-feed/llms.txt): AI agent usage guide
 - [`robots.txt`](https://lofidonut3.github.io/pnu-public-notice-feed/robots.txt) and [`sitemap.xml`](https://lofidonut3.github.io/pnu-public-notice-feed/sitemap.xml): crawler discovery hints
 
@@ -64,6 +66,36 @@ python3 examples/read_feed.py
 python3 examples/read_feed.py --topic scholarship --limit 5
 python3 examples/read_feed.py --event-id "$last_event_id" --seen-at "$last_seen_at" --limit 5
 ```
+
+### Search API and MCP
+
+Both interfaces read the published feed and require no credentials. The REST API supports cross-origin browser requests. Connect to MCP from a native client or a server using Streamable HTTP.
+
+| REST route | MCP tool | Use |
+| --- | --- | --- |
+| `GET /search` | `search_notices` | Match keywords, filter by topic or publication date, and paginate through notice metadata. |
+| `GET /notice` | `get_notice` | Fetch one archived notice using `notice_id` and `archive_month` from a search result or event. |
+| `GET /changes` | `list_changes` | Read recent feed events, optionally after an exact `after_event_id`. |
+
+```bash
+api='https://xokvgxwdymctvdlidqpf.supabase.co/functions/v1/pnu-public-search'
+curl --get "$api/search" \
+  --data-urlencode 'query=장학금' \
+  --data-urlencode 'topic=scholarship' \
+  --data-urlencode 'limit=5'
+curl "$api/changes?limit=5"
+```
+
+For Codex CLI, register the URL and start a new session. Other Streamable HTTP MCP clients can use the same URL. [Official OpenAI CLI documentation](https://learn.chatgpt.com/docs/developer-commands#codex-mcp)
+
+```bash
+codex mcp add pnu-notices --url https://xokvgxwdymctvdlidqpf.supabase.co/functions/v1/pnu-public-search/mcp
+```
+
+- Search covers notices already in the published archive. It matches each query word against the title, short preview, and source name. Follow the original URL for the full notice and attachments.
+- The default 90-day window also includes undated notices first seen in that window. Their `published_at` stays `null`. Supplying either publication date filter limits the search to dated notices. An explicit date range can span up to 366 days, subject to the archive data limit.
+- Search and recent changes return 10 records by default and accept `limit` from 1 to 20. Pass `next_cursor` to `cursor` with the same search filters, leaving originally omitted date parameters absent. If the API returns `search_cursor_changed`, restart the search without that cursor. If it returns `range_too_large`, narrow the dates.
+- For `/changes` or `list_changes`, save each successfully processed `event_id` and `seen_at`. Continue from `next_after_event_id` after processing the full page. If the exact ID has left the recent window, the service returns `archive_required`. Keep your existing cursor and use the feed index and monthly archives to catch up. [REST OpenAPI contract](https://lofidonut3.github.io/pnu-public-notice-feed/search-api.json)
 
 ## Example Consumer
 
@@ -117,6 +149,16 @@ python3 -m pip install -e ".[dev]"
 python3 -m pytest -q
 ```
 
+Check the search API and MCP implementation with Deno 2:
+
+```bash
+cd supabase/functions/pnu-public-search
+deno fmt --check
+deno lint
+deno check --no-lock index.ts
+deno test --no-lock
+```
+
 Check the generated feed health snapshot:
 
 ```bash
@@ -158,6 +200,16 @@ The repository uses GitHub Actions:
 - Noncritical sources keep a single attempt unless their registry explicitly opts into a bounded retry. Glocal and museum boards allow two attempts because transient template responses were observed. Permanent HTTP 4xx errors fail immediately. Active noncritical freshness budgets allow three polling cycles, with a minimum of two hours; critical sources use two hours.
 
 GitHub Pages should use GitHub Actions as its source.
+
+### Search function deployment
+
+The separate Supabase Edge Function reads the GitHub Pages feed. From the repository root, an authorized Supabase maintainer can redeploy the public read-only function with the Supabase CLI. [Supabase CLI documentation](https://supabase.com/docs/reference/cli/supabase-functions-deploy)
+
+```bash
+supabase functions deploy pnu-public-search --remote=xokvgxwdymctvdlidqpf --no-verify-jwt --use-api
+```
+
+Check `/search`, `/changes`, and MCP tool discovery at the published function URL after deployment.
 
 ## License
 

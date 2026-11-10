@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 from .detail_fingerprint import is_detail_baseline_only
 from .io_utils import write_utf8_if_changed
+from .search_views import write_search_views
 
 ARCHIVE_VERSION = "0.4"
 EVENT_STREAM_VERSION = "0.4"
@@ -35,6 +36,7 @@ def write_archive_outputs(output_dir: Path, feed: dict, pretty: bool) -> tuple[d
     for month, doc in next_archive_docs.items():
         write_json_if_changed(archive_dir / f"{month}.json", doc, pretty)
     write_json_if_changed(output_dir / "events.json", recent_events, pretty)
+    write_search_views(output_dir, next_archive_docs, recent_events["checked_at"])
     return archive_index, recent_events
 
 

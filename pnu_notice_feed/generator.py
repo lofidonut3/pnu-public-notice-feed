@@ -21,6 +21,7 @@ from .archive import (
     ARCHIVE_VERSION,
     EVENT_STREAM_VERSION,
     archive_outputs_exist,
+    read_archive_docs,
     write_archive_outputs,
 )
 from .cms_static_board import fetch_cms_static_board
@@ -32,6 +33,7 @@ from .io_utils import write_utf8_if_changed
 from .legacy_php_board import fetch_legacy_php_board
 from .library_pyxis_board import fetch_library_pyxis_board
 from .onestop_js_board import fetch_onestop_js_board
+from .search_views import search_views_exist, write_search_views
 from .simple_html_board import fetch_plato_ubboard, fetch_simple_html_board
 from .topics import infer_topics
 from .types import Notice, Source
@@ -136,6 +138,8 @@ Published feed: https://lofidonut3.github.io/pnu-public-notice-feed/
 - [RSS](./rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
 - [Archive](./archive/YYYY-MM.json): monthly durable archive with notice metadata and observed events.
 - [OpenAPI manifest](./openapi.json): static endpoint manifest.
+- [Search API contract](./search-api.json): keyword, topic, date, notice and recent change queries.
+- [MCP server](https://xokvgxwdymctvdlidqpf.supabase.co/functions/v1/pnu-public-search/mcp): public read-only Streamable HTTP. Tools are search_notices, get_notice, and list_changes.
 - [Crawler hints](./sitemap.xml): sitemap and robots files for endpoint discovery.
 
 ## Machine-readable contracts
@@ -1900,10 +1904,15 @@ def write_outputs(
 
 
 def ensure_agent_views(output_dir: Path, items: list[dict]) -> None:
-    if not agent_views_exist(output_dir):
+    has_agent_views = agent_views_exist(output_dir)
+    has_search_views = search_views_exist(output_dir)
+    if not has_agent_views or not has_search_views:
         # A backfill must reflect the existing publication, not the time of a skipped poll.
         events = read_json_if_exists(output_dir / "events.json") or {}
-        write_agent_views(output_dir, items, events)
+        if not has_agent_views:
+            write_agent_views(output_dir, items, events)
+        if not has_search_views:
+            write_search_views(output_dir, read_archive_docs(output_dir / "archive"), events.get("checked_at"))
 
 
 def sync_static_assets(
@@ -1921,6 +1930,7 @@ def sync_static_assets(
         output_dir / "openapi.json",
         public_base_url,
     )
+    copy_text_if_changed(PROJECT_ROOT / "search-api.json", output_dir / "search-api.json")
     write_text_if_changed(output_dir / "llms.txt", LLMS_TXT)
     write_text_if_changed(output_dir / "robots.txt", build_robots_txt(public_base_url))
     write_text_if_changed(output_dir / "sitemap.xml", build_sitemap_xml(public_base_url))
