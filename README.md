@@ -27,6 +27,8 @@ Available endpoints:
 - `archive/YYYY-MM.json`: monthly durable archive containing notice metadata and observed events
 - [`schema/*.schema.json`](https://lofidonut3.github.io/pnu-public-notice-feed/schema/index.schema.json): JSON Schemas
 - [`openapi.json`](https://lofidonut3.github.io/pnu-public-notice-feed/openapi.json): static endpoint manifest
+- [`search-api.json`](https://lofidonut3.github.io/pnu-public-notice-feed/search-api.json): REST contract for archived notice search, lookup, and recent changes
+- [MCP server](https://xokvgxwdymctvdlidqpf.supabase.co/functions/v1/pnu-public-search/mcp): public read-only Streamable HTTP for AI clients
 - [`llms.txt`](https://lofidonut3.github.io/pnu-public-notice-feed/llms.txt): AI agent usage guide
 - [`robots.txt`](https://lofidonut3.github.io/pnu-public-notice-feed/robots.txt) and [`sitemap.xml`](https://lofidonut3.github.io/pnu-public-notice-feed/sitemap.xml): crawler discovery hints
 
@@ -36,7 +38,7 @@ This project is a metadata relay, not a content mirror.
 
 Each latest item and archive item includes a title, source, original notice URL, published date, short preview, content access metadata, and attachment metadata. `events.json` is a compact cursor stream for detecting and routing recent notice events. Full notice text and attachment contents stay on the official PNU source pages.
 
-Agents should treat `summary` and `_pnu.snippet` as previews only. Fetch full notice text from `item.url` or `item._pnu.content_access.detail_url`, and fetch attachments from `item._pnu.attachments[].download_url`.
+Agents should treat `summary` and `_pnu.snippet` as previews only. Check `content_access.availability` before fetching full notice text from `item._pnu.content_access.detail_url` or `item.url`. Fetch attachments from `item._pnu.attachments[].download_url`.
 
 ## Endpoint Roles
 
@@ -65,6 +67,36 @@ python3 examples/read_feed.py --topic scholarship --limit 5
 python3 examples/read_feed.py --event-id "$last_event_id" --seen-at "$last_seen_at" --limit 5
 ```
 
+### Search API and MCP
+
+Both interfaces read the published feed and require no credentials. The REST API supports cross-origin browser requests. Connect to MCP from a native client or a server using Streamable HTTP.
+
+| REST route | MCP tool | Use |
+| --- | --- | --- |
+| `GET /search` | `search_notices` | Match keywords, filter by topic or publication date, and paginate through notice metadata. |
+| `GET /notice` | `get_notice` | Fetch one archived notice using `notice_id` and `archive_month` from a search result or event. |
+| `GET /changes` | `list_changes` | Read recent feed events, optionally after an exact `after_event_id`. |
+
+```bash
+api='https://xokvgxwdymctvdlidqpf.supabase.co/functions/v1/pnu-public-search'
+curl --get "$api/search" \
+  --data-urlencode 'query=장학금' \
+  --data-urlencode 'topic=scholarship' \
+  --data-urlencode 'limit=5'
+curl "$api/changes?limit=5"
+```
+
+For Codex CLI, register the URL and start a new session. Other Streamable HTTP MCP clients can use the same URL. [Official OpenAI CLI documentation](https://learn.chatgpt.com/docs/developer-commands#codex-mcp)
+
+```bash
+codex mcp add pnu-notices --url https://xokvgxwdymctvdlidqpf.supabase.co/functions/v1/pnu-public-search/mcp
+```
+
+- Search covers notices already in the published archive. It matches each query word against the title, short preview, and source name. Follow the original URL for the full notice and attachments.
+- The default 90-day window also includes undated notices first seen in that window. Their `published_at` stays `null`. Supplying either publication date filter limits the search to dated notices. An explicit date range can span up to 366 days, subject to the archive data limit.
+- Search and recent changes return 10 records by default and accept `limit` from 1 to 20. Pass `next_cursor` to `cursor` with the same search filters, leaving originally omitted date parameters absent. If the API returns `search_cursor_changed`, restart the search without that cursor. If it returns `range_too_large`, narrow the dates.
+- For `/changes` or `list_changes`, save each successfully processed `event_id` and `seen_at`. Continue from `next_after_event_id` after processing the full page. If the exact ID has left the recent window, the service returns `archive_required`. Keep your existing cursor and use the feed index and monthly archives to catch up. [REST OpenAPI contract](https://lofidonut3.github.io/pnu-public-notice-feed/search-api.json)
+
 ## Example Consumer
 
 For a concrete optional reference CLI/helper that keeps a local cursor, enriches events from archive metadata, and collapses same-notice duplicate groups, see [`pnu-notice-agent-tools`](https://github.com/lofidonut3/pnu-notice-agent-tools).
@@ -89,6 +121,7 @@ For a concrete optional reference CLI/helper that keeps a local cursor, enriches
 - Successful real polls refresh published health timestamps even when no notices change. Ordinary poll-interval skips retain the previous successful observation, so a quiet board is distinguishable from a stalled collector.
 - Publication dates come from publication-date cells, never dates embedded in titles. Verified historical corrections retain canonical notice IDs, event IDs, and first observation times; notices move to the correct publication month and event archive references follow them.
 - The library's November 9, 2026 site migration changed upstream identifiers. Unique title/date matches and recorded upstream aliases preserve existing canonical IDs while official URLs change. Ambiguous or removed legacy records explicitly publish `content_access.availability`; do not fetch them as if they were available articles. A `replacement_url` is a current related record, not a promise that the original historical body is unchanged.
+- The official career calendar publishes detail links for many recommendation and internship homepage cards. The feed adopts them when both the upstream ID and title match. An unmatched card carries `content_access.availability: detail_unverified` and a `fallback_url` to the official homepage. The fallback is the source listing.
 - Selected scholarship, international and department boards check body fingerprints for the three newest visible notices at most once every 12 hours. Only the fingerprint is retained. Other K2Web records detect list metadata changes; this does not promise detection of every body/attachment change. Initial body fingerprints form a quiet baseline rather than a false update event.
 
 ## Generate Locally
@@ -115,6 +148,16 @@ python3 -m pnu_notice_feed.generator --pretty --public-base-url "https://example
 ```bash
 python3 -m pip install -e ".[dev]"
 python3 -m pytest -q
+```
+
+Check the search API and MCP implementation with Deno 2:
+
+```bash
+cd supabase/functions/pnu-public-search
+deno fmt --check
+deno lint
+deno check --no-lock index.ts
+deno test --no-lock
 ```
 
 Check the generated feed health snapshot:
@@ -158,6 +201,16 @@ The repository uses GitHub Actions:
 - Noncritical sources keep a single attempt unless their registry explicitly opts into a bounded retry. Glocal and museum boards allow two attempts because transient template responses were observed. Permanent HTTP 4xx errors fail immediately. Active noncritical freshness budgets allow three polling cycles, with a minimum of two hours; critical sources use two hours.
 
 GitHub Pages should use GitHub Actions as its source.
+
+### Search function deployment
+
+The separate Supabase Edge Function reads the GitHub Pages feed. From the repository root, an authorized Supabase maintainer can redeploy the public read-only function with the Supabase CLI. [Supabase CLI documentation](https://supabase.com/docs/reference/cli/supabase-functions-deploy)
+
+```bash
+supabase functions deploy pnu-public-search --remote=xokvgxwdymctvdlidqpf --no-verify-jwt --use-api
+```
+
+Check `/search`, `/changes`, and MCP tool discovery at the published function URL after deployment.
 
 ## License
 

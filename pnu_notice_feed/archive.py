@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 from .detail_fingerprint import is_detail_baseline_only
 from .io_utils import write_utf8_if_changed
+from .search_views import write_search_views
 
 ARCHIVE_VERSION = "0.4"
 EVENT_STREAM_VERSION = "0.4"
@@ -35,6 +36,7 @@ def write_archive_outputs(output_dir: Path, feed: dict, pretty: bool) -> tuple[d
     for month, doc in next_archive_docs.items():
         write_json_if_changed(archive_dir / f"{month}.json", doc, pretty)
     write_json_if_changed(output_dir / "events.json", recent_events, pretty)
+    write_search_views(output_dir, next_archive_docs, recent_events["checked_at"])
     return archive_index, recent_events
 
 
@@ -369,8 +371,17 @@ def sync_event_metadata_with_item(
     pnu = item.get("_pnu", {})
     notice_id = str(event.get("notice_id") or item.get("id") or "")
     source_id = event.get("source_id") or pnu.get("source_id")
+    access = pnu.get("content_access") or {}
+    event_url = event.get("url")
+    if event_url == access.get("original_detail_url"):
+        event_url = access.get("detail_url")
+    current_event = compact_event(event)
+    if access.get("availability") == "detail_unverified":
+        current_event["content_access"] = access
+    else:
+        current_event.pop("content_access", None)
     return {
-        **compact_event(event),
+        **current_event,
         "notice_id": notice_id,
         "source_id": source_id,
         "source_name": pnu.get("source_name") or event.get("source_name"),
@@ -383,7 +394,7 @@ def sync_event_metadata_with_item(
         ),
         "published_at": event.get("published_at") or pnu.get("published_at"),
         "title": event.get("title") or item.get("title"),
-        "url": event.get("url") or item.get("url"),
+        "url": event_url or item.get("url"),
         "topics": pnu.get("topics") or event.get("topics") or [],
         "same_notice_group_id": pnu.get("same_notice_group_id"),
         "canonical_item_id": pnu.get("canonical_item_id") or notice_id,
@@ -596,6 +607,7 @@ def compact_event(event: dict) -> dict:
     notice_id = str(event.get("notice_id") or item.get("id") or "")
     source_id = event.get("source_id") or pnu.get("source_id")
     return {
+        **({"content_access": event["content_access"]} if "content_access" in event else {}),
         "event_id": event.get("event_id"),
         "event_type": event.get("event_type"),
         "notice_id": notice_id,

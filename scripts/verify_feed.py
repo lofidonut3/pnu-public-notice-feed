@@ -65,6 +65,53 @@ def verify_agent_views(public_dir, events):
     return issues
 
 
+def verify_search_views(public_dir, events, archive_docs):
+    search_dir = public_dir / "search"
+    if not (search_dir / "catalog.json").is_file():
+        return ["missing search/catalog.json"]
+    catalog = read(search_dir / "catalog.json")
+    issues = []
+    if catalog.get("schema_version") != 1 or catalog.get("checked_at") != events.get("checked_at"):
+        issues.append("search catalog schema or heartbeat mismatch")
+    expected = {month: doc["items"] for month, doc in archive_docs.items() if doc["items"]}
+    entries = catalog["months"]
+    if sorted(entry["month"] for entry in entries) != sorted(expected):
+        return [*issues, "search catalog months do not match archived items"]
+    for entry in entries:
+        month = entry["month"]
+        path = search_dir / f"{month}.json"
+        if not path.is_file():
+            issues.append(f"missing search shard: {month}")
+            continue
+        raw = path.read_bytes()
+        if len(raw) != entry["size_bytes"] or hashlib.sha256(raw).hexdigest() != entry["sha256"]:
+            issues.append(f"search shard checksum mismatch: {month}")
+            continue
+        rows = json.loads(raw)
+        source_items = {item["id"]: item for item in expected[month]}
+        dates = [row["published_at"] for row in rows if row["published_at"]]
+        undated = [row["first_seen_at"][:10] for row in rows if not row["published_at"] and row["first_seen_at"]]
+        if (
+            len(rows) != len(source_items)
+            or {row["id"] for row in rows} != set(source_items)
+            or entry["published_from"] != min(dates, default=None)
+            or entry["published_to"] != max(dates, default=None)
+            or entry["undated_from"] != min(undated, default=None)
+            or entry["undated_to"] != max(undated, default=None)
+        ):
+            issues.append(f"search shard coverage mismatch: {month}")
+        elif any(
+            row["archive_month"] != month
+            or row["title"] != source_items[row["id"]]["title"]
+            or row["url"] != source_items[row["id"]]["url"]
+            or row["topics"] != source_items[row["id"]]["_pnu"].get("topics", [])
+            or row["first_seen_at"] != source_items[row["id"]]["_archive"].get("first_seen_at")
+            for row in rows
+        ):
+            issues.append(f"search shard metadata mismatch: {month}")
+    return issues
+
+
 def verify(public_dir, state_path, baseline_dir=None, corrections_path=None, *, structure_only=False):
     issues=[]
     index,events,latest=(read(public_dir/name) for name in ['index.json','events.json','latest.json'])
@@ -72,6 +119,8 @@ def verify(public_dir, state_path, baseline_dir=None, corrections_path=None, *, 
         issues.extend(verify_agent_views(public_dir, events))
     state=read(state_path)
     docs={f.stem:read(f) for f in (public_dir/'archive').glob('*.json')}
+    if structure_only or (public_dir / "search" / "catalog.json").is_file():
+        issues.extend(verify_search_views(public_dir, events, docs))
     items={}
     counts=Counter()
     event_ids=[]
