@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lofidonut3.github.io/pnu-public-notice-feed/schema/agent.schema.json",
+  "title": "PNU notice feed agent entry point",
+  "type": "object",
+  "required": ["schema_version", "checked_at", "latest_event_id", "latest_seen_at", "events_url", "index_url", "topics"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "checked_at": {"type": ["string", "null"], "format": "date-time"},
+    "latest_event_id": {"type": ["string", "null"]},
+    "latest_seen_at": {"type": ["string", "null"], "format": "date-time"},
+    "events_url": {"const": "./events.json"},
+    "index_url": {"const": "./index.json"},
+    "topics": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": ["id", "url"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z_]+$"},
+          "url": {"type": "string", "pattern": "^\\./topics/[a-z_]+\\.json$"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

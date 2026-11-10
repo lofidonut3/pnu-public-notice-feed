@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lofidonut3.github.io/pnu-public-notice-feed/schema/topic.schema.json",
+  "title": "PNU notice feed topic snapshot",
+  "type": "object",
+  "required": ["schema_version", "topic", "checked_at", "coverage", "matching_count", "item_limit", "item_count", "is_truncated", "items"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "topic": {"type": "string", "pattern": "^[a-z_]+$"},
+    "checked_at": {"type": ["string", "null"], "format": "date-time"},
+    "coverage": {
+      "const": "active_source_snapshot",
+      "description": "Current cached or fetched metadata from enabled sources, filtered by inferred topic. This is a capped discovery view."
+    },
+    "matching_count": {"type": "integer", "minimum": 0},
+    "item_limit": {"const": 20},
+    "item_count": {"type": "integer", "minimum": 0, "maximum": 20},
+    "is_truncated": {"type": "boolean"},
+    "items": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "url", "source_id", "source_name", "published_at", "preview"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "title": {"type": "string", "minLength": 1},
+          "url": {"type": "string", "format": "uri"},
+          "source_id": {"type": "string", "minLength": 1},
+          "source_name": {"type": "string", "minLength": 1},
+          "published_at": {"type": ["string", "null"]},
+          "preview": {"type": ["string", "null"], "maxLength": 240}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
