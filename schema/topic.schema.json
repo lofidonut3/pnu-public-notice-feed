@@ -29,7 +29,16 @@
           "source_id": {"type": "string", "minLength": 1},
           "source_name": {"type": "string", "minLength": 1},
           "published_at": {"type": ["string", "null"]},
-          "preview": {"type": ["string", "null"], "maxLength": 240}
+          "preview": {"type": ["string", "null"], "maxLength": 240},
+          "content_access": {
+            "type": "object",
+            "required": ["availability", "detail_url", "fallback_url"],
+            "properties": {
+              "availability": {"const": "detail_unverified"},
+              "detail_url": {"type": "null"},
+              "fallback_url": {"type": "string", "format": "uri"}
+            }
+          }
         },
         "additionalProperties": false
       }

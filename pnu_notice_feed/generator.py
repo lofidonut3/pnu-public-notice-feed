@@ -967,7 +967,7 @@ def fetch_source(
     if source.adapter == "job-notice-html-board":
         return fetch_job_notice_board(adapter_source, limit)
     if source.adapter == "job-recruit-html-board":
-        return fetch_job_recruit_board(adapter_source, limit)
+        return fetch_job_recruit_board(adapter_source, limit, cached_items=cached_items)
     if source.adapter == "library-pyxis-board":
         return fetch_library_pyxis_board(adapter_source, limit)
     if source.adapter == "simple-html-board":
@@ -1667,7 +1667,10 @@ def notice_to_feed_item(
         "published_at": notice.published_at,
         "fetched_at": fetched_at,
         "snippet": snippet,
-        "content_access": default_content_access(notice.url),
+        "content_access": {
+            **default_content_access(notice.url),
+            **(notice.detail_access or {}),
+        },
         "attachments": [
             attachment_to_feed_json(attachment)
             for attachment in notice.attachments

@@ -38,7 +38,7 @@ This project is a metadata relay, not a content mirror.
 
 Each latest item and archive item includes a title, source, original notice URL, published date, short preview, content access metadata, and attachment metadata. `events.json` is a compact cursor stream for detecting and routing recent notice events. Full notice text and attachment contents stay on the official PNU source pages.
 
-Agents should treat `summary` and `_pnu.snippet` as previews only. Fetch full notice text from `item.url` or `item._pnu.content_access.detail_url`, and fetch attachments from `item._pnu.attachments[].download_url`.
+Agents should treat `summary` and `_pnu.snippet` as previews only. Check `content_access.availability` before fetching full notice text from `item._pnu.content_access.detail_url` or `item.url`. Fetch attachments from `item._pnu.attachments[].download_url`.
 
 ## Endpoint Roles
 
@@ -121,6 +121,7 @@ For a concrete optional reference CLI/helper that keeps a local cursor, enriches
 - Successful real polls refresh published health timestamps even when no notices change. Ordinary poll-interval skips retain the previous successful observation, so a quiet board is distinguishable from a stalled collector.
 - Publication dates come from publication-date cells, never dates embedded in titles. Verified historical corrections retain canonical notice IDs, event IDs, and first observation times; notices move to the correct publication month and event archive references follow them.
 - The library's November 9, 2026 site migration changed upstream identifiers. Unique title/date matches and recorded upstream aliases preserve existing canonical IDs while official URLs change. Ambiguous or removed legacy records explicitly publish `content_access.availability`; do not fetch them as if they were available articles. A `replacement_url` is a current related record, not a promise that the original historical body is unchanged.
+- The official career calendar publishes detail links for many recommendation and internship homepage cards. The feed adopts them when both the upstream ID and title match. An unmatched card carries `content_access.availability: detail_unverified` and a `fallback_url` to the official homepage. The fallback is the source listing.
 - Selected scholarship, international and department boards check body fingerprints for the three newest visible notices at most once every 12 hours. Only the fingerprint is retained. Other K2Web records detect list metadata changes; this does not promise detection of every body/attachment change. Initial body fingerprints form a quiet baseline rather than a false update event.
 
 ## Generate Locally

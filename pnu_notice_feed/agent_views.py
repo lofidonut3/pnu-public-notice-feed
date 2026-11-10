@@ -82,6 +82,7 @@ def discovery_sort_key(item: dict) -> tuple[str, str]:
 def preview_item(item: dict) -> dict:
     pnu = item["_pnu"]
     snippet = pnu.get("snippet") or item.get("summary")
+    access = pnu.get("content_access") or {}
     return {
         "id": item["id"],
         "title": item["title"],
@@ -90,6 +91,7 @@ def preview_item(item: dict) -> dict:
         "source_name": pnu["source_name"],
         "published_at": pnu.get("published_at"),
         "preview": " ".join(snippet.split())[:PREVIEW_LIMIT] if snippet else None,
+        **({"content_access": access} if access.get("availability") == "detail_unverified" else {}),
     }
 
 

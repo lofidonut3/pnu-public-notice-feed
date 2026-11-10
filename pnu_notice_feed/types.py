@@ -39,3 +39,4 @@ class Notice:
     detail_checked_at: str | None = None
     detail_content_hash: str | None = None
     detail_check_error: str | None = None
+    detail_access: dict[str, str | None] | None = None
