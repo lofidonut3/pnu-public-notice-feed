@@ -19,9 +19,57 @@ def read(path):
     return json.loads(path.read_text(encoding='utf-8'))
 
 
+def verify_agent_views(public_dir, events):
+    issues = []
+    agent_path = public_dir / "agent.json"
+    if not agent_path.is_file():
+        return ["missing agent.json"]
+    validators = {}
+    for name in ("agent", "topic"):
+        schema = read(ROOT / "schema" / f"{name}.schema.json")
+        validators[name] = jsonschema.Draft202012Validator(
+            schema, format_checker=jsonschema.FormatChecker()
+        )
+    agent = read(agent_path)
+    if not validators["agent"].is_valid(agent):
+        return ["invalid agent.json schema"]
+    if any(agent.get(key) != events.get(key) for key in ("checked_at", "latest_event_id", "latest_seen_at")):
+        issues.append("agent.json does not match the published event heartbeat and cursor")
+    topic_ids = set()
+    for link in agent["topics"]:
+        topic = link["id"]
+        if topic in topic_ids or link["url"] != f"./topics/{topic}.json":
+            issues.append(f"invalid topic link: {topic}")
+            continue
+        topic_ids.add(topic)
+        topic_path = public_dir / "topics" / f"{topic}.json"
+        if not topic_path.is_file():
+            issues.append(f"missing topic snapshot: {topic}")
+            continue
+        document = read(topic_path)
+        if not validators["topic"].is_valid(document):
+            issues.append(f"invalid topic snapshot schema: {topic}")
+            continue
+        item_ids = {item["id"] for item in document["items"]}
+        if (
+            document["topic"] != topic
+            or document["checked_at"] != agent["checked_at"]
+            or len(item_ids) != len(document["items"])
+            or document["item_count"] != len(item_ids)
+            or document["item_count"] != min(document["matching_count"], document["item_limit"])
+            or document["is_truncated"] != (document["matching_count"] > document["item_count"])
+        ):
+            issues.append(f"inconsistent topic snapshot: {topic}")
+    if not topic_ids:
+        issues.append("agent.json lists no topic snapshots")
+    return issues
+
+
 def verify(public_dir, state_path, baseline_dir=None, corrections_path=None, *, structure_only=False):
     issues=[]
     index,events,latest=(read(public_dir/name) for name in ['index.json','events.json','latest.json'])
+    if structure_only or (public_dir / "agent.json").is_file():
+        issues.extend(verify_agent_views(public_dir, events))
     state=read(state_path)
     docs={f.stem:read(f) for f in (public_dir/'archive').glob('*.json')}
     items={}
