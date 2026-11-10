@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-11T06:42:19+09:00",
+  "generated_at": "2026-11-11T07:12:23+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 20216,
+  "total_event_count": 20217,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-10T23:42:20+09:00|updated|pnu-academic-uni-scholarship-8190:1468693|e49e50d45b1b",
-  "oldest_event_id": "2026-11-04T14:58:22+09:00|added|pnu-academic-pharmacy-undergrad-5754:1471334|5b6ff6765223",
+  "latest_event_id": "2026-11-11T07:12:23+09:00|updated|pnu-international-student-notices:1472618|d1f9b1426595",
+  "oldest_event_id": "2026-11-04T14:58:22+09:00|added|pnu-academic-pharmacy-undergrad-5754:1471340|c5f6d0411188",
   "oldest_seen_at": "2026-11-04T14:58:22+09:00",
-  "latest_seen_at": "2026-11-10T23:42:20+09:00",
+  "latest_seen_at": "2026-11-11T07:12:23+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-04T14:58:22+09:00|added|pnu-academic-pharmacy-undergrad-5754:1471334|5b6ff6765223",
-      "event_type": "added",
-      "notice_id": "pnu-academic-pharmacy-undergrad-5754:1471334",
-      "source_id": "pnu-academic-pharmacy-undergrad-5754",
-      "source_name": "부산대 약학대학 학부공지사항",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "college_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-11-04T14:58:22+09:00",
-      "published_at": "2026-11-04",
-      "title": "2026 PNU 우리는 하나 페스티벌 연계 「마약류 예방 전문가 특강」안내 새글",
-      "url": "https://pharmacy.pusan.ac.kr/bbs/pharmacy/1019/1471334/artclView.do",
-      "topics": [
-        "undergraduate",
-        "event"
-      ],
-      "same_notice_group_id": "same_notice:968ad4a36a7166d6",
-      "canonical_item_id": "pnu-academic-pharmacy-undergrad-5754:1471334",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-pharmacy-undergrad-5754",
-        "pnu-academic-stat-general-4227"
-      ],
-      "content_hash": "5b6ff6765223e7565db88ba4dab58238f411ac58b5ee370c7af24fdd69aa309d",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-pharmacy-undergrad-5754:1471334"
-    },
     {
       "event_id": "2026-11-04T14:58:22+09:00|added|pnu-academic-pharmacy-undergrad-5754:1471340|c5f6d0411188",
       "event_type": "added",
@@ -34376,7 +34341,38 @@
       "previous_content_hash": "9e8ddaf11542ecea04c21fddcf031589f0ddaa132ae468575fd51ee84d63b468",
       "archive_file": "./archive/2026-10.json",
       "archive_item_id": "pnu-academic-uni-scholarship-8190:1468693"
+    },
+    {
+      "event_id": "2026-11-11T07:12:23+09:00|updated|pnu-international-student-notices:1472618|d1f9b1426595",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1472618",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-11T07:12:23+09:00",
+      "published_at": "2026-11-10",
+      "title": "[홍보] 「부산 K-컬처 체험 프로그램」신청자 모집/ Busan K-Culture Experience Trip",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1472618/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1472618",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "d1f9b1426595c6972c31bd80492397124cf6f6a324c22b3937ba9b3381f3de27",
+      "previous_content_hash": "b5095a50c159a9d3ab0a5cdf3bd2980f332cdfb8e119733c644501967d001867",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1472618"
     }
   ],
-  "checked_at": "2026-11-11T06:42:19+09:00"
+  "checked_at": "2026-11-11T07:12:23+09:00"
 }
