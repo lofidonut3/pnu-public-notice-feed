@@ -7,6 +7,9 @@ Published feed: https://lofidonut3.github.io/pnu-public-notice-feed/
 
 ## Published endpoints
 
+- [Agent catalog](./public/agent.json): start here for a small heartbeat, latest cursor, and topic links.
+- [Scholarship topic preview](./public/topics/scholarship.json): one of the topic links in the catalog. Each topic provides up to 20 deduplicated previews from the active source snapshot.
+- [Python reader example](./examples/read_feed.py): discover topics, look up a small page, or resume from an exact cursor.
 - [Index](./public/index.json): compact manifest with sources, source status, archive manifest, same-notice groups, and latest run diagnostics.
 - [Events](./public/events.json): primary recent event stream for cursor-based agent checks.
 - [Latest](./public/latest.json): JSON Feed 1.1 compatible latest-discovery public notice metadata, currently limited to the latest 150 items globally.
@@ -17,6 +20,8 @@ Published feed: https://lofidonut3.github.io/pnu-public-notice-feed/
 
 ## Machine-readable contracts
 
+- [Agent catalog schema](./schema/agent.schema.json)
+- [Topic preview schema](./schema/topic.schema.json)
 - [Index schema](./schema/index.schema.json)
 - [Events schema](./schema/events.schema.json)
 - [Latest schema](./schema/latest.schema.json)
@@ -42,7 +47,10 @@ Published feed: https://lofidonut3.github.io/pnu-public-notice-feed/
 - Check `public/index.json.status` before relying on source freshness.
 - Treat `status.skipped_reason: poll_interval` as normal rate limiting, not a source failure. Use `degraded_source_count`, `backoff_source_count`, and `error_source_count` for freshness risk.
 - Use `public/events.json` as the primary cursor-based notice stream.
-- Store a local `latest_event_id` or `seen_at` cursor and process newer events.
+- Save both the last successfully processed `event_id` and its `seen_at`. Events are ordered by `(seen_at, event_id)`.
+- If the saved ID is absent from the truncated window, recover from archives and include the cursor's boundary timestamp. For legacy timestamp-only state, replay the boundary inclusively and deduplicate by event ID. Keep the cursor if recovery fails.
+- Read topic previews for a quick lookup. These are bounded active-source snapshots. Check `index.json.status` for source freshness and follow official links for deadlines and eligibility.
+- Use event metadata for the observation and archive item metadata for the latest recorded version.
 - Treat each event as a compact routing record; use `archive_file` and `archive_item_id` when full notice metadata is needed.
 - Use event `same_notice_group_id`, `canonical_item_id`, `is_canonical`, and `same_notice_source_ids` before sending notifications for multiple matching items from different sources.
 - Use `public/index.json.same_notice_groups` as the full same-notice manifest and fallback lookup.

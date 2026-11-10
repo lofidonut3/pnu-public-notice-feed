@@ -16,6 +16,7 @@ from urllib.error import HTTPError
 from xml.etree import ElementTree
 from zoneinfo import ZoneInfo
 
+from .agent_views import agent_views_exist, write_agent_views
 from .archive import (
     ARCHIVE_VERSION,
     EVENT_STREAM_VERSION,
@@ -126,7 +127,10 @@ Published feed: https://lofidonut3.github.io/pnu-public-notice-feed/
 
 ## Endpoints
 
-- [Index](./index.json): compact manifest with sources, source status, archive manifest, same-notice groups, and latest run diagnostics.
+- [Agent start](./agent.json): small discovery document with topic links, the polling timestamp, and the latest event cursor.
+- [Scholarship topic](./topics/scholarship.json): example of a current topic snapshot with up to 20 unique notices.
+- [Python quickstart](./examples/read_feed.py): read-only examples for discovery and event resumption.
+- [Index](./index.json): detailed manifest with sources, source status, archive manifest, same-notice groups, and latest run diagnostics.
 - [Events](./events.json): primary recent event stream for cursor-based agent checks.
 - [Latest](./latest.json): JSON Feed 1.1 compatible latest-discovery public notice metadata, currently limited to the latest 150 items globally.
 - [RSS](./rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
@@ -136,6 +140,8 @@ Published feed: https://lofidonut3.github.io/pnu-public-notice-feed/
 
 ## Machine-readable contracts
 
+- [Agent schema](./schema/agent.schema.json)
+- [Topic schema](./schema/topic.schema.json)
 - [Index schema](./schema/index.schema.json)
 - [Events schema](./schema/events.schema.json)
 - [Latest schema](./schema/latest.schema.json)
@@ -143,6 +149,8 @@ Published feed: https://lofidonut3.github.io/pnu-public-notice-feed/
 
 ## Endpoint roles for agents
 
+- For a current question, start with `agent.json` and read only the linked topic snapshot you need.
+- For ongoing monitoring, use the event stream and archives. A topic snapshot is a capped preview of current enabled-source items, not an event stream or a complete search result.
 - Primary cursor endpoint: `events.json`.
 - Metadata/source/status/dedupe manifest: `index.json`.
 - Durable catch-up endpoint: `archive/YYYY-MM.json`.
@@ -161,7 +169,9 @@ Published feed: https://lofidonut3.github.io/pnu-public-notice-feed/
 - Treat `index.json.status.overall_status: partial` as usable feed output with some source freshness degraded; inspect the relevant source's `last_success_at`, `last_error_at`, `backoff_until`, and `error_count`.
 - Treat `status.skipped_reason: poll_interval` as normal rate limiting, not a source failure. Use `degraded_source_count`, `backoff_source_count`, and `error_source_count` for freshness risk.
 - Use `events.json` as the primary cursor-based notice stream.
-- Store a local `latest_event_id` or `seen_at` cursor and process newer events.
+- Store both `event_id` and `seen_at` from the last event handled successfully. Read events in ascending `(seen_at, event_id)` order and resume after the exact ID when present.
+- If the ID is missing at or before the recent window's lower timestamp boundary, recover it from the archives before advancing. Replay a safe overlap and deduplicate by event ID if the exact cursor cannot be located. Never discard all events at the cursor timestamp.
+- Use `checked_at` to judge publication freshness. Event history can stay unchanged while collection continues; check source-specific freshness in `index.json` for coverage decisions.
 - Treat each event as a compact routing record; use `archive_file` and `archive_item_id` when full notice metadata is needed.
 - Use event `same_notice_group_id`, `canonical_item_id`, `is_canonical`, and `same_notice_source_ids` before sending notifications for multiple matching items from different sources.
 - Use `index.json.same_notice_groups` as the full same-notice manifest and fallback lookup.
@@ -275,7 +285,10 @@ INDEX_HTML = """<!doctype html>
 
     <h2>Endpoints</h2>
     <ul>
-      <li><a href="./index.json">index.json</a> - compact manifest with sources, status, archive, same-notice groups, and diagnostics</li>
+      <li><a href="./agent.json">agent.json</a> - small agent entry point with topic links and freshness</li>
+      <li><a href="./topics/scholarship.json">Scholarship topic</a> - example current topic snapshot</li>
+      <li><a href="./examples/read_feed.py">Python quickstart</a> - read-only discovery and event resumption</li>
+      <li><a href="./index.json">index.json</a> - detailed manifest with sources, status, archive, same-notice groups, and diagnostics</li>
       <li><a href="./events.json">events.json</a> - primary recent event stream for cursor-based checks</li>
       <li><a href="./latest.json">latest.json</a> - JSON Feed 1.1 compatible latest-discovery notice metadata</li>
       <li><a href="./rss.xml">rss.xml</a> - RSS 2.0 compatibility feed</li>
@@ -504,6 +517,7 @@ def main(argv: list[str] | None = None) -> int:
         ) and archive_outputs_match_current_versions(
             output_dir,
         ):
+            ensure_agent_views(output_dir, generated["agent_items"])
             return 0
         if args.rebuild_outputs or should_write_public_outputs(
             output_dir=output_dir,
@@ -523,7 +537,10 @@ def main(argv: list[str] | None = None) -> int:
                 baseline_source_ids=generated["baseline_source_ids"],
                 public_base_url=args.public_base_url,
                 pretty=args.pretty,
+                agent_items=generated["agent_items"],
             )
+        else:
+            ensure_agent_views(output_dir, generated["agent_items"])
         write_state(
             path=state_path,
             state=generated["state"],
@@ -606,6 +623,7 @@ def generate_outputs(
         "run_diff": run_diff,
         "duplicates": duplicates,
         "state": updated_state,
+        "agent_items": collect_result_items(enriched_results),
         "diagnostics": diagnostics,
         "baseline_source_ids": baseline_source_ids,
         "all_sources_skipped": all_sources_skipped(enriched_results),
@@ -1847,6 +1865,7 @@ def write_outputs(
     baseline_source_ids: list[str],
     public_base_url: str,
     pretty: bool,
+    agent_items: list[dict],
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     cleanup_legacy_public_outputs(output_dir)
@@ -1857,6 +1876,7 @@ def write_outputs(
         archive_input_from_state(state, baseline_source_ids=baseline_source_ids),
         pretty,
     )
+    write_agent_views(output_dir, agent_items, events)
     archive_coverage = build_archive_coverage_diagnostics(output_dir, state)
     diagnostics_with_outputs = {
         **diagnostics,
@@ -1879,6 +1899,13 @@ def write_outputs(
     )
 
 
+def ensure_agent_views(output_dir: Path, items: list[dict]) -> None:
+    if not agent_views_exist(output_dir):
+        # A backfill must reflect the existing publication, not the time of a skipped poll.
+        events = read_json_if_exists(output_dir / "events.json") or {}
+        write_agent_views(output_dir, items, events)
+
+
 def sync_static_assets(
     output_dir: Path,
     sources_path: Path,
@@ -1897,6 +1924,7 @@ def sync_static_assets(
     write_text_if_changed(output_dir / "llms.txt", LLMS_TXT)
     write_text_if_changed(output_dir / "robots.txt", build_robots_txt(public_base_url))
     write_text_if_changed(output_dir / "sitemap.xml", build_sitemap_xml(public_base_url))
+    copy_text_if_changed(PROJECT_ROOT / "examples" / "read_feed.py", output_dir / "examples" / "read_feed.py")
 
     schema_output_dir = output_dir / "schema"
     schema_output_dir.mkdir(parents=True, exist_ok=True)
@@ -2190,6 +2218,9 @@ def build_sitemap_xml(public_base_url: str) -> str:
         "/",
         "/llms.txt",
         "/openapi.json",
+        "/agent.json",
+        "/topics/scholarship.json",
+        "/examples/read_feed.py",
         "/index.json",
         "/events.json",
         "/latest.json",

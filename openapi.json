@@ -12,6 +12,51 @@
     }
   ],
   "paths": {
+    "/agent.json": {
+      "get": {
+        "operationId": "getAgentCatalog",
+        "summary": "Discover the current polling heartbeat, cursor, and topic views",
+        "responses": {
+          "200": {
+            "description": "Small entry document for first-time feed consumers.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema/agent.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/topics/{topic}.json": {
+      "get": {
+        "operationId": "getTopicPreview",
+        "summary": "Get up to 20 current notice previews for a topic",
+        "parameters": [
+          {
+            "name": "topic",
+            "in": "path",
+            "required": true,
+            "description": "Topic ID discovered in agent.json, such as scholarship.",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bounded active-source snapshot with source URLs and coverage metadata.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema/topic.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/index.json": {
       "get": {
         "summary": "Feed manifest",
