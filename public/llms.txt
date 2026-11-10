@@ -16,6 +16,8 @@ Published feed: https://lofidonut3.github.io/pnu-public-notice-feed/
 - [RSS](./rss.xml): RSS 2.0 compatibility feed for feed readers and automation tools.
 - [Archive](./archive/YYYY-MM.json): monthly durable archive with notice metadata and observed events.
 - [OpenAPI manifest](./openapi.json): static endpoint manifest.
+- [Search API contract](./search-api.json): keyword, topic, date, notice and recent change queries.
+- [MCP server](https://xokvgxwdymctvdlidqpf.supabase.co/functions/v1/pnu-public-search/mcp): public read-only Streamable HTTP. Tools are search_notices, get_notice, and list_changes.
 - [Crawler hints](./sitemap.xml): sitemap and robots files for endpoint discovery.
 
 ## Machine-readable contracts

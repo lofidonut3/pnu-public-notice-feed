@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "feed_version": "2026-06-04",
-  "generated_at": "2026-11-10T16:17:17+09:00",
+  "generated_at": "2026-11-10T16:43:58+09:00",
   "title": "PNU Public Notice Feed",
   "description": "Unofficial PNU Public Notice Feed. This project indexes public official notices and links back to the original sources. It is not operated by Pusan National University.",
   "home_page_url": "https://lofidonut3.github.io/pnu-public-notice-feed",
@@ -24,39 +24,39 @@
   "event_stream": {
     "url": "./events.json",
     "event_count": 1000,
-    "total_event_count": 20115,
+    "total_event_count": 20117,
     "event_limit": 1000,
-    "latest_event_id": "2026-11-10T16:17:17+09:00|added|pnu-library-notices:v4pb0p8chzzsrz71|d1b07b1a3a7c",
-    "oldest_event_id": "2026-11-03T19:42:18+09:00|updated|pnu-academic-ie-career-5853:1468405|8a12fd603549",
+    "latest_event_id": "2026-11-10T16:43:58+09:00|updated|pnu-main-notice:1512056|a28ddd74e52f",
+    "oldest_event_id": "2026-11-03T19:42:18+09:00|updated|pnu-academic-ie-career-5853:1468409|c7b3f14404a3",
     "oldest_seen_at": "2026-11-03T19:42:18+09:00",
-    "latest_seen_at": "2026-11-10T16:17:17+09:00",
+    "latest_seen_at": "2026-11-10T16:43:58+09:00",
     "is_truncated": true
   },
   "latest": {
     "url": "./latest.json",
     "item_count": 150,
-    "total_item_count": 12256,
+    "total_item_count": 12257,
     "item_limit": 150
   },
   "status": {
     "overall_status": "ok",
     "source_count": 334,
     "disabled_source_count": 3,
-    "ok_source_count": 30,
-    "skipped_source_count": 301,
-    "poll_interval_skipped_source_count": 301,
+    "ok_source_count": 16,
+    "skipped_source_count": 315,
+    "poll_interval_skipped_source_count": 315,
     "backoff_source_count": 0,
     "error_source_count": 0,
     "degraded_source_count": 0,
     "critical_degraded_source_count": 0,
     "failed_source_count": 0,
     "status_counts": {
-      "skipped": 301,
-      "ok": 30,
+      "ok": 16,
+      "skipped": 315,
       "disabled": 3
     },
     "skipped_reason_counts": {
-      "poll_interval": 301
+      "poll_interval": 315
     },
     "sources": [
       {
@@ -76,15 +76,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "skipped",
-        "last_checked_at": "2026-11-10T15:47:20+09:00",
-        "last_success_at": "2026-11-10T15:47:20+09:00",
+        "status": "ok",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T16:17:20+09:00",
+        "next_check_at": "2026-11-10T17:13:58+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": "poll_interval",
-        "duration_ms": 20,
+        "skipped_reason": null,
+        "duration_ms": 12246,
         "item_count": 85,
         "error_type": null,
         "error": null
@@ -106,16 +106,16 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "skipped",
-        "last_checked_at": "2026-11-10T15:47:20+09:00",
-        "last_success_at": "2026-11-10T15:47:20+09:00",
+        "status": "ok",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T16:17:20+09:00",
+        "next_check_at": "2026-11-10T17:13:58+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": "poll_interval",
-        "duration_ms": 23,
-        "item_count": 80,
+        "skipped_reason": null,
+        "duration_ms": 4393,
+        "item_count": 81,
         "error_type": null,
         "error": null
       },
@@ -136,15 +136,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "skipped",
-        "last_checked_at": "2026-11-10T15:47:20+09:00",
-        "last_success_at": "2026-11-10T15:47:20+09:00",
+        "status": "ok",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T16:17:20+09:00",
+        "next_check_at": "2026-11-10T17:13:58+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": "poll_interval",
-        "duration_ms": 2,
+        "skipped_reason": null,
+        "duration_ms": 4397,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -166,15 +166,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 8301,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 5,
         "item_count": 81,
         "error_type": null,
         "error": null
@@ -196,15 +196,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 4420,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 2,
         "item_count": 82,
         "error_type": null,
         "error": null
@@ -226,15 +226,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 5802,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -256,15 +256,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 1691,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 4,
         "item_count": 86,
         "error_type": null,
         "error": null
@@ -286,15 +286,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 1331,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 2,
         "item_count": 70,
         "error_type": null,
         "error": null
@@ -316,15 +316,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 3972,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 3,
         "item_count": 87,
         "error_type": null,
         "error": null
@@ -346,15 +346,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 1902,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -376,15 +376,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 2202,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 1,
         "item_count": 51,
         "error_type": null,
         "error": null
@@ -406,15 +406,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 1636,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -436,15 +436,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 1837,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 2,
         "item_count": 84,
         "error_type": null,
         "error": null
@@ -466,15 +466,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 14737,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 3,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -496,15 +496,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 3261,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 1,
         "item_count": 32,
         "error_type": null,
         "error": null
@@ -526,15 +526,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 4807,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 1,
         "item_count": 48,
         "error_type": null,
         "error": null
@@ -586,15 +586,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 4043,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 6,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -616,15 +616,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 4345,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 2,
         "item_count": 70,
         "error_type": null,
         "error": null
@@ -646,15 +646,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 1672,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 1,
         "item_count": 22,
         "error_type": null,
         "error": null
@@ -676,15 +676,15 @@
         "detail_check_ttl_hours": 12,
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
-        "status": "ok",
+        "status": "skipped",
         "last_checked_at": "2026-11-10T16:17:17+09:00",
         "last_success_at": "2026-11-10T16:17:17+09:00",
         "last_error_at": null,
         "next_check_at": "2026-11-10T17:17:17+09:00",
         "backoff_until": null,
         "error_count": 0,
-        "skipped_reason": null,
-        "duration_ms": 2356,
+        "skipped_reason": "poll_interval",
+        "duration_ms": 1,
         "item_count": 37,
         "error_type": null,
         "error": null
@@ -774,7 +774,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 2,
+        "duration_ms": 3,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -1074,7 +1074,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 54,
         "error_type": null,
         "error": null
@@ -1104,7 +1104,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 22,
         "error_type": null,
         "error": null
@@ -1134,7 +1134,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 24,
         "error_type": null,
         "error": null
@@ -1164,7 +1164,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 2,
+        "duration_ms": 3,
         "item_count": 82,
         "error_type": null,
         "error": null
@@ -1254,7 +1254,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 19,
         "error_type": null,
         "error": null
@@ -1284,7 +1284,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 2,
+        "duration_ms": 3,
         "item_count": 108,
         "error_type": null,
         "error": null
@@ -1314,7 +1314,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 2,
+        "duration_ms": 3,
         "item_count": 91,
         "error_type": null,
         "error": null
@@ -1374,7 +1374,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 60,
         "error_type": null,
         "error": null
@@ -1434,7 +1434,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 84,
         "error_type": null,
         "error": null
@@ -1494,7 +1494,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 2,
+        "duration_ms": 3,
         "item_count": 101,
         "error_type": null,
         "error": null
@@ -1524,7 +1524,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -1554,7 +1554,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 27,
         "error_type": null,
         "error": null
@@ -1584,7 +1584,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 18,
         "error_type": null,
         "error": null
@@ -1614,7 +1614,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 2,
+        "duration_ms": 3,
         "item_count": 86,
         "error_type": null,
         "error": null
@@ -1644,7 +1644,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 18,
         "error_type": null,
         "error": null
@@ -1704,7 +1704,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 3,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -1794,7 +1794,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 24,
         "error_type": null,
         "error": null
@@ -2244,7 +2244,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 20,
         "error_type": null,
         "error": null
@@ -2304,7 +2304,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 76,
         "error_type": null,
         "error": null
@@ -2394,7 +2394,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 61,
         "error_type": null,
         "error": null
@@ -2454,7 +2454,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 26,
         "error_type": null,
         "error": null
@@ -2484,7 +2484,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 23,
         "error_type": null,
         "error": null
@@ -2514,7 +2514,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 66,
         "error_type": null,
         "error": null
@@ -2544,7 +2544,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 54,
         "error_type": null,
         "error": null
@@ -2664,7 +2664,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 82,
         "error_type": null,
         "error": null
@@ -2724,7 +2724,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 74,
         "error_type": null,
         "error": null
@@ -2754,7 +2754,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 22,
         "error_type": null,
         "error": null
@@ -2784,7 +2784,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 3,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -2814,7 +2814,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -2874,7 +2874,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 2,
+        "duration_ms": 3,
         "item_count": 95,
         "error_type": null,
         "error": null
@@ -2897,14 +2897,14 @@
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
         "status": "ok",
-        "last_checked_at": "2026-11-10T16:17:17+09:00",
-        "last_success_at": "2026-11-10T16:17:17+09:00",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T19:17:17+09:00",
+        "next_check_at": "2026-11-10T19:43:58+09:00",
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": null,
-        "duration_ms": 1347,
+        "duration_ms": 1446,
         "item_count": 0,
         "error_type": null,
         "error": null
@@ -2994,7 +2994,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 22,
         "error_type": null,
         "error": null
@@ -3024,7 +3024,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 16,
         "error_type": null,
         "error": null
@@ -3054,7 +3054,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 69,
         "error_type": null,
         "error": null
@@ -3234,7 +3234,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 67,
         "error_type": null,
         "error": null
@@ -3324,7 +3324,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 23,
         "error_type": null,
         "error": null
@@ -3384,7 +3384,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 65,
         "error_type": null,
         "error": null
@@ -3474,7 +3474,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 2,
+        "duration_ms": 1,
         "item_count": 65,
         "error_type": null,
         "error": null
@@ -3774,7 +3774,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 2,
+        "duration_ms": 3,
         "item_count": 92,
         "error_type": null,
         "error": null
@@ -3924,7 +3924,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 21,
         "error_type": null,
         "error": null
@@ -4074,7 +4074,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 3,
         "item_count": 72,
         "error_type": null,
         "error": null
@@ -4134,7 +4134,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 23,
         "error_type": null,
         "error": null
@@ -4164,7 +4164,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 28,
         "error_type": null,
         "error": null
@@ -4194,7 +4194,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 84,
         "error_type": null,
         "error": null
@@ -4224,7 +4224,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 81,
         "error_type": null,
         "error": null
@@ -4254,7 +4254,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 2,
+        "duration_ms": 3,
         "item_count": 96,
         "error_type": null,
         "error": null
@@ -4284,7 +4284,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 24,
         "error_type": null,
         "error": null
@@ -4314,7 +4314,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 59,
         "error_type": null,
         "error": null
@@ -4374,7 +4374,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 83,
         "error_type": null,
         "error": null
@@ -4434,7 +4434,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 18,
         "error_type": null,
         "error": null
@@ -4464,7 +4464,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 23,
         "error_type": null,
         "error": null
@@ -4554,7 +4554,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 2,
+        "duration_ms": 3,
         "item_count": 98,
         "error_type": null,
         "error": null
@@ -4644,7 +4644,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 26,
         "error_type": null,
         "error": null
@@ -4824,7 +4824,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 21,
         "error_type": null,
         "error": null
@@ -4854,7 +4854,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 20,
         "error_type": null,
         "error": null
@@ -4914,7 +4914,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 81,
         "error_type": null,
         "error": null
@@ -4974,7 +4974,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 72,
         "error_type": null,
         "error": null
@@ -5124,7 +5124,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 22,
         "error_type": null,
         "error": null
@@ -5154,7 +5154,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 23,
         "error_type": null,
         "error": null
@@ -5184,7 +5184,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -5214,7 +5214,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 23,
         "error_type": null,
         "error": null
@@ -5334,7 +5334,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 21,
         "error_type": null,
         "error": null
@@ -5424,7 +5424,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 3,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -5574,7 +5574,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -5664,7 +5664,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 2,
+        "duration_ms": 3,
         "item_count": 92,
         "error_type": null,
         "error": null
@@ -5694,7 +5694,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 83,
         "error_type": null,
         "error": null
@@ -5754,7 +5754,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 22,
         "error_type": null,
         "error": null
@@ -5814,7 +5814,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 21,
         "error_type": null,
         "error": null
@@ -5844,7 +5844,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -5904,7 +5904,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 58,
         "error_type": null,
         "error": null
@@ -5934,7 +5934,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 23,
         "error_type": null,
         "error": null
@@ -6204,7 +6204,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 62,
         "error_type": null,
         "error": null
@@ -6264,7 +6264,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 58,
         "error_type": null,
         "error": null
@@ -6324,7 +6324,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -6444,7 +6444,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 17,
         "error_type": null,
         "error": null
@@ -6527,14 +6527,14 @@
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
         "status": "ok",
-        "last_checked_at": "2026-11-10T16:17:17+09:00",
-        "last_success_at": "2026-11-10T16:17:17+09:00",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T19:17:17+09:00",
+        "next_check_at": "2026-11-10T19:43:58+09:00",
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": null,
-        "duration_ms": 1470,
+        "duration_ms": 1367,
         "item_count": 0,
         "error_type": null,
         "error": null
@@ -6564,7 +6564,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 19,
         "error_type": null,
         "error": null
@@ -6654,7 +6654,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 25,
         "error_type": null,
         "error": null
@@ -6887,14 +6887,14 @@
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
         "status": "ok",
-        "last_checked_at": "2026-11-10T16:17:17+09:00",
-        "last_success_at": "2026-11-10T16:17:17+09:00",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T19:17:17+09:00",
+        "next_check_at": "2026-11-10T19:43:58+09:00",
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": null,
-        "duration_ms": 1159,
+        "duration_ms": 1460,
         "item_count": 0,
         "error_type": null,
         "error": null
@@ -6984,7 +6984,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 72,
         "error_type": null,
         "error": null
@@ -7074,7 +7074,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 82,
         "error_type": null,
         "error": null
@@ -7164,7 +7164,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 81,
         "error_type": null,
         "error": null
@@ -7307,14 +7307,14 @@
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
         "status": "ok",
-        "last_checked_at": "2026-11-10T16:17:17+09:00",
-        "last_success_at": "2026-11-10T16:17:17+09:00",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T19:17:17+09:00",
+        "next_check_at": "2026-11-10T19:43:58+09:00",
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": null,
-        "duration_ms": 1016,
+        "duration_ms": 1038,
         "item_count": 0,
         "error_type": null,
         "error": null
@@ -7434,7 +7434,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -7464,7 +7464,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 27,
         "error_type": null,
         "error": null
@@ -7494,7 +7494,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -7524,7 +7524,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -7554,7 +7554,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 3,
+        "duration_ms": 2,
         "item_count": 82,
         "error_type": null,
         "error": null
@@ -7614,7 +7614,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 77,
         "error_type": null,
         "error": null
@@ -7644,7 +7644,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 37,
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -7764,7 +7764,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 21,
         "error_type": null,
         "error": null
@@ -7944,7 +7944,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 21,
         "error_type": null,
         "error": null
@@ -8057,14 +8057,14 @@
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
         "status": "ok",
-        "last_checked_at": "2026-11-10T16:17:17+09:00",
-        "last_success_at": "2026-11-10T16:17:17+09:00",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T19:17:17+09:00",
+        "next_check_at": "2026-11-10T19:43:58+09:00",
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": null,
-        "duration_ms": 975,
+        "duration_ms": 1175,
         "item_count": 0,
         "error_type": null,
         "error": null
@@ -8124,7 +8124,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 16,
         "error_type": null,
         "error": null
@@ -8184,7 +8184,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 2,
         "item_count": 22,
         "error_type": null,
         "error": null
@@ -8364,7 +8364,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 25,
         "item_count": 81,
         "error_type": null,
         "error": null
@@ -8417,14 +8417,14 @@
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
         "status": "ok",
-        "last_checked_at": "2026-11-10T16:17:17+09:00",
-        "last_success_at": "2026-11-10T16:17:17+09:00",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T19:17:17+09:00",
+        "next_check_at": "2026-11-10T19:43:58+09:00",
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": null,
-        "duration_ms": 1522,
+        "duration_ms": 1356,
         "item_count": 0,
         "error_type": null,
         "error": null
@@ -8544,7 +8544,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 22,
         "error_type": null,
         "error": null
@@ -8724,7 +8724,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 24,
         "error_type": null,
         "error": null
@@ -8867,14 +8867,14 @@
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
         "status": "ok",
-        "last_checked_at": "2026-11-10T16:17:17+09:00",
-        "last_success_at": "2026-11-10T16:17:17+09:00",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T19:17:17+09:00",
+        "next_check_at": "2026-11-10T19:43:58+09:00",
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": null,
-        "duration_ms": 1346,
+        "duration_ms": 1038,
         "item_count": 0,
         "error_type": null,
         "error": null
@@ -8897,14 +8897,14 @@
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
         "status": "ok",
-        "last_checked_at": "2026-11-10T16:17:17+09:00",
-        "last_success_at": "2026-11-10T16:17:17+09:00",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T19:17:17+09:00",
+        "next_check_at": "2026-11-10T19:43:58+09:00",
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": null,
-        "duration_ms": 1358,
+        "duration_ms": 3309,
         "item_count": 0,
         "error_type": null,
         "error": null
@@ -8927,14 +8927,14 @@
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
         "status": "ok",
-        "last_checked_at": "2026-11-10T16:17:17+09:00",
-        "last_success_at": "2026-11-10T16:17:17+09:00",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T19:17:17+09:00",
+        "next_check_at": "2026-11-10T19:43:58+09:00",
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": null,
-        "duration_ms": 2846,
+        "duration_ms": 3369,
         "item_count": 0,
         "error_type": null,
         "error": null
@@ -9107,14 +9107,14 @@
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
         "status": "ok",
-        "last_checked_at": "2026-11-10T16:17:17+09:00",
-        "last_success_at": "2026-11-10T16:17:17+09:00",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T19:17:17+09:00",
+        "next_check_at": "2026-11-10T19:43:58+09:00",
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": null,
-        "duration_ms": 1509,
+        "duration_ms": 1001,
         "item_count": 0,
         "error_type": null,
         "error": null
@@ -9197,14 +9197,14 @@
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
         "status": "ok",
-        "last_checked_at": "2026-11-10T16:17:17+09:00",
-        "last_success_at": "2026-11-10T16:17:17+09:00",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T19:17:17+09:00",
+        "next_check_at": "2026-11-10T19:43:58+09:00",
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": null,
-        "duration_ms": 1117,
+        "duration_ms": 1139,
         "item_count": 0,
         "error_type": null,
         "error": null
@@ -9474,7 +9474,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 80,
         "error_type": null,
         "error": null
@@ -9774,7 +9774,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 0,
         "item_count": 10,
         "error_type": null,
         "error": null
@@ -9797,14 +9797,14 @@
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
         "status": "ok",
-        "last_checked_at": "2026-11-10T16:17:17+09:00",
-        "last_success_at": "2026-11-10T16:17:17+09:00",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T19:17:17+09:00",
+        "next_check_at": "2026-11-10T19:43:58+09:00",
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": null,
-        "duration_ms": 2703,
+        "duration_ms": 936,
         "item_count": 0,
         "error_type": null,
         "error": null
@@ -9834,7 +9834,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 1,
+        "duration_ms": 2,
         "item_count": 72,
         "error_type": null,
         "error": null
@@ -9864,7 +9864,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 21,
         "error_type": null,
         "error": null
@@ -9887,14 +9887,14 @@
         "detail_check_error_count": 0,
         "noncritical_fetch_attempts": 1,
         "status": "ok",
-        "last_checked_at": "2026-11-10T16:17:17+09:00",
-        "last_success_at": "2026-11-10T16:17:17+09:00",
+        "last_checked_at": "2026-11-10T16:43:58+09:00",
+        "last_success_at": "2026-11-10T16:43:58+09:00",
         "last_error_at": null,
-        "next_check_at": "2026-11-10T19:17:17+09:00",
+        "next_check_at": "2026-11-10T19:43:58+09:00",
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": null,
-        "duration_ms": 1154,
+        "duration_ms": 862,
         "item_count": 0,
         "error_type": null,
         "error": null
@@ -9984,7 +9984,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 21,
         "error_type": null,
         "error": null
@@ -10044,7 +10044,7 @@
         "backoff_until": null,
         "error_count": 0,
         "skipped_reason": "poll_interval",
-        "duration_ms": 0,
+        "duration_ms": 1,
         "item_count": 21,
         "error_type": null,
         "error": null
@@ -10084,13 +10084,13 @@
   "archives": {
     "schema_version": "0.1",
     "archive_version": "0.4",
-    "last_modified_at": "2026-11-10T16:17:17+09:00",
+    "last_modified_at": "2026-11-10T16:43:58+09:00",
     "timezone": "Asia/Seoul",
     "archive_url_pattern": "./archive/{YYYY-MM}.json",
     "month_count": 164,
-    "notice_count": 17943,
-    "event_count": 20115,
-    "latest_event_id": "2026-11-10T16:17:17+09:00|added|pnu-library-notices:v4pb0p8chzzsrz71|d1b07b1a3a7c",
+    "notice_count": 17944,
+    "event_count": 20117,
+    "latest_event_id": "2026-11-10T16:43:58+09:00|updated|pnu-main-notice:1512056|a28ddd74e52f",
     "months": [
       {
         "month": "2007-12",
@@ -11877,13 +11877,13 @@
       {
         "month": "2026-11",
         "url": "./archive/2026-11.json",
-        "notice_count": 835,
-        "event_count": 1323,
-        "size_bytes": 3895350,
-        "sha256": "773530fcf5ed962fdab90d984b86a14e90a80c68d35f31e258f4b3ee309abb6e",
-        "last_modified_at": "2026-11-10T16:17:17+09:00",
+        "notice_count": 836,
+        "event_count": 1325,
+        "size_bytes": 3902684,
+        "sha256": "bb15a32c7bfe30c0e7f6431221e8d287ef1223d293722e275a0b904287f81c60",
+        "last_modified_at": "2026-11-10T16:43:58+09:00",
         "first_seen_at": "2026-11-02T11:18:00+09:00",
-        "last_seen_at": "2026-11-10T16:17:17+09:00"
+        "last_seen_at": "2026-11-10T16:43:58+09:00"
       },
       {
         "month": "2027-01",
@@ -14077,10 +14077,10 @@
       },
       {
         "id": "pnu-main-notice",
-        "notice_count": 583,
-        "event_count": 628,
+        "notice_count": 584,
+        "event_count": 630,
         "first_seen_at": "2026-06-04T20:09:36+09:00",
-        "last_seen_at": "2026-11-10T15:47:20+09:00"
+        "last_seen_at": "2026-11-10T16:43:58+09:00"
       },
       {
         "id": "pnu-museum-notices",
@@ -41674,30 +41674,6 @@
       ]
     },
     {
-      "id": "same_notice:0d6db3e3691384e8",
-      "relationship": "same_notice",
-      "confidence": "high",
-      "consumer_action": "dedupe_notifications",
-      "canonical_item_id": "pnu-main-notice:1512056",
-      "item_ids": [
-        "pnu-main-notice:1512056",
-        "pnu-onestop-notices:2224"
-      ],
-      "source_ids": [
-        "pnu-main-notice",
-        "pnu-onestop-notices"
-      ],
-      "published_dates": [
-        "2026-11-09"
-      ],
-      "representative_title": "📣 2026 부산대 교육수요자 만족도 조사 참여 안내(PCSI)",
-      "evidence": [
-        "cross_source",
-        "same_normalized_title",
-        "same_published_date"
-      ]
-    },
-    {
       "id": "same_notice:761eb761270a8eb6",
       "relationship": "same_notice",
       "confidence": "high",
@@ -42234,42 +42210,42 @@
       ]
     }
   ],
-  "same_notice_group_count": 1064,
+  "same_notice_group_count": 1063,
   "diagnostics": {
     "run": {
-      "generated_at": "2026-11-10T16:17:17+09:00",
-      "duration_ms": 30827,
+      "generated_at": "2026-11-10T16:43:58+09:00",
+      "duration_ms": 17618,
       "fetch_concurrency": 4,
       "per_host_concurrency": 1,
       "fetch_attempts": 2,
       "source_count": 334,
-      "fetched_source_count": 30,
-      "skipped_source_count": 301,
+      "fetched_source_count": 16,
+      "skipped_source_count": 315,
       "error_source_count": 0,
-      "total_item_count": 12256,
+      "total_item_count": 12257,
       "latest_item_count": 150,
       "latest_item_limit": 150,
       "source_duration_ms": {
         "min": 0,
-        "max": 14737,
-        "avg": 263.76
+        "max": 12246,
+        "avg": 122.37
       },
       "state": {
         "source_count": 334,
-        "item_count": 12315,
-        "estimated_compact_json_bytes": 9302686
+        "item_count": 12316,
+        "estimated_compact_json_bytes": 9306331
       },
       "source_results": [
         {
           "id": "pnu-main-notice",
           "host": "www.pusan.ac.kr",
           "adapter": "pusan-cms-static-board",
-          "status": "skipped",
-          "skipped_reason": "poll_interval",
-          "duration_ms": 20,
+          "status": "ok",
+          "skipped_reason": null,
+          "duration_ms": 12246,
           "item_count": 85,
           "poll_interval_minutes": 30,
-          "next_check_at": "2026-11-10T16:17:20+09:00",
+          "next_check_at": "2026-11-10T17:13:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -42277,12 +42253,12 @@
           "id": "pnu-onestop-notices",
           "host": "onestop.pusan.ac.kr",
           "adapter": "onestop-js-board",
-          "status": "skipped",
-          "skipped_reason": "poll_interval",
-          "duration_ms": 23,
-          "item_count": 80,
+          "status": "ok",
+          "skipped_reason": null,
+          "duration_ms": 4393,
+          "item_count": 81,
           "poll_interval_minutes": 30,
-          "next_check_at": "2026-11-10T16:17:20+09:00",
+          "next_check_at": "2026-11-10T17:13:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -42290,12 +42266,12 @@
           "id": "pnu-onestop-scholarship",
           "host": "onestop.pusan.ac.kr",
           "adapter": "onestop-js-board",
-          "status": "skipped",
-          "skipped_reason": "poll_interval",
-          "duration_ms": 2,
+          "status": "ok",
+          "skipped_reason": null,
+          "duration_ms": 4397,
           "item_count": 80,
           "poll_interval_minutes": 30,
-          "next_check_at": "2026-11-10T16:17:20+09:00",
+          "next_check_at": "2026-11-10T17:13:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -42303,9 +42279,9 @@
           "id": "pnu-dorm-busan-notices",
           "host": "dorm.pusan.ac.kr",
           "adapter": "websquare-js-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 8301,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 5,
           "item_count": 81,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42316,9 +42292,9 @@
           "id": "pnu-dorm-yangsan-notices",
           "host": "dorm.pusan.ac.kr",
           "adapter": "websquare-js-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 4420,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 2,
           "item_count": 82,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42329,9 +42305,9 @@
           "id": "pnu-dorm-miryang-notices",
           "host": "dorm.pusan.ac.kr",
           "adapter": "websquare-js-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 5802,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42342,9 +42318,9 @@
           "id": "pnu-international-student-notices",
           "host": "international.pusan.ac.kr",
           "adapter": "k2web-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 1691,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 4,
           "item_count": 86,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42355,9 +42331,9 @@
           "id": "pnu-international-office-notices",
           "host": "international.pusan.ac.kr",
           "adapter": "k2web-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 1331,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 2,
           "item_count": 70,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42368,9 +42344,9 @@
           "id": "pnu-job-notices",
           "host": "job.pusan.ac.kr",
           "adapter": "job-notice-html-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 3972,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 3,
           "item_count": 87,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42381,9 +42357,9 @@
           "id": "pnu-job-recruit-general",
           "host": "job.pusan.ac.kr",
           "adapter": "job-recruit-html-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 1902,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42394,9 +42370,9 @@
           "id": "pnu-job-recruit-recommendation",
           "host": "job.pusan.ac.kr",
           "adapter": "job-recruit-html-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 2202,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 1,
           "item_count": 51,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42407,9 +42383,9 @@
           "id": "pnu-job-recruit-internship",
           "host": "job.pusan.ac.kr",
           "adapter": "job-recruit-html-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 1636,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42420,9 +42396,9 @@
           "id": "pnu-library-notices",
           "host": "lib.pusan.ac.kr",
           "adapter": "library-pyxis-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 1837,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 2,
           "item_count": 84,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42433,9 +42409,9 @@
           "id": "pnu-main-faculty-staff-recruitment",
           "host": "www.pusan.ac.kr",
           "adapter": "pusan-cms-static-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 14737,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 3,
           "item_count": 80,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42446,9 +42422,9 @@
           "id": "pnu-ppes-employment",
           "host": "ppes.pusan.ac.kr",
           "adapter": "websquare-js-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 3261,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 1,
           "item_count": 32,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42459,9 +42435,9 @@
           "id": "pnu-sanhak-notices",
           "host": "sanhak.pusan.ac.kr",
           "adapter": "simple-html-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 4807,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 1,
           "item_count": 48,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42485,9 +42461,9 @@
           "id": "pnu-health-notices",
           "host": "health.pusan.ac.kr",
           "adapter": "websquare-js-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 4043,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 6,
           "item_count": 80,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42498,9 +42474,9 @@
           "id": "pnu-sedu-support-notices",
           "host": "sedu-support.pusan.ac.kr",
           "adapter": "k2web-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 4345,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 2,
           "item_count": 70,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42511,9 +42487,9 @@
           "id": "pnu-counsel-notices",
           "host": "pnucounsel.pusan.ac.kr",
           "adapter": "k2web-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 1672,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 1,
           "item_count": 22,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42524,9 +42500,9 @@
           "id": "pnu-equality-notices",
           "host": "equality.pusan.ac.kr",
           "adapter": "k2web-board",
-          "status": "ok",
-          "skipped_reason": null,
-          "duration_ms": 2356,
+          "status": "skipped",
+          "skipped_reason": "poll_interval",
+          "duration_ms": 1,
           "item_count": 37,
           "poll_interval_minutes": 60,
           "next_check_at": "2026-11-10T17:17:17+09:00",
@@ -42565,7 +42541,7 @@
           "adapter": "websquare-js-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 2,
+          "duration_ms": 3,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42695,7 +42671,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 54,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42708,7 +42684,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 22,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42721,7 +42697,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 24,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42734,7 +42710,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 2,
+          "duration_ms": 3,
           "item_count": 82,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42773,7 +42749,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 19,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42786,7 +42762,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 2,
+          "duration_ms": 3,
           "item_count": 108,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42799,7 +42775,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 2,
+          "duration_ms": 3,
           "item_count": 91,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42825,7 +42801,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 60,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42851,7 +42827,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 84,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42877,7 +42853,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 2,
+          "duration_ms": 3,
           "item_count": 101,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42890,7 +42866,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42903,7 +42879,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 27,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42916,7 +42892,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 18,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42929,7 +42905,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 2,
+          "duration_ms": 3,
           "item_count": 86,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42942,7 +42918,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 18,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -42968,7 +42944,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 3,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43007,7 +42983,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 24,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43202,7 +43178,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 20,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43228,7 +43204,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 76,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43267,7 +43243,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 61,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43293,7 +43269,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 26,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43306,7 +43282,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 23,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43319,7 +43295,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 66,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43332,7 +43308,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 54,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43384,7 +43360,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 82,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43410,7 +43386,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 74,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43423,7 +43399,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 22,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43436,7 +43412,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 3,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43449,7 +43425,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43475,7 +43451,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 2,
+          "duration_ms": 3,
           "item_count": 95,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43488,10 +43464,10 @@
           "adapter": "k2web-board",
           "status": "ok",
           "skipped_reason": null,
-          "duration_ms": 1347,
+          "duration_ms": 1446,
           "item_count": 0,
           "poll_interval_minutes": 180,
-          "next_check_at": "2026-11-10T19:17:17+09:00",
+          "next_check_at": "2026-11-10T19:43:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -43527,7 +43503,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 22,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43540,7 +43516,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 16,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43553,7 +43529,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 69,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43631,7 +43607,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 67,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43670,7 +43646,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 23,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43696,7 +43672,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 65,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43735,7 +43711,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 2,
+          "duration_ms": 1,
           "item_count": 65,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43865,7 +43841,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 2,
+          "duration_ms": 3,
           "item_count": 92,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43930,7 +43906,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 21,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -43995,7 +43971,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 3,
           "item_count": 72,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44021,7 +43997,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 23,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44034,7 +44010,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 28,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44047,7 +44023,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 84,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44060,7 +44036,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 81,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44073,7 +44049,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 2,
+          "duration_ms": 3,
           "item_count": 96,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44086,7 +44062,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 24,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44099,7 +44075,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 59,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44125,7 +44101,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 83,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44151,7 +44127,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 18,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44164,7 +44140,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 23,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44203,7 +44179,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 2,
+          "duration_ms": 3,
           "item_count": 98,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44242,7 +44218,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 26,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44320,7 +44296,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 21,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44333,7 +44309,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 20,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44359,7 +44335,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 81,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44385,7 +44361,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 72,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44450,7 +44426,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 22,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44463,7 +44439,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 23,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44476,7 +44452,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44489,7 +44465,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 23,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44541,7 +44517,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 21,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44580,7 +44556,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 3,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44645,7 +44621,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44684,7 +44660,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 2,
+          "duration_ms": 3,
           "item_count": 92,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44697,7 +44673,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 83,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44723,7 +44699,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 22,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44749,7 +44725,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 21,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44762,7 +44738,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44788,7 +44764,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 58,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44801,7 +44777,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 23,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44918,7 +44894,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 62,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44944,7 +44920,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 58,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -44970,7 +44946,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45022,7 +44998,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 17,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45061,10 +45037,10 @@
           "adapter": "k2web-board",
           "status": "ok",
           "skipped_reason": null,
-          "duration_ms": 1470,
+          "duration_ms": 1367,
           "item_count": 0,
           "poll_interval_minutes": 180,
-          "next_check_at": "2026-11-10T19:17:17+09:00",
+          "next_check_at": "2026-11-10T19:43:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -45074,7 +45050,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 19,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45113,7 +45089,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 25,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45217,10 +45193,10 @@
           "adapter": "k2web-board",
           "status": "ok",
           "skipped_reason": null,
-          "duration_ms": 1159,
+          "duration_ms": 1460,
           "item_count": 0,
           "poll_interval_minutes": 180,
-          "next_check_at": "2026-11-10T19:17:17+09:00",
+          "next_check_at": "2026-11-10T19:43:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -45256,7 +45232,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 72,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45295,7 +45271,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 82,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45334,7 +45310,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 81,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45399,10 +45375,10 @@
           "adapter": "k2web-board",
           "status": "ok",
           "skipped_reason": null,
-          "duration_ms": 1016,
+          "duration_ms": 1038,
           "item_count": 0,
           "poll_interval_minutes": 180,
-          "next_check_at": "2026-11-10T19:17:17+09:00",
+          "next_check_at": "2026-11-10T19:43:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -45451,7 +45427,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45464,7 +45440,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 27,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45477,7 +45453,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45490,7 +45466,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45503,7 +45479,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 3,
+          "duration_ms": 2,
           "item_count": 82,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45529,7 +45505,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 77,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45542,7 +45518,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 37,
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45594,7 +45570,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 21,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45672,7 +45648,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 21,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45724,10 +45700,10 @@
           "adapter": "k2web-board",
           "status": "ok",
           "skipped_reason": null,
-          "duration_ms": 975,
+          "duration_ms": 1175,
           "item_count": 0,
           "poll_interval_minutes": 180,
-          "next_check_at": "2026-11-10T19:17:17+09:00",
+          "next_check_at": "2026-11-10T19:43:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -45750,7 +45726,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 16,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45776,7 +45752,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 2,
           "item_count": 22,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45854,7 +45830,7 @@
           "adapter": "legacy-php-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 25,
           "item_count": 81,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -45880,10 +45856,10 @@
           "adapter": "k2web-board",
           "status": "ok",
           "skipped_reason": null,
-          "duration_ms": 1522,
+          "duration_ms": 1356,
           "item_count": 0,
           "poll_interval_minutes": 180,
-          "next_check_at": "2026-11-10T19:17:17+09:00",
+          "next_check_at": "2026-11-10T19:43:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -45932,7 +45908,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 22,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -46010,7 +45986,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 24,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -46075,10 +46051,10 @@
           "adapter": "k2web-board",
           "status": "ok",
           "skipped_reason": null,
-          "duration_ms": 1346,
+          "duration_ms": 1038,
           "item_count": 0,
           "poll_interval_minutes": 180,
-          "next_check_at": "2026-11-10T19:17:17+09:00",
+          "next_check_at": "2026-11-10T19:43:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -46088,10 +46064,10 @@
           "adapter": "k2web-board",
           "status": "ok",
           "skipped_reason": null,
-          "duration_ms": 1358,
+          "duration_ms": 3309,
           "item_count": 0,
           "poll_interval_minutes": 180,
-          "next_check_at": "2026-11-10T19:17:17+09:00",
+          "next_check_at": "2026-11-10T19:43:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -46101,10 +46077,10 @@
           "adapter": "k2web-board",
           "status": "ok",
           "skipped_reason": null,
-          "duration_ms": 2846,
+          "duration_ms": 3369,
           "item_count": 0,
           "poll_interval_minutes": 180,
-          "next_check_at": "2026-11-10T19:17:17+09:00",
+          "next_check_at": "2026-11-10T19:43:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -46179,10 +46155,10 @@
           "adapter": "k2web-board",
           "status": "ok",
           "skipped_reason": null,
-          "duration_ms": 1509,
+          "duration_ms": 1001,
           "item_count": 0,
           "poll_interval_minutes": 180,
-          "next_check_at": "2026-11-10T19:17:17+09:00",
+          "next_check_at": "2026-11-10T19:43:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -46218,10 +46194,10 @@
           "adapter": "k2web-board",
           "status": "ok",
           "skipped_reason": null,
-          "duration_ms": 1117,
+          "duration_ms": 1139,
           "item_count": 0,
           "poll_interval_minutes": 180,
-          "next_check_at": "2026-11-10T19:17:17+09:00",
+          "next_check_at": "2026-11-10T19:43:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -46335,7 +46311,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 80,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -46465,7 +46441,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 0,
           "item_count": 10,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -46478,10 +46454,10 @@
           "adapter": "k2web-board",
           "status": "ok",
           "skipped_reason": null,
-          "duration_ms": 2703,
+          "duration_ms": 936,
           "item_count": 0,
           "poll_interval_minutes": 180,
-          "next_check_at": "2026-11-10T19:17:17+09:00",
+          "next_check_at": "2026-11-10T19:43:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -46491,7 +46467,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 1,
+          "duration_ms": 2,
           "item_count": 72,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -46504,7 +46480,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 21,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -46517,10 +46493,10 @@
           "adapter": "k2web-board",
           "status": "ok",
           "skipped_reason": null,
-          "duration_ms": 1154,
+          "duration_ms": 862,
           "item_count": 0,
           "poll_interval_minutes": 180,
-          "next_check_at": "2026-11-10T19:17:17+09:00",
+          "next_check_at": "2026-11-10T19:43:58+09:00",
           "backoff_until": null,
           "error_type": null
         },
@@ -46556,7 +46532,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 21,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -46582,7 +46558,7 @@
           "adapter": "k2web-board",
           "status": "skipped",
           "skipped_reason": "poll_interval",
-          "duration_ms": 0,
+          "duration_ms": 1,
           "item_count": 21,
           "poll_interval_minutes": 180,
           "next_check_at": "2026-11-10T16:47:22+09:00",
@@ -46604,10 +46580,10 @@
         }
       ],
       "output": {
-        "file_count": 205,
-        "total_bytes": 74464989,
+        "file_count": 370,
+        "total_bytes": 88366227,
         "archive_file_count": 164,
-        "archive_total_bytes": 70578540,
+        "archive_total_bytes": 70585874,
         "largest_files": [
           {
             "path": "archive/2026-09.json",
@@ -46631,19 +46607,39 @@
           },
           {
             "path": "archive/2026-11.json",
-            "bytes": 3895350
+            "bytes": 3902684
+          },
+          {
+            "path": "search/2026-09.json",
+            "bytes": 2466396
           },
           {
             "path": "archive/2026-05.json",
             "bytes": 2184385
           },
           {
+            "path": "search/2026-07.json",
+            "bytes": 1974522
+          },
+          {
+            "path": "search/2026-10.json",
+            "bytes": 1844072
+          },
+          {
+            "path": "search/2026-08.json",
+            "bytes": 1807968
+          },
+          {
+            "path": "search/2026-06.json",
+            "bytes": 1796114
+          },
+          {
             "path": "index.json",
-            "bytes": 1633592
+            "bytes": 1635878
           },
           {
             "path": "events.json",
-            "bytes": 1416698
+            "bytes": 1416201
           },
           {
             "path": "archive/2026-04.json",
@@ -46654,46 +46650,26 @@
             "bytes": 1009241
           },
           {
+            "path": "search/2026-05.json",
+            "bytes": 713284
+          },
+          {
+            "path": "search/2026-11.json",
+            "bytes": 659717
+          },
+          {
             "path": "archive/2026-02.json",
             "bytes": 557908
           },
           {
             "path": "latest.json",
-            "bytes": 481341
-          },
-          {
-            "path": "archive/2026-01.json",
-            "bytes": 340799
-          },
-          {
-            "path": "archive/2025-12.json",
-            "bytes": 305028
-          },
-          {
-            "path": "archive/2025-11.json",
-            "bytes": 254500
-          },
-          {
-            "path": "archive/2025-09.json",
-            "bytes": 212848
-          },
-          {
-            "path": "archive/2025-03.json",
-            "bytes": 201761
-          },
-          {
-            "path": "archive/2025-07.json",
-            "bytes": 174462
-          },
-          {
-            "path": "archive/2025-08.json",
-            "bytes": 153528
+            "bytes": 484259
           }
         ],
         "files": [
           {
             "path": "agent.json",
-            "bytes": 1556
+            "bytes": 1545
           },
           {
             "path": "archive/2007-12.json",
@@ -47345,7 +47321,7 @@
           },
           {
             "path": "archive/2026-11.json",
-            "bytes": 3895350
+            "bytes": 3902684
           },
           {
             "path": "archive/2027-01.json",
@@ -47353,7 +47329,7 @@
           },
           {
             "path": "events.json",
-            "bytes": 1416698
+            "bytes": 1416201
           },
           {
             "path": "examples/read_feed.py",
@@ -47365,15 +47341,15 @@
           },
           {
             "path": "index.json",
-            "bytes": 1633592
+            "bytes": 1635878
           },
           {
             "path": "latest.json",
-            "bytes": 481341
+            "bytes": 484259
           },
           {
             "path": "llms.txt",
-            "bytes": 4920
+            "bytes": 5203
           },
           {
             "path": "openapi.json",
@@ -47385,7 +47361,7 @@
           },
           {
             "path": "rss.xml",
-            "bytes": 110491
+            "bytes": 111326
           },
           {
             "path": "schema/agent.schema.json",
@@ -47409,7 +47385,667 @@
           },
           {
             "path": "schema/topic.schema.json",
-            "bytes": 1682
+            "bytes": 2043
+          },
+          {
+            "path": "search/2007-12.json",
+            "bytes": 708
+          },
+          {
+            "path": "search/2010-02.json",
+            "bytes": 688
+          },
+          {
+            "path": "search/2010-03.json",
+            "bytes": 686
+          },
+          {
+            "path": "search/2010-04.json",
+            "bytes": 688
+          },
+          {
+            "path": "search/2010-10.json",
+            "bytes": 648
+          },
+          {
+            "path": "search/2011-06.json",
+            "bytes": 1406
+          },
+          {
+            "path": "search/2011-07.json",
+            "bytes": 669
+          },
+          {
+            "path": "search/2011-08.json",
+            "bytes": 748
+          },
+          {
+            "path": "search/2011-10.json",
+            "bytes": 1430
+          },
+          {
+            "path": "search/2011-11.json",
+            "bytes": 660
+          },
+          {
+            "path": "search/2011-12.json",
+            "bytes": 1353
+          },
+          {
+            "path": "search/2012-02.json",
+            "bytes": 650
+          },
+          {
+            "path": "search/2012-03.json",
+            "bytes": 644
+          },
+          {
+            "path": "search/2012-04.json",
+            "bytes": 647
+          },
+          {
+            "path": "search/2012-08.json",
+            "bytes": 703
+          },
+          {
+            "path": "search/2012-09.json",
+            "bytes": 668
+          },
+          {
+            "path": "search/2012-10.json",
+            "bytes": 657
+          },
+          {
+            "path": "search/2013-03.json",
+            "bytes": 1367
+          },
+          {
+            "path": "search/2013-04.json",
+            "bytes": 664
+          },
+          {
+            "path": "search/2014-01.json",
+            "bytes": 724
+          },
+          {
+            "path": "search/2014-02.json",
+            "bytes": 705
+          },
+          {
+            "path": "search/2014-04.json",
+            "bytes": 665
+          },
+          {
+            "path": "search/2014-05.json",
+            "bytes": 4832
+          },
+          {
+            "path": "search/2014-06.json",
+            "bytes": 686
+          },
+          {
+            "path": "search/2014-08.json",
+            "bytes": 1432
+          },
+          {
+            "path": "search/2014-09.json",
+            "bytes": 1392
+          },
+          {
+            "path": "search/2014-11.json",
+            "bytes": 1467
+          },
+          {
+            "path": "search/2014-12.json",
+            "bytes": 4322
+          },
+          {
+            "path": "search/2015-02.json",
+            "bytes": 737
+          },
+          {
+            "path": "search/2015-04.json",
+            "bytes": 1362
+          },
+          {
+            "path": "search/2015-06.json",
+            "bytes": 2083
+          },
+          {
+            "path": "search/2015-07.json",
+            "bytes": 680
+          },
+          {
+            "path": "search/2015-10.json",
+            "bytes": 3429
+          },
+          {
+            "path": "search/2015-11.json",
+            "bytes": 2075
+          },
+          {
+            "path": "search/2015-12.json",
+            "bytes": 5453
+          },
+          {
+            "path": "search/2016-02.json",
+            "bytes": 666
+          },
+          {
+            "path": "search/2016-03.json",
+            "bytes": 2639
+          },
+          {
+            "path": "search/2016-04.json",
+            "bytes": 4191
+          },
+          {
+            "path": "search/2016-05.json",
+            "bytes": 1392
+          },
+          {
+            "path": "search/2016-07.json",
+            "bytes": 4198
+          },
+          {
+            "path": "search/2016-08.json",
+            "bytes": 8714
+          },
+          {
+            "path": "search/2016-09.json",
+            "bytes": 9004
+          },
+          {
+            "path": "search/2016-10.json",
+            "bytes": 4750
+          },
+          {
+            "path": "search/2016-11.json",
+            "bytes": 2056
+          },
+          {
+            "path": "search/2016-12.json",
+            "bytes": 2131
+          },
+          {
+            "path": "search/2017-01.json",
+            "bytes": 1356
+          },
+          {
+            "path": "search/2017-02.json",
+            "bytes": 2419
+          },
+          {
+            "path": "search/2017-03.json",
+            "bytes": 9065
+          },
+          {
+            "path": "search/2017-04.json",
+            "bytes": 7169
+          },
+          {
+            "path": "search/2017-05.json",
+            "bytes": 3244
+          },
+          {
+            "path": "search/2017-06.json",
+            "bytes": 738
+          },
+          {
+            "path": "search/2017-07.json",
+            "bytes": 1981
+          },
+          {
+            "path": "search/2017-08.json",
+            "bytes": 4877
+          },
+          {
+            "path": "search/2017-09.json",
+            "bytes": 2854
+          },
+          {
+            "path": "search/2017-10.json",
+            "bytes": 2029
+          },
+          {
+            "path": "search/2017-11.json",
+            "bytes": 5588
+          },
+          {
+            "path": "search/2017-12.json",
+            "bytes": 4928
+          },
+          {
+            "path": "search/2018-01.json",
+            "bytes": 10546
+          },
+          {
+            "path": "search/2018-02.json",
+            "bytes": 2715
+          },
+          {
+            "path": "search/2018-03.json",
+            "bytes": 3351
+          },
+          {
+            "path": "search/2018-04.json",
+            "bytes": 2041
+          },
+          {
+            "path": "search/2018-05.json",
+            "bytes": 4810
+          },
+          {
+            "path": "search/2018-06.json",
+            "bytes": 2113
+          },
+          {
+            "path": "search/2018-07.json",
+            "bytes": 3216
+          },
+          {
+            "path": "search/2018-08.json",
+            "bytes": 5390
+          },
+          {
+            "path": "search/2018-09.json",
+            "bytes": 2054
+          },
+          {
+            "path": "search/2018-10.json",
+            "bytes": 2095
+          },
+          {
+            "path": "search/2018-11.json",
+            "bytes": 5318
+          },
+          {
+            "path": "search/2018-12.json",
+            "bytes": 2865
+          },
+          {
+            "path": "search/2019-01.json",
+            "bytes": 4996
+          },
+          {
+            "path": "search/2019-02.json",
+            "bytes": 2183
+          },
+          {
+            "path": "search/2019-03.json",
+            "bytes": 3941
+          },
+          {
+            "path": "search/2019-04.json",
+            "bytes": 2269
+          },
+          {
+            "path": "search/2019-05.json",
+            "bytes": 1367
+          },
+          {
+            "path": "search/2019-07.json",
+            "bytes": 8388
+          },
+          {
+            "path": "search/2019-08.json",
+            "bytes": 3675
+          },
+          {
+            "path": "search/2019-09.json",
+            "bytes": 5722
+          },
+          {
+            "path": "search/2019-10.json",
+            "bytes": 6180
+          },
+          {
+            "path": "search/2019-11.json",
+            "bytes": 5796
+          },
+          {
+            "path": "search/2019-12.json",
+            "bytes": 5079
+          },
+          {
+            "path": "search/2020-01.json",
+            "bytes": 8483
+          },
+          {
+            "path": "search/2020-02.json",
+            "bytes": 7364
+          },
+          {
+            "path": "search/2020-03.json",
+            "bytes": 2086
+          },
+          {
+            "path": "search/2020-04.json",
+            "bytes": 6447
+          },
+          {
+            "path": "search/2020-05.json",
+            "bytes": 3547
+          },
+          {
+            "path": "search/2020-06.json",
+            "bytes": 4220
+          },
+          {
+            "path": "search/2020-07.json",
+            "bytes": 3206
+          },
+          {
+            "path": "search/2020-08.json",
+            "bytes": 15272
+          },
+          {
+            "path": "search/2020-09.json",
+            "bytes": 6280
+          },
+          {
+            "path": "search/2020-10.json",
+            "bytes": 3499
+          },
+          {
+            "path": "search/2020-11.json",
+            "bytes": 4774
+          },
+          {
+            "path": "search/2020-12.json",
+            "bytes": 3162
+          },
+          {
+            "path": "search/2021-01.json",
+            "bytes": 733
+          },
+          {
+            "path": "search/2021-02.json",
+            "bytes": 7291
+          },
+          {
+            "path": "search/2021-03.json",
+            "bytes": 8779
+          },
+          {
+            "path": "search/2021-04.json",
+            "bytes": 8487
+          },
+          {
+            "path": "search/2021-05.json",
+            "bytes": 16425
+          },
+          {
+            "path": "search/2021-06.json",
+            "bytes": 5423
+          },
+          {
+            "path": "search/2021-07.json",
+            "bytes": 2009
+          },
+          {
+            "path": "search/2021-08.json",
+            "bytes": 16155
+          },
+          {
+            "path": "search/2021-09.json",
+            "bytes": 3208
+          },
+          {
+            "path": "search/2021-10.json",
+            "bytes": 10632
+          },
+          {
+            "path": "search/2021-11.json",
+            "bytes": 7337
+          },
+          {
+            "path": "search/2021-12.json",
+            "bytes": 17997
+          },
+          {
+            "path": "search/2022-01.json",
+            "bytes": 11230
+          },
+          {
+            "path": "search/2022-02.json",
+            "bytes": 15214
+          },
+          {
+            "path": "search/2022-03.json",
+            "bytes": 17570
+          },
+          {
+            "path": "search/2022-04.json",
+            "bytes": 9035
+          },
+          {
+            "path": "search/2022-05.json",
+            "bytes": 7997
+          },
+          {
+            "path": "search/2022-06.json",
+            "bytes": 7823
+          },
+          {
+            "path": "search/2022-07.json",
+            "bytes": 12849
+          },
+          {
+            "path": "search/2022-08.json",
+            "bytes": 18516
+          },
+          {
+            "path": "search/2022-09.json",
+            "bytes": 14261
+          },
+          {
+            "path": "search/2022-10.json",
+            "bytes": 2147
+          },
+          {
+            "path": "search/2022-11.json",
+            "bytes": 16212
+          },
+          {
+            "path": "search/2022-12.json",
+            "bytes": 5249
+          },
+          {
+            "path": "search/2023-01.json",
+            "bytes": 12959
+          },
+          {
+            "path": "search/2023-02.json",
+            "bytes": 10739
+          },
+          {
+            "path": "search/2023-03.json",
+            "bytes": 11642
+          },
+          {
+            "path": "search/2023-04.json",
+            "bytes": 9921
+          },
+          {
+            "path": "search/2023-05.json",
+            "bytes": 13016
+          },
+          {
+            "path": "search/2023-06.json",
+            "bytes": 12279
+          },
+          {
+            "path": "search/2023-07.json",
+            "bytes": 17244
+          },
+          {
+            "path": "search/2023-08.json",
+            "bytes": 14045
+          },
+          {
+            "path": "search/2023-09.json",
+            "bytes": 21689
+          },
+          {
+            "path": "search/2023-10.json",
+            "bytes": 6820
+          },
+          {
+            "path": "search/2023-11.json",
+            "bytes": 21556
+          },
+          {
+            "path": "search/2023-12.json",
+            "bytes": 21994
+          },
+          {
+            "path": "search/2024-01.json",
+            "bytes": 16560
+          },
+          {
+            "path": "search/2024-02.json",
+            "bytes": 13984
+          },
+          {
+            "path": "search/2024-03.json",
+            "bytes": 12782
+          },
+          {
+            "path": "search/2024-04.json",
+            "bytes": 17464
+          },
+          {
+            "path": "search/2024-05.json",
+            "bytes": 17691
+          },
+          {
+            "path": "search/2024-06.json",
+            "bytes": 17441
+          },
+          {
+            "path": "search/2024-07.json",
+            "bytes": 21315
+          },
+          {
+            "path": "search/2024-08.json",
+            "bytes": 18991
+          },
+          {
+            "path": "search/2024-09.json",
+            "bytes": 16279
+          },
+          {
+            "path": "search/2024-10.json",
+            "bytes": 29715
+          },
+          {
+            "path": "search/2024-11.json",
+            "bytes": 24628
+          },
+          {
+            "path": "search/2024-12.json",
+            "bytes": 24952
+          },
+          {
+            "path": "search/2025-01.json",
+            "bytes": 27583
+          },
+          {
+            "path": "search/2025-02.json",
+            "bytes": 38992
+          },
+          {
+            "path": "search/2025-03.json",
+            "bytes": 60971
+          },
+          {
+            "path": "search/2025-04.json",
+            "bytes": 44049
+          },
+          {
+            "path": "search/2025-05.json",
+            "bytes": 33752
+          },
+          {
+            "path": "search/2025-06.json",
+            "bytes": 26626
+          },
+          {
+            "path": "search/2025-07.json",
+            "bytes": 56428
+          },
+          {
+            "path": "search/2025-08.json",
+            "bytes": 48994
+          },
+          {
+            "path": "search/2025-09.json",
+            "bytes": 65819
+          },
+          {
+            "path": "search/2025-10.json",
+            "bytes": 44114
+          },
+          {
+            "path": "search/2025-11.json",
+            "bytes": 82088
+          },
+          {
+            "path": "search/2025-12.json",
+            "bytes": 97499
+          },
+          {
+            "path": "search/2026-01.json",
+            "bytes": 108122
+          },
+          {
+            "path": "search/2026-02.json",
+            "bytes": 179716
+          },
+          {
+            "path": "search/2026-03.json",
+            "bytes": 322054
+          },
+          {
+            "path": "search/2026-04.json",
+            "bytes": 395305
+          },
+          {
+            "path": "search/2026-05.json",
+            "bytes": 713284
+          },
+          {
+            "path": "search/2026-06.json",
+            "bytes": 1796114
+          },
+          {
+            "path": "search/2026-07.json",
+            "bytes": 1974522
+          },
+          {
+            "path": "search/2026-08.json",
+            "bytes": 1807968
+          },
+          {
+            "path": "search/2026-09.json",
+            "bytes": 2466396
+          },
+          {
+            "path": "search/2026-10.json",
+            "bytes": 1844072
+          },
+          {
+            "path": "search/2026-11.json",
+            "bytes": 659717
+          },
+          {
+            "path": "search/catalog.json",
+            "bytes": 34774
+          },
+          {
+            "path": "search-api.json",
+            "bytes": 12243
           },
           {
             "path": "sitemap.xml",
@@ -47417,7 +48053,7 @@
           },
           {
             "path": "topics/academic.json",
-            "bytes": 15417
+            "bytes": 14955
           },
           {
             "path": "topics/academic_records.json",
@@ -47437,7 +48073,7 @@
           },
           {
             "path": "topics/contest.json",
-            "bytes": 10441
+            "bytes": 10978
           },
           {
             "path": "topics/continuing_education.json",
@@ -47514,8 +48150,8 @@
         ]
       },
       "archive_coverage": {
-        "state_item_count": 12315,
-        "archive_item_count": 17943,
+        "state_item_count": 12316,
+        "archive_item_count": 17944,
         "missing_current_state_item_count": 0,
         "missing_current_state_items": [],
         "ok": true
@@ -47527,78 +48163,47 @@
       "run_diff_scope": "latest_generator_run",
       "durable_history": false,
       "removed_semantics": "missing_from_current_generator_state_not_official_deletion",
-      "generated_at": "2026-11-10T16:17:17+09:00",
-      "previous_generated_at": "2026-11-10T15:47:20+09:00",
-      "added_count": 3,
-      "updated_count": 0,
-      "removed_count": 5,
+      "generated_at": "2026-11-10T16:43:58+09:00",
+      "previous_generated_at": "2026-11-10T16:17:17+09:00",
+      "added_count": 2,
+      "updated_count": 1,
+      "removed_count": 1,
       "added": [
         {
-          "id": "pnu-dorm-busan-notices:5280",
-          "source_id": "pnu-dorm-busan-notices",
-          "title": "[긴급] 진리관 급수 중단 안내(5. 19.(화) 오전 단수) [Emergency] Water Outage Notice for Jilli (Tue, May 19 - Morning)",
-          "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5280&typeSeqNo=1&cateSeq=2",
-          "published_at": "2026-05-18",
-          "content_hash": "a4be23f55f221592cb986d6e605a7d05b0ba0523907f44e07ce92b81babec861"
-        },
-        {
-          "id": "pnu-job-notices:204576",
-          "source_id": "pnu-job-notices",
-          "title": "[일자리첫걸음보장센터] 인생도 커스텀, 나도 커스텀! 심리프로그램 홍보",
-          "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204576?p=1",
+          "id": "pnu-main-notice:1512102",
+          "source_id": "pnu-main-notice",
+          "title": "[부산관광공사] 2026 K-콘텐츠 관광마케팅 아카데미 공모전 개최 안내",
+          "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1512102",
           "published_at": "2026-11-10",
-          "content_hash": "61a616ad01308ed00aaf3e0b7cf99ce3e8cac236d60810c8dd99226557e0ed4b"
+          "content_hash": "c8cb87fc001d11090568aa1430fa43e9a2f133aabe45e6e9f3968deb8bc42fb2"
         },
         {
-          "id": "pnu-library-notices:v4pb0p8chzzsrz71",
-          "source_id": "pnu-library-notices",
-          "title": "26년 8월 DBpia 이용교육 안내",
-          "url": "https://lib.pusan.ac.kr/guide/notice/v4pb0p8chzzsrz71",
-          "published_at": "2026-07-28",
-          "content_hash": "d1b07b1a3a7c536abc16048d94d9bb4209d097d2fbafc264ae4f0b9f70222ea6"
+          "id": "pnu-onestop-notices:2133",
+          "source_id": "pnu-onestop-notices",
+          "title": "<고전읽기와토론>, <열린사고와표현> FAQ, 수강분반",
+          "url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000386&mode=DETAIL&seq=2133",
+          "published_at": "2026-08-03",
+          "content_hash": "03d5f0e0afac0ad6e4f8aecbeaff28892325c491320c4f6f14027a0aa812418d"
         }
       ],
-      "updated": [],
+      "updated": [
+        {
+          "id": "pnu-main-notice:1512056",
+          "source_id": "pnu-main-notice",
+          "title": "'26 부산대 교육수요자 만족도 조사 참여 안내(PCSI)_400명 추첨 모바일 쿠폰 증정",
+          "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1512056",
+          "published_at": "2026-11-09",
+          "content_hash": "a28ddd74e52fee496aae8d88d391f7dd5ef653cca72ce98168136f505693e1ee"
+        }
+      ],
       "removed": [
         {
-          "id": "pnu-dorm-miryang-notices:2380",
-          "source_id": "pnu-dorm-miryang-notices",
-          "title": "2학기 종료 퇴사 및 동기개원 안내",
-          "url": "https://dorm.pusan.ac.kr/mdorm/page?menuCD=000000000000634&mode=DETAIL&seq=2380&typeSeqNo=5&cateSeq=1",
-          "published_at": "2025-12-08",
-          "content_hash": "0b958c07d5f8039cce3fefe48c8062ea94f9022d6e821e813262564ce4c64c38"
-        },
-        {
-          "id": "pnu-dorm-yangsan-notices:1996",
-          "source_id": "pnu-dorm-yangsan-notices",
-          "title": "[행림관] 상반기 수목 방제작업 안내",
-          "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=1996&typeSeqNo=3&cateSeq=2",
-          "published_at": "2026-03-31",
-          "content_hash": "d63c95e19cbd8244d36519c3a4e0649a83be523e2b4bccb6bb353b189c70f68b"
-        },
-        {
-          "id": "pnu-dorm-yangsan-notices:1997",
-          "source_id": "pnu-dorm-yangsan-notices",
-          "title": "대학생활원 차량 및 자전거 등록 안내",
-          "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=1997&typeSeqNo=3&cateSeq=2",
-          "published_at": "2026-04-06",
-          "content_hash": "793054e1b84aa137a36a68013564f900746ed198f2b8ccf31c2bda59482d6885"
-        },
-        {
-          "id": "pnu-job-recruit-internship:117455",
-          "source_id": "pnu-job-recruit-internship",
-          "title": "헨켈코리아 접착테크놀로지스사업부 인턴십프로그램 (제출기한:~6/29)",
-          "url": "https://job.pusan.ac.kr/ko/recruit/Intern/view/117455",
-          "published_at": null,
-          "content_hash": "b1f132d6fb1d5332bcff83dff949a2336ec87ca1c930519a232ba8ed8bf46c2d"
-        },
-        {
-          "id": "pnu-job-recruit-internship:117457",
-          "source_id": "pnu-job-recruit-internship",
-          "title": "SJG 조지아 영업원가팀 인턴 채용 (채용연계형 / ~6,30)",
-          "url": "https://job.pusan.ac.kr/ko/recruit/Intern/view/117457",
-          "published_at": null,
-          "content_hash": "855acb720eeb30d8a18be6034d2b4879da308fb299fe84c5395f286952e4267a"
+          "id": "pnu-main-notice:1511792",
+          "source_id": "pnu-main-notice",
+          "title": "[앵커] 2026 파워반도체 공유대학 - 반도체 커리어 인사이트 트랙 교육생 모집",
+          "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1511792",
+          "published_at": "2026-10-28",
+          "content_hash": "ae39f51ead022ef4a9fc75233baaf948089e94a11bc73101f6227ee6e7a78eee"
         }
       ]
     }

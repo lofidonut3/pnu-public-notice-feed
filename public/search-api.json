@@ -1,0 +1,260 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "PNU Public Notice Feed Search",
+    "version": "1.0.0",
+    "description": "Public read-only REST API for archived Pusan National University notice metadata and recent changes. This unofficial feed indexes public titles and short previews. Follow the official notice URLs for the complete notices."
+  },
+  "servers": [
+    { "url": "https://xokvgxwdymctvdlidqpf.supabase.co/functions/v1/pnu-public-search" }
+  ],
+  "security": [],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "discover_search_api",
+        "summary": "Discover the public feed and query endpoints",
+        "responses": {
+          "200": {
+            "description": "Feed, API contract, and available paths.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": ["name", "feed_url", "openapi_url", "paths"],
+                  "properties": {
+                    "name": { "type": "string" },
+                    "feed_url": { "type": "string", "format": "uri" },
+                    "openapi_url": { "type": "string", "format": "uri" },
+                    "paths": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "operationId": "search_notices",
+        "summary": "Search archived notice metadata by keyword, topic, and publication date",
+        "description": "Matches all whitespace-separated words in the title, preview, or source name after Unicode normalization and lowercasing. Results are sorted by publication date descending, then notice ID descending. With neither date supplied, undated notices are included and sorted by first observation date within the default window. Either explicit date filter restricts results to notices with a recorded publication date. Search covers the published archive. A range with no archived matches returns an empty page.",
+        "parameters": [
+          {
+            "name": "query", "in": "query",
+            "description": "Up to 12 whitespace-separated search words.",
+            "schema": { "type": "string", "maxLength": 160 },
+            "example": "국가장학금"
+          },
+          {
+            "name": "topic", "in": "query",
+            "description": "A topic ID from the public agent.json catalog.",
+            "schema": { "type": "string", "minLength": 1, "maxLength": 40 },
+            "example": "scholarship"
+          },
+          {
+            "name": "published_from", "in": "query",
+            "description": "Inclusive start date. Defaults to 89 days before published_to. The inclusive date range is limited to 366 days.",
+            "schema": { "type": "string", "format": "date" }
+          },
+          {
+            "name": "published_to", "in": "query",
+            "description": "Inclusive end date. Defaults to the feed check date in Asia/Seoul.",
+            "schema": { "type": "string", "format": "date" }
+          },
+          { "$ref": "#/components/parameters/Limit" },
+          {
+            "name": "cursor", "in": "query",
+            "description": "Opaque next_cursor from the preceding page. Keep the same filters and omit any date parameters that were absent on the first page.",
+            "schema": { "type": "string", "minLength": 1, "maxLength": 80 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Page of matching notice metadata.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SearchPage" } } }
+          },
+          "400": { "$ref": "#/components/responses/InvalidArgument" },
+          "409": {
+            "description": "search_cursor_changed. The filters or the indexed data changed. Restart without the cursor.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+          },
+          "422": {
+            "description": "range_too_large. The selected archive data exceeds the processing budget. Narrow the date range.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+          },
+          "500": { "$ref": "#/components/responses/InternalError" },
+          "503": { "$ref": "#/components/responses/FeedUnavailable" }
+        }
+      }
+    },
+    "/notice": {
+      "get": {
+        "operationId": "get_notice",
+        "summary": "Get archived metadata for one notice",
+        "parameters": [
+          {
+            "name": "notice_id", "in": "query", "required": true,
+            "description": "The search item's id or event's archive_item_id.",
+            "schema": { "type": "string", "minLength": 1, "maxLength": 512 }
+          },
+          {
+            "name": "archive_month", "in": "query", "required": true,
+            "description": "The search item's archive_month or the YYYY-MM portion of the event's archive_file.",
+            "schema": { "$ref": "#/components/schemas/ArchiveMonth" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Latest recorded metadata for this archived notice.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": ["item", "checked_at"],
+                  "properties": {
+                    "item": { "$ref": "#/components/schemas/Notice" },
+                    "checked_at": { "$ref": "#/components/schemas/CheckedAt" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidArgument" },
+          "404": {
+            "description": "notice_not_found. No archived notice matches the ID and month.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+          },
+          "500": { "$ref": "#/components/responses/InternalError" },
+          "503": { "$ref": "#/components/responses/FeedUnavailable" }
+        }
+      }
+    },
+    "/changes": {
+      "get": {
+        "operationId": "list_changes",
+        "summary": "Read a page from the recent public change window",
+        "description": "Returns recent events in feed order. Without an event ID, returns the latest page. With an event ID, returns events strictly after that exact ID. Persist an event ID and its seen_at only after processing the event successfully.",
+        "parameters": [
+          {
+            "name": "after_event_id", "in": "query",
+            "description": "The exact previously processed event ID. URL-encode it as a query parameter.",
+            "schema": { "type": "string", "minLength": 1, "maxLength": 256 }
+          },
+          { "$ref": "#/components/parameters/Limit" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Page of recent changes and the next exact event ID.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ChangesPage" } } }
+          },
+          "400": { "$ref": "#/components/responses/InvalidArgument" },
+          "409": {
+            "description": "archive_required. The exact event ID is outside the recent window. Use the feed index and monthly archives for catch-up.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+          },
+          "500": { "$ref": "#/components/responses/InternalError" },
+          "503": { "$ref": "#/components/responses/FeedUnavailable" }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "Limit": {
+        "name": "limit", "in": "query",
+        "description": "Maximum results per page.",
+        "schema": { "type": "integer", "minimum": 1, "maximum": 20, "default": 10 }
+      }
+    },
+    "responses": {
+      "InvalidArgument": {
+        "description": "invalid_argument. A parameter is invalid, unknown, or repeated.",
+        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+      },
+      "InternalError": {
+        "description": "internal_error. An unexpected lookup failure occurred.",
+        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+      },
+      "FeedUnavailable": {
+        "description": "feed_unavailable. The published feed data is temporarily unavailable. Retry shortly.",
+        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+      }
+    },
+    "schemas": {
+      "ArchiveMonth": { "type": "string", "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$" },
+      "CheckedAt": { "type": "string", "format": "date-time", "description": "Feed check timestamp." },
+      "Notice": {
+        "type": "object",
+        "required": ["id", "archive_month", "archive_url", "title", "url", "source_id", "source_name", "topics", "published_at", "first_seen_at", "preview", "content_access", "same_notice_group_id", "canonical_item_id"],
+        "properties": {
+          "id": { "type": "string" },
+          "archive_month": { "$ref": "#/components/schemas/ArchiveMonth" },
+          "archive_url": { "type": "string", "format": "uri" },
+          "title": { "type": "string" },
+          "url": { "type": "string", "format": "uri", "description": "Official public notice URL." },
+          "source_id": { "type": ["string", "null"] },
+          "source_name": { "type": ["string", "null"] },
+          "topics": { "type": "array", "items": { "type": "string" } },
+          "published_at": { "type": ["string", "null"], "format": "date" },
+          "first_seen_at": { "type": ["string", "null"], "format": "date-time", "description": "First observation timestamp. It may differ from the official publication date." },
+          "preview": { "type": ["string", "null"], "maxLength": 240 },
+          "content_access": { "type": ["object", "null"], "description": "Recorded source availability and link metadata." },
+          "same_notice_group_id": { "type": ["string", "null"] },
+          "canonical_item_id": { "type": ["string", "null"] }
+        }
+      },
+      "SearchPage": {
+        "type": "object",
+        "required": ["checked_at", "published_from", "published_to", "items", "matching_count", "has_more", "next_cursor"],
+        "properties": {
+          "checked_at": { "$ref": "#/components/schemas/CheckedAt" },
+          "published_from": { "type": "string", "format": "date" },
+          "published_to": { "type": "string", "format": "date" },
+          "items": { "type": "array", "maxItems": 20, "items": { "$ref": "#/components/schemas/Notice" } },
+          "matching_count": { "type": "integer", "minimum": 0 },
+          "has_more": { "type": "boolean" },
+          "next_cursor": { "type": ["string", "null"] }
+        }
+      },
+      "ChangesPage": {
+        "type": "object",
+        "required": ["checked_at", "events", "has_more", "next_after_event_id", "archive_index_url"],
+        "properties": {
+          "checked_at": { "$ref": "#/components/schemas/CheckedAt" },
+          "events": { "type": "array", "maxItems": 20, "items": { "$ref": "#/components/schemas/Change" } },
+          "has_more": { "type": "boolean" },
+          "next_after_event_id": { "type": ["string", "null"] },
+          "archive_index_url": { "type": "string", "format": "uri" }
+        }
+      },
+      "Change": {
+        "allOf": [
+          { "$ref": "./schema/events.schema.json#/$defs/event" },
+          {
+            "type": "object",
+            "required": ["archive_url"],
+            "properties": {
+              "archive_url": { "type": "string", "format": "uri", "description": "Absolute URL for the event's monthly archive." }
+            }
+          }
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "required": ["error"],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": ["code", "message"],
+            "properties": {
+              "code": { "type": "string" },
+              "message": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
