@@ -1,89 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-11T19:44:51+09:00",
+  "generated_at": "2026-11-11T22:47:23+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 20393,
+  "total_event_count": 20395,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-11T19:44:51+09:00|updated|pnu-international-student-notices:1472618|a11dc354365c",
-  "oldest_event_id": "2026-11-04T23:19:50+09:00|updated|pnu-academic-chem-career-6292:1468603|c6206b967b34",
+  "latest_event_id": "2026-11-11T22:47:23+09:00|added|pnu-international-office-notices:1472744|efba6fd0a3ad",
+  "oldest_event_id": "2026-11-04T23:19:50+09:00|updated|pnu-academic-chem-general-6291:1468597|3eb61c5be1cb",
   "oldest_seen_at": "2026-11-04T23:19:50+09:00",
-  "latest_seen_at": "2026-11-11T19:44:51+09:00",
+  "latest_seen_at": "2026-11-11T22:47:23+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-04T23:19:50+09:00|updated|pnu-academic-chem-career-6292:1468603|c6206b967b34",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-chem-career-6292:1468603",
-      "source_id": "pnu-academic-chem-career-6292",
-      "source_name": "부산대 화학과 취업",
-      "source_category": "academic_unit_career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "career"
-      ],
-      "seen_at": "2026-11-04T23:19:50+09:00",
-      "published_at": "2026-10-28",
-      "title": "[학부] [삼성전자 협력사] 2026 하반기 온라인 채용박람회 안내",
-      "url": "https://chem.pusan.ac.kr/bbs/chem/709/1468603/artclView.do",
-      "topics": [
-        "career",
-        "recruitment",
-        "event",
-        "undergraduate"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-chem-career-6292:1468603",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-chem-career-6292"
-      ],
-      "content_hash": "c6206b967b3427367155b2a9e142e6992b43c1644e3e7427c11ca3cefb196ca6",
-      "previous_content_hash": "3ad06099e4c98d7348ea5de8ae54d81784189ec02420eb22401650d1b6a92406",
-      "archive_file": "./archive/2026-10.json",
-      "archive_item_id": "pnu-academic-chem-career-6292:1468603"
-    },
-    {
-      "event_id": "2026-11-04T23:19:50+09:00|updated|pnu-academic-chem-general-6291:1468594|22474f80a58f",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-chem-general-6291:1468594",
-      "source_id": "pnu-academic-chem-general-6291",
-      "source_name": "부산대 화학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-11-04T23:19:50+09:00",
-      "published_at": "2026-10-28",
-      "title": "[학부] [국립대육성] 2026학년도 학습성과포럼 운영 안내",
-      "url": "https://chem.pusan.ac.kr/bbs/chem/164/1468594/artclView.do",
-      "topics": [
-        "undergraduate"
-      ],
-      "same_notice_group_id": "same_notice:5c94269ddac417cd",
-      "canonical_item_id": "pnu-academic-chem-general-6291:1468594",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-chem-general-6291",
-        "pnu-academic-fashion-general-8612"
-      ],
-      "content_hash": "22474f80a58fb907829dcccab473aa55a9608bac94346a921de81ce93b7964ff",
-      "previous_content_hash": "12b6c996a82b843dec2eadac9cd74379038604e001b398d440cbf11466126daf",
-      "archive_file": "./archive/2026-10.json",
-      "archive_item_id": "pnu-academic-chem-general-6291:1468594"
-    },
     {
       "event_id": "2026-11-04T23:19:50+09:00|updated|pnu-academic-chem-general-6291:1468597|3eb61c5be1cb",
       "event_type": "updated",
@@ -34087,7 +34017,73 @@
       "previous_content_hash": "d1f9b1426595c6972c31bd80492397124cf6f6a324c22b3937ba9b3381f3de27",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-international-student-notices:1472618"
+    },
+    {
+      "event_id": "2026-11-11T22:47:23+09:00|added|pnu-academic-comm-general-12538:1472742|f00605097035",
+      "event_type": "added",
+      "notice_id": "pnu-academic-comm-general-12538:1472742",
+      "source_id": "pnu-academic-comm-general-12538",
+      "source_name": "부산대 미디어커뮤니케이션학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-11-11T22:47:23+09:00",
+      "published_at": "2026-11-11",
+      "title": "[앵커] 대학원생 단기 해외 학술활동 지원 프로그램 모집 공고 및 홍보 협조 요청",
+      "url": "https://comm.pusan.ac.kr/bbs/comm/1390/1472742/artclView.do",
+      "topics": [
+        "graduate",
+        "international",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-comm-general-12538:1472742",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-comm-general-12538"
+      ],
+      "content_hash": "f006050970357523538f309064e31fea2b15a12dbf6dd8e83d7fd2ac3b323283",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-comm-general-12538:1472742"
+    },
+    {
+      "event_id": "2026-11-11T22:47:23+09:00|added|pnu-international-office-notices:1472744|efba6fd0a3ad",
+      "event_type": "added",
+      "notice_id": "pnu-international-office-notices:1472744",
+      "source_id": "pnu-international-office-notices",
+      "source_name": "부산대 국제처 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "outbound_exchange"
+      ],
+      "seen_at": "2026-11-11T22:47:23+09:00",
+      "published_at": "2026-11-11",
+      "title": "[단기파견] 2026학년도 동계 단기파견(SAM 및 영어연수) 오리엔테이션 안내",
+      "url": "https://international.pusan.ac.kr/bbs/international/2080/1472744/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-office-notices:1472744",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-office-notices"
+      ],
+      "content_hash": "efba6fd0a3adf5faf437f11159635eccd85d0aba1beabe337674151d4ab6ac75",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-office-notices:1472744"
     }
   ],
-  "checked_at": "2026-11-11T22:17:24+09:00"
+  "checked_at": "2026-11-11T22:47:23+09:00"
 }
