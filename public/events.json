@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-11T14:57:22+09:00",
+  "generated_at": "2026-11-11T15:57:19+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 20348,
+  "total_event_count": 20349,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-11T14:57:22+09:00|updated|pnu-main-notice:1512104|ecf124a7819b",
-  "oldest_event_id": "2026-11-04T23:19:50+09:00|added|pnu-academic-history-general-6500:1471529|b24de0aae256",
+  "latest_event_id": "2026-11-11T15:57:19+09:00|added|pnu-main-notice:1512126|314c3cd2bb35",
+  "oldest_event_id": "2026-11-04T23:19:50+09:00|added|pnu-academic-history-grad-6510:1471510|602a7a5e1ed1",
   "oldest_seen_at": "2026-11-04T23:19:50+09:00",
-  "latest_seen_at": "2026-11-11T14:57:22+09:00",
+  "latest_seen_at": "2026-11-11T15:57:19+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-04T23:19:50+09:00|added|pnu-academic-history-general-6500:1471529|b24de0aae256",
-      "event_type": "added",
-      "notice_id": "pnu-academic-history-general-6500:1471529",
-      "source_id": "pnu-academic-history-general-6500",
-      "source_name": "부산대 사학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-11-04T23:19:50+09:00",
-      "published_at": "2026-11-04",
-      "title": "[학교행사] 2026학년도 공과대학 학생회 연합 축제 「RE:PLAY」 행사 개최 알림 새글",
-      "url": "https://history.pusan.ac.kr/bbs/history/174/1471529/artclView.do",
-      "topics": [
-        "event"
-      ],
-      "same_notice_group_id": "same_notice:6f382b1683f6add5",
-      "canonical_item_id": "pnu-academic-history-general-6500:1471529",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-history-general-6500",
-        "pnu-academic-history-grad-6510"
-      ],
-      "content_hash": "b24de0aae2561a4cf774ce11e84a1da59b5040649eed9fbf0747b9e151f872c6",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-history-general-6500:1471529"
-    },
     {
       "event_id": "2026-11-04T23:19:50+09:00|added|pnu-academic-history-grad-6510:1471510|602a7a5e1ed1",
       "event_type": "added",
@@ -34199,7 +34165,38 @@
       "previous_content_hash": "99efdcd52aeceba58205f5d1805b199cb497103337173022c3160d8bb1d8a8a3",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-main-notice:1512104"
+    },
+    {
+      "event_id": "2026-11-11T15:57:19+09:00|added|pnu-main-notice:1512126|314c3cd2bb35",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1512126",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-11-11T15:57:19+09:00",
+      "published_at": "2026-11-11",
+      "title": "[에듀테크센터] 11/20 (금) Google 현직자 3인와 함께하는 「Career Meetup」 행사 안내",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1512126",
+      "topics": [
+        "academic",
+        "event"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1512126",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "314c3cd2bb354ff67136a516abb2f6fc273bb427ec40b7aee69d81b9083d52c0",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-main-notice:1512126"
     }
   ],
-  "checked_at": "2026-11-11T15:27:20+09:00"
+  "checked_at": "2026-11-11T15:57:19+09:00"
 }
