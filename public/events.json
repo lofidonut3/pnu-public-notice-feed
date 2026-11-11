@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-11T17:27:21+09:00",
+  "generated_at": "2026-11-11T17:57:23+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 20370,
+  "total_event_count": 20371,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-11T17:27:21+09:00|added|pnu-international-office-notices:1472715|408532c79f1b",
-  "oldest_event_id": "2026-11-04T23:19:50+09:00|added|pnu-academic-philosophy-undergrad-11291:1471536|cb1d258788fb",
+  "latest_event_id": "2026-11-11T17:57:23+09:00|added|pnu-main-notice:1512129|db11e783bb32",
+  "oldest_event_id": "2026-11-04T23:19:50+09:00|added|pnu-academic-philosophy-undergrad-11291:1471537|57002a6b4b79",
   "oldest_seen_at": "2026-11-04T23:19:50+09:00",
-  "latest_seen_at": "2026-11-11T17:27:21+09:00",
+  "latest_seen_at": "2026-11-11T17:57:23+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-04T23:19:50+09:00|added|pnu-academic-philosophy-undergrad-11291:1471536|cb1d258788fb",
-      "event_type": "added",
-      "notice_id": "pnu-academic-philosophy-undergrad-11291:1471536",
-      "source_id": "pnu-academic-philosophy-undergrad-11291",
-      "source_name": "부산대 철학과 학부 공지사항",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-11-04T23:19:50+09:00",
-      "published_at": "2026-11-04",
-      "title": "2026년 파견경험 공유회 발표자 모집 안내(모집~11.11.(수)13시, 파견경험공유회 새글",
-      "url": "https://philosophy.pusan.ac.kr/bbs/philosophy/1450/1471536/artclView.do",
-      "topics": [
-        "undergraduate",
-        "international"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-philosophy-undergrad-11291:1471536",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-philosophy-undergrad-11291"
-      ],
-      "content_hash": "cb1d258788fb2156c9f34d095354473ebabffe8300190856ce0760ef97453443",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-philosophy-undergrad-11291:1471536"
-    },
     {
       "event_id": "2026-11-04T23:19:50+09:00|added|pnu-academic-philosophy-undergrad-11291:1471537|57002a6b4b79",
       "event_type": "added",
@@ -34099,7 +34065,37 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-international-office-notices:1472715"
+    },
+    {
+      "event_id": "2026-11-11T17:57:23+09:00|added|pnu-main-notice:1512129|db11e783bb32",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1512129",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-11-11T17:57:23+09:00",
+      "published_at": "2026-11-11",
+      "title": "[초록우산] 2026년 한국남부발전 모집 공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1512129",
+      "topics": [
+        "academic"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1512129",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "db11e783bb3218cb8b867b58a6a38c0446e4f867093a8b8e76112458bd8b4a61",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-main-notice:1512129"
     }
   ],
-  "checked_at": "2026-11-11T17:27:21+09:00"
+  "checked_at": "2026-11-11T17:57:23+09:00"
 }
