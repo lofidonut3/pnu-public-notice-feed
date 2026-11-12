@@ -1,52 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-12T10:29:00+09:00",
+  "generated_at": "2026-11-12T10:57:18+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 20492,
+  "total_event_count": 20493,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-12T10:29:00+09:00|added|pnu-main-faculty-staff-recruitment:1512139|782c6a275b86",
-  "oldest_event_id": "2026-11-05T10:24:32+09:00|updated|pnu-academic-uni-scholarship-8190:1468693|5bb30b4cc713",
+  "latest_event_id": "2026-11-12T10:57:18+09:00|added|pnu-main-notice:1512146|98b289562c40",
+  "oldest_event_id": "2026-11-05T10:24:32+09:00|updated|pnu-equality-notices:1765601|d14f8d12697a",
   "oldest_seen_at": "2026-11-05T10:24:32+09:00",
-  "latest_seen_at": "2026-11-12T10:29:00+09:00",
+  "latest_seen_at": "2026-11-12T10:57:18+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-05T10:24:32+09:00|updated|pnu-academic-uni-scholarship-8190:1468693|5bb30b4cc713",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-uni-scholarship-8190:1468693",
-      "source_id": "pnu-academic-uni-scholarship-8190",
-      "source_name": "부산대 학부대학 장학",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-05T10:24:32+09:00",
-      "published_at": "2026-10-29",
-      "title": "2027년도 한국지도자육성장학재단 장학생 추천 관련",
-      "url": "https://uni.pusan.ac.kr/bbs/uni/927/1468693/artclView.do",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-uni-scholarship-8190:1468693",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-uni-scholarship-8190"
-      ],
-      "content_hash": "5bb30b4cc713f2e566da432b6fc0bc7d3b55ea7f615c2ca48196d49e4834e606",
-      "previous_content_hash": "52e59ec51680d68717120fe8aeed06b0f1b36aa49fa33d3f91418ef64e1d8536",
-      "archive_file": "./archive/2026-10.json",
-      "archive_item_id": "pnu-academic-uni-scholarship-8190:1468693"
-    },
     {
       "event_id": "2026-11-05T10:24:32+09:00|updated|pnu-equality-notices:1765601|d14f8d12697a",
       "event_type": "updated",
@@ -33834,11 +33801,12 @@
       "topics": [
         "career"
       ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-notices:204587",
-      "is_canonical": true,
+      "same_notice_group_id": "same_notice:fc562b1f70b84d94",
+      "canonical_item_id": "pnu-main-notice:1512146",
+      "is_canonical": false,
       "same_notice_source_ids": [
-        "pnu-job-notices"
+        "pnu-job-notices",
+        "pnu-main-notice"
       ],
       "content_hash": "d009dff66a567cd53b99f74734f86d19322383696054627864bddd360ea578ed",
       "previous_content_hash": null,
@@ -33977,7 +33945,38 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-main-faculty-staff-recruitment:1512139"
+    },
+    {
+      "event_id": "2026-11-12T10:57:18+09:00|added|pnu-main-notice:1512146|98b289562c40",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1512146",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-11-12T10:57:18+09:00",
+      "published_at": "2026-11-12",
+      "title": "[학생성공개발원] 2026학년도 1차 「내 경력 UP! 후배 진로 UP!」 이벤트 우수 입력자 발표",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1512146",
+      "topics": [
+        "academic"
+      ],
+      "same_notice_group_id": "same_notice:fc562b1f70b84d94",
+      "canonical_item_id": "pnu-main-notice:1512146",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-notices",
+        "pnu-main-notice"
+      ],
+      "content_hash": "98b289562c40c7199e811e4b415f1fcbc2e64715eef31fa7ce86a4b894473b21",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-main-notice:1512146"
     }
   ],
-  "checked_at": "2026-11-12T10:29:00+09:00"
+  "checked_at": "2026-11-12T10:57:18+09:00"
 }
