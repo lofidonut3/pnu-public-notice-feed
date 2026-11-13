@@ -1,82 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-13T11:02:29+09:00",
+  "generated_at": "2026-11-13T11:32:19+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 20775,
+  "total_event_count": 20777,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-13T11:02:29+09:00|updated|pnu-academic-chemeng-scholarship-6433:1472726|edc2d7e87b2a",
-  "oldest_event_id": "2026-11-06T20:24:11+09:00|added|pnu-main-notice:1512027|65ead9b681e3",
+  "latest_event_id": "2026-11-13T11:32:19+09:00|updated|pnu-international-student-notices:1472766|5b976af8d6e2",
+  "oldest_event_id": "2026-11-06T20:24:11+09:00|added|pnu-main-notice:1512038|0701260785b9",
   "oldest_seen_at": "2026-11-06T20:24:11+09:00",
-  "latest_seen_at": "2026-11-13T11:02:29+09:00",
+  "latest_seen_at": "2026-11-13T11:32:19+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-06T20:24:11+09:00|added|pnu-main-notice:1512027|65ead9b681e3",
-      "event_type": "added",
-      "notice_id": "pnu-main-notice:1512027",
-      "source_id": "pnu-main-notice",
-      "source_name": "부산대 대학공지",
-      "source_category": "university_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "main_notice"
-      ],
-      "seen_at": "2026-11-06T20:24:11+09:00",
-      "published_at": "2026-11-06",
-      "title": "[국제신문] 제28회 부산국제마라톤 대회 자원봉사자 모집 안내",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1512027",
-      "topics": [
-        "academic",
-        "contest",
-        "international"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-notice:1512027",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-notice"
-      ],
-      "content_hash": "65ead9b681e3c4c63b0544963272674241a4a70d13533c21886ad898604d5124",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-main-notice:1512027"
-    },
-    {
-      "event_id": "2026-11-06T20:24:11+09:00|added|pnu-main-notice:1512028|c9f5e04e1981",
-      "event_type": "added",
-      "notice_id": "pnu-main-notice:1512028",
-      "source_id": "pnu-main-notice",
-      "source_name": "부산대 대학공지",
-      "source_category": "university_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "main_notice"
-      ],
-      "seen_at": "2026-11-06T20:24:11+09:00",
-      "published_at": "2026-11-06",
-      "title": "[대학일자리플러스센터] 2026 공기업 인사담당자 멘토링 참여자 모집 안내",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1512028",
-      "topics": [
-        "academic",
-        "career"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-notice:1512028",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-notice"
-      ],
-      "content_hash": "c9f5e04e1981b793efd73e15aa47606d46c3ce711a0643a37e1991d5e6835c8b",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-main-notice:1512028"
-    },
     {
       "event_id": "2026-11-06T20:24:11+09:00|added|pnu-main-notice:1512038|0701260785b9",
       "event_type": "added",
@@ -33916,10 +33853,11 @@
         "career",
         "event"
       ],
-      "same_notice_group_id": null,
+      "same_notice_group_id": "same_notice:c8f205da57d51436",
       "canonical_item_id": "pnu-main-notice:1512181",
       "is_canonical": true,
       "same_notice_source_ids": [
+        "pnu-job-notices",
         "pnu-main-notice"
       ],
       "content_hash": "320584c02c8307421b0529a15feafeb0cb9ee44ec69720052803cb8781562e90",
@@ -33959,7 +33897,74 @@
       "previous_content_hash": "8b4d21605f84c4d63c34b00f170c9153d44a8b353620ec39db2fc844da16cdc8",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-academic-chemeng-scholarship-6433:1472726"
+    },
+    {
+      "event_id": "2026-11-13T11:32:19+09:00|added|pnu-job-notices:204590|8bfb1e7c6cfc",
+      "event_type": "added",
+      "notice_id": "pnu-job-notices:204590",
+      "source_id": "pnu-job-notices",
+      "source_name": "부산대 취업전략과 공지사항",
+      "source_category": "career_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "job_notice"
+      ],
+      "seen_at": "2026-11-13T11:32:19+09:00",
+      "published_at": "2026-11-13",
+      "title": "[대학일자리플러스센터] 2026학년도 항만·해양산업 진로설계 캠프 참가자 모집",
+      "url": "https://job.pusan.ac.kr/ko/notice/notice/view/204590?p=1",
+      "topics": [
+        "career",
+        "event"
+      ],
+      "same_notice_group_id": "same_notice:c8f205da57d51436",
+      "canonical_item_id": "pnu-main-notice:1512181",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-job-notices",
+        "pnu-main-notice"
+      ],
+      "content_hash": "8bfb1e7c6cfc3811ab8f7579d1cd8b8c8d0493c570a6867eb6e2d3667d73de55",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-job-notices:204590"
+    },
+    {
+      "event_id": "2026-11-13T11:32:19+09:00|updated|pnu-international-student-notices:1472766|5b976af8d6e2",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1472766",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-13T11:32:19+09:00",
+      "published_at": "2026-11-12",
+      "title": "★ 2026 KOTRA-PNU 외국인 유학생 채용상담회(부울경·대구경북권) / 2026 KOTRA-PNU J",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1472766/artclView.do",
+      "topics": [
+        "international",
+        "recruitment",
+        "event",
+        "student_support"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1472766",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "5b976af8d6e28a31254b02f721e7e0f778890d061acb71944a449f4ae6d8513d",
+      "previous_content_hash": "9dc995648f4b992f80df3e09e88752f402781099d8172f6f6dded7173b1d7ec2",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1472766"
     }
   ],
-  "checked_at": "2026-11-13T11:02:29+09:00"
+  "checked_at": "2026-11-13T11:32:19+09:00"
 }
