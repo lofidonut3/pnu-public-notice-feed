@@ -1,52 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-17T05:17:29+09:00",
+  "generated_at": "2026-11-17T06:35:03+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 21435,
+  "total_event_count": 21436,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-17T05:17:29+09:00|updated|pnu-academic-uni-scholarship-8190:1468693|3b01e8607cde",
-  "oldest_event_id": "2026-11-12T02:17:21+09:00|updated|pnu-academic-music-scholarship-11764:1122137|fc51d628241b",
+  "latest_event_id": "2026-11-17T06:35:03+09:00|updated|pnu-international-student-notices:1472806|024b6d805326",
+  "oldest_event_id": "2026-11-12T02:17:21+09:00|updated|pnu-academic-nanomecha-scholarship-10850:1455712|d48fef539c14",
   "oldest_seen_at": "2026-11-12T02:17:21+09:00",
-  "latest_seen_at": "2026-11-17T05:17:29+09:00",
+  "latest_seen_at": "2026-11-17T06:35:03+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-12T02:17:21+09:00|updated|pnu-academic-music-scholarship-11764:1122137|fc51d628241b",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-music-scholarship-11764:1122137",
-      "source_id": "pnu-academic-music-scholarship-11764",
-      "source_name": "부산대 음악학과 장학금 수여 명단",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-12T02:17:21+09:00",
-      "published_at": "2025-03-05",
-      "title": "2024학년도 부산대학교 피아노 총동문회 장학금 - 김나영, 김소은",
-      "url": "https://music.pusan.ac.kr/bbs/music/1480/1122137/artclView.do",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-music-scholarship-11764:1122137",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-music-scholarship-11764"
-      ],
-      "content_hash": "fc51d628241b67737eddca947a63bb44f180f954cab8308112924cdb54b9ead8",
-      "previous_content_hash": "05ae1880e57482cdd348dff64f4d00b82f09d4966d6b5c353564906bce4ec7d3",
-      "archive_file": "./archive/2025-03.json",
-      "archive_item_id": "pnu-academic-music-scholarship-11764:1122137"
-    },
     {
       "event_id": "2026-11-12T02:17:21+09:00|updated|pnu-academic-nanomecha-scholarship-10850:1455712|d48fef539c14",
       "event_type": "updated",
@@ -34304,7 +34271,41 @@
       "previous_content_hash": "9e9b696efde766f9d54648ff6126df9cfb5a79370a47930a9f6230d4b08be965",
       "archive_file": "./archive/2026-10.json",
       "archive_item_id": "pnu-academic-uni-scholarship-8190:1468693"
+    },
+    {
+      "event_id": "2026-11-17T06:35:03+09:00|updated|pnu-international-student-notices:1472806|024b6d805326",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1472806",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-17T06:35:03+09:00",
+      "published_at": "2026-11-12",
+      "title": "★ 2026 KOTRA-PNU 외국인 유학생 채용상담회(부울경·대구경북권) 현장 운영요원 모집 ★",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1472806/artclView.do",
+      "topics": [
+        "international",
+        "recruitment",
+        "event",
+        "student_support"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1472806",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "024b6d805326d24010acd49d1da2851e2797ff8e1a5d024a798e63f7ea5ed622",
+      "previous_content_hash": "321193ca6c18728259a0321ad8f1ef9c17759cf42f07990d0632c716e345efac",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1472806"
     }
   ],
-  "checked_at": "2026-11-17T05:47:32+09:00"
+  "checked_at": "2026-11-17T06:35:03+09:00"
 }
