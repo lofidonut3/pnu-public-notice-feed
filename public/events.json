@@ -1,55 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-17T01:52:20+09:00",
+  "generated_at": "2026-11-17T03:52:22+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 21384,
+  "total_event_count": 21385,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-17T01:52:20+09:00|updated|pnu-academic-cse-general-14221:1473217|ad9349507ada",
-  "oldest_event_id": "2026-11-11T19:27:20+09:00|added|pnu-academic-ome-general-9051:1472728|db6887989a3b",
+  "latest_event_id": "2026-11-17T03:52:22+09:00|updated|pnu-international-student-notices:1472766|076aac725ccf",
+  "oldest_event_id": "2026-11-11T19:27:20+09:00|added|pnu-academic-philosophy-event-15171:1472713|c6709b60b04b",
   "oldest_seen_at": "2026-11-11T19:27:20+09:00",
-  "latest_seen_at": "2026-11-17T01:52:20+09:00",
+  "latest_seen_at": "2026-11-17T03:52:22+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-11T19:27:20+09:00|added|pnu-academic-ome-general-9051:1472728|db6887989a3b",
-      "event_type": "added",
-      "notice_id": "pnu-academic-ome-general-9051:1472728",
-      "source_id": "pnu-academic-ome-general-9051",
-      "source_name": "부산대 광메카트로닉스공학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-11-11T19:27:20+09:00",
-      "published_at": "2026-11-11",
-      "title": "[국립대육성 3-1-5] 2026학년도 학생포트폴리오 경진대회 시상식 및 우수사례 발표회",
-      "url": "https://ome.pusan.ac.kr/bbs/ome/1105/1472728/artclView.do",
-      "topics": [
-        "contest"
-      ],
-      "same_notice_group_id": "same_notice:5b09ae3cb5a61750",
-      "canonical_item_id": "pnu-academic-history-general-6500:1472736",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-history-general-6500",
-        "pnu-academic-japan-undergrad-8796",
-        "pnu-academic-ome-general-9051",
-        "pnu-academic-stat-general-4227"
-      ],
-      "content_hash": "db6887989a3b1cb170c506e517b8fd6811ee725c601021efcc130a181d10d379",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-ome-general-9051:1472728"
-    },
     {
       "event_id": "2026-11-11T19:27:20+09:00|added|pnu-academic-philosophy-event-15171:1472713|c6709b60b04b",
       "event_type": "added",
@@ -34287,7 +34251,41 @@
       "previous_content_hash": "f1996c17ed8299966139f4899c19a6f6c7ba2ab1f97222b2e8db0263bb4cc465",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-academic-cse-general-14221:1473217"
+    },
+    {
+      "event_id": "2026-11-17T03:52:22+09:00|updated|pnu-international-student-notices:1472766|076aac725ccf",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1472766",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-17T03:52:22+09:00",
+      "published_at": "2026-11-12",
+      "title": "★ 2026 KOTRA-PNU 외국인 유학생 채용상담회(부울경·대구경북권) / 2026 KOTRA-PNU J",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1472766/artclView.do",
+      "topics": [
+        "international",
+        "recruitment",
+        "event",
+        "student_support"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1472766",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "076aac725ccf37f7d3e56a85d8774128fe3c5a15e52832c42ab9e0036163b7cf",
+      "previous_content_hash": "061c3380641a800429f53aba9c2f46f0f70979ba129d207b6acb7c6d8414da93",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1472766"
     }
   ],
-  "checked_at": "2026-11-17T03:22:28+09:00"
+  "checked_at": "2026-11-17T03:52:22+09:00"
 }
