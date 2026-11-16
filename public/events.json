@@ -1,112 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-16T20:32:22+09:00",
+  "generated_at": "2026-11-16T21:02:26+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 21368,
+  "total_event_count": 21371,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-16T20:32:22+09:00|added|pnu-main-notice:1512220|f064ae750d99",
-  "oldest_event_id": "2026-11-11T16:57:21+09:00|updated|pnu-onestop-scholarship:706|703ab6439e06",
-  "oldest_seen_at": "2026-11-11T16:57:21+09:00",
-  "latest_seen_at": "2026-11-16T20:32:22+09:00",
+  "latest_event_id": "2026-11-16T21:02:26+09:00|added|pnu-sanhak-notices:4-95|c606cb866101",
+  "oldest_event_id": "2026-11-11T19:27:20+09:00|added|pnu-academic-bkorea-grad-3347:1472730|662557d0d20a",
+  "oldest_seen_at": "2026-11-11T19:27:20+09:00",
+  "latest_seen_at": "2026-11-16T21:02:26+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-11T16:57:21+09:00|updated|pnu-onestop-scholarship:706|703ab6439e06",
-      "event_type": "updated",
-      "notice_id": "pnu-onestop-scholarship:706",
-      "source_id": "pnu-onestop-scholarship",
-      "source_name": "부산대 장학공지",
-      "source_category": "scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "onestop",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-11T16:57:21+09:00",
-      "published_at": "2026-11-10",
-      "title": "2027학년도 지방 국립대학교 전액장학금 안내(★2027학년도 신입생 필독)",
-      "url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000062&mode=DETAIL&seq=706",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-onestop-scholarship:706",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-onestop-scholarship"
-      ],
-      "content_hash": "703ab6439e06179bd2a2df3ac88920639806f1ad01169ca1b1783c12dabd01e4",
-      "previous_content_hash": "a6d5cc2b9ff5a74e600cd5a6239a2a7911e3a525223a5ed8c0b6a8375dc12180",
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-onestop-scholarship:706"
-    },
-    {
-      "event_id": "2026-11-11T17:27:21+09:00|added|pnu-international-office-notices:1472715|408532c79f1b",
-      "event_type": "added",
-      "notice_id": "pnu-international-office-notices:1472715",
-      "source_id": "pnu-international-office-notices",
-      "source_name": "부산대 국제처 공지사항",
-      "source_category": "international_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "international",
-        "outbound_exchange"
-      ],
-      "seen_at": "2026-11-11T17:27:21+09:00",
-      "published_at": "2026-11-11",
-      "title": "[홍보] 2026년도 국비유학사업 부산대학교 설명회 개최",
-      "url": "https://international.pusan.ac.kr/bbs/international/2080/1472715/artclView.do",
-      "topics": [
-        "international",
-        "event"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-international-office-notices:1472715",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-international-office-notices"
-      ],
-      "content_hash": "408532c79f1b0346fb4bca16eb3776ba8524f4f607d08e164d14cf45c192fb19",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-international-office-notices:1472715"
-    },
-    {
-      "event_id": "2026-11-11T17:57:23+09:00|added|pnu-main-notice:1512129|db11e783bb32",
-      "event_type": "added",
-      "notice_id": "pnu-main-notice:1512129",
-      "source_id": "pnu-main-notice",
-      "source_name": "부산대 대학공지",
-      "source_category": "university_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "main_notice"
-      ],
-      "seen_at": "2026-11-11T17:57:23+09:00",
-      "published_at": "2026-11-11",
-      "title": "[초록우산] 2026년 한국남부발전 모집 공고",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1512129",
-      "topics": [
-        "academic"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-notice:1512129",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-notice"
-      ],
-      "content_hash": "db11e783bb3218cb8b867b58a6a38c0446e4f867093a8b8e76112458bd8b4a61",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-main-notice:1512129"
-    },
     {
       "event_id": "2026-11-11T19:27:20+09:00|added|pnu-academic-bkorea-grad-3347:1472730|662557d0d20a",
       "event_type": "added",
@@ -34267,17 +34174,118 @@
         "research",
         "campus_service"
       ],
-      "same_notice_group_id": null,
+      "same_notice_group_id": "same_notice:480bbcb4543c085e",
       "canonical_item_id": "pnu-main-notice:1512220",
       "is_canonical": true,
       "same_notice_source_ids": [
-        "pnu-main-notice"
+        "pnu-main-notice",
+        "pnu-sanhak-notices"
       ],
       "content_hash": "f064ae750d99bca23d7781e107451f979c9dab0fecad69727d4751e06edf404d",
       "previous_content_hash": null,
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-main-notice:1512220"
+    },
+    {
+      "event_id": "2026-11-16T21:02:26+09:00|added|pnu-main-faculty-staff-recruitment:1512221|05069a842ef0",
+      "event_type": "added",
+      "notice_id": "pnu-main-faculty-staff-recruitment:1512221",
+      "source_id": "pnu-main-faculty-staff-recruitment",
+      "source_name": "부산대 교수초빙/직원채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "recruitment",
+        "faculty",
+        "staff"
+      ],
+      "seen_at": "2026-11-16T21:02:26+09:00",
+      "published_at": "2026-11-16",
+      "title": "[AI융합교육원] AI거점대학 전담 계약교수(팀장) 채용 공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1512221",
+      "topics": [
+        "recruitment",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1512221",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-faculty-staff-recruitment"
+      ],
+      "content_hash": "05069a842ef098983ce7de8b51ce29cabc7880de5ab11d4ed1b1dfdee381551a",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-main-faculty-staff-recruitment:1512221"
+    },
+    {
+      "event_id": "2026-11-16T21:02:26+09:00|added|pnu-main-faculty-staff-recruitment:1512222|201e07e314e1",
+      "event_type": "added",
+      "notice_id": "pnu-main-faculty-staff-recruitment:1512222",
+      "source_id": "pnu-main-faculty-staff-recruitment",
+      "source_name": "부산대 교수초빙/직원채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "recruitment",
+        "faculty",
+        "staff"
+      ],
+      "seen_at": "2026-11-16T21:02:26+09:00",
+      "published_at": "2026-11-16",
+      "title": "[AI융합교육원] AI거점대학 전담 전임연구원 채용 공고(개발자 2명, 지역교육 1명)",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1512222",
+      "topics": [
+        "recruitment",
+        "career",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1512222",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-faculty-staff-recruitment"
+      ],
+      "content_hash": "201e07e314e1ebf5db193829929d658105dda2f18b32d4c94f1af840613d6e85",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-main-faculty-staff-recruitment:1512222"
+    },
+    {
+      "event_id": "2026-11-16T21:02:26+09:00|added|pnu-sanhak-notices:4-95|c606cb866101",
+      "event_type": "added",
+      "notice_id": "pnu-sanhak-notices:4-95",
+      "source_id": "pnu-sanhak-notices",
+      "source_name": "부산대 산학협력단 공지사항",
+      "source_category": "research_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "sanhak",
+        "research"
+      ],
+      "seen_at": "2026-11-16T21:02:26+09:00",
+      "published_at": "2026-11-16",
+      "title": "연구행정통합시스템(rERP) 침해사고 발생 및 개인정보 유출 관련 안내",
+      "url": "https://sanhak.pusan.ac.kr/sanhak/boardview/4/95",
+      "topics": [
+        "research",
+        "campus_service"
+      ],
+      "same_notice_group_id": "same_notice:480bbcb4543c085e",
+      "canonical_item_id": "pnu-main-notice:1512220",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-main-notice",
+        "pnu-sanhak-notices"
+      ],
+      "content_hash": "c606cb8661014b50fe878b6f8252b4073e822d98c3dc0fdf7702d7ca15a6dbba",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-sanhak-notices:4-95"
     }
   ],
-  "checked_at": "2026-11-16T20:32:22+09:00"
+  "checked_at": "2026-11-16T21:02:26+09:00"
 }
