@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-16T11:27:20+09:00",
+  "generated_at": "2026-11-16T12:27:26+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 21190,
+  "total_event_count": 21191,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-16T11:27:20+09:00|updated|pnu-lei-foreign-language-notices:1275|9d99962cf4f8",
-  "oldest_event_id": "2026-11-10T23:42:20+09:00|updated|pnu-academic-japan-scholarship-8798:1471584|77cf4c8b619f",
+  "latest_event_id": "2026-11-16T12:27:26+09:00|added|pnu-library-notices:10l1bvpjv6376ool|b7414076a105",
+  "oldest_event_id": "2026-11-10T23:42:20+09:00|updated|pnu-academic-japan-scholarship-8798:1471853|6e995e301aaa",
   "oldest_seen_at": "2026-11-10T23:42:20+09:00",
-  "latest_seen_at": "2026-11-16T11:27:20+09:00",
+  "latest_seen_at": "2026-11-16T12:27:26+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-10T23:42:20+09:00|updated|pnu-academic-japan-scholarship-8798:1471584|77cf4c8b619f",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-japan-scholarship-8798:1471584",
-      "source_id": "pnu-academic-japan-scholarship-8798",
-      "source_name": "부산대 일어일문학과 장학 공지사항",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-10T23:42:20+09:00",
-      "published_at": "2026-11-05",
-      "title": "2027년도 관정재단 장학생 선발 안내",
-      "url": "https://japan.pusan.ac.kr/bbs/japan/1115/1471584/artclView.do",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": "same_notice:3603f0acaac7113b",
-      "canonical_item_id": "pnu-academic-china-scholarship-3084:1471569",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-china-scholarship-3084",
-        "pnu-academic-japan-scholarship-8798"
-      ],
-      "content_hash": "77cf4c8b619f468da76ea41bf63f88ef2004dc717783254ad91af87a97f2477a",
-      "previous_content_hash": "3791cb063823d3c2fd379051e3da5af4ad4999aa7031204846453e07e9d42bfb",
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-japan-scholarship-8798:1471584"
-    },
     {
       "event_id": "2026-11-10T23:42:20+09:00|updated|pnu-academic-japan-scholarship-8798:1471853|6e995e301aaa",
       "event_type": "updated",
@@ -34088,7 +34054,37 @@
       "previous_content_hash": "ac1d7c1310deb2386ab4c4fee26140b1fd7450820230d3f1d20a4da88413e813",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-lei-foreign-language-notices:1275"
+    },
+    {
+      "event_id": "2026-11-16T12:27:26+09:00|added|pnu-library-notices:10l1bvpjv6376ool|b7414076a105",
+      "event_type": "added",
+      "notice_id": "pnu-library-notices:10l1bvpjv6376ool",
+      "source_id": "pnu-library-notices",
+      "source_name": "부산대 도서관 공지사항",
+      "source_category": "library_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "library"
+      ],
+      "seen_at": "2026-11-16T12:27:26+09:00",
+      "published_at": "2026-08-03",
+      "title": "부산대학교 법학도서관 업무보조자 모집 공고",
+      "url": "https://lib.pusan.ac.kr/guide/notice/10l1bvpjv6376ool",
+      "topics": [
+        "library"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-library-notices:10l1bvpjv6376ool",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-library-notices"
+      ],
+      "content_hash": "b7414076a105c7fb857688359072c023481286bff400633744f6b501139593df",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-08.json",
+      "archive_item_id": "pnu-library-notices:10l1bvpjv6376ool"
     }
   ],
-  "checked_at": "2026-11-16T11:57:35+09:00"
+  "checked_at": "2026-11-16T12:27:26+09:00"
 }
