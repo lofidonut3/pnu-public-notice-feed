@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-16T21:32:22+09:00",
+  "generated_at": "2026-11-16T23:32:20+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 21379,
+  "total_event_count": 21380,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-16T21:32:22+09:00|updated|pnu-academic-ste-scholarship-9558:1472797|92bb941c7674",
-  "oldest_event_id": "2026-11-11T19:27:20+09:00|added|pnu-academic-history-grad-6510:1472738|9073ff121959",
+  "latest_event_id": "2026-11-16T23:32:20+09:00|updated|pnu-international-student-notices:1473215|4dd81529d154",
+  "oldest_event_id": "2026-11-11T19:27:20+09:00|added|pnu-academic-humanities-general-11352:1472731|e742ff9f9c07",
   "oldest_seen_at": "2026-11-11T19:27:20+09:00",
-  "latest_seen_at": "2026-11-16T21:32:22+09:00",
+  "latest_seen_at": "2026-11-16T23:32:20+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-11T19:27:20+09:00|added|pnu-academic-history-grad-6510:1472738|9073ff121959",
-      "event_type": "added",
-      "notice_id": "pnu-academic-history-grad-6510:1472738",
-      "source_id": "pnu-academic-history-grad-6510",
-      "source_name": "부산대 사학과 대학원소식",
-      "source_category": "academic_unit_graduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "graduate"
-      ],
-      "seen_at": "2026-11-11T19:27:20+09:00",
-      "published_at": "2026-11-11",
-      "title": "사학과 Pre BK 특강 <식민지 공창제도는 어떻게 설계되었는가: 대만의 경험으로 본",
-      "url": "https://history.pusan.ac.kr/bbs/history/717/1472738/artclView.do",
-      "topics": [
-        "graduate",
-        "event"
-      ],
-      "same_notice_group_id": "same_notice:a36439ff92ecd042",
-      "canonical_item_id": "pnu-academic-history-general-6500:1472737",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-history-general-6500",
-        "pnu-academic-history-grad-6510"
-      ],
-      "content_hash": "9073ff121959eff751de47d0379d53bf248a43ce9d06f79f5c164dafb1478488",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-history-grad-6510:1472738"
-    },
     {
       "event_id": "2026-11-11T19:27:20+09:00|added|pnu-academic-humanities-general-11352:1472731|e742ff9f9c07",
       "event_type": "added",
@@ -34301,7 +34266,38 @@
       "previous_content_hash": "b669488c26d991a87194dd85678917d2a4f913e253682f24e8f7354f385b71c7",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-academic-ste-scholarship-9558:1472797"
+    },
+    {
+      "event_id": "2026-11-16T23:32:20+09:00|updated|pnu-international-student-notices:1473215|4dd81529d154",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1473215",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-16T23:32:20+09:00",
+      "published_at": "2026-11-16",
+      "title": "(Updated) 유학생 외부 숙소 안내 가이드북 / GuideBook for Arranging Off-Ca",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1473215/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1473215",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "4dd81529d154217cfe06915ee3118506773c95c5b5ed08b03af7430d6a6c83f0",
+      "previous_content_hash": "93e45804d0db9d7590481b41aaf9d5c9d085dffd91d1bd93243fb80ed1ab9664",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1473215"
     }
   ],
-  "checked_at": "2026-11-16T23:02:21+09:00"
+  "checked_at": "2026-11-16T23:32:20+09:00"
 }
