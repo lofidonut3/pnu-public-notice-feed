@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-17T18:52:24+09:00",
+  "generated_at": "2026-11-17T19:22:23+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 21667,
+  "total_event_count": 21668,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-17T18:52:24+09:00|added|pnu-onestop-notices:2229|d70dc9298460",
-  "oldest_event_id": "2026-11-12T19:17:20+09:00|added|pnu-academic-linguistics-general-8764:1472907|593e5c981a55",
+  "latest_event_id": "2026-11-17T19:22:23+09:00|updated|pnu-international-student-notices:1472806|55bcd92777af",
+  "oldest_event_id": "2026-11-12T19:17:20+09:00|added|pnu-academic-medicine-general-14551:1472897|b4bd0b6d48b0",
   "oldest_seen_at": "2026-11-12T19:17:20+09:00",
-  "latest_seen_at": "2026-11-17T18:52:24+09:00",
+  "latest_seen_at": "2026-11-17T19:22:23+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-12T19:17:20+09:00|added|pnu-academic-linguistics-general-8764:1472907|593e5c981a55",
-      "event_type": "added",
-      "notice_id": "pnu-academic-linguistics-general-8764:1472907",
-      "source_id": "pnu-academic-linguistics-general-8764",
-      "source_name": "부산대 언어정보학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-11-12T19:17:20+09:00",
-      "published_at": "2026-11-12",
-      "title": "제7회 국립대학육성사업 영상 콘텐츠 공모전 개최 안내",
-      "url": "https://linguistics.pusan.ac.kr/bbs/linguistics/226/1472907/artclView.do",
-      "topics": [
-        "contest"
-      ],
-      "same_notice_group_id": "same_notice:4e66e17889f03504",
-      "canonical_item_id": "pnu-academic-japan-grad-8797:1472854",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-japan-grad-8797",
-        "pnu-academic-japan-undergrad-8796",
-        "pnu-academic-linguistics-general-8764"
-      ],
-      "content_hash": "593e5c981a55b92f9501d2bae279c9c8740405126eac8b3d0d84cf7f4dc757c4",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-linguistics-general-8764:1472907"
-    },
     {
       "event_id": "2026-11-12T19:17:20+09:00|added|pnu-academic-medicine-general-14551:1472897|b4bd0b6d48b0",
       "event_type": "added",
@@ -34374,7 +34339,41 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-onestop-notices:2229"
+    },
+    {
+      "event_id": "2026-11-17T19:22:23+09:00|updated|pnu-international-student-notices:1472806|55bcd92777af",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1472806",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-17T19:22:23+09:00",
+      "published_at": "2026-11-12",
+      "title": "★ 2026 KOTRA-PNU 외국인 유학생 채용상담회(부울경·대구경북권) 현장 운영요원 모집 ★",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1472806/artclView.do",
+      "topics": [
+        "international",
+        "recruitment",
+        "event",
+        "student_support"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1472806",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "55bcd92777af71200c747976ef9cfb598ef249f5f0e7bc3f1a5d8b2029125b36",
+      "previous_content_hash": "024b6d805326d24010acd49d1da2851e2797ff8e1a5d024a798e63f7ea5ed622",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1472806"
     }
   ],
-  "checked_at": "2026-11-17T18:52:24+09:00"
+  "checked_at": "2026-11-17T19:22:23+09:00"
 }
