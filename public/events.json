@@ -1,53 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-17T19:22:23+09:00",
+  "generated_at": "2026-11-17T20:22:23+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 21668,
+  "total_event_count": 21669,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-17T19:22:23+09:00|updated|pnu-international-student-notices:1472806|55bcd92777af",
-  "oldest_event_id": "2026-11-12T19:17:20+09:00|added|pnu-academic-medicine-general-14551:1472897|b4bd0b6d48b0",
+  "latest_event_id": "2026-11-17T20:22:23+09:00|added|pnu-library-notices:t56ta2jtjxk2p6km|c1f6cd43cd72",
+  "oldest_event_id": "2026-11-12T19:17:20+09:00|added|pnu-academic-medicine-general-14551:1472917|00125140d4e3",
   "oldest_seen_at": "2026-11-12T19:17:20+09:00",
-  "latest_seen_at": "2026-11-17T19:22:23+09:00",
+  "latest_seen_at": "2026-11-17T20:22:23+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-12T19:17:20+09:00|added|pnu-academic-medicine-general-14551:1472897|b4bd0b6d48b0",
-      "event_type": "added",
-      "notice_id": "pnu-academic-medicine-general-14551:1472897",
-      "source_id": "pnu-academic-medicine-general-14551",
-      "source_name": "부산대 의과대학 행정실 공지",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "college_notice",
-        "general"
-      ],
-      "seen_at": "2026-11-12T19:17:20+09:00",
-      "published_at": "2026-11-12",
-      "title": "[의생명특화총괄본부] 글로컬 임상실증센터 임상실증연구 참여학생 지원 사업(2차) 안내",
-      "url": "https://medicine.pusan.ac.kr/bbs/medicine/1954/1472897/artclView.do",
-      "topics": [
-        "research"
-      ],
-      "same_notice_group_id": "same_notice:68ad24716b8441e4",
-      "canonical_item_id": "pnu-academic-medicine-general-14551:1472897",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-linguistics-general-8764",
-        "pnu-academic-medicine-general-14551"
-      ],
-      "content_hash": "b4bd0b6d48b045e40a3a03ed6aa4810be3612f67f74e1c6c594b192c8bc82091",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-medicine-general-14551:1472897"
-    },
     {
       "event_id": "2026-11-12T19:17:20+09:00|added|pnu-academic-medicine-general-14551:1472917|00125140d4e3",
       "event_type": "added",
@@ -34373,7 +34339,40 @@
       "previous_content_hash": "024b6d805326d24010acd49d1da2851e2797ff8e1a5d024a798e63f7ea5ed622",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-international-student-notices:1472806"
+    },
+    {
+      "event_id": "2026-11-17T20:22:23+09:00|added|pnu-library-notices:t56ta2jtjxk2p6km|c1f6cd43cd72",
+      "event_type": "added",
+      "notice_id": "pnu-library-notices:t56ta2jtjxk2p6km",
+      "source_id": "pnu-library-notices",
+      "source_name": "부산대 도서관 공지사항",
+      "source_category": "library_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "library"
+      ],
+      "seen_at": "2026-11-17T20:22:23+09:00",
+      "published_at": "2026-08-13",
+      "title": "[BK21 대학원혁신] 2026학년도 의생명 연구자를 위한 연구윤리 특강(9/3 17:00)",
+      "url": "https://lib.pusan.ac.kr/guide/notice/t56ta2jtjxk2p6km",
+      "topics": [
+        "library",
+        "event",
+        "graduate",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-library-notices:t56ta2jtjxk2p6km",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-library-notices"
+      ],
+      "content_hash": "c1f6cd43cd72fa067da3c103be3a9032c82336ed568c22e8b679629ac04d1867",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-08.json",
+      "archive_item_id": "pnu-library-notices:t56ta2jtjxk2p6km"
     }
   ],
-  "checked_at": "2026-11-17T19:52:21+09:00"
+  "checked_at": "2026-11-17T20:22:23+09:00"
 }
