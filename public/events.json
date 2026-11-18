@@ -1,52 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-18T15:22:23+09:00",
+  "generated_at": "2026-11-18T16:22:25+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 21831,
+  "total_event_count": 21832,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-18T15:22:23+09:00|updated|pnu-onestop-scholarship:707|1732b34d40eb",
-  "oldest_event_id": "2026-11-13T17:52:22+09:00|updated|pnu-academic-energy-scholarship-5110:1458551|157aba285895",
+  "latest_event_id": "2026-11-18T16:22:25+09:00|added|pnu-dorm-busan-notices:5368|dd4354a2b281",
+  "oldest_event_id": "2026-11-13T17:52:22+09:00|updated|pnu-academic-energy-scholarship-5110:1468606|1c94097705b0",
   "oldest_seen_at": "2026-11-13T17:52:22+09:00",
-  "latest_seen_at": "2026-11-18T15:22:23+09:00",
+  "latest_seen_at": "2026-11-18T16:22:25+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-13T17:52:22+09:00|updated|pnu-academic-energy-scholarship-5110:1458551|157aba285895",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-energy-scholarship-5110:1458551",
-      "source_id": "pnu-academic-energy-scholarship-5110",
-      "source_name": "부산대 나노에너지공학과/미래에너지전공 장학정보 게시판",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-13T17:52:22+09:00",
-      "published_at": "2026-09-01",
-      "title": "2026학년도 2학기 고졸 후학습자 장학사업(희망사다리 Ⅱ유형) 신규 장학생 신청 안내",
-      "url": "https://energy.pusan.ac.kr/bbs/energy/588/1458551/artclView.do",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-energy-scholarship-5110:1458551",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-energy-scholarship-5110"
-      ],
-      "content_hash": "157aba2858959f181d1d8bc72ccf0ca43afd23a392c7302e10789a39ef4a660e",
-      "previous_content_hash": "d710f41f92570e0423b1ef6f39e8a58ae955c181db5c23c4389d363a06fc6e29",
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-energy-scholarship-5110:1458551"
-    },
     {
       "event_id": "2026-11-13T17:52:22+09:00|updated|pnu-academic-energy-scholarship-5110:1468606|1c94097705b0",
       "event_type": "updated",
@@ -34326,7 +34293,38 @@
       "previous_content_hash": "3c187935dbb72d1af4d377cdbe4e04269edf65a842e6ff1aa1270d13671e9e6d",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-onestop-scholarship:707"
+    },
+    {
+      "event_id": "2026-11-18T16:22:25+09:00|added|pnu-dorm-busan-notices:5368|dd4354a2b281",
+      "event_type": "added",
+      "notice_id": "pnu-dorm-busan-notices:5368",
+      "source_id": "pnu-dorm-busan-notices",
+      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
+      "source_category": "dormitory_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "dormitory",
+        "busan_campus"
+      ],
+      "seen_at": "2026-11-18T16:22:25+09:00",
+      "published_at": "2026-11-18",
+      "title": "[대학생활원 진리관식당] 식기 세척 아르바이트 모집 안내",
+      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5368&typeSeqNo=1&cateSeq=3",
+      "topics": [
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-dorm-busan-notices:5368",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-dorm-busan-notices"
+      ],
+      "content_hash": "dd4354a2b28199ae494b29f692c418c51bcf4969bbbd813e1dfb2343f320a04c",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-dorm-busan-notices:5368"
     }
   ],
-  "checked_at": "2026-11-18T15:52:20+09:00"
+  "checked_at": "2026-11-18T16:22:25+09:00"
 }
