@@ -1,85 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-19T19:57:24+09:00",
+  "generated_at": "2026-11-19T23:27:31+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 22112,
+  "total_event_count": 22114,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-19T19:57:24+09:00|updated|pnu-academic-ste-scholarship-9558:1472797|7f779b6d3377",
-  "oldest_event_id": "2026-11-16T01:59:41+09:00|updated|pnu-academic-swf-scholarship-13750:1251236|ac0d97f8c083",
+  "latest_event_id": "2026-11-19T23:27:31+09:00|updated|pnu-academic-ocean-scholarship-12797:1474050|46de9ab7c937",
+  "oldest_event_id": "2026-11-16T01:59:41+09:00|updated|pnu-academic-uni-scholarship-8190:1459652|072fd6db4388",
   "oldest_seen_at": "2026-11-16T01:59:41+09:00",
-  "latest_seen_at": "2026-11-19T19:57:24+09:00",
+  "latest_seen_at": "2026-11-19T23:27:31+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-16T01:59:41+09:00|updated|pnu-academic-swf-scholarship-13750:1251236|ac0d97f8c083",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-swf-scholarship-13750:1251236",
-      "source_id": "pnu-academic-swf-scholarship-13750",
-      "source_name": "부산대 사회복지학과 장학공지",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-16T01:59:41+09:00",
-      "published_at": "2021-06-30",
-      "title": "2021년 서원나눔재단 예비사회복지사 장학전달식",
-      "url": "https://swf.pusan.ac.kr/bbs/swf/1813/1251236/artclView.do",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-swf-scholarship-13750:1251236",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-swf-scholarship-13750"
-      ],
-      "content_hash": "ac0d97f8c083c6582b862df7fb6d4128d7bafc7d199e6a9937d41228f587e932",
-      "previous_content_hash": "7e4ed7bd502301049319be29469f66ac09c348a0ed10b8b5d6a854bf0b79b1d7",
-      "archive_file": "./archive/2021-06.json",
-      "archive_item_id": "pnu-academic-swf-scholarship-13750:1251236"
-    },
-    {
-      "event_id": "2026-11-16T01:59:41+09:00|updated|pnu-academic-swf-scholarship-13750:1251237|857a5ad02758",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-swf-scholarship-13750:1251237",
-      "source_id": "pnu-academic-swf-scholarship-13750",
-      "source_name": "부산대 사회복지학과 장학공지",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-16T01:59:41+09:00",
-      "published_at": "2022-07-18",
-      "title": "2022년 대선공익재단 장학생 선발 공고",
-      "url": "https://swf.pusan.ac.kr/bbs/swf/1813/1251237/artclView.do",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-swf-scholarship-13750:1251237",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-swf-scholarship-13750"
-      ],
-      "content_hash": "857a5ad02758928f14eac897c3f621d3355edb12e763529dd96169dc514b1dd6",
-      "previous_content_hash": "fcaf318d77dd366d5d61f1485d33d36f8267f03424627e20f5deae0c4c804cb9",
-      "archive_file": "./archive/2022-07.json",
-      "archive_item_id": "pnu-academic-swf-scholarship-13750:1251237"
-    },
     {
       "event_id": "2026-11-16T01:59:41+09:00|updated|pnu-academic-uni-scholarship-8190:1459652|072fd6db4388",
       "event_type": "updated",
@@ -33883,10 +33817,11 @@
       "topics": [
         "graduate"
       ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-history-grad-6510:1474522",
-      "is_canonical": true,
+      "same_notice_group_id": "same_notice:c54cf9403728e640",
+      "canonical_item_id": "pnu-academic-history-general-6500:1474523",
+      "is_canonical": false,
       "same_notice_source_ids": [
+        "pnu-academic-history-general-6500",
         "pnu-academic-history-grad-6510"
       ],
       "content_hash": "35827ea23ad344dd588612768cf343337a582a74beee691670363884fd8971dd",
@@ -34472,7 +34407,82 @@
       "previous_content_hash": "c1701ffceffa10757b66ad49572661dc58f48c53baec5fd38acf5828610b3961",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-academic-ste-scholarship-9558:1472797"
+    },
+    {
+      "event_id": "2026-11-19T23:27:31+09:00|added|pnu-academic-history-general-6500:1474523|fa3d81d0bbeb",
+      "event_type": "added",
+      "notice_id": "pnu-academic-history-general-6500:1474523",
+      "source_id": "pnu-academic-history-general-6500",
+      "source_name": "부산대 사학과 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-11-19T23:27:31+09:00",
+      "published_at": "2026-11-19",
+      "title": "[기타] 「2027학년도 국사편찬위원회 사료연수과정 신입생 모집」 안내",
+      "url": "https://history.pusan.ac.kr/bbs/history/174/1474523/artclView.do",
+      "topics": [],
+      "same_notice_group_id": "same_notice:c54cf9403728e640",
+      "canonical_item_id": "pnu-academic-history-general-6500:1474523",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-history-general-6500",
+        "pnu-academic-history-grad-6510"
+      ],
+      "content_hash": "fa3d81d0bbebdad6339aed25a295564100fdd1476655bf9eb3df97d0cae6f0e6",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-history-general-6500:1474523"
+    },
+    {
+      "event_id": "2026-11-19T23:27:31+09:00|updated|pnu-academic-ocean-scholarship-12797:1474050|46de9ab7c937",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-ocean-scholarship-12797:1474050",
+      "source_id": "pnu-academic-ocean-scholarship-12797",
+      "source_name": "부산대 해양학과 장학 공지사항",
+      "source_category": "academic_unit_scholarship_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "scholarship"
+      ],
+      "seen_at": "2026-11-19T23:27:31+09:00",
+      "published_at": "2026-11-19",
+      "title": "2027년 1학기 국가장학금 1차 신청 안내",
+      "url": "https://ocean.pusan.ac.kr/bbs/ocean/1602/1474050/artclView.do",
+      "topics": [
+        "scholarship"
+      ],
+      "same_notice_group_id": "same_notice:1a227dd78c606f94",
+      "canonical_item_id": "pnu-graduate-dent-grad-3456:1474272",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-aerospace-scholarship-1449",
+        "pnu-academic-atmos-general-4950",
+        "pnu-academic-bce-general-5008",
+        "pnu-academic-cdfs-general-1556",
+        "pnu-academic-ee-general-5204",
+        "pnu-academic-fashion-general-8612",
+        "pnu-academic-linguistics-general-8764",
+        "pnu-academic-ocean-scholarship-12797",
+        "pnu-academic-pnuenv-general-5930",
+        "pnu-academic-semi-general-2869",
+        "pnu-graduate-dent-grad-3456"
+      ],
+      "content_hash": "46de9ab7c937982a6f0af946f994c61dd24d47a802ab8a70560b015f10a9b409",
+      "previous_content_hash": "a1747afae1afdc0d61a5c1ef70740e03d79f6db999516b2949209792b40e4e5f",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-ocean-scholarship-12797:1474050"
     }
   ],
-  "checked_at": "2026-11-19T22:57:22+09:00"
+  "checked_at": "2026-11-19T23:27:31+09:00"
 }
