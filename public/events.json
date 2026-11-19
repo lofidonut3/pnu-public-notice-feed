@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-19T11:27:36+09:00",
+  "generated_at": "2026-11-19T12:27:31+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 21958,
+  "total_event_count": 21959,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-19T11:27:36+09:00|added|pnu-main-faculty-staff-recruitment:1512333|8614c3c86599",
-  "oldest_event_id": "2026-11-14T18:57:28+09:00|updated|pnu-academic-energy-scholarship-5110:1458549|a1cdb0d6a63c",
+  "latest_event_id": "2026-11-19T12:27:31+09:00|added|pnu-main-notice:1512334|b13fa1ed3a11",
+  "oldest_event_id": "2026-11-14T18:57:28+09:00|updated|pnu-academic-energy-scholarship-5110:1458551|d978689136dc",
   "oldest_seen_at": "2026-11-14T18:57:28+09:00",
-  "latest_seen_at": "2026-11-19T11:27:36+09:00",
+  "latest_seen_at": "2026-11-19T12:27:31+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-14T18:57:28+09:00|updated|pnu-academic-energy-scholarship-5110:1458549|a1cdb0d6a63c",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-energy-scholarship-5110:1458549",
-      "source_id": "pnu-academic-energy-scholarship-5110",
-      "source_name": "부산대 나노에너지공학과/미래에너지전공 장학정보 게시판",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-14T18:57:28+09:00",
-      "published_at": "2026-09-01",
-      "title": "2026학년도 2학기 중소기업 취업연계 장학사업(희망사다리Ⅰ유형) 학생 신청 안내",
-      "url": "https://energy.pusan.ac.kr/bbs/energy/588/1458549/artclView.do",
-      "topics": [
-        "scholarship",
-        "career"
-      ],
-      "same_notice_group_id": "same_notice:db9815a2a7dc1788",
-      "canonical_item_id": "pnu-academic-energy-scholarship-5110:1458549",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-energy-scholarship-5110",
-        "pnu-academic-me-scholarship-sub01-05"
-      ],
-      "content_hash": "a1cdb0d6a63c99bb7776fe668df66abf40e23213a49fdfeba9db9e6a802894ec",
-      "previous_content_hash": "dadfb968f66bec777a5699b24f89493e2eed09a6bc05d7129647ca298791f683",
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-energy-scholarship-5110:1458549"
-    },
     {
       "event_id": "2026-11-14T18:57:28+09:00|updated|pnu-academic-energy-scholarship-5110:1458551|d978689136dc",
       "event_type": "updated",
@@ -34360,7 +34325,39 @@
       "previous_content_hash": null,
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-main-faculty-staff-recruitment:1512333"
+    },
+    {
+      "event_id": "2026-11-19T12:27:31+09:00|added|pnu-main-notice:1512334|b13fa1ed3a11",
+      "event_type": "added",
+      "notice_id": "pnu-main-notice:1512334",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-11-19T12:27:31+09:00",
+      "published_at": "2026-11-19",
+      "title": "[한국민족문화연구소][학술행사 안내] 학술심포지엄 「크리틱/ 방법으로서 부산」",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1512334",
+      "topics": [
+        "academic",
+        "event",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1512334",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "b13fa1ed3a112657e86d6b1e72a23e96edee619561eb6f2e786eb151ed8a96f7",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-main-notice:1512334"
     }
   ],
-  "checked_at": "2026-11-19T11:57:32+09:00"
+  "checked_at": "2026-11-19T12:27:31+09:00"
 }
