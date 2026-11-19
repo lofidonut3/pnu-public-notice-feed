@@ -1,56 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-19T23:57:38+09:00",
+  "generated_at": "2026-11-20T00:57:22+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 22115,
+  "total_event_count": 22116,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-19T23:57:38+09:00|updated|pnu-main-faculty-staff-recruitment:1512333|c55ed7e58151",
-  "oldest_event_id": "2026-11-16T01:59:41+09:00|updated|pnu-academic-uni-scholarship-8190:1463686|320fb80ddd8e",
+  "latest_event_id": "2026-11-20T00:57:22+09:00|updated|pnu-main-notice:1512125|09591b327b05",
+  "oldest_event_id": "2026-11-16T01:59:41+09:00|updated|pnu-academic-uni-scholarship-8190:1468693|9e90735f5323",
   "oldest_seen_at": "2026-11-16T01:59:41+09:00",
-  "latest_seen_at": "2026-11-19T23:57:38+09:00",
+  "latest_seen_at": "2026-11-20T00:57:22+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-16T01:59:41+09:00|updated|pnu-academic-uni-scholarship-8190:1463686|320fb80ddd8e",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-uni-scholarship-8190:1463686",
-      "source_id": "pnu-academic-uni-scholarship-8190",
-      "source_name": "부산대 학부대학 장학",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-16T01:59:41+09:00",
-      "published_at": "2026-09-21",
-      "title": "[BK21 대학원혁신] 2026학년도 이공 우수인재 성장경로 지원 시범사업 장학생 공모 안",
-      "url": "https://uni.pusan.ac.kr/bbs/uni/927/1463686/artclView.do",
-      "topics": [
-        "scholarship",
-        "contest",
-        "graduate"
-      ],
-      "same_notice_group_id": "same_notice:4614cbe9ed7884d6",
-      "canonical_item_id": "pnu-academic-aerospace-general-1455:1463630",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-aerospace-general-1455",
-        "pnu-academic-archi-undergrad-6175",
-        "pnu-academic-uni-scholarship-8190"
-      ],
-      "content_hash": "320fb80ddd8e6ee24ad9c0b152f65ac393ce59f336b5ea41f741591132d60023",
-      "previous_content_hash": "93c038b4569f32ad6f32e8922ecf072191f6b9337289ff9d1ae90fc7069083d0",
-      "archive_file": "./archive/2026-09.json",
-      "archive_item_id": "pnu-academic-uni-scholarship-8190:1463686"
-    },
     {
       "event_id": "2026-11-16T01:59:41+09:00|updated|pnu-academic-uni-scholarship-8190:1468693|9e90735f5323",
       "event_type": "updated",
@@ -34481,7 +34444,38 @@
       "previous_content_hash": "8614c3c865995dd8c83f86b282310fbb05c6b89e883d9d3cfa9a9cbb240f377f",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-main-faculty-staff-recruitment:1512333"
+    },
+    {
+      "event_id": "2026-11-20T00:57:22+09:00|updated|pnu-main-notice:1512125|09591b327b05",
+      "event_type": "updated",
+      "notice_id": "pnu-main-notice:1512125",
+      "source_id": "pnu-main-notice",
+      "source_name": "부산대 대학공지",
+      "source_category": "university_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "main_notice"
+      ],
+      "seen_at": "2026-11-20T00:57:22+09:00",
+      "published_at": "2026-11-11",
+      "title": "[학생과] 2027학년도 지방 국립대학교 전액장학금 안내(★2027학년도 신입생 필독)",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1512125",
+      "topics": [
+        "academic",
+        "scholarship"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-notice:1512125",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-notice"
+      ],
+      "content_hash": "09591b327b050bac04c1b2e2e56e9299cc4facfb3e64a1917b3422d5a83d68d8",
+      "previous_content_hash": "0ab58759ff8d415431c03b255a7e7578858763bd991118a89c85cabd40fd4367",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-main-notice:1512125"
     }
   ],
-  "checked_at": "2026-11-20T00:27:24+09:00"
+  "checked_at": "2026-11-20T00:57:22+09:00"
 }
