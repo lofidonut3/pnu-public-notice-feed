@@ -1,55 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-20T06:07:24+09:00",
+  "generated_at": "2026-11-20T07:37:37+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 22169,
+  "total_event_count": 22170,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-20T06:07:24+09:00|updated|pnu-academic-cse-general-14227:1474375|e6a77a10b47b",
-  "oldest_event_id": "2026-11-16T11:27:20+09:00|added|pnu-academic-eehome-undergrad-3028:1473210|a0a110487ea6",
+  "latest_event_id": "2026-11-20T07:37:37+09:00|updated|pnu-international-student-notices:1473215|38706a9517e8",
+  "oldest_event_id": "2026-11-16T11:27:20+09:00|added|pnu-academic-eehome-undergrad-3028:1473214|e50deac0fd11",
   "oldest_seen_at": "2026-11-16T11:27:20+09:00",
-  "latest_seen_at": "2026-11-20T06:07:24+09:00",
+  "latest_seen_at": "2026-11-20T07:37:37+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-16T11:27:20+09:00|added|pnu-academic-eehome-undergrad-3028:1473210|a0a110487ea6",
-      "event_type": "added",
-      "notice_id": "pnu-academic-eehome-undergrad-3028:1473210",
-      "source_id": "pnu-academic-eehome-undergrad-3028",
-      "source_name": "부산대 전기공학전공 학부공지",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-11-16T11:27:20+09:00",
-      "published_at": "2026-11-16",
-      "title": "[국제처] ‘2026년 해외파견 프로그램 정기설명회 및 해외파견 성과공유회’ 개최",
-      "url": "https://eec.pusan.ac.kr/bbs/eehome/102/1473210/artclView.do",
-      "topics": [
-        "undergraduate",
-        "event",
-        "international"
-      ],
-      "same_notice_group_id": "same_notice:f97194bfc6cd7d73",
-      "canonical_item_id": "pnu-academic-ee-general-5204:1473194",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-ee-general-5204",
-        "pnu-academic-eehome-undergrad-3028"
-      ],
-      "content_hash": "a0a110487ea6f44c440beedcc4a05b27ca8fd7a172fc43b87357184f47aee2a7",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-eehome-undergrad-3028:1473210"
-    },
     {
       "event_id": "2026-11-16T11:27:20+09:00|added|pnu-academic-eehome-undergrad-3028:1473214|e50deac0fd11",
       "event_type": "added",
@@ -34478,7 +34442,38 @@
       "previous_content_hash": "6e1257b360a5a3ae98b374f905ff6af2cc965839c1f08235ef9da21f3ac9e07c",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-academic-cse-general-14227:1474375"
+    },
+    {
+      "event_id": "2026-11-20T07:37:37+09:00|updated|pnu-international-student-notices:1473215|38706a9517e8",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1473215",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-20T07:37:37+09:00",
+      "published_at": "2026-11-16",
+      "title": "(Updated) 유학생 외부 숙소 안내 가이드북 / GuideBook for Arranging Off-Ca",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1473215/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1473215",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "38706a9517e8244caa57fe05c00ca977cb89dd09684282a49a5b103462db487b",
+      "previous_content_hash": "b30460f23752c0b0378be30e7f172970eb30913916d0d63e6d93a8caf6e0aaf6",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1473215"
     }
   ],
-  "checked_at": "2026-11-20T07:07:21+09:00"
+  "checked_at": "2026-11-20T07:37:37+09:00"
 }
