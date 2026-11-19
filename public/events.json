@@ -1,52 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-19T17:32:21+09:00",
+  "generated_at": "2026-11-19T18:02:30+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 22083,
+  "total_event_count": 22084,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-19T17:32:21+09:00|updated|pnu-onestop-scholarship:706|e7b523d41ec6",
-  "oldest_event_id": "2026-11-16T01:59:41+09:00|updated|pnu-academic-cse-general-14221:1472983|17baeaa8b53a",
+  "latest_event_id": "2026-11-19T18:02:30+09:00|added|pnu-dorm-yangsan-notices:2084|14b594836fd9",
+  "oldest_event_id": "2026-11-16T01:59:41+09:00|updated|pnu-academic-cse-general-14221:1472993|1a0c7a0bf260",
   "oldest_seen_at": "2026-11-16T01:59:41+09:00",
-  "latest_seen_at": "2026-11-19T17:32:21+09:00",
+  "latest_seen_at": "2026-11-19T18:02:30+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-16T01:59:41+09:00|updated|pnu-academic-cse-general-14221:1472983|17baeaa8b53a",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-cse-general-14221:1472983",
-      "source_id": "pnu-academic-cse-general-14221",
-      "source_name": "부산대 정보컴퓨터공학부 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-11-16T01:59:41+09:00",
-      "published_at": "2026-11-13",
-      "title": "[AI융합교육원] 2026학년도 겨울계절학기 「온디바이스 PBL」 교육과정 참여학생 추가모",
-      "url": "https://cse.pusan.ac.kr/bbs/cse/2055/1472983/artclView.do",
-      "topics": [
-        "course"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-cse-general-14221:1472983",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-cse-general-14221"
-      ],
-      "content_hash": "17baeaa8b53aaa956ef00ad7755932ac82ab7bf5c080e7190d7784772ab34942",
-      "previous_content_hash": "09014af7ca5c8c02d15a87d4b6ad86876708baa1c2cc4d4bbb877dc3fada8889",
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-cse-general-14221:1472983"
-    },
     {
       "event_id": "2026-11-16T01:59:41+09:00|updated|pnu-academic-cse-general-14221:1472993|1a0c7a0bf260",
       "event_type": "updated",
@@ -34435,7 +34402,38 @@
       "previous_content_hash": "703ab6439e06179bd2a2df3ac88920639806f1ad01169ca1b1783c12dabd01e4",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-onestop-scholarship:706"
+    },
+    {
+      "event_id": "2026-11-19T18:02:30+09:00|added|pnu-dorm-yangsan-notices:2084|14b594836fd9",
+      "event_type": "added",
+      "notice_id": "pnu-dorm-yangsan-notices:2084",
+      "source_id": "pnu-dorm-yangsan-notices",
+      "source_name": "부산대 대학생활원 양산캠퍼스 공지사항",
+      "source_category": "dormitory_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "dormitory",
+        "yangsan_campus"
+      ],
+      "seen_at": "2026-11-19T18:02:30+09:00",
+      "published_at": "2026-11-19",
+      "title": "[지행관] 11월 원생실 소독 안내",
+      "url": "https://dorm.pusan.ac.kr/ydorm/page?menuCD=000000000000602&mode=DETAIL&seq=2084&typeSeqNo=3&cateSeq=2",
+      "topics": [
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-dorm-yangsan-notices:2084",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-dorm-yangsan-notices"
+      ],
+      "content_hash": "14b594836fd9c48ba29fc836b0e05e7ed05b3c66050eb189e0ef818425f7a4e6",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-dorm-yangsan-notices:2084"
     }
   ],
-  "checked_at": "2026-11-19T17:32:21+09:00"
+  "checked_at": "2026-11-19T18:02:30+09:00"
 }
