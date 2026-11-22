@@ -1,391 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-23T03:32:27+09:00",
+  "generated_at": "2026-11-23T07:02:20+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 22582,
+  "total_event_count": 22593,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-23T00:17:25+09:00|updated|pnu-academic-uni-scholarship-8190:1468693|5bb779956202",
-  "oldest_event_id": "2026-11-17T15:52:22+09:00|added|pnu-library-notices:5nitfg76o8j1c3q0|184452f2de19",
-  "oldest_seen_at": "2026-11-17T15:52:22+09:00",
-  "latest_seen_at": "2026-11-23T00:17:25+09:00",
+  "latest_event_id": "2026-11-23T07:02:20+09:00|updated|pnu-international-student-notices:1473215|4aa0d4d15e37",
+  "oldest_event_id": "2026-11-17T18:22:22+09:00|added|pnu-academic-cse-general-14221:1473911|94356c740029",
+  "oldest_seen_at": "2026-11-17T18:22:22+09:00",
+  "latest_seen_at": "2026-11-23T07:02:20+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-17T15:52:22+09:00|added|pnu-library-notices:5nitfg76o8j1c3q0|184452f2de19",
-      "event_type": "added",
-      "notice_id": "pnu-library-notices:5nitfg76o8j1c3q0",
-      "source_id": "pnu-library-notices",
-      "source_name": "부산대 도서관 공지사항",
-      "source_category": "library_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "library"
-      ],
-      "seen_at": "2026-11-17T15:52:22+09:00",
-      "published_at": "2026-08-13",
-      "title": "2026학년도 2학기 도서관 정보서비스팀(토요근무) 업무보조자 최종 합격자 공고",
-      "url": "https://lib.pusan.ac.kr/guide/notice/5nitfg76o8j1c3q0",
-      "topics": [
-        "library",
-        "campus_service"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-library-notices:5nitfg76o8j1c3q0",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-library-notices"
-      ],
-      "content_hash": "184452f2de19b2d0023fa969c16430fc4bd4d5b5b35c2fd2765edde01de5b261",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-08.json",
-      "archive_item_id": "pnu-library-notices:5nitfg76o8j1c3q0"
-    },
-    {
-      "event_id": "2026-11-17T15:52:22+09:00|added|pnu-main-notice:1512241|2807b7706e02",
-      "event_type": "added",
-      "notice_id": "pnu-main-notice:1512241",
-      "source_id": "pnu-main-notice",
-      "source_name": "부산대 대학공지",
-      "source_category": "university_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "main_notice"
-      ],
-      "seen_at": "2026-11-17T15:52:22+09:00",
-      "published_at": "2026-11-17",
-      "title": "「오늘, 마음의 날씨를 체크해 보세요!」 마음체크 참여 안내",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1512241",
-      "topics": [
-        "academic"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-notice:1512241",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-notice"
-      ],
-      "content_hash": "2807b7706e02011a23d4fd1318d555f996fdec28efe7661c123d1392bc6c2d55",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-main-notice:1512241"
-    },
-    {
-      "event_id": "2026-11-17T15:52:22+09:00|updated|pnu-international-student-notices:1472766|49e847876f2f",
-      "event_type": "updated",
-      "notice_id": "pnu-international-student-notices:1472766",
-      "source_id": "pnu-international-student-notices",
-      "source_name": "부산대 국제처 외국인학생 공지사항",
-      "source_category": "international_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "international",
-        "international_students"
-      ],
-      "seen_at": "2026-11-17T15:52:22+09:00",
-      "published_at": "2026-11-12",
-      "title": "★ 2026 KOTRA-PNU 외국인 유학생 채용상담회(부울경·대구경북권) / 2026 KOTRA-PNU J",
-      "url": "https://international.pusan.ac.kr/bbs/international/2081/1472766/artclView.do",
-      "topics": [
-        "international",
-        "recruitment",
-        "event",
-        "student_support"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-international-student-notices:1472766",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-international-student-notices"
-      ],
-      "content_hash": "49e847876f2f60f6af1d232322815b153a069658a94bc31821fc6161f8726159",
-      "previous_content_hash": "076aac725ccf37f7d3e56a85d8774128fe3c5a15e52832c42ab9e0036163b7cf",
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-international-student-notices:1472766"
-    },
-    {
-      "event_id": "2026-11-17T16:52:31+09:00|added|pnu-main-notice:1512245|c03c02c21732",
-      "event_type": "added",
-      "notice_id": "pnu-main-notice:1512245",
-      "source_id": "pnu-main-notice",
-      "source_name": "부산대 대학공지",
-      "source_category": "university_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "main_notice"
-      ],
-      "seen_at": "2026-11-17T16:52:31+09:00",
-      "published_at": "2026-11-17",
-      "title": "[공학교육혁신센터] 글로벌 AI 생활 에이전트 메이커톤 참가팀 모집",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1512245",
-      "topics": [
-        "academic"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-notice:1512245",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-notice"
-      ],
-      "content_hash": "c03c02c21732ebb31d0f4a423b3b6e086c2cbbc79f1ccd08eabd5f66e18862dd",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-main-notice:1512245"
-    },
-    {
-      "event_id": "2026-11-17T16:52:31+09:00|added|pnu-onestop-notices:2228|5e9ea824c43a",
-      "event_type": "added",
-      "notice_id": "pnu-onestop-notices:2228",
-      "source_id": "pnu-onestop-notices",
-      "source_name": "부산대 학지시 공지",
-      "source_category": "academic_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "onestop",
-        "academic"
-      ],
-      "seen_at": "2026-11-17T16:52:31+09:00",
-      "published_at": "2026-11-17",
-      "title": "2027년도 제10기 유하푸른재단 장학생 선발 안내",
-      "url": "https://onestop.pusan.ac.kr/page?menuCD=000000000000386&mode=DETAIL&seq=2228",
-      "topics": [
-        "academic",
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-onestop-notices:2228",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-onestop-notices"
-      ],
-      "content_hash": "5e9ea824c43a0ada747357c67f3baa6e372cc1cc16e7c4d1ce03073eef5a058e",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-onestop-notices:2228"
-    },
-    {
-      "event_id": "2026-11-17T18:22:22+09:00|added|pnu-academic-aerospace-general-1455:1473841|fffae6402cf3",
-      "event_type": "added",
-      "notice_id": "pnu-academic-aerospace-general-1455:1473841",
-      "source_id": "pnu-academic-aerospace-general-1455",
-      "source_name": "부산대 항공우주공학과 학과공지",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-11-17T18:22:22+09:00",
-      "published_at": "2026-11-17",
-      "title": "2026학년도 하반기 모의 시험(토익, 토플, 토익스피킹, 오픽) 경시 대회 실시 안내",
-      "url": "https://aerospace.pusan.ac.kr/bbs/aerospace/96/1473841/artclView.do",
-      "topics": [
-        "contest",
-        "course"
-      ],
-      "same_notice_group_id": "same_notice:62c0ae6ebeb7a0af",
-      "canonical_item_id": "pnu-academic-aerospace-general-1455:1473841",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-aerospace-general-1455",
-        "pnu-academic-bce-general-5008",
-        "pnu-academic-designtech-undergrad-15921",
-        "pnu-academic-ome-general-9051",
-        "pnu-academic-phys-undergrad-12920",
-        "pnu-academic-pnutrade-undergrad-2560",
-        "pnu-academic-semi-general-2869",
-        "pnu-academic-stat-general-4227"
-      ],
-      "content_hash": "fffae6402cf345449e96392f254394e62c82d958de8104a724c5374fbd49ddb2",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-aerospace-general-1455:1473841"
-    },
-    {
-      "event_id": "2026-11-17T18:22:22+09:00|added|pnu-academic-aerospace-general-1455:1473849|fa0a4892ba54",
-      "event_type": "added",
-      "notice_id": "pnu-academic-aerospace-general-1455:1473849",
-      "source_id": "pnu-academic-aerospace-general-1455",
-      "source_name": "부산대 항공우주공학과 학과공지",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-11-17T18:22:22+09:00",
-      "published_at": "2026-11-17",
-      "title": "[재학생맞춤형고용서비스] '기록이 스펙이 되는 순간: AI 활용 커리어 아카이빙&",
-      "url": "https://aerospace.pusan.ac.kr/bbs/aerospace/96/1473849/artclView.do",
-      "topics": [
-        "campus_service"
-      ],
-      "same_notice_group_id": "same_notice:2daf255efee82c37",
-      "canonical_item_id": "pnu-academic-aerospace-general-1455:1473849",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-aerospace-general-1455",
-        "pnu-academic-history-general-6500",
-        "pnu-academic-japan-undergrad-8796"
-      ],
-      "content_hash": "fa0a4892ba5459395b42c85aa115b28da83057a62aa7420ef83f547a3a930942",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-aerospace-general-1455:1473849"
-    },
-    {
-      "event_id": "2026-11-17T18:22:22+09:00|added|pnu-academic-biz-undergrad-8941:1473851|160883eb5835",
-      "event_type": "added",
-      "notice_id": "pnu-academic-biz-undergrad-8941:1473851",
-      "source_id": "pnu-academic-biz-undergrad-8941",
-      "source_name": "부산대 경영대학 학부 공지사항",
-      "source_category": "academic_unit_undergraduate_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "college_notice",
-        "undergrad"
-      ],
-      "seen_at": "2026-11-17T18:22:22+09:00",
-      "published_at": "2026-11-17",
-      "title": "[대학일자리플러스센터] 2026 항만·해양산업 진로설계·기업탐방 캠프(11.23.~11.2",
-      "url": "https://biz.pusan.ac.kr/bbs/biz/1091/1473851/artclView.do",
-      "topics": [
-        "undergraduate",
-        "career",
-        "event"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-biz-undergrad-8941:1473851",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-biz-undergrad-8941"
-      ],
-      "content_hash": "160883eb5835c6335447c0c16aa1339300629649919b276085ae8b40a9c41e89",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-biz-undergrad-8941:1473851"
-    },
-    {
-      "event_id": "2026-11-17T18:22:22+09:00|added|pnu-academic-cse-career-14234:1473861|f25fc5229d05",
-      "event_type": "added",
-      "notice_id": "pnu-academic-cse-career-14234:1473861",
-      "source_id": "pnu-academic-cse-career-14234",
-      "source_name": "부산대 정보컴퓨터공학부 채용게시판",
-      "source_category": "academic_unit_career_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "career"
-      ],
-      "seen_at": "2026-11-17T18:22:22+09:00",
-      "published_at": "2026-11-17",
-      "title": "[채용] 제너시스 BBQ 그룹 채용설명회 개최 안내(11/18, AI.IT개발 모집 포함)",
-      "url": "https://cse.pusan.ac.kr/bbs/cse/2060/1473861/artclView.do",
-      "topics": [
-        "career",
-        "recruitment",
-        "event"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-cse-career-14234:1473861",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-cse-career-14234"
-      ],
-      "content_hash": "f25fc5229d056747d0ab9a2edced1090c44a3757df8a0c5fb9a0eb02e27f4a45",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-cse-career-14234:1473861"
-    },
-    {
-      "event_id": "2026-11-17T18:22:22+09:00|added|pnu-academic-cse-general-14221:1473855|edf8125f1925",
-      "event_type": "added",
-      "notice_id": "pnu-academic-cse-general-14221:1473855",
-      "source_id": "pnu-academic-cse-general-14221",
-      "source_name": "부산대 정보컴퓨터공학부 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-11-17T18:22:22+09:00",
-      "published_at": "2026-11-17",
-      "title": "2027학년도 전기 일반대학원 신입생 모집요강 공고(2027.3월 입학)",
-      "url": "https://cse.pusan.ac.kr/bbs/cse/2055/1473855/artclView.do",
-      "topics": [
-        "graduate",
-        "admissions"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-cse-general-14221:1473855",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-cse-general-14221"
-      ],
-      "content_hash": "edf8125f192512eeef409e0b392aa8da07bb9678e172538941cbd179b1266663",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-cse-general-14221:1473855"
-    },
-    {
-      "event_id": "2026-11-17T18:22:22+09:00|added|pnu-academic-cse-general-14221:1473857|e4ab4b0fbd1f",
-      "event_type": "added",
-      "notice_id": "pnu-academic-cse-general-14221:1473857",
-      "source_id": "pnu-academic-cse-general-14221",
-      "source_name": "부산대 정보컴퓨터공학부 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-11-17T18:22:22+09:00",
-      "published_at": "2026-11-17",
-      "title": "2027학년도 제1학기 재입학 시행계획 알림",
-      "url": "https://cse.pusan.ac.kr/bbs/cse/2055/1473857/artclView.do",
-      "topics": [
-        "academic_records",
-        "admissions"
-      ],
-      "same_notice_group_id": "same_notice:6f911deabf2e5fb7",
-      "canonical_item_id": "pnu-academic-cse-general-14221:1473857",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-cse-general-14221",
-        "pnu-academic-cse-general-14227"
-      ],
-      "content_hash": "e4ab4b0fbd1ff533dc280e65ac872a399b7c345b479709089d3b5e0a48df3719",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-cse-general-14221:1473857"
-    },
     {
       "event_id": "2026-11-17T18:22:22+09:00|added|pnu-academic-cse-general-14221:1473911|94356c740029",
       "event_type": "added",
@@ -34192,7 +33820,384 @@
       "previous_content_hash": "fb19ad7a519eeb8ecb330482515eb793907c0b9cd7203a640daa7ea1859ecb73",
       "archive_file": "./archive/2026-10.json",
       "archive_item_id": "pnu-academic-uni-scholarship-8190:1468693"
+    },
+    {
+      "event_id": "2026-11-23T07:02:20+09:00|updated|pnu-academic-aerospace-scholarship-1449:1472824|2bb1dc502ae1",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-aerospace-scholarship-1449:1472824",
+      "source_id": "pnu-academic-aerospace-scholarship-1449",
+      "source_name": "부산대 항공우주공학과 장학금 안내",
+      "source_category": "academic_unit_scholarship_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "scholarship"
+      ],
+      "seen_at": "2026-11-23T07:02:20+09:00",
+      "published_at": "2026-11-12",
+      "title": "2027년 지방 국립대학 전액 장학금 시행 관련 안내문 배포",
+      "url": "https://aerospace.pusan.ac.kr/bbs/aerospace/237/1472824/artclView.do",
+      "topics": [
+        "scholarship"
+      ],
+      "same_notice_group_id": "same_notice:4accb2a9a9367a07",
+      "canonical_item_id": "pnu-academic-aerospace-scholarship-1449:1472824",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-aerospace-scholarship-1449",
+        "pnu-academic-linguistics-general-8764"
+      ],
+      "content_hash": "2bb1dc502ae1d2f3874c829169d35d5799d8f129df981f216f6e8ae2bfa4bd2f",
+      "previous_content_hash": "500620f85a854b78c0ef74b7e14709872f4b1c8f5f3923993f4a3fb2c4ae22b7",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-aerospace-scholarship-1449:1472824"
+    },
+    {
+      "event_id": "2026-11-23T07:02:20+09:00|updated|pnu-academic-biz-scholarship-8960:1473183|818f29a61704",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-biz-scholarship-8960:1473183",
+      "source_id": "pnu-academic-biz-scholarship-8960",
+      "source_name": "부산대 경영대학/경영학과 취업/장학",
+      "source_category": "academic_unit_scholarship_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "scholarship"
+      ],
+      "seen_at": "2026-11-23T07:02:20+09:00",
+      "published_at": "2026-11-16",
+      "title": "[국제처] 2026 KOTRA-PNU Job Fair for Int'l Stude",
+      "url": "https://biz.pusan.ac.kr/bbs/biz/1093/1473183/artclView.do",
+      "topics": [
+        "scholarship",
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-biz-scholarship-8960:1473183",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-biz-scholarship-8960"
+      ],
+      "content_hash": "818f29a61704be183598b4eb83186d897c8d4d9c61fc047bc35b785d09ae0183",
+      "previous_content_hash": "0fa99731bba3dc19a9fe98df13dc582ba351a01b504336c6d41dcf894c606798",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-biz-scholarship-8960:1473183"
+    },
+    {
+      "event_id": "2026-11-23T07:02:20+09:00|updated|pnu-academic-biz-scholarship-8960:1473765|649725f80831",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-biz-scholarship-8960:1473765",
+      "source_id": "pnu-academic-biz-scholarship-8960",
+      "source_name": "부산대 경영대학/경영학과 취업/장학",
+      "source_category": "academic_unit_scholarship_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "scholarship"
+      ],
+      "seen_at": "2026-11-23T07:02:20+09:00",
+      "published_at": "2026-11-17",
+      "title": "[학생성공개발원] 제너시스 BBQ 그룹 채용설명회 개최 안내(11/18)",
+      "url": "https://biz.pusan.ac.kr/bbs/biz/1093/1473765/artclView.do",
+      "topics": [
+        "scholarship",
+        "recruitment",
+        "event"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-biz-scholarship-8960:1473765",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-biz-scholarship-8960"
+      ],
+      "content_hash": "649725f808319add0f5e0a1eeba87e2dd17be6610fc2c7ad612dd4e2e541072a",
+      "previous_content_hash": "26f476345e5f90420db500690c32edf12ffcefef3ceff2736774f57e1f895218",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-biz-scholarship-8960:1473765"
+    },
+    {
+      "event_id": "2026-11-23T07:02:20+09:00|updated|pnu-academic-biz-scholarship-8960:1473791|bf1d338189e1",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-biz-scholarship-8960:1473791",
+      "source_id": "pnu-academic-biz-scholarship-8960",
+      "source_name": "부산대 경영대학/경영학과 취업/장학",
+      "source_category": "academic_unit_scholarship_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "scholarship"
+      ],
+      "seen_at": "2026-11-23T07:02:20+09:00",
+      "published_at": "2026-11-17",
+      "title": "[대학일자리플러스센터] AI 활용 커리어 아카이빙 프로그램 신청 안내",
+      "url": "https://biz.pusan.ac.kr/bbs/biz/1093/1473791/artclView.do",
+      "topics": [
+        "scholarship",
+        "career"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-biz-scholarship-8960:1473791",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-biz-scholarship-8960"
+      ],
+      "content_hash": "bf1d338189e17161498cf6e338577795b55d088bd7d162e28cfd9cbadcee4672",
+      "previous_content_hash": "cfd24a53d0ad67c8634e5e3a7c64f3f1405d2637257922d11ea08ad80e857cd1",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-biz-scholarship-8960:1473791"
+    },
+    {
+      "event_id": "2026-11-23T07:02:20+09:00|updated|pnu-academic-biz-scholarship-8961:1474015|38cf7a998322",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-biz-scholarship-8961:1474015",
+      "source_id": "pnu-academic-biz-scholarship-8961",
+      "source_name": "부산대 경영대학/경영학과 장학",
+      "source_category": "academic_unit_scholarship_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "scholarship"
+      ],
+      "seen_at": "2026-11-23T07:02:20+09:00",
+      "published_at": "2026-11-18",
+      "title": "2027년 1학기 국가장학금 1차 신청 안내(11/24~1/7)",
+      "url": "https://biz.pusan.ac.kr/bbs/biz/1092/1474015/artclView.do",
+      "topics": [
+        "scholarship"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-biz-scholarship-8961:1474015",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-biz-scholarship-8961"
+      ],
+      "content_hash": "38cf7a998322bf2e05c41582796415ab9e42393d9f64c3beec52cb72f5565d65",
+      "previous_content_hash": "f9e84c64a0d31f3ee5223e5e51cc3ac5497db55a42a52f20ed0171842213a774",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-biz-scholarship-8961:1474015"
+    },
+    {
+      "event_id": "2026-11-23T07:02:20+09:00|updated|pnu-academic-chemeng-scholarship-6433:1472811|0f57c03d0375",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-chemeng-scholarship-6433:1472811",
+      "source_id": "pnu-academic-chemeng-scholarship-6433",
+      "source_name": "부산대 화공생명공학과 취업 및 장학",
+      "source_category": "academic_unit_scholarship_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "scholarship"
+      ],
+      "seen_at": "2026-11-23T07:02:20+09:00",
+      "published_at": "2026-11-12",
+      "title": "[장학] 2027년 지방 국립대학 전액 장학금 시행",
+      "url": "https://chemeng.pusan.ac.kr/bbs/chemeng/778/1472811/artclView.do",
+      "topics": [
+        "scholarship"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-chemeng-scholarship-6433:1472811",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-chemeng-scholarship-6433"
+      ],
+      "content_hash": "0f57c03d03757d84716244d5c808c644df81a27ad1732c845a604e069afef5c4",
+      "previous_content_hash": "56a8033453cb7fa751276ef480f2bd46d8893c013af7066637c0ce1a650d6738",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-chemeng-scholarship-6433:1472811"
+    },
+    {
+      "event_id": "2026-11-23T07:02:20+09:00|updated|pnu-academic-cse-general-14221:1474520|763b767f93e1",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-cse-general-14221:1474520",
+      "source_id": "pnu-academic-cse-general-14221",
+      "source_name": "부산대 정보컴퓨터공학부 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-11-23T07:02:20+09:00",
+      "published_at": "2026-11-19",
+      "title": "건물 출입 통제 알림",
+      "url": "https://cse.pusan.ac.kr/bbs/cse/2055/1474520/artclView.do",
+      "topics": [],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-academic-cse-general-14221:1474520",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-academic-cse-general-14221"
+      ],
+      "content_hash": "763b767f93e1fac6ccfbbc50876a8539583ab161daaab68909947093713ba5f7",
+      "previous_content_hash": "46379cf6da4a8b3346d62396cbb0d156eb9ec3225e0d8d854fced7f0f7f80842",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-cse-general-14221:1474520"
+    },
+    {
+      "event_id": "2026-11-23T07:02:20+09:00|updated|pnu-academic-cse-general-14227:1473763|111257f2e90c",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-cse-general-14227:1473763",
+      "source_id": "pnu-academic-cse-general-14227",
+      "source_name": "부산대 정보컴퓨터공학부 공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-11-23T07:02:20+09:00",
+      "published_at": "2026-11-17",
+      "title": "[채용]AI거점대학 전담 전임연구원 채용 공고(개발자 2명, 지역교육 1명)",
+      "url": "https://cse.pusan.ac.kr/bbs/cse/2058/1473763/artclView.do",
+      "topics": [
+        "recruitment",
+        "research"
+      ],
+      "same_notice_group_id": "same_notice:97aab7b7725bae22",
+      "canonical_item_id": "pnu-academic-cse-career-14234:1473595",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-cse-career-14234",
+        "pnu-academic-cse-general-14227"
+      ],
+      "content_hash": "111257f2e90ca4977bc5b0cff31175dd040ba9d8e183f0abae467c7c40a27b64",
+      "previous_content_hash": "4334a0e4a864efe6feea23f0712ec7ba0ee5950da661fcf5269a25d7560bc87b",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-cse-general-14227:1473763"
+    },
+    {
+      "event_id": "2026-11-23T07:02:20+09:00|updated|pnu-academic-ocean-scholarship-12797:1474050|2ad26ecf62b9",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-ocean-scholarship-12797:1474050",
+      "source_id": "pnu-academic-ocean-scholarship-12797",
+      "source_name": "부산대 해양학과 장학 공지사항",
+      "source_category": "academic_unit_scholarship_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "scholarship"
+      ],
+      "seen_at": "2026-11-23T07:02:20+09:00",
+      "published_at": "2026-11-19",
+      "title": "2027년 1학기 국가장학금 1차 신청 안내",
+      "url": "https://ocean.pusan.ac.kr/bbs/ocean/1602/1474050/artclView.do",
+      "topics": [
+        "scholarship"
+      ],
+      "same_notice_group_id": "same_notice:1a227dd78c606f94",
+      "canonical_item_id": "pnu-graduate-dent-grad-3456:1474272",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-aerospace-scholarship-1449",
+        "pnu-academic-atmos-general-4950",
+        "pnu-academic-bce-general-5008",
+        "pnu-academic-cdfs-general-1556",
+        "pnu-academic-ee-general-5204",
+        "pnu-academic-fashion-general-8612",
+        "pnu-academic-linguistics-general-8764",
+        "pnu-academic-ocean-scholarship-12797",
+        "pnu-academic-pnuenv-general-5930",
+        "pnu-academic-semi-general-2869",
+        "pnu-graduate-dent-grad-3456"
+      ],
+      "content_hash": "2ad26ecf62b91bb2a8056051b72b305ee5bb927d4be8c8954891ae48a6dd38a7",
+      "previous_content_hash": "dd429e256956fc535d282e5bc55c218e9ad3bc8d9314c8a92250bdb6ced24a4e",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-ocean-scholarship-12797:1474050"
+    },
+    {
+      "event_id": "2026-11-23T07:02:20+09:00|updated|pnu-academic-ste-scholarship-9558:1472797|dc65ac66b6b3",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-ste-scholarship-9558:1472797",
+      "source_id": "pnu-academic-ste-scholarship-9558",
+      "source_name": "부산대 첨단융합학부 장학정보",
+      "source_category": "academic_unit_scholarship_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "scholarship"
+      ],
+      "seen_at": "2026-11-23T07:02:20+09:00",
+      "published_at": "2026-11-12",
+      "title": "[학생과] 2027년 지방 국립대학 전액 장학금 시행 안내",
+      "url": "https://ste.pusan.ac.kr/bbs/ste/1187/1472797/artclView.do",
+      "topics": [
+        "scholarship"
+      ],
+      "same_notice_group_id": "same_notice:2854368fa6736395",
+      "canonical_item_id": "pnu-academic-japan-undergrad-8796:1472828",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-japan-undergrad-8796",
+        "pnu-academic-ste-scholarship-9558"
+      ],
+      "content_hash": "dc65ac66b6b382888e4c050cf16017a55655cde8856307a830cabc836308a196",
+      "previous_content_hash": "631c437921d2e369c14e0f727e8ff2f48d98acfeef13cd067b5f0e605be4f967",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-ste-scholarship-9558:1472797"
+    },
+    {
+      "event_id": "2026-11-23T07:02:20+09:00|updated|pnu-international-student-notices:1473215|4aa0d4d15e37",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1473215",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-23T07:02:20+09:00",
+      "published_at": "2026-11-16",
+      "title": "(Updated) 유학생 외부 숙소 안내 가이드북 / GuideBook for Arranging Off-Ca",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1473215/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1473215",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "4aa0d4d15e37211d83206f06e600a2f2677cb0c508a60b3e72c21a25230a1736",
+      "previous_content_hash": "32addd1e6fdf38b96610b6082f66281a9b559b36372dd55f6646675c8aec0d36",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1473215"
     }
   ],
-  "checked_at": "2026-11-23T06:32:20+09:00"
+  "checked_at": "2026-11-23T07:02:20+09:00"
 }
