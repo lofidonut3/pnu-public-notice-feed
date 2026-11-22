@@ -1,85 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-22T08:32:25+09:00",
+  "generated_at": "2026-11-22T10:02:25+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 22466,
+  "total_event_count": 22468,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-22T05:17:19+09:00|updated|pnu-academic-ste-scholarship-9558:1472797|f35257cc7b2a",
-  "oldest_event_id": "2026-11-17T09:17:21+09:00|updated|pnu-graduate-gspa-grad-10899:1471745|ec56b1e96468",
-  "oldest_seen_at": "2026-11-17T09:17:21+09:00",
-  "latest_seen_at": "2026-11-22T05:17:19+09:00",
+  "latest_event_id": "2026-11-22T10:02:25+09:00|updated|pnu-international-student-notices:1474438|1536438109d7",
+  "oldest_event_id": "2026-11-17T10:17:21+09:00|added|pnu-job-notices:204612|1d387f0d2376",
+  "oldest_seen_at": "2026-11-17T10:17:21+09:00",
+  "latest_seen_at": "2026-11-22T10:02:25+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-17T09:17:21+09:00|updated|pnu-graduate-gspa-grad-10899:1471745|ec56b1e96468",
-      "event_type": "updated",
-      "notice_id": "pnu-graduate-gspa-grad-10899:1471745",
-      "source_id": "pnu-graduate-gspa-grad-10899",
-      "source_name": "부산대 행정대학원 공지사항 1",
-      "source_category": "graduate_school_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "graduate_school",
-        "graduate"
-      ],
-      "seen_at": "2026-11-17T09:17:21+09:00",
-      "published_at": "2026-11-06",
-      "title": "[2학기(둘째학기) 재학생] 지도교수 배정을 위한 논문ㆍ특수연구계획서 제출 요청(~11/2",
-      "url": "https://gspa.pusan.ac.kr/bbs/gspa/1338/1471745/artclView.do",
-      "topics": [
-        "graduate",
-        "graduation",
-        "research"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-graduate-gspa-grad-10899:1471745",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-graduate-gspa-grad-10899"
-      ],
-      "content_hash": "ec56b1e9646883ddbbea3a84d2e6e1fa0e88b0dac0793c79bad7f09a4b3c863b",
-      "previous_content_hash": "0a66997657c6a53767c62e2dfac58129389b353850efea6bd4ef24a8c8a509ee",
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-graduate-gspa-grad-10899:1471745"
-    },
-    {
-      "event_id": "2026-11-17T09:17:21+09:00|updated|pnu-job-recruit-general:118603|161c63f4051b",
-      "event_type": "updated",
-      "notice_id": "pnu-job-recruit-general:118603",
-      "source_id": "pnu-job-recruit-general",
-      "source_name": "부산대 취업전략과 일반채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "career",
-        "recruitment",
-        "general_recruitment"
-      ],
-      "seen_at": "2026-11-17T09:17:21+09:00",
-      "published_at": null,
-      "title": "[아마존 출신 K-이너뷰티 브랜드] 사업운영 매니저 채용연계형 인턴 (부산 서면)",
-      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/118603",
-      "topics": [
-        "recruitment",
-        "career"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-job-recruit-general:118603",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-job-recruit-general"
-      ],
-      "content_hash": "161c63f4051b09c4f41000d7b227d3422794aa95f1cf8f34c7ce7f047c1be0a1",
-      "previous_content_hash": "bef6f5dce1427347b96ce0b2414644a16729d77cba33205fa187ed3a214a2e51",
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-job-recruit-general:118603"
-    },
     {
       "event_id": "2026-11-17T10:17:21+09:00|added|pnu-job-notices:204612|1d387f0d2376",
       "event_type": "added",
@@ -34299,7 +34233,70 @@
       "previous_content_hash": "a7a5dda47d695a8ed4026e69419ad86884ee6a2981309017b9853cc706feb37b",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-academic-ste-scholarship-9558:1472797"
+    },
+    {
+      "event_id": "2026-11-22T10:02:25+09:00|updated|pnu-international-student-notices:1473998|d1b3d0a66486",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1473998",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-22T10:02:25+09:00",
+      "published_at": "2026-11-18",
+      "title": "[교내활동] 2026학년도 졸업생 브릿지 외국인 유학생 동문회 2차 보조금 지급 안내 / Notice of 2nd Sub",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1473998/artclView.do",
+      "topics": [
+        "international",
+        "graduation"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1473998",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "d1b3d0a664865b5da25aaf931e242e0146e402752e112dc2d4594a3ae079f18f",
+      "previous_content_hash": "7f083f6cc01b08bb1e2daa611d223e4469f2a7337c40a7b0f5591b3c41c4b286",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1473998"
+    },
+    {
+      "event_id": "2026-11-22T10:02:25+09:00|updated|pnu-international-student-notices:1474438|1536438109d7",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1474438",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-22T10:02:25+09:00",
+      "published_at": "2026-11-19",
+      "title": "[교내활동] 2026-2학기 외국인 학생 대상 문화체험(4차) 참가자 모집/ (Fall 2026) 4th Korean C",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1474438/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1474438",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "1536438109d7977dd300b00000c7d4101af0317f070bf321902a8b266a9d0020",
+      "previous_content_hash": "688d75753507f61a93f9cb632389d6119c4eb4e2d1f40d4e64a7278519bb6350",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1474438"
     }
   ],
-  "checked_at": "2026-11-22T09:32:33+09:00"
+  "checked_at": "2026-11-22T10:02:25+09:00"
 }
