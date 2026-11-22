@@ -1,55 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-22T14:42:21+09:00",
+  "generated_at": "2026-11-22T16:42:24+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 22518,
+  "total_event_count": 22519,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-22T11:42:21+09:00|updated|pnu-academic-uni-scholarship-8190:1468693|fb19ad7a519e",
-  "oldest_event_id": "2026-11-17T12:22:22+09:00|added|pnu-academic-medicine-general-14551:1473603|98d317d63747",
+  "latest_event_id": "2026-11-22T16:42:24+09:00|updated|pnu-international-student-notices:1474438|83fc7f79ffc2",
+  "oldest_event_id": "2026-11-17T12:22:22+09:00|added|pnu-academic-medicine-general-14551:1473780|2e53eec24191",
   "oldest_seen_at": "2026-11-17T12:22:22+09:00",
-  "latest_seen_at": "2026-11-22T11:42:21+09:00",
+  "latest_seen_at": "2026-11-22T16:42:24+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-17T12:22:22+09:00|added|pnu-academic-medicine-general-14551:1473603|98d317d63747",
-      "event_type": "added",
-      "notice_id": "pnu-academic-medicine-general-14551:1473603",
-      "source_id": "pnu-academic-medicine-general-14551",
-      "source_name": "부산대 의과대학 행정실 공지",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "college_notice",
-        "general"
-      ],
-      "seen_at": "2026-11-17T12:22:22+09:00",
-      "published_at": "2026-11-17",
-      "title": "[언어교육원] 2026학년도 하반기 모의 시험(토익, 토플, 토익스피킹, 오픽) 경시대회",
-      "url": "https://medicine.pusan.ac.kr/bbs/medicine/1954/1473603/artclView.do",
-      "topics": [
-        "contest",
-        "course"
-      ],
-      "same_notice_group_id": "same_notice:ff06ab75d9f7ca2d",
-      "canonical_item_id": "pnu-academic-medicine-general-14551:1473603",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-eehome-undergrad-3028",
-        "pnu-academic-me-undergrad-sub01-01",
-        "pnu-academic-medicine-general-14551"
-      ],
-      "content_hash": "98d317d63747f70eb8e12b949d6fadfff5b00ca9bbf547883e4c3ce215b193fa",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-medicine-general-14551:1473603"
-    },
     {
       "event_id": "2026-11-17T12:22:22+09:00|added|pnu-academic-medicine-general-14551:1473780|2e53eec24191",
       "event_type": "added",
@@ -34266,7 +34230,38 @@
       "previous_content_hash": "d8d85d782c4502b258f2dc0372747b740578fb6ccf8bbeb94032b6ae010f267a",
       "archive_file": "./archive/2026-10.json",
       "archive_item_id": "pnu-academic-uni-scholarship-8190:1468693"
+    },
+    {
+      "event_id": "2026-11-22T16:42:24+09:00|updated|pnu-international-student-notices:1474438|83fc7f79ffc2",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1474438",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-22T16:42:24+09:00",
+      "published_at": "2026-11-19",
+      "title": "[교내활동] (마감/Closed) 2026-2학기 외국인 학생 대상 문화체험(4차) 참가자 모집/ (Fall 2026)",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1474438/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1474438",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "83fc7f79ffc220b7578c29f1cf80dcec4aaf08aa089ae83aec4f73887d33d3f6",
+      "previous_content_hash": "1536438109d7977dd300b00000c7d4101af0317f070bf321902a8b266a9d0020",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1474438"
     }
   ],
-  "checked_at": "2026-11-22T16:12:22+09:00"
+  "checked_at": "2026-11-22T16:42:24+09:00"
 }
