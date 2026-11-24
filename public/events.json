@@ -1,54 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-24T22:22:27+09:00",
+  "generated_at": "2026-11-25T01:52:20+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 23003,
+  "total_event_count": 23004,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-24T22:22:27+09:00|updated|pnu-academic-uni-scholarship-8190:1468693|72ae79cc917f",
-  "oldest_event_id": "2026-11-19T13:32:21+09:00|updated|pnu-academic-china-scholarship-3084:1468730|ae4e7c5ecee4",
+  "latest_event_id": "2026-11-25T01:52:20+09:00|updated|pnu-academic-biology-general-5540:1471731|72fa862c0fd4",
+  "oldest_event_id": "2026-11-19T13:32:21+09:00|updated|pnu-academic-china-scholarship-3084:1471569|20c577ce2aa7",
   "oldest_seen_at": "2026-11-19T13:32:21+09:00",
-  "latest_seen_at": "2026-11-24T22:22:27+09:00",
+  "latest_seen_at": "2026-11-25T01:52:20+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-19T13:32:21+09:00|updated|pnu-academic-china-scholarship-3084:1468730|ae4e7c5ecee4",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-china-scholarship-3084:1468730",
-      "source_id": "pnu-academic-china-scholarship-3084",
-      "source_name": "부산대 중어중문학과 장학",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-19T13:32:21+09:00",
-      "published_at": "2026-10-29",
-      "title": "2027년도 한국지도자육성장학재단 장학생 선발 안내",
-      "url": "https://china.pusan.ac.kr/bbs/china/332/1468730/artclView.do",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": "same_notice:dbbc51608afe830f",
-      "canonical_item_id": "pnu-academic-archaeology-undergrad-3497:1468716",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-archaeology-undergrad-3497",
-        "pnu-academic-bkorea-undergrad-3346",
-        "pnu-academic-china-scholarship-3084"
-      ],
-      "content_hash": "ae4e7c5ecee430b5efe89004267a542c2b5ee106dfd04e6f75b099237dceae7b",
-      "previous_content_hash": "862b931c236b1a103ddd7baf6a1cdca2ad8d63e8049db38fe3f0a0391b4f290a",
-      "archive_file": "./archive/2026-10.json",
-      "archive_item_id": "pnu-academic-china-scholarship-3084:1468730"
-    },
     {
       "event_id": "2026-11-19T13:32:21+09:00|updated|pnu-academic-china-scholarship-3084:1471569|20c577ce2aa7",
       "event_type": "updated",
@@ -34147,7 +34112,47 @@
       "previous_content_hash": "1867e998f541e6b62bd8ab1951dea07462bbf8579935ecbc2303aa1badc29ac3",
       "archive_file": "./archive/2026-10.json",
       "archive_item_id": "pnu-academic-uni-scholarship-8190:1468693"
+    },
+    {
+      "event_id": "2026-11-25T01:52:20+09:00|updated|pnu-academic-biology-general-5540:1471731|72fa862c0fd4",
+      "event_type": "updated",
+      "notice_id": "pnu-academic-biology-general-5540:1471731",
+      "source_id": "pnu-academic-biology-general-5540",
+      "source_name": "부산대 생명과학과 연구실공지사항",
+      "source_category": "academic_unit_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "academic_unit",
+        "college_department",
+        "department_notice",
+        "general"
+      ],
+      "seen_at": "2026-11-25T01:52:20+09:00",
+      "published_at": "2026-11-06",
+      "title": "[공지] 2026년 연구활동종사자 2학기 출장 건강검진 실시 안내(대학원생-11/18, 학부생-11/24)",
+      "url": "https://biology.pusan.ac.kr/bbs/biology/638/1471731/artclView.do",
+      "topics": [
+        "graduate",
+        "undergraduate",
+        "health",
+        "research"
+      ],
+      "same_notice_group_id": "same_notice:661ac81b5632e1c7",
+      "canonical_item_id": "pnu-academic-biology-career-5547:1471731",
+      "is_canonical": false,
+      "same_notice_source_ids": [
+        "pnu-academic-biology-career-5547",
+        "pnu-academic-biology-event-5546",
+        "pnu-academic-biology-general-5540",
+        "pnu-academic-biology-grad-5539",
+        "pnu-academic-biology-undergrad-5536"
+      ],
+      "content_hash": "72fa862c0fd400631cdcc81c6edf4161a29da649288d16be9de8a3c5bd35e19b",
+      "previous_content_hash": "eb6158543c2dbf7fd4d16e3f3df7957837efcf1b289249064ec54dc5c11274c8",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-academic-biology-general-5540:1471731"
     }
   ],
-  "checked_at": "2026-11-25T01:22:22+09:00"
+  "checked_at": "2026-11-25T01:52:20+09:00"
 }
