@@ -1,117 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-24T19:52:21+09:00",
+  "generated_at": "2026-11-24T21:22:21+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 22945,
+  "total_event_count": 22948,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-24T19:21:58+09:00|updated|pnu-onestop-scholarship:707|424bb92afa75",
-  "oldest_event_id": "2026-11-19T07:02:19+09:00|updated|pnu-academic-ste-scholarship-9558:1472797|c1701ffceffa",
-  "oldest_seen_at": "2026-11-19T07:02:19+09:00",
-  "latest_seen_at": "2026-11-24T19:21:58+09:00",
+  "latest_event_id": "2026-11-24T21:22:21+09:00|updated|pnu-international-student-notices:1474438|293237b12248",
+  "oldest_event_id": "2026-11-19T10:02:24+09:00|added|pnu-academic-chem-general-6291:1474076|748f3f321554",
+  "oldest_seen_at": "2026-11-19T10:02:24+09:00",
+  "latest_seen_at": "2026-11-24T21:22:21+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-19T07:02:19+09:00|updated|pnu-academic-ste-scholarship-9558:1472797|c1701ffceffa",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-ste-scholarship-9558:1472797",
-      "source_id": "pnu-academic-ste-scholarship-9558",
-      "source_name": "부산대 첨단융합학부 장학정보",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-19T07:02:19+09:00",
-      "published_at": "2026-11-12",
-      "title": "[학생과] 2027년 지방 국립대학 전액 장학금 시행 안내",
-      "url": "https://ste.pusan.ac.kr/bbs/ste/1187/1472797/artclView.do",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": "same_notice:2854368fa6736395",
-      "canonical_item_id": "pnu-academic-japan-undergrad-8796:1472828",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-japan-undergrad-8796",
-        "pnu-academic-ste-scholarship-9558"
-      ],
-      "content_hash": "c1701ffceffa10757b66ad49572661dc58f48c53baec5fd38acf5828610b3961",
-      "previous_content_hash": "b3b9a2eaa333418b4a796e4f9a7d8db64e02358b07d0e0a15ad82d4416e3d1c7",
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-ste-scholarship-9558:1472797"
-    },
-    {
-      "event_id": "2026-11-19T07:02:19+09:00|updated|pnu-international-student-notices:1473215|1f873a67cb62",
-      "event_type": "updated",
-      "notice_id": "pnu-international-student-notices:1473215",
-      "source_id": "pnu-international-student-notices",
-      "source_name": "부산대 국제처 외국인학생 공지사항",
-      "source_category": "international_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "international",
-        "international_students"
-      ],
-      "seen_at": "2026-11-19T07:02:19+09:00",
-      "published_at": "2026-11-16",
-      "title": "(Updated) 유학생 외부 숙소 안내 가이드북 / GuideBook for Arranging Off-Ca",
-      "url": "https://international.pusan.ac.kr/bbs/international/2081/1473215/artclView.do",
-      "topics": [
-        "international"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-international-student-notices:1473215",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-international-student-notices"
-      ],
-      "content_hash": "1f873a67cb629eace5ad76533a5f22c827bd8caf4d9bc71f314f75ac74615ddb",
-      "previous_content_hash": "b875ad4815e140d54e8806aa0749f7be4a677a8dab14c92ba3db878510176425",
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-international-student-notices:1473215"
-    },
-    {
-      "event_id": "2026-11-19T10:02:24+09:00|added|pnu-academic-chem-general-6291:1474051|30c24291097a",
-      "event_type": "added",
-      "notice_id": "pnu-academic-chem-general-6291:1474051",
-      "source_id": "pnu-academic-chem-general-6291",
-      "source_name": "부산대 화학과 공지사항",
-      "source_category": "academic_unit_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "general"
-      ],
-      "seen_at": "2026-11-19T10:02:24+09:00",
-      "published_at": "2026-11-19",
-      "title": "[국립대육성사업] 2026학년도 동계 부산대와 함께하는 너의 재능이 보여 파견팀 추가 모집",
-      "url": "https://chem.pusan.ac.kr/bbs/chem/164/1474051/artclView.do",
-      "topics": [
-        "international"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-chem-general-6291:1474051",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-chem-general-6291"
-      ],
-      "content_hash": "30c24291097a2f3a80cb82de3e218a69588972f62f0fddbb318ce4fbcc4869ff",
-      "previous_content_hash": null,
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-chem-general-6291:1474051"
-    },
     {
       "event_id": "2026-11-19T10:02:24+09:00|added|pnu-academic-chem-general-6291:1474076|748f3f321554",
       "event_type": "added",
@@ -34218,7 +34120,101 @@
       "previous_content_hash": "1732b34d40eb0db3366b70fea0b56035f63553ba75b01b824946ae65bb085be0",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-onestop-scholarship:707"
+    },
+    {
+      "event_id": "2026-11-24T21:22:21+09:00|updated|pnu-international-student-notices:1473215|bb8500727bf0",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1473215",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-24T21:22:21+09:00",
+      "published_at": "2026-11-16",
+      "title": "(Updated) 유학생 외부 숙소 안내 가이드북 / GuideBook for Arranging Off-Ca",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1473215/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1473215",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "bb8500727bf0caa0d912d96d8d2d42839882173d347b598c26ebe4c63a44dd48",
+      "previous_content_hash": "571049d64e5bbd7e2d66b02411ed603f824fd52ff12f9736b6439a16560ee2ba",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1473215"
+    },
+    {
+      "event_id": "2026-11-24T21:22:21+09:00|updated|pnu-international-student-notices:1473998|581328f0f741",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1473998",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-24T21:22:21+09:00",
+      "published_at": "2026-11-18",
+      "title": "[교내활동] 2026학년도 졸업생 브릿지 외국인 유학생 동문회 2차 보조금 지급 안내 / Notice of 2nd Sub",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1473998/artclView.do",
+      "topics": [
+        "international",
+        "graduation"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1473998",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "581328f0f7416ed7cd5dd2a1d6052371523b5d3195dfb2c46f796ab50ddce551",
+      "previous_content_hash": "5297bc46928a23b5443845b26a2de80bfdbaeb478f928c05c1813e2fe9963063",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1473998"
+    },
+    {
+      "event_id": "2026-11-24T21:22:21+09:00|updated|pnu-international-student-notices:1474438|293237b12248",
+      "event_type": "updated",
+      "notice_id": "pnu-international-student-notices:1474438",
+      "source_id": "pnu-international-student-notices",
+      "source_name": "부산대 국제처 외국인학생 공지사항",
+      "source_category": "international_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "international",
+        "international_students"
+      ],
+      "seen_at": "2026-11-24T21:22:21+09:00",
+      "published_at": "2026-11-19",
+      "title": "[교내활동] (마감/Closed) 2026-2학기 외국인 학생 대상 문화체험(4차) 참가자 모집/ (Fall 2026)",
+      "url": "https://international.pusan.ac.kr/bbs/international/2081/1474438/artclView.do",
+      "topics": [
+        "international"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-international-student-notices:1474438",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-international-student-notices"
+      ],
+      "content_hash": "293237b122480c8e9f843e354be75d39c46c3478d878406b9682c34306c79870",
+      "previous_content_hash": "166c9f1578e59d78bd6dfd40a9e0cc688fa2ae6bc0457ebfe2b8d08916408df5",
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-international-student-notices:1474438"
     }
   ],
-  "checked_at": "2026-11-24T20:52:38+09:00"
+  "checked_at": "2026-11-24T21:22:21+09:00"
 }
