@@ -1,160 +1,19 @@
 {
   "schema_version": "0.1",
   "event_stream_version": "0.4",
-  "generated_at": "2026-11-25T13:05:57+09:00",
+  "generated_at": "2026-11-25T14:07:19+09:00",
   "timezone": "Asia/Seoul",
   "event_count": 1000,
-  "total_event_count": 23113,
+  "total_event_count": 23117,
   "event_limit": 1000,
-  "latest_event_id": "2026-11-25T13:05:57+09:00|updated|pnu-international-student-notices:1474438|918d4d306829",
-  "oldest_event_id": "2026-11-19T23:27:31+09:00|updated|pnu-academic-ocean-scholarship-12797:1474050|46de9ab7c937",
-  "oldest_seen_at": "2026-11-19T23:27:31+09:00",
-  "latest_seen_at": "2026-11-25T13:05:57+09:00",
+  "latest_event_id": "2026-11-25T14:07:19+09:00|added|pnu-main-faculty-staff-recruitment:1512441|3680db31b42d",
+  "oldest_event_id": "2026-11-20T02:57:22+09:00|updated|pnu-academic-aerospace-scholarship-1449:1474368|c711b3238585",
+  "oldest_seen_at": "2026-11-20T02:57:22+09:00",
+  "latest_seen_at": "2026-11-25T14:07:19+09:00",
   "is_truncated": true,
   "index_url": "./index.json",
   "archive_url_pattern": "./archive/{YYYY-MM}.json",
   "events": [
-    {
-      "event_id": "2026-11-19T23:27:31+09:00|updated|pnu-academic-ocean-scholarship-12797:1474050|46de9ab7c937",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-ocean-scholarship-12797:1474050",
-      "source_id": "pnu-academic-ocean-scholarship-12797",
-      "source_name": "부산대 해양학과 장학 공지사항",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-19T23:27:31+09:00",
-      "published_at": "2026-11-19",
-      "title": "2027년 1학기 국가장학금 1차 신청 안내",
-      "url": "https://ocean.pusan.ac.kr/bbs/ocean/1602/1474050/artclView.do",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": "same_notice:1a227dd78c606f94",
-      "canonical_item_id": "pnu-graduate-dent-grad-3456:1474272",
-      "is_canonical": false,
-      "same_notice_source_ids": [
-        "pnu-academic-aerospace-scholarship-1449",
-        "pnu-academic-atmos-general-4950",
-        "pnu-academic-bce-general-5008",
-        "pnu-academic-cdfs-general-1556",
-        "pnu-academic-ee-general-5204",
-        "pnu-academic-fashion-general-8612",
-        "pnu-academic-linguistics-general-8764",
-        "pnu-academic-ocean-scholarship-12797",
-        "pnu-academic-pnuenv-general-5930",
-        "pnu-academic-semi-general-2869",
-        "pnu-graduate-dent-grad-3456"
-      ],
-      "content_hash": "46de9ab7c937982a6f0af946f994c61dd24d47a802ab8a70560b015f10a9b409",
-      "previous_content_hash": "a1747afae1afdc0d61a5c1ef70740e03d79f6db999516b2949209792b40e4e5f",
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-ocean-scholarship-12797:1474050"
-    },
-    {
-      "event_id": "2026-11-19T23:57:38+09:00|updated|pnu-main-faculty-staff-recruitment:1512333|c55ed7e58151",
-      "event_type": "updated",
-      "notice_id": "pnu-main-faculty-staff-recruitment:1512333",
-      "source_id": "pnu-main-faculty-staff-recruitment",
-      "source_name": "부산대 교수초빙/직원채용",
-      "source_category": "recruitment_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "recruitment",
-        "faculty",
-        "staff"
-      ],
-      "seen_at": "2026-11-19T23:57:38+09:00",
-      "published_at": "2026-11-19",
-      "title": "부산대학교 교육대학원 계약학과 미래교육혁신전공 사무원 채용 공고",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1512333",
-      "topics": [
-        "recruitment",
-        "career",
-        "graduate"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1512333",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-faculty-staff-recruitment"
-      ],
-      "content_hash": "c55ed7e581518107cb95f97da6d041a6e910400b5e28bee78203e250e2e05a66",
-      "previous_content_hash": "8614c3c865995dd8c83f86b282310fbb05c6b89e883d9d3cfa9a9cbb240f377f",
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-main-faculty-staff-recruitment:1512333"
-    },
-    {
-      "event_id": "2026-11-20T00:57:22+09:00|updated|pnu-main-notice:1512125|09591b327b05",
-      "event_type": "updated",
-      "notice_id": "pnu-main-notice:1512125",
-      "source_id": "pnu-main-notice",
-      "source_name": "부산대 대학공지",
-      "source_category": "university_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "main_notice"
-      ],
-      "seen_at": "2026-11-20T00:57:22+09:00",
-      "published_at": "2026-11-11",
-      "title": "[학생과] 2027학년도 지방 국립대학교 전액장학금 안내(★2027학년도 신입생 필독)",
-      "url": "https://www.pusan.ac.kr/kor/CMS/Board/PopupBoard.do?mgr_seq=3&mode=view&mgr_seq=3&board_seq=1512125",
-      "topics": [
-        "academic",
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-main-notice:1512125",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-main-notice"
-      ],
-      "content_hash": "09591b327b050bac04c1b2e2e56e9299cc4facfb3e64a1917b3422d5a83d68d8",
-      "previous_content_hash": "0ab58759ff8d415431c03b255a7e7578858763bd991118a89c85cabd40fd4367",
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-main-notice:1512125"
-    },
-    {
-      "event_id": "2026-11-20T02:57:22+09:00|updated|pnu-academic-aerospace-scholarship-1449:1472211|b27ae853eeeb",
-      "event_type": "updated",
-      "notice_id": "pnu-academic-aerospace-scholarship-1449:1472211",
-      "source_id": "pnu-academic-aerospace-scholarship-1449",
-      "source_name": "부산대 항공우주공학과 장학금 안내",
-      "source_category": "academic_unit_scholarship_notice",
-      "source_tags": [
-        "pnu",
-        "official",
-        "academic_unit",
-        "college_department",
-        "department_notice",
-        "scholarship"
-      ],
-      "seen_at": "2026-11-20T02:57:22+09:00",
-      "published_at": "2026-11-09",
-      "title": "2027년도 관정재단 장학생 신청 안내",
-      "url": "https://aerospace.pusan.ac.kr/bbs/aerospace/237/1472211/artclView.do",
-      "topics": [
-        "scholarship"
-      ],
-      "same_notice_group_id": null,
-      "canonical_item_id": "pnu-academic-aerospace-scholarship-1449:1472211",
-      "is_canonical": true,
-      "same_notice_source_ids": [
-        "pnu-academic-aerospace-scholarship-1449"
-      ],
-      "content_hash": "b27ae853eeebb2184b3dd3cc649c9c05d587d523ef3de4b034ef8e0ae29fe165",
-      "previous_content_hash": "6f97a84f86c9a2a757658ca1dd84ba4e555b69e83bd265d9ff70b123201102cc",
-      "archive_file": "./archive/2026-11.json",
-      "archive_item_id": "pnu-academic-aerospace-scholarship-1449:1472211"
-    },
     {
       "event_id": "2026-11-20T02:57:22+09:00|updated|pnu-academic-aerospace-scholarship-1449:1474368|c711b3238585",
       "event_type": "updated",
@@ -34141,7 +34000,141 @@
       "previous_content_hash": "293237b122480c8e9f843e354be75d39c46c3478d878406b9682c34306c79870",
       "archive_file": "./archive/2026-11.json",
       "archive_item_id": "pnu-international-student-notices:1474438"
+    },
+    {
+      "event_id": "2026-11-25T14:07:19+09:00|added|pnu-dorm-busan-notices:5370|1126a0c1555e",
+      "event_type": "added",
+      "notice_id": "pnu-dorm-busan-notices:5370",
+      "source_id": "pnu-dorm-busan-notices",
+      "source_name": "부산대 대학생활원 부산캠퍼스 공지사항",
+      "source_category": "dormitory_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "dormitory",
+        "busan_campus"
+      ],
+      "seen_at": "2026-11-25T14:07:19+09:00",
+      "published_at": "2026-11-25",
+      "title": "2026학년도 2학기 정기퇴사 업무 봉사자 모집 안내",
+      "url": "https://dorm.pusan.ac.kr/pdorm/page?menuCD=000000000000642&mode=DETAIL&seq=5370&typeSeqNo=1&cateSeq=1",
+      "topics": [
+        "dormitory"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-dorm-busan-notices:5370",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-dorm-busan-notices"
+      ],
+      "content_hash": "1126a0c1555e1baea2050da2c956ea571992d35f4e0868b830749116a44984f8",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-dorm-busan-notices:5370"
+    },
+    {
+      "event_id": "2026-11-25T14:07:19+09:00|added|pnu-job-recruit-general:118689|bedf85a1bb2b",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-general:118689",
+      "source_id": "pnu-job-recruit-general",
+      "source_name": "부산대 취업전략과 일반채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "general_recruitment"
+      ],
+      "seen_at": "2026-11-25T14:07:19+09:00",
+      "published_at": null,
+      "title": "[부산교육대학교] 국가공무원(한시임기제공무원 6호, 기록연구사) 경력경쟁채용시험 안내",
+      "url": "https://job.pusan.ac.kr/ko/recruit/board/view/118689",
+      "topics": [
+        "recruitment",
+        "career",
+        "course",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-general:118689",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-general"
+      ],
+      "content_hash": "bedf85a1bb2b237d576cb02a81a9305ee4f464e593795c640a996ceabb6e104e",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-job-recruit-general:118689"
+    },
+    {
+      "event_id": "2026-11-25T14:07:19+09:00|added|pnu-job-recruit-internship:118688|9d3f3110b403",
+      "event_type": "added",
+      "notice_id": "pnu-job-recruit-internship:118688",
+      "source_id": "pnu-job-recruit-internship",
+      "source_name": "부산대 취업전략과 인턴십/교육연수생",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "career",
+        "recruitment",
+        "internship"
+      ],
+      "seen_at": "2026-11-25T14:07:19+09:00",
+      "published_at": null,
+      "title": "[한국과학기술정보연구원] 청년인턴(체험형 인턴) 채용 안내",
+      "url": "https://job.pusan.ac.kr/ko/community/calendar/intern/view/118688",
+      "topics": [
+        "recruitment",
+        "career",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-job-recruit-internship:118688",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-job-recruit-internship"
+      ],
+      "content_hash": "9d3f3110b4036a323f75ad1c2053ab646b9a8818dea357b012f50003f1d8a5b8",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-job-recruit-internship:118688"
+    },
+    {
+      "event_id": "2026-11-25T14:07:19+09:00|added|pnu-main-faculty-staff-recruitment:1512441|3680db31b42d",
+      "event_type": "added",
+      "notice_id": "pnu-main-faculty-staff-recruitment:1512441",
+      "source_id": "pnu-main-faculty-staff-recruitment",
+      "source_name": "부산대 교수초빙/직원채용",
+      "source_category": "recruitment_notice",
+      "source_tags": [
+        "pnu",
+        "official",
+        "recruitment",
+        "faculty",
+        "staff"
+      ],
+      "seen_at": "2026-11-25T14:07:19+09:00",
+      "published_at": "2026-11-25",
+      "title": "[동남권AI혁신연구센터] 연구교수 공개채용 공고",
+      "url": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN103&mode=view&mgr_seq=10&board_seq=1512441",
+      "topics": [
+        "recruitment",
+        "career",
+        "research"
+      ],
+      "same_notice_group_id": null,
+      "canonical_item_id": "pnu-main-faculty-staff-recruitment:1512441",
+      "is_canonical": true,
+      "same_notice_source_ids": [
+        "pnu-main-faculty-staff-recruitment"
+      ],
+      "content_hash": "3680db31b42d3135841231cd02b093480446b762f0ef40f5186a6e560e94b3b1",
+      "previous_content_hash": null,
+      "archive_file": "./archive/2026-11.json",
+      "archive_item_id": "pnu-main-faculty-staff-recruitment:1512441"
     }
   ],
-  "checked_at": "2026-11-25T13:37:29+09:00"
+  "checked_at": "2026-11-25T14:07:19+09:00"
 }
